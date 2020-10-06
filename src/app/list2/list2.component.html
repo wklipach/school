@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="lesson">ЛИСТ 1</div>
+
+      <app-caption></app-caption>
+
+      <div class="d-flex justify-content-start">
+
+        <!-- Кнопка добавления -->
+        <button class="btn btn-outline-primary my-2 mr-4" data-toggle="collapse" title="Добавить урок" href="#collapseNewL" aria-expanded="false" aria-controls="collapse1">
+          Добавить урок
+        </button>
+
+        <!-- Кнопка редактирования -->
+        <button class="btn btn-outline-primary my-2 mr-4" (click)="changeAW()"  data-toggle="collapse"  title="Изменить урок" href="#collapseChangeAL" aria-expanded="false" aria-controls="collapse1">
+          Изменить урок
+        </button>
+
+        <!-- Кнопка модального окна удаления -->
+        <button type="button" class="btn btn-outline-danger my-2 mr-4"  title="Удалить урок" data-toggle="modal" data-target="#collapseDeleteAL">
+          Удалить урок
+        </button>
+
+        <!-- Кнопка раскрытия таблицы -->
+        <button type="button" class="btn btn-outline-primary my-2 ml-auto"  title="Список уроков" data-toggle="collapse" data-target="#collapseShowAL">
+          Список уроков
+        </button>
+
+      </div>
+
+      <div class="collapse" id="collapseNewAL">
+        <div class="card card-body my-2">
+          {{sErrorNewAW}}
+
+          <div class=" d-flex justify-content-between my-0">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input mr-5"  id="checkNewSpend" formControlName="checkNewSpend">
+              <label class="custom-control-label font-weight-bold text-muted ml-2" style="width: 100px;" for="checkNewSpend">Расходы</label>
+            </div>
+            <input formControlName="inputNewAL" type="text" class="form-control mr-auto w-50" placeholder="Работа" aria-label="" aria-describedby="basic-addon1">
+            <button class="btn btn-outline-primary ml-2" (click)="newAL()" type="button">Сохранить</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="collapse" id="collapseChangeAL">
+
+        <div class="card card-body">
+          {{sErrorChangeAL}}
+
+          <div class=" d-flex justify-content-between my-0">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input mr-5"  id="checkChangeSpend" formControlName="checkChangeSpend">
+              <label class="custom-control-label font-weight-bold text-muted ml-2" style="width: 100px;" for="checkChangeSpend">Расходы</label>
+            </div>
+            <input formControlName="inputChangeAW" type="text" class="form-control mr-auto w-50" placeholder="" aria-label="" aria-describedby="basic-addon1">
+            <button class="btn btn-outline-primary ml-2" (click)="OnChangeAL()" type="button">Изменить</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="collapse" id="collapseShowAW" #summaryAL>
+
+        <div class="card my-2 px-3">
+          <div class="card-title p-2 m-0 font-weight-bold text-muted">Отделение</div>
+          <select class="custom-select mb-3 mr-5" id="inputBranch" formControlName="inputBranch" (change)="onChangeBranch($event)" >
+            <option [value]="branch.id" *ngFor="let branch of branchList">{{branch.name}}</option>
+          </select>
+        </div>
+
+        <ul class="list-group mt-2">
+          <li [class.active] = "aw === selectedAL" class="list-group-item mb-2"  (click)="mu(aw)"  *ngFor="let aw of addworkLesson">
+
+            <div class=" d-flex justify-content-between my-0">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input mr-5"  id="checkAddwork{{aw.id}}" formControlName="checkAddwork{{al.id}}">
+                <label class="custom-control-label font-weight-bold text-muted ml-2" style="width: 250px;">Что-то написано</label>
+              </div>
+
+              <div class="d-inline-flex" *ngIf="aw.flagspend!==1">
+
+                <input type="text" class="form-control ml-auto" id="price{{aw.id}}" formControlName="price{{aw.id}}">
+                <span class="mr-2 ml-3 pt-1">мин.</span>
+              </div>
+
+
+            </div>
+          </li>
+        </ul>
+
+        <button class="btn btn-outline-primary my-4" (click)="savePrice()">Сохранить</button>
+
+      </div>
+
+      </div>
+  </div>
+</div>
