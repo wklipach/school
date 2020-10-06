@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -9,31 +10,13 @@
 
       <div class="dropdown">
         <button class="btn btn-outline-primary dropdown-toggle mb-4 w-25" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Выбрать урок
+          Выбрать предмет
         </button>
+
         <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-          <button class="dropdown-item" type="button">Русский язык</button>
-          <button class="dropdown-item" type="button"> Чтение</button>
-          <button class="dropdown-item" type="button">Чтение (литературное чтение)</button>
-          <button class="dropdown-item" type="button">Речевая практика</button>
-          <button class="dropdown-item" type="button">Математика</button>
-          <button class="dropdown-item" type="button">Информатика</button>
-          <button class="dropdown-item" type="button">Мир природы и человека</button>
-          <button class="dropdown-item" type="button">Природоведение</button>
-          <button class="dropdown-item" type="button">Биология</button>
-          <button class="dropdown-item" type="button">География</button>
-          <button class="dropdown-item" type="button">Мир истории</button>
-          <button class="dropdown-item" type="button">Основы социальной жизни</button>
-          <button class="dropdown-item" type="button">История отечества</button>
-          <button class="dropdown-item" type="button">Обществоведение</button>
-          <button class="dropdown-item" type="button">Этика</button>
-          <button class="dropdown-item" type="button">Музыка</button>
-          <button class="dropdown-item" type="button">Изобразительное искусство</button>
-          <button class="dropdown-item" type="button">Физическая культура</button>
-          <button class="dropdown-item" type="button">Иное</button>
+          <button *ngFor="let curLesson of listLessons" class="dropdown-item" type="button">{{curLesson.title}}</button>
         </div>
       </div>
-
 
 
       <div class="d-flex justify-content-start">

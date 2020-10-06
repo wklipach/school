@@ -9,6 +9,10 @@ import { BasementComponent } from './basement/basement.component';
 import { List2Component } from './list2/list2.component';
 import { List3Component } from './list3/list3.component';
 import { List4Component } from './list4/list4.component';
+import {GlobalRef} from './services/globalref';
+import {HttpClientModule} from '@angular/common/http';
+import {GuideService} from './services/guide.service';
+
 
 
 // определение маршрутов
@@ -31,9 +35,12 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [GlobalRef, GuideService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
