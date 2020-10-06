@@ -1,12 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 .lesson {
+  display: flex;
+  justify-content: center;
   font-size: 22px;
   margin-top: 30px;
-}
-.big {
-  font-size: 1.3em;
-  color: #ffffff;
-  width: 200px;
-  height: 230px;
-  border-radius: 20%;
 }
