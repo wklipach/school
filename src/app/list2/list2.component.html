@@ -1,20 +1,71 @@
-
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <div class="lesson">ЛИСТ 1</div>
+      <div class="lesson">ЛИСТ 2</div>
 
       <app-caption></app-caption>
 
-<h2 class="mb-3">Учебный предмет (СПИСОК № 1)</h2>
+      <div class="line">
+        <span class="my-2 w-25 mr-5">Дата</span> <span>Сюда вставить календарь</span>
+      </div>
+
+      <div class="line">
+        <span class="my-2 w-25 mr-5">Учитель</span>
+        <input type="text" class="form-control w-50" placeholder="Учитель">
+      </div>
+
+      <div class="line">
+        <span class="my-2 w-25 mr-5">Класс</span>
+      </div>
+
+      <div class="line">
+        <span class="my-2 w-25 mr-5">Тема урока</span>
+        <input type="text" class="form-control w-50" placeholder="Тема урока">
+      </div>
+      <div class="line">
+        <span class="my-2 w-25 mr-5">Цель урока</span>
+        <input type="text" class="form-control w-50" placeholder="Цель урока">
+      </div>
+      <div class="line">
+        <span class="my-2 w-25 mr-5">ФИО обучающего (на дому) </span>
+        <input type="text" class="form-control w-50" placeholder="Ф.И.О.">
+      </div>
+
+
+
+
+      pupil
+
+
+
+
+
+      <h4 class="mb-3">Учебный предмет (СПИСОК № 1)</h4>
 
       <div class="dropdown">
         <button class="btn btn-outline-primary dropdown-toggle mb-4 w-25" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Выбрать предмет
+          Выбрать урок
         </button>
-
         <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-          <button *ngFor="let curLesson of listLessons" class="dropdown-item" type="button">{{curLesson.title}}</button>
+          <button class="dropdown-item" type="button">Русский язык</button>
+          <button class="dropdown-item" type="button"> Чтение</button>
+          <button class="dropdown-item" type="button">Чтение (литературное чтение)</button>
+          <button class="dropdown-item" type="button">Речевая практика</button>
+          <button class="dropdown-item" type="button">Математика</button>
+          <button class="dropdown-item" type="button">Информатика</button>
+          <button class="dropdown-item" type="button">Мир природы и человека</button>
+          <button class="dropdown-item" type="button">Природоведение</button>
+          <button class="dropdown-item" type="button">Биология</button>
+          <button class="dropdown-item" type="button">География</button>
+          <button class="dropdown-item" type="button">Мир истории</button>
+          <button class="dropdown-item" type="button">Основы социальной жизни</button>
+          <button class="dropdown-item" type="button">История отечества</button>
+          <button class="dropdown-item" type="button">Обществоведение</button>
+          <button class="dropdown-item" type="button">Этика</button>
+          <button class="dropdown-item" type="button">Музыка</button>
+          <button class="dropdown-item" type="button">Изобразительное искусство</button>
+          <button class="dropdown-item" type="button">Физическая культура</button>
+          <button class="dropdown-item" type="button">Иное</button>
         </div>
       </div>
 
@@ -39,6 +90,8 @@
       </div>
 
 
-      </div>
+    </div>
   </div>
 </div>
+
+

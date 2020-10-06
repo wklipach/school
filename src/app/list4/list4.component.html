@@ -1,1 +1,265 @@
-<p>list4 works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="lesson">ЛИСТ 4</div>
+
+      <app-caption></app-caption>
+
+     <div class="card px-5 py-4 mb-5">
+
+      <div class="line">
+        <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Дата</span> <span>Сюда вставить календарь</span>
+      </div>
+
+      <div class="line">
+        <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Учитель</span>
+        <input type="text" class="form-control" placeholder="Учитель">
+      </div>
+
+
+      <div class="line">
+        <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Класс</span>
+
+        <div class="dropdown">
+          <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenuNumeral" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            --
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuNumeral">
+            <button class="dropdown-item" type="button">1</button>
+            <button class="dropdown-item" type="button">2</button>
+            <button class="dropdown-item" type="button">3</button>
+            <button class="dropdown-item" type="button">4</button>
+            <button class="dropdown-item" type="button">5</button>
+            <button class="dropdown-item" type="button">6</button>
+            <button class="dropdown-item" type="button">7</button>
+            <button class="dropdown-item" type="button">8</button>
+            <button class="dropdown-item" type="button">9</button>
+            <button class="dropdown-item" type="button">10</button>
+            <button class="dropdown-item" type="button">11</button>
+            <button class="dropdown-item" type="button">12</button>
+
+          </div>
+        </div>
+        <div class="text-muted font-weight-bold result mx-3">3</div>   <!-- Сюда поместить результат выбора из справочника  -->
+
+        <div class="dropdown">
+          <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenuLetter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            --
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLetter">
+            <button class="dropdown-item" type="button">А</button>
+            <button class="dropdown-item" type="button">Б</button>
+            <button class="dropdown-item" type="button">В</button>
+            <button class="dropdown-item" type="button">Г</button>
+            <button class="dropdown-item" type="button">Д</button>
+            <button class="dropdown-item" type="button">Е</button>
+
+          </div>
+        </div>
+
+        <div class="text-muted font-weight-bold result mx-3">В</div>   <!-- Сюда поместить результат выбора из справочника  -->
+
+
+        <!--
+        <span class="my-2 mr-2 text-muted font-weight-bold">10</span>  Справочник с выбором. Значения- 1, 2, 3,4, 5, 6, 7, 8, 9, 10, 11, 12  -->
+        <!--<span class="my-2 mr-5 text-muted font-weight-bold">Б</span>    Справочник с выбором. Значения- А, Б, В, Г, Д, ЕА, Б, В, Г, Д, Е -->
+      </div>
+
+
+       <div class="line">
+         <span class="my-2 w-25 mr-5 text-muted font-weight-bold">ФИО обучающего (на дому)</span>
+         <input type="text" class="form-control" placeholder="ФИО">
+       </div>
+      <div class="line">
+        <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Тема урока</span>
+        <textarea formControlName="lessonTopic" class = "form-control" rows = "3" placeholder="Тема урока"></textarea>
+
+      </div>
+      <div class="line">
+        <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Цель урока</span>
+        <textarea formControlName="lessonObjectives" class = "form-control" rows = "3" placeholder="Цель урока"></textarea>
+      </div>
+
+     </div>
+
+      <div class="card px-5 py-4 mb-5">
+
+      <h5 class="mb-3">Учебный предмет (СПИСОК № 1)</h5>
+
+      <div class="dropdown">
+        <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Выбрать урок
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+          <button class="dropdown-item" type="button">Русский язык</button>
+          <button class="dropdown-item" type="button"> Чтение</button>
+          <button class="dropdown-item" type="button">Чтение (литературное чтение)</button>
+          <button class="dropdown-item" type="button">Речевая практика</button>
+          <button class="dropdown-item" type="button">Математика</button>
+          <button class="dropdown-item" type="button">Информатика</button>
+          <button class="dropdown-item" type="button">Мир природы и человека</button>
+          <button class="dropdown-item" type="button">Природоведение</button>
+          <button class="dropdown-item" type="button">Биология</button>
+          <button class="dropdown-item" type="button">География</button>
+          <button class="dropdown-item" type="button">Мир истории</button>
+          <button class="dropdown-item" type="button">Основы социальной жизни</button>
+          <button class="dropdown-item" type="button">История отечества</button>
+          <button class="dropdown-item" type="button">Обществоведение</button>
+          <button class="dropdown-item" type="button">Этика</button>
+          <button class="dropdown-item" type="button">Музыка</button>
+          <button class="dropdown-item" type="button">Изобразительное искусство</button>
+          <button class="dropdown-item" type="button">Физическая культура</button>
+          <button class="dropdown-item" type="button">Иное</button>
+        </div>
+      </div>
+
+
+      <div class="d-flex justify-content-start">
+
+        <!-- Кнопка добавления -->
+        <button class="btn btn-outline-primary my-2 mr-4" title="Добавить урок">
+          Добавить урок
+        </button>
+
+        <!-- Кнопка редактирования
+        <button class="btn btn-outline-warning my-2 mr-4" title="Изменить урок">
+          Изменить урок
+        </button>  -->
+
+        <!-- Кнопка модального окна удаления -->
+        <button type="button" class="btn btn-outline-danger my-2 mr-4"  title="Удалить урок">
+          Удалить урок
+        </button>
+
+      </div>
+
+        <div class="text-muted font-weight-bold result mx-3">Физическая культура</div>   <!-- Сюда поместить результат выбора из справочника  -->
+
+    </div>
+
+
+      <div class="card px-5 py-4 mb-5">
+
+        <h5 class="mb-3">Тип урока СПИСОК № 2</h5>
+
+        <div class="dropdown">
+          <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Тип урока
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button">Урок изучения нового материала</button>
+            <button class="dropdown-item" type="button">Урок  первичного обобщения и закрепления ЗУН</button>
+            <button class="dropdown-item" type="button">Урок систематизации и интеграции</button>
+            <button class="dropdown-item" type="button">Урок контроля и коррекции</button>
+          </div>
+        </div>
+
+        <div class="text-muted font-weight-bold result mx-3">Урок систематизации и интеграции</div>   <!-- Сюда поместить результат выбора из справочника  -->
+
+      </div>
+
+      <div class="card px-5 py-4 mb-5">
+
+        <h5 class="mb-3">Форма проведения урока (вид урока) СПИСОК № 3</h5>
+
+        <div class="dropdown">
+          <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Вид урока
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+            <button class="dropdown-item" type="button">Классический урок</button>
+            <button class="dropdown-item" type="button">Урок-игра</button>
+            <button class="dropdown-item" type="button">Урок-творчество</button>
+            <button class="dropdown-item" type="button">Урок-экскурсия</button>
+            <button class="dropdown-item" type="button">Урок-путешествие</button>
+            <button class="dropdown-item" type="button">Иное </button>
+          </div>
+        </div>
+
+        <div class="text-muted font-weight-bold result mx-3">Урок-творчество</div>   <!-- Сюда поместить результат выбора из справочника  -->
+
+      </div>
+
+      <div class="card px-5 py-4 mb-5">
+
+        <h5 class="mb-3">Предполагаемые результаты СПИСОК № 4
+        </h5>
+
+        <div class="dropdown">
+          <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Предметные
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
+            <button class="dropdown-item" type="button">Выявить</button>
+            <button class="dropdown-item" type="button">Дифференцировать</button>
+            <button class="dropdown-item" type="button">Закрепить</button>
+            <button class="dropdown-item" type="button">Знакомить/Познакомить</button>
+            <button class="dropdown-item" type="button">Обобщить</button>
+            <button class="dropdown-item" type="button">Повторить</button>
+            <button class="dropdown-item" type="button">Проверить</button>
+            <button class="dropdown-item" type="button">Формировать</button>
+            <button class="dropdown-item" type="button">Расширить</button>
+            <button class="dropdown-item" type="button">Систематизировать</button>
+            <button class="dropdown-item" type="button">Содействовать</button>
+            <button class="dropdown-item" type="button">Способствовать</button>
+            <button class="dropdown-item" type="button">Уточнить</button>
+            <button class="dropdown-item" type="button">Тренировать</button>
+            <button class="dropdown-item" type="button">Учить</button>
+            <button class="dropdown-item" type="button">Продолжать</button>
+            <button class="dropdown-item" type="button">Корригировать</button>
+            <button class="dropdown-item" type="button">Развивать</button>
+            <button class="dropdown-item" type="button">Поддерживать</button>
+            <button class="dropdown-item" type="button">Продолжать развивать</button>
+            <button class="dropdown-item" type="button">Продолжать формировать</button>
+            <button class="dropdown-item" type="button">Совершенствовать </button>
+          </div>
+        </div>
+
+        <div class="text-muted font-weight-bold result mx-3">Дифференцировать</div>   <!-- Сюда поместить результат выбора из справочника  -->
+
+      </div>
+
+      <div class="card px-5 py-4 mb-5">
+
+        <h5 class="mb-3">Предполагаемые результаты СПИСОК № 5
+        </h5>
+
+        <div class="dropdown">
+          <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Личностные
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu5">
+            <button class="dropdown-item" type="button">Содействовать</button>
+            <button class="dropdown-item" type="button">Совершенствовать</button>
+            <button class="dropdown-item" type="button">Способствовать формированию</button>
+            <button class="dropdown-item" type="button">Способствовать развитию</button>
+            <button class="dropdown-item" type="button">Способствовать овладению</button>
+            <button class="dropdown-item" type="button">Способствовать знакомству</button>
+
+          </div>
+        </div>
+
+        <div class="text-muted font-weight-bold result mx-3">Совершенствовать</div>   <!-- Сюда поместить результат выбора из справочника  -->
+
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

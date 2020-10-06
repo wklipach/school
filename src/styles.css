@@ -3,5 +3,13 @@
   display: flex;
   justify-content: center;
   font-size: 22px;
-  margin-top: 30px;
+  margin-top: 20px;
+}
+.line {
+  display: flex;
+  flex-direction: row;
+  margin: 2% 0;
+}
+.result {
+  font-size: 1.2em;
 }
