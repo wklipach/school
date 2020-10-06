@@ -1,0 +1,17 @@
+.container {
+  /* min-height: calc(100vh - 160px); */
+  text-align: center;
+}
+.lesson {
+  font-size: 22px;
+  margin-top: 30px;
+}
+.by-line {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: flex-end;
+}
+
+
