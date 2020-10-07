@@ -1,3 +1,7 @@
+
+<form [formGroup]="list4Form">
+
+
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -8,7 +12,9 @@
      <div class="card px-5 py-4 mb-5">
 
       <div class="line">
-        <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Дата</span> <span>Сюда вставить календарь</span>
+        <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Дата</span> <span>
+           <ng2-flatpickr [config]="vDatePickOptions" formControlName="formControlDate"></ng2-flatpickr>
+        </span>
       </div>
 
       <div class="line">
@@ -24,40 +30,26 @@
           <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenuNumeral" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             --
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuNumeral">
-            <button class="dropdown-item" type="button">1</button>
-            <button class="dropdown-item" type="button">2</button>
-            <button class="dropdown-item" type="button">3</button>
-            <button class="dropdown-item" type="button">4</button>
-            <button class="dropdown-item" type="button">5</button>
-            <button class="dropdown-item" type="button">6</button>
-            <button class="dropdown-item" type="button">7</button>
-            <button class="dropdown-item" type="button">8</button>
-            <button class="dropdown-item" type="button">9</button>
-            <button class="dropdown-item" type="button">10</button>
-            <button class="dropdown-item" type="button">11</button>
-            <button class="dropdown-item" type="button">12</button>
 
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuNumeral">
+            <button class="dropdown-item" type="button" *ngFor="let curValue of listClassNameNumber" (click)="onClassNameNumber(curValue)">{{curValue.title}}</button>
           </div>
+
         </div>
-        <div class="text-muted font-weight-bold result mx-3">3</div>   <!-- Сюда поместить результат выбора из справочника  -->
+        <div class="text-muted font-weight-bold result mx-3">{{documentClassNameNumber.title}}</div>   <!-- Сюда поместить результат выбора из справочника  -->
 
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenuLetter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             --
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLetter">
-            <button class="dropdown-item" type="button">А</button>
-            <button class="dropdown-item" type="button">Б</button>
-            <button class="dropdown-item" type="button">В</button>
-            <button class="dropdown-item" type="button">Г</button>
-            <button class="dropdown-item" type="button">Д</button>
-            <button class="dropdown-item" type="button">Е</button>
 
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLetter">
+            <button class="dropdown-item" type="button" *ngFor="let curValue of listClassNameLetter" (click)="onClassNameLetter(curValue)">{{curValue.title}}</button>
           </div>
+
         </div>
 
-        <div class="text-muted font-weight-bold result mx-3">В</div>   <!-- Сюда поместить результат выбора из справочника  -->
+        <div class="text-muted font-weight-bold result mx-3">{{documentClassNameLetter.title}}</div>   <!-- Сюда поместить результат выбора из справочника  -->
 
 
         <!--
@@ -90,28 +82,12 @@
         <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Выбрать урок
         </button>
+
         <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-          <button class="dropdown-item" type="button">Русский язык</button>
-          <button class="dropdown-item" type="button"> Чтение</button>
-          <button class="dropdown-item" type="button">Чтение (литературное чтение)</button>
-          <button class="dropdown-item" type="button">Речевая практика</button>
-          <button class="dropdown-item" type="button">Математика</button>
-          <button class="dropdown-item" type="button">Информатика</button>
-          <button class="dropdown-item" type="button">Мир природы и человека</button>
-          <button class="dropdown-item" type="button">Природоведение</button>
-          <button class="dropdown-item" type="button">Биология</button>
-          <button class="dropdown-item" type="button">География</button>
-          <button class="dropdown-item" type="button">Мир истории</button>
-          <button class="dropdown-item" type="button">Основы социальной жизни</button>
-          <button class="dropdown-item" type="button">История отечества</button>
-          <button class="dropdown-item" type="button">Обществоведение</button>
-          <button class="dropdown-item" type="button">Этика</button>
-          <button class="dropdown-item" type="button">Музыка</button>
-          <button class="dropdown-item" type="button">Изобразительное искусство</button>
-          <button class="dropdown-item" type="button">Физическая культура</button>
-          <button class="dropdown-item" type="button">Иное</button>
+          <button class="dropdown-item" type="button" *ngFor="let curValue of listLessons" (click)="onLessons(curValue)">{{curValue.title}}</button>
         </div>
       </div>
+      <div class="text-muted font-weight-bold result mx-3">{{documentLessons.title}}</div>   <!-- Сюда поместить результат выбора из справочника  -->
 
 
       <div class="d-flex justify-content-start">
@@ -250,8 +226,9 @@
   </div>
 </div>
 
+</form>
 
-
+<button (click)="onTestRes()">!!!!!!!!!!!!!!</button>
 
 
 

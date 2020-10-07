@@ -12,6 +12,8 @@ import { List4Component } from './list4/list4.component';
 import {GlobalRef} from './services/globalref';
 import {HttpClientModule} from '@angular/common/http';
 import {GuideService} from './services/guide.service';
+import {Ng2FlatpickrModule} from 'ng2-flatpickr';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -35,7 +37,10 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
+    Ng2FlatpickrModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [GlobalRef, GuideService],
