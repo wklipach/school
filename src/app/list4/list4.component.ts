@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {lessonsName, classNameLetter, classNameNumber} from '../class/academicSubject';
+import {lessonsName, classNameLetter, classNameNumber, classTypeLesson, classType2Lesson,
+        classObjectiveLesson, classPersonalLesson} from '../class/academicSubject';
 import {GuideService} from '../services/guide.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import { FlatpickrOptions } from 'ng2-flatpickr';
@@ -13,12 +14,19 @@ import Russian from 'flatpickr/dist/l10n/ru.js';
 export class List4Component implements OnInit {
 
   listLessons: any;
+  listTypeLesson: any;
+  listType2Lesson: any;
   listClassNameNumber: any;
   listClassNameLetter: any;
+  listObjectiveLesson: any;
+  listPersonalLesson: any;
   documentClassNameNumber = {id: -1, title: '' };
   documentClassNameLetter = {id: -1, title: '' };
   documentLessons = {id: -1, title: '' };
-
+  documentTypeLesson = {id: -1, title: '' };
+  documentType2Lesson = {id: -1, title: '' };
+  documentObjectiveLesson = {id: -1, title: '' };
+  documentPersonalLesson = {id: -1, title: '' };
   list4Form: FormGroup;
   vDatePickOptions: FlatpickrOptions = {
     locale: Russian.ru,
@@ -36,10 +44,14 @@ export class List4Component implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createOrLoadCollection.bind(this);
     this.createOrLoadCollection('lessonsName', lessonsName, 'listLessons');
     this.createOrLoadCollection('classNameNumber', classNameNumber, 'listClassNameNumber');
     this.createOrLoadCollection('classNameLetter', classNameLetter, 'listClassNameLetter');
+    this.createOrLoadCollection('classTypeLesson', classTypeLesson, 'listTypeLesson');
+    this.createOrLoadCollection('classType2Lesson', classType2Lesson, 'listType2Lesson');
+    this.createOrLoadCollection('classObjectiveLesson', classObjectiveLesson, 'listObjectiveLesson');
+
+    this.createOrLoadCollection('classPersonalLesson', classPersonalLesson, 'listPersonalLesson');
   }
 
   createOrLoadCollection(sName, objCollection, sResult: any) {
@@ -51,7 +63,6 @@ export class List4Component implements OnInit {
       } else {
         this.gs.selectCollection(sName).subscribe( guideList => {
           this[sResult] = guideList;
-          console.log(this.listLessons, this.listClassNameNumber, this.listClassNameLetter, sResult);
         });
       }
     });
@@ -74,5 +85,26 @@ export class List4Component implements OnInit {
   onLessons(curValue) {
   this.documentLessons.id = curValue.id;
   this.documentLessons.title = curValue.title;
+  }
+
+  onTypeLesson(curValue) {
+    this.documentTypeLesson.id = curValue.id;
+    this.documentTypeLesson.title = curValue.title;
+  }
+
+  onType2Lesson(curValue) {
+    this.documentType2Lesson.id = curValue.id;
+    this.documentType2Lesson.title = curValue.title;
+  }
+
+  onObjectiveLesson(curValue) {
+    this.documentObjectiveLesson.id = curValue.id;
+    this.documentObjectiveLesson.title = curValue.title;
+  }
+
+
+  onPersonalLesson(curValue) {
+    this.documentPersonalLesson.id = curValue.id;
+    this.documentPersonalLesson.title = curValue.title;
   }
 }
