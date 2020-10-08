@@ -14,7 +14,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {GuideService} from './services/guide.service';
 import {Ng2FlatpickrModule} from 'ng2-flatpickr';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 // определение маршрутов
@@ -22,7 +24,10 @@ const appRoutes: Routes = [
   {path: '', component: MainschoolComponent},
   {path: 'list2', component: List2Component},
   {path: 'list3', component: List3Component},
-  {path: 'list4', component: List4Component}
+  {path: 'list4', component: List4Component},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'forgot-password', component: ForgotPasswordComponent}
 ];
 
 @NgModule({
@@ -33,7 +38,10 @@ const appRoutes: Routes = [
     BasementComponent,
     List2Component,
     List3Component,
-    List4Component
+    List4Component,
+    LoginComponent,
+    RegisterComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

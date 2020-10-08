@@ -36,7 +36,7 @@
           </div>
 
         </div>
-        <div class="text-muted font-weight-bold result mx-3">{{documentClassNameNumber.title}}</div>   <!-- Сюда поместить результат выбора из справочника  -->
+
 
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenuLetter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,15 +48,11 @@
           </div>
 
         </div>
+        <div class="text-muted font-weight-bold result ml-3">{{documentClassNameNumber.title}}</div>   <!-- Сюда поместить результат выбора из справочника  -->
+        <div class="text-muted font-weight-bold result ml-1">{{documentClassNameLetter.title}}</div>   <!-- Результат выбора из справочника  -->
 
-        <div class="text-muted font-weight-bold result mx-3">{{documentClassNameLetter.title}}</div>   <!-- Сюда поместить результат выбора из справочника  -->
 
-
-        <!--
-        <span class="my-2 mr-2 text-muted font-weight-bold">10</span>  Справочник с выбором. Значения- 1, 2, 3,4, 5, 6, 7, 8, 9, 10, 11, 12  -->
-        <!--<span class="my-2 mr-5 text-muted font-weight-bold">Б</span>    Справочник с выбором. Значения- А, Б, В, Г, Д, ЕА, Б, В, Г, Д, Е -->
       </div>
-
 
        <div class="line">
          <span class="my-2 w-25 mr-5 text-muted font-weight-bold">ФИО обучающего (на дому)</span>
@@ -87,7 +83,7 @@
           <button class="dropdown-item" type="button" *ngFor="let curValue of listLessons" (click)="onLessons(curValue)">{{curValue.title}}</button>
         </div>
       </div>
-      <div class="text-muted font-weight-bold result mx-3">{{documentLessons.title}}</div>   <!-- Сюда поместить результат выбора из справочника  -->
+      <div class="text-muted font-weight-bold result mx-3">{{documentLessons.title}}</div>    <!-- Результат выбора из справочника  -->
 
 
       <div class="d-flex justify-content-start">
@@ -126,7 +122,7 @@
           </div>
         </div>
 
-        <div class="text-muted font-weight-bold result mx-3">{{documentTypeLesson.title}}</div>   <!-- Сюда поместить результат выбора из справочника  -->
+        <div class="text-muted font-weight-bold result mx-3">{{documentTypeLesson.title}}</div>    <!-- Результат выбора из справочника  -->
 
       </div>
 
@@ -143,7 +139,7 @@
           </div>
         </div>
 
-        <div class="text-muted font-weight-bold result mx-3">{{documentType2Lesson.title}}</div>   <!-- Сюда поместить результат выбора из справочника  -->
+        <div class="text-muted font-weight-bold result mx-3">{{documentType2Lesson.title}}</div>    <!-- Результат выбора из справочника  -->
 
       </div>
 
@@ -161,7 +157,7 @@
           </div>
         </div>
 
-        <div class="text-muted font-weight-bold result mx-3">{{documentObjectiveLesson.title}}</div>   <!-- Сюда поместить результат выбора из справочника  -->
+        <div class="text-muted font-weight-bold result mx-3">{{documentObjectiveLesson.title}}</div>    <!-- Результат выбора из справочника  -->
 
       </div>
 
@@ -179,7 +175,7 @@
           </div>
         </div>
 
-        <div class="text-muted font-weight-bold result mx-3">{{documentPersonalLesson.title}}</div>   <!-- Сюда поместить результат выбора из справочника  -->
+        <div class="text-muted font-weight-bold result mx-3">{{documentPersonalLesson.title}}</div>    <!-- Результат выбора из справочника  -->
 
       </div>
 

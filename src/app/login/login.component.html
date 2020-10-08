@@ -1,10 +1,14 @@
-<div class="container">
+<div class="container-fluid">
+
   <div class="row">
-    <div class="col-12">
-      <div class="lesson">ЛИСТ 1</div>
+    <div class="col-sx-0 col-sm-1 col-md-2 col-lg-3"></div>
 
-      <app-caption></app-caption>
-
+    <div class="col-sx-12 col-sm-10 col-md-8 col-lg-5">
+      <!--
+         начали модель
+         [disabled]="loginForm.invalid"
+         <button type="submit" class="btn-signin" id="btnPwd" formControlName="btnPwd">Войти</button>
+      -->
 
       <div class="card my-4">
         <div class="card-body py-2">
@@ -54,14 +58,10 @@
         </div>
       </div>
 
+      <div class="col-sx-0 col-sm-1 col-md-2 col-lg-4"></div>
 
+    </div>
 
-
-      <app-basement></app-basement>
 
   </div>
- </div>
 </div>
-
-
-
