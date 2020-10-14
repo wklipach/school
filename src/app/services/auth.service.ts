@@ -52,7 +52,10 @@ export class AuthService {
     return this.http.get(this.gr.sUrlGlobal + 'users', {params: params});
   }
 
-
+  sendPassword(email: string, pwd: string, hash: string) {
+    const sUrl = this.gr.sUrlGlobal + 'forgotpassword';
+    return this.http.post(sUrl, {email, pwd, hash});
+  }
 
 
 }

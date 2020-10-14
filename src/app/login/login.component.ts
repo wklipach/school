@@ -85,7 +85,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         if (value.length === 1) {
           this.editor = value[0].editor;
           const dbPassword = value[0].password;
-          const sFormPassword = CryptoJS.SHA256(this.loginForm.controls['password'].value).toString();
+          const sFormPassword = CryptoJS.SHA256(this.loginForm.controls['password'].value.trim().toLowerCase()).toString().toLowerCase();
+
           if (dbPassword !== sFormPassword) {
             this.showErr = true;
             this.showSucc = false;
