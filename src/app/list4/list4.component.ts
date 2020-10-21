@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
   lessonsName, classNameLetter, classNameNumber, classTypeLesson, classType2Lesson,
-  classObjectiveLesson, classPersonalLesson, classEquipment
+  classObjectiveLesson, classPersonalLesson, classEquipment, classMethod, classGroupMethod
 } from '../class/academicSubject';
 import {GuideService} from '../services/guide.service';
 import {FormControl, FormGroup} from '@angular/forms';
@@ -23,6 +23,10 @@ export class List4Component implements OnInit {
   listObjectiveLesson: any;
   listPersonalLesson: any;
   listEquipment: any;
+  listMethod: any;
+  listGroupMethod: any;
+  methodAggegateList: any;
+
   documentClassNameNumber = {id: -1, title: '' };
   documentClassNameLetter = {id: -1, title: '' };
   documentLessons = {id: -1, title: '' };
@@ -31,6 +35,8 @@ export class List4Component implements OnInit {
   documentObjectiveLesson = {id: -1, title: '' };
   documentPersonalLesson = {id: -1, title: '' };
   documentEquipment = {id: -1, title: '' };
+  documentGroupMethod = {id: -1, id_group: -1, title: '' };
+  documentMethod = {id: -1, id_group: -1, title: '' };
 
   list4Form: FormGroup;
   vDatePickOptions: FlatpickrOptions = {
@@ -58,6 +64,10 @@ export class List4Component implements OnInit {
 
     this.createOrLoadCollection('classPersonalLesson', classPersonalLesson, 'listPersonalLesson');
     this.createOrLoadCollection('classEquipment', classEquipment, 'listEquipment');
+
+    this.createOrLoadCollection('classMethod', classMethod, 'listMethod');
+    this.createOrLoadCollection('classGroupMethod', classGroupMethod, 'listGroupMethod');
+    this.loadMethodCollection();
   }
 
   createOrLoadCollection(sName, objCollection, sResult: any) {
@@ -71,6 +81,13 @@ export class List4Component implements OnInit {
           this[sResult] = guideList;
         });
       }
+    });
+  }
+
+  loadMethodCollection() {
+    this.gs.selectGroupInnerMethod().subscribe( methodList => {
+      this.methodAggegateList = methodList;
+      console.log(this.methodAggegateList);
     });
   }
 
@@ -118,4 +135,16 @@ export class List4Component implements OnInit {
     this.documentEquipment.id = curValue.id;
     this.documentEquipment.title = curValue.title;
   }
+
+  onCurGroupMethod(curGroupValue): void {
+    this.documentGroupMethod.id = curGroupValue.id;
+    this.documentGroupMethod.id_group = curGroupValue.id_group;
+    this.documentGroupMethod.title = curGroupValue.title;
+}
+
+  onMethod(curMethodValue) {
+    this.documentMethod.id = curMethodValue.id;
+    this.documentMethod.id_group = curMethodValue.id_group;
+    this.documentMethod.title = curMethodValue.title;
+}
 }

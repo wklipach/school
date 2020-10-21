@@ -358,5 +358,102 @@ export const classEquipment = [
 ];
 
 
+export const classGroupMethod = [
+  {
+    title: 'Словесные',
+    id: 1,
+    id_group: 1
+  },
+  {
+    title: 'Наглядные',
+    id: 2,
+    id_group: 2
+  },
+  {
+    title: 'Практические',
+    id: 3,
+    id_group: 3
+  }
+];
 
+export const classMethod = [
+  {
+    title: 'Рассказ',
+    id: 1,
+    id_group: 1
+  },
+  {
+    title: 'Объяснение',
+    id: 2,
+    id_group: 1
+  },
+  {
+    title: 'Беседа',
+    id: 3,
+    id_group: 1
+  },
+  {
+    title: 'Работа с учебником, книгой',
+    id: 4,
+    id_group: 1
+  },
+  {
+    title: 'Инструктаж',
+    id: 5,
+    id_group: 1
+  },
+
+  {
+    title: 'Демонстрация',
+    id: 6,
+    id_group: 2
+  },
+  {
+    title: 'Иллюстрация',
+    id: 7,
+    id_group: 2
+  },
+  {
+    title: 'Наблюдение',
+    id: 8,
+    id_group: 2
+  },
+
+  {
+    title: 'Упражнения',
+    id: 9,
+    id_group: 3
+  },
+  {
+    title: 'Дидактическая игра',
+    id: 10,
+    id_group: 3
+  },
+  {
+    title: 'Сюжетно - ролевая игра',
+    id: 11,
+    id_group: 3
+  },
+  {
+    title: 'Игра - драматизация',
+    id: 12,
+    id_group: 3
+  },
+  {
+    title: 'Лабораторная работа',
+    id: 13,
+    id_group: 3
+  },
+  {
+    title: 'Практическая работа',
+    id: 14,
+    id_group: 3
+  },
+  {
+    title: 'Элементарные опыты и экспериментирование',
+    id: 15,
+    id_group: 3
+  },
+
+];
 
