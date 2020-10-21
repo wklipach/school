@@ -2,13 +2,10 @@
   /* min-height: calc(100vh - 160px); */
   text-align: center;
 }
-
-.by-line {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-content: flex-end;
+.card {
+  max-width: 500px;
+  margin: 0 auto;
 }
-
-
+a {
+  cursor: pointer;
+}

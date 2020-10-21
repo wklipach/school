@@ -186,24 +186,28 @@ export const classTypeLesson = [
 
 export const classType2Lesson = [
   {
-    title: 'Урок-игра',
+    title: 'Классический урок',
     id: 1
   },
   {
-    title: 'Урок-творчество',
+    title: 'Урок-игра',
     id: 2
   },
   {
-    title: 'Урок-экскурсия',
+    title: 'Урок-творчество',
     id: 3
   },
   {
-    title: 'Урок-путешествие',
+    title: 'Урок-экскурсия',
     id: 4
   },
   {
-    title: 'Иное',
+    title: 'Урок-путешествие',
     id: 5
+  },
+  {
+    title: 'Иное',
+    id: 6
   }
 ];
 

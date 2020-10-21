@@ -179,8 +179,76 @@
 
       </div>
 
+      <div class="card px-5 py-4 mb-5">
+
+        <h5 class="mb-3">СПИСОК № 6 ОБОРУДОВАНИЕ И МАТЕРИАЛЫ
+
+          <!--
+          технические средства обучения (ТСО);
+          учебно-наглядные пособия
+          раздаточный материал
+          дидактический материал
+          учебно-лабораторное оборудование
+          учебно-производственное оборудование
+          спортивный инвентарь и оборудование
+          вспомогательные средства для позиционирования
+
+-->
+
+        </h5>
+
+        <div class="dropdown">
+          <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Личностные
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu5">
+            <button class="dropdown-item" type="button" *ngFor="let curValue of listPersonalLesson" (click)="onPersonalLesson(curValue)">{{curValue.title}}</button>
+          </div>
+        </div>
+
+        <div class="text-muted font-weight-bold result mx-3">{{documentPersonalLesson.title}}</div>    <!-- Результат выбора из справочника  -->
+
+      </div>
 
 
+      <div class="card px-5 py-4 mb-5">
+
+        <h5 class="mb-3">СПИСОК № 7 «Методы»
+
+          <!--
+1. Рассказ
+2. Объяснение
+3. Беседа
+4. Работа с учебником,  книгой
+5. Инструктаж
+1. Демонстрация
+2. Иллюстрация
+3. Наблюдение
+1. Упражнения
+2. Дидактическая игра
+3. Сюжетно-ролевая игра
+4.Игра-драматизация
+5. Лабораторная работа
+6. Практическая работа
+7. Элементарные опыты и экспериментирование
+
+
+-->
+
+        </h5>
+
+        <div class="dropdown">
+          <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Личностные
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu5">
+            <button class="dropdown-item" type="button" *ngFor="let curValue of listPersonalLesson" (click)="onPersonalLesson(curValue)">{{curValue.title}}</button>
+          </div>
+        </div>
+
+        <div class="text-muted font-weight-bold result mx-3">{{documentPersonalLesson.title}}</div>    <!-- Результат выбора из справочника  -->
+
+      </div>
 
     </div>
   </div>
