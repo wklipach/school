@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {lessonsName, classNameLetter, classNameNumber, classTypeLesson, classType2Lesson,
-        classObjectiveLesson, classPersonalLesson} from '../class/academicSubject';
+import {
+  lessonsName, classNameLetter, classNameNumber, classTypeLesson, classType2Lesson,
+  classObjectiveLesson, classPersonalLesson, classEquipment
+} from '../class/academicSubject';
 import {GuideService} from '../services/guide.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import { FlatpickrOptions } from 'ng2-flatpickr';
@@ -20,6 +22,7 @@ export class List4Component implements OnInit {
   listClassNameLetter: any;
   listObjectiveLesson: any;
   listPersonalLesson: any;
+  listEquipment: any;
   documentClassNameNumber = {id: -1, title: '' };
   documentClassNameLetter = {id: -1, title: '' };
   documentLessons = {id: -1, title: '' };
@@ -27,6 +30,8 @@ export class List4Component implements OnInit {
   documentType2Lesson = {id: -1, title: '' };
   documentObjectiveLesson = {id: -1, title: '' };
   documentPersonalLesson = {id: -1, title: '' };
+  documentEquipment = {id: -1, title: '' };
+
   list4Form: FormGroup;
   vDatePickOptions: FlatpickrOptions = {
     locale: Russian.ru,
@@ -52,6 +57,7 @@ export class List4Component implements OnInit {
     this.createOrLoadCollection('classObjectiveLesson', classObjectiveLesson, 'listObjectiveLesson');
 
     this.createOrLoadCollection('classPersonalLesson', classPersonalLesson, 'listPersonalLesson');
+    this.createOrLoadCollection('classEquipment', classEquipment, 'listEquipment');
   }
 
   createOrLoadCollection(sName, objCollection, sResult: any) {
@@ -106,5 +112,10 @@ export class List4Component implements OnInit {
   onPersonalLesson(curValue) {
     this.documentPersonalLesson.id = curValue.id;
     this.documentPersonalLesson.title = curValue.title;
+  }
+
+  onEquipment(curValue) {
+    this.documentEquipment.id = curValue.id;
+    this.documentEquipment.title = curValue.title;
   }
 }

@@ -202,11 +202,11 @@
             Личностные
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu5">
-            <button class="dropdown-item" type="button" *ngFor="let curValue of listPersonalLesson" (click)="onPersonalLesson(curValue)">{{curValue.title}}</button>
+            <button class="dropdown-item" type="button" *ngFor="let curValue of listEquipment" (click)="onEquipment(curValue)">{{curValue.title}}</button>
           </div>
         </div>
 
-        <div class="text-muted font-weight-bold result mx-3">{{documentPersonalLesson.title}}</div>    <!-- Результат выбора из справочника  -->
+        <div class="text-muted font-weight-bold result mx-3">{{documentEquipment.title}}</div>    <!-- Результат выбора из справочника  -->
 
       </div>
 
