@@ -1,0 +1,15 @@
+.container {
+  /* min-height: calc(100vh - 160px); */
+  text-align: center;
+}
+.card {
+  max-width: 500px;
+  margin: 0 auto 10% auto;
+}
+a {
+  cursor: pointer;
+}
+.vertical {
+  color: blue;
+  font-weight: 600;
+}

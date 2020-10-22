@@ -17,6 +17,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { List5Component } from './list5/list5.component';
+import { ArchiveComponent } from './archive/archive.component';
 
 
 // определение маршрутов
@@ -25,6 +27,8 @@ const appRoutes: Routes = [
   {path: 'list2', component: List2Component},
   {path: 'list3', component: List3Component},
   {path: 'list4', component: List4Component},
+  {path: 'list5', component: List5Component},
+  {path: 'archive', component: ArchiveComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent}
@@ -41,7 +45,9 @@ const appRoutes: Routes = [
     List4Component,
     LoginComponent,
     RegisterComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    List5Component,
+    ArchiveComponent
   ],
   imports: [
     BrowserModule,
