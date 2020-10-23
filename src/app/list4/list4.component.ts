@@ -7,6 +7,7 @@ import {GuideService} from '../services/guide.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import { FlatpickrOptions } from 'ng2-flatpickr';
 import Russian from 'flatpickr/dist/l10n/ru.js';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-list4',
@@ -15,6 +16,7 @@ import Russian from 'flatpickr/dist/l10n/ru.js';
 })
 export class List4Component implements OnInit {
 
+  UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
   listLessons: any;
   listTypeLesson: any;
   listType2Lesson: any;
@@ -27,8 +29,8 @@ export class List4Component implements OnInit {
   listGroupMethod: any;
   methodAggegateList: any;
 
-  documentClassNameNumber = {id: -1, title: '' };
-  documentClassNameLetter = {id: -1, title: '' };
+  documentClassNameNumber = {id: -1, title: '--' };
+  documentClassNameLetter = {id: -1, title: '--' };
   documentLessons = {id: -1, title: '' };
   documentTypeLesson = {id: -1, title: '' };
   documentType2Lesson = {id: -1, title: '' };
@@ -45,7 +47,9 @@ export class List4Component implements OnInit {
     defaultDate: new Date()
   };
 
-  constructor(private gs: GuideService) {
+  constructor(private gs: GuideService, private auth: AuthService) {
+
+    this.UserInfo = this.auth.getStorage();
     this.list4Form  = new FormGroup({
       formControlDate: new FormControl(),
       lessonTopic: new FormControl(),
@@ -68,6 +72,8 @@ export class List4Component implements OnInit {
     this.createOrLoadCollection('classMethod', classMethod, 'listMethod');
     this.createOrLoadCollection('classGroupMethod', classGroupMethod, 'listGroupMethod');
     this.loadMethodCollection();
+
+    this.loadCurrentTeacher();
   }
 
   createOrLoadCollection(sName, objCollection, sResult: any) {
@@ -88,6 +94,12 @@ export class List4Component implements OnInit {
     this.gs.selectGroupInnerMethod().subscribe( methodList => {
       this.methodAggegateList = methodList;
       console.log(this.methodAggegateList);
+    });
+  }
+
+  loadCurrentTeacher() {
+    this.auth.getUserFromID(this.UserInfo.id_user_school).subscribe( teacher => {
+     console.log(teacher);
     });
   }
 

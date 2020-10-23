@@ -28,7 +28,7 @@
 
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenuNumeral" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            --
+            {{documentClassNameNumber.title}}
           </button>
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuNumeral">
@@ -40,7 +40,7 @@
 
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenuLetter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            --
+            {{documentClassNameLetter.title}}
           </button>
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLetter">
@@ -48,8 +48,12 @@
           </div>
 
         </div>
-        <div class="text-muted font-weight-bold result ml-3">{{documentClassNameNumber.title}}</div>   <!-- Сюда поместить результат выбора из справочника  -->
-        <div class="text-muted font-weight-bold result ml-1">{{documentClassNameLetter.title}}</div>   <!-- Результат выбора из справочника  -->
+
+<!--
+ Результат выбора из справочника
+        <div class="text-muted font-weight-bold result ml-3">{{documentClassNameNumber.title}}</div>
+        <div class="text-muted font-weight-bold result ml-1">{{documentClassNameLetter.title}}</div>
+-->
 
 
       </div>

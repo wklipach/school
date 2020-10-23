@@ -37,7 +37,6 @@ export class GuideService {
   selectGroupInnerMethod() {
     const varparams = new HttpParams()
       .set('get_groupinnermethod', 'get_groupinnermethod');
-    console.log('eeee1');
     return this.http.get(this.gr.sUrlGlobal + 'guide', {params: varparams});
   }
 

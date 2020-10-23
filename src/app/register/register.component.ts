@@ -80,7 +80,9 @@ export class RegisterComponent implements OnInit {
   submit() {
     this.bPassword = false;
 
-    const {userLogin, userFIO, userEmail, userPassword1, userPassword2} = this.registerForm.value;
+
+    console.log('this.registerForm.value=', this.registerForm.value);
+    const {userLogin, userFio, userEmail, userPassword1, userPassword2} = this.registerForm.value;
 
     if (userPassword1.trim() !== userPassword2.trim()) {
       this.bPassword = true;
@@ -91,10 +93,10 @@ export class RegisterComponent implements OnInit {
     login: userLogin,
     password: CryptoJS.SHA256(userPassword1.trim().toLowerCase()).toString().toLowerCase(),
     email: userEmail,
-    fio: userFIO,
+    fio: userFio,
     bitdelete: false,
     editor: 0
-  }
+  };
 
     const curSubject = 'Добро пожаловать.';
     const curLetter = 'Спасибо за регистрацию. Надеемся, что вы найдете здесь решение ваших вопросов.';

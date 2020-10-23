@@ -34,15 +34,24 @@ export class AuthService {
     window.localStorage.setItem('schoolLogin', schoolLogin);
     window.localStorage.setItem('bSchoolConnected', JSON.stringify(bSchoolConnected));
     window.localStorage.setItem('id_user_school', JSON.stringify(id_user_school));
-    window.localStorage.setItem('editor', JSON.stringify(editor));
+    window.localStorage.setItem('schoolEditor', JSON.stringify(editor));
   }
+
+  public getStorage(): {schoolLogin: string, bSchoolConnected: boolean, id_user_school: string, editor: number} {
+    const curSchoolLogin = window.localStorage.getItem('schoolLogin');
+    const curSchoolConnected = (window.localStorage.getItem('bSchoolConnected') === 'true');
+    const curUserMongoID = window.localStorage.getItem('id_user_school');
+    const curEditor = Number.parseInt(window.localStorage.getItem('schoolEditor'));
+    return {schoolLogin: curSchoolLogin, bSchoolConnected: curSchoolConnected, id_user_school: curUserMongoID, editor: curEditor};
+  }
+
 
   // стираем текущего пользователя из локального хранилища
   public clearStorage() {
     window.localStorage.setItem('schoolLogin', '');
     window.localStorage.setItem('bSchoolConnected', JSON.stringify(false));
     window.localStorage.setItem('id_user_school', JSON.stringify(-1));
-    window.localStorage.setItem('editor', JSON.stringify(-1));
+    window.localStorage.setItem('schoolEditor', JSON.stringify(-1));
   }
 
   // получаем пользователя, поиск по 2 полям - его почте и нику одновременно
@@ -51,6 +60,14 @@ export class AuthService {
       .set('get_user', UserName.toString());
     return this.http.get(this.gr.sUrlGlobal + 'users', {params: params});
   }
+
+  // получаем пользователя, поиск по mongo-ID
+  getUserFromID(mongoID: string) {
+    const params = new HttpParams()
+      .set('get_user_id', mongoID.toString());
+    return this.http.get(this.gr.sUrlGlobal + 'users', {params: params});
+  }
+
 
   sendPassword(email: string, pwd: string, hash: string) {
     const sUrl = this.gr.sUrlGlobal + 'forgotpassword';
