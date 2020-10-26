@@ -9,3 +9,35 @@
 a {
   cursor: pointer;
 }
+.line {
+  height: auto;
+  margin: 0;
+  border: solid 1px #cdcdcd;
+  border-bottom: none;
+}
+.view-left {
+  height: auto;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #e5e5e5;
+  border-right: solid 1px #cdcdcd;
+  padding: 10px 0;
+}
+.view-half, .view-half-right {
+  height: auto;
+  text-align: left;
+  font-size: 18px;
+  border-right: solid 1px #cdcdcd;
+  padding: 10px 5px;
+}
+.view-half-right {
+  border: none;
+}
+span {
+  text-align: left;
+  font-size: 18px;
+  padding: 10px 0 15px 10px;
+}
+ul {
+  padding: 1px 6px 5px 20px;
+}
