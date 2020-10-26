@@ -19,7 +19,7 @@
 
       <div class="line">
         <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Учитель</span>
-        <input type="text" class="form-control" placeholder="Учитель">
+        <input type="text" class="form-control" placeholder="Учитель" formControlName="fio">
       </div>
 
 
@@ -60,7 +60,7 @@
 
        <div class="line">
          <span class="my-2 w-25 mr-5 text-muted font-weight-bold">ФИО обучающего (на дому)</span>
-         <input type="text" class="form-control" placeholder="ФИО">
+         <input type="text" class="form-control" placeholder="ФИО" formControlName="fiostudent">
        </div>
       <div class="line">
         <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Тема урока</span>
@@ -230,7 +230,7 @@
 
 </form>
 
-<button (click)="onTestRes()">!!!!!!!!!!!!!!</button>
+<button (click)="onSaveRes()">!!!!!!!!!!!!!!</button>
 
 
 

@@ -20,6 +20,13 @@ export class GuideService {
     return this.http.get(this.gr.sUrlGlobal + 'guide', {params: varparams});
   }
 
+  selectListLessons(id_user) {
+    const varparams = new HttpParams()
+      .set('get_lessons_user', 'get_lessons_user')
+      .set('id_user', id_user);
+    return this.http.get(this.gr.sUrlGlobal + 'guide', {params: varparams});
+  }
+
   checkCollection(sname) {
     const varparams = new HttpParams()
       .set('get_collection_check', 'get_collection_check')
@@ -44,6 +51,13 @@ export class GuideService {
     const datamessage = {insert_lessonsName: 'insert_lessonsName', collectionName, objLessonsName};
     return this.http.post(this.gr.sUrlGlobal + 'guide', datamessage);
   }
+
+
+  insertSummaryLesson(id_user, objSummaryLesson) {
+    const datamessage = {insert_summarylesson: 'insert_summarylesson', id_user, objSummaryLesson};
+    return this.http.post(this.gr.sUrlGlobal + 'guide', datamessage);
+  }
+
 
 
 }

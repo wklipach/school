@@ -19,6 +19,7 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { List5Component } from './list5/list5.component';
 import { ArchiveComponent } from './archive/archive.component';
+import { ViewerComponent } from './viewer/viewer.component';
 
 
 // определение маршрутов
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
   {path: 'archive', component: ArchiveComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'viewer', component: ViewerComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent}
 ];
 
@@ -47,7 +49,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     ForgotPasswordComponent,
     List5Component,
-    ArchiveComponent
+    ArchiveComponent,
+    ViewerComponent
   ],
   imports: [
     BrowserModule,

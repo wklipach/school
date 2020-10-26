@@ -52,7 +52,17 @@ export class AuthService {
     window.localStorage.setItem('bSchoolConnected', JSON.stringify(false));
     window.localStorage.setItem('id_user_school', JSON.stringify(-1));
     window.localStorage.setItem('schoolEditor', JSON.stringify(-1));
+    window.localStorage.removeItem('schoollesson');
   }
+
+  public setSchoolLesson(schoollesson) {
+    window.localStorage.setItem('schoollesson', JSON.stringify(schoollesson));
+  }
+
+  public getSchoolLesson() {
+    return JSON.parse(window.localStorage.getItem('schoollesson'));
+  }
+
 
   // получаем пользователя, поиск по 2 полям - его почте и нику одновременно
   getUserFromBase(UserName: string) {

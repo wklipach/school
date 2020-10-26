@@ -8,6 +8,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import { FlatpickrOptions } from 'ng2-flatpickr';
 import Russian from 'flatpickr/dist/l10n/ru.js';
 import {AuthService} from '../services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list4',
@@ -29,16 +30,16 @@ export class List4Component implements OnInit {
   listGroupMethod: any;
   methodAggegateList: any;
 
-  documentClassNameNumber = {id: -1, title: '--' };
-  documentClassNameLetter = {id: -1, title: '--' };
-  documentLessons = {id: -1, title: '' };
-  documentTypeLesson = {id: -1, title: '' };
-  documentType2Lesson = {id: -1, title: '' };
-  documentObjectiveLesson = {id: -1, title: '' };
-  documentPersonalLesson = {id: -1, title: '' };
-  documentEquipment = {id: -1, title: '' };
-  documentGroupMethod = {id: -1, id_group: -1, title: '' };
-  documentMethod = {id: -1, id_group: -1, title: '' };
+  documentClassNameNumber = {id: -1, title: '--'};
+  documentClassNameLetter = {id: -1, title: '--'};
+  documentLessons = {id: -1, title: ''};
+  documentTypeLesson = {id: -1, title: ''};
+  documentType2Lesson = {id: -1, title: ''};
+  documentObjectiveLesson = {id: -1, title: ''};
+  documentPersonalLesson = {id: -1, title: ''};
+  documentEquipment = {id: -1, title: ''};
+  documentGroupMethod = {id: -1, id_group: -1, title: ''};
+  documentMethod = {id: -1, id_group: -1, title: ''};
 
   list4Form: FormGroup;
   vDatePickOptions: FlatpickrOptions = {
@@ -47,12 +48,14 @@ export class List4Component implements OnInit {
     defaultDate: new Date()
   };
 
-  constructor(private gs: GuideService, private auth: AuthService) {
+  constructor(private router: Router, private gs: GuideService, private auth: AuthService) {
 
     this.UserInfo = this.auth.getStorage();
-    this.list4Form  = new FormGroup({
+    this.list4Form = new FormGroup({
       formControlDate: new FormControl(),
       lessonTopic: new FormControl(),
+      fio: new FormControl(),
+      fiostudent: new FormControl(),
       lessonObjectives: new FormControl()
     });
 
@@ -77,13 +80,13 @@ export class List4Component implements OnInit {
   }
 
   createOrLoadCollection(sName, objCollection, sResult: any) {
-    this.gs.checkCollection(sName).subscribe( value => {
+    this.gs.checkCollection(sName).subscribe(value => {
       if (value === false) {
-        this.gs.insertGuideLessonsName(sName,  objCollection).subscribe( guideList => {
+        this.gs.insertGuideLessonsName(sName, objCollection).subscribe(guideList => {
           this[sResult] = guideList;
         });
       } else {
-        this.gs.selectCollection(sName).subscribe( guideList => {
+        this.gs.selectCollection(sName).subscribe(guideList => {
           this[sResult] = guideList;
         });
       }
@@ -91,20 +94,21 @@ export class List4Component implements OnInit {
   }
 
   loadMethodCollection() {
-    this.gs.selectGroupInnerMethod().subscribe( methodList => {
+    this.gs.selectGroupInnerMethod().subscribe(methodList => {
       this.methodAggegateList = methodList;
       console.log(this.methodAggegateList);
     });
   }
 
   loadCurrentTeacher() {
-    this.auth.getUserFromID(this.UserInfo.id_user_school).subscribe( teacher => {
-     console.log(teacher);
+    this.auth.getUserFromID(this.UserInfo.id_user_school).subscribe(teacher => {
+      console.log(teacher);
+      this.list4Form.controls.fio.setValue(teacher[0].fio);
     });
   }
 
   onTestRes() {
-    console.log( this);
+    console.log(this);
   }
 
   onClassNameNumber(curValue) {
@@ -118,8 +122,8 @@ export class List4Component implements OnInit {
   }
 
   onLessons(curValue) {
-  this.documentLessons.id = curValue.id;
-  this.documentLessons.title = curValue.title;
+    this.documentLessons.id = curValue.id;
+    this.documentLessons.title = curValue.title;
   }
 
   onTypeLesson(curValue) {
@@ -152,11 +156,59 @@ export class List4Component implements OnInit {
     this.documentGroupMethod.id = curGroupValue.id;
     this.documentGroupMethod.id_group = curGroupValue.id_group;
     this.documentGroupMethod.title = curGroupValue.title;
-}
+  }
 
   onMethod(curMethodValue) {
     this.documentMethod.id = curMethodValue.id;
     this.documentMethod.id_group = curMethodValue.id_group;
     this.documentMethod.title = curMethodValue.title;
-}
+  }
+
+  onSaveRes() {
+
+
+    const fiostudent = this.list4Form.controls.fiostudent.value.toString().trim();
+    if (!fiostudent) {
+      alert('Укажите имя обучающегося');
+      return;
+    }
+
+    const lessonTopic = this.list4Form.controls.lessonTopic.value.toString().trim();
+    if (!lessonTopic) {
+      alert('Укажите тему урока');
+      return;
+    }
+
+    const lessonObjectives = this.list4Form.controls.lessonObjectives.value.toString().trim();
+    if (!lessonObjectives) {
+      alert('Укажите цель урока');
+      return;
+    }
+
+    if (!this.list4Form.controls.formControlDate.value) {
+      this.list4Form.controls.formControlDate.setValue(new Date());
+    }
+
+    console.log(this.list4Form.controls.formControlDate);
+
+    const summaryLesson = { formControlDate: this.list4Form.controls.formControlDate.value,
+                            fiostudent: fiostudent,
+                            lessonTopic: lessonTopic,
+                            lessonObjectives: lessonObjectives,
+                            documentClassNameNumber: this.documentClassNameNumber,
+                            documentClassNameLetter: this.documentClassNameLetter,
+                            documentLessons: this.documentLessons,
+                            documentTypeLesson: this.documentTypeLesson,
+                            documentType2Lesson: this.documentType2Lesson,
+                            documentObjectiveLesson: this.documentObjectiveLesson,
+                            documentPersonalLesson: this.documentPersonalLesson,
+                            documentEquipment: this.documentEquipment,
+                            documentGroupMethod: this.documentGroupMethod,
+                            documentMethod: this.documentMethod
+                           } ;
+
+    this.gs.insertSummaryLesson(this.UserInfo.id_user_school, summaryLesson).subscribe(suumaryRes => {
+      this.router.navigate(['/archive']);
+    });
+  }
 }

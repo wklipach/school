@@ -16,18 +16,13 @@
           <div class="lesson-topic">Тема урока</div>
         </div>
 
-        <div class="headlines">
-          <div class="data">21.10.2020</div>
-          <div class="data">Чтение (литературное чтение)</div>
-          <div class="data">Тестовая тема урока. Тестовая тема урока. Тестовая тема урока. Тестовая тема урока.
-            Тестовая тема урока. Тестовая тема урока. </div>
+        <div class="headlines" *ngFor="let lesson of linsLessons">
+          <div class="data">{{lesson.objSummaryLesson.formControlDate | date:'dd.MM.yyyy'}}</div>
+          <div class="data">{{lesson.objSummaryLesson.lessonTopic}}</div>
+          <div class="data">{{lesson.objSummaryLesson.lessonObjectives}}</div>
+          <button (click)="onClickViewing(lesson)">Просмотр</button>
         </div>
 
-        <div class="headlines">
-          <div class="data">15.09.2020</div>
-          <div class="data">Основы социальной жизни</div>
-          <div class="data">Черновик</div>
-        </div>
 
       </div>
 
