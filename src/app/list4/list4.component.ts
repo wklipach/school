@@ -35,9 +35,10 @@ export class List4Component implements OnInit {
   documentLessons = {id: -1, title: ''};
   documentTypeLesson = {id: -1, title: ''};
   documentType2Lesson = {id: -1, title: ''};
-  documentObjectiveLesson = {id: -1, title: ''};
-  documentPersonalLesson = {id: -1, title: ''};
-  documentEquipment = {id: -1, title: ''};
+
+  documentObjectiveLessonList = [];
+  documentPersonalLessonList = [];
+  documentEquipmentList = [];
   documentGroupMethod = {id: -1, id_group: -1, title: ''};
   documentMethod = {id: -1, id_group: -1, title: ''};
 
@@ -140,19 +141,22 @@ export class List4Component implements OnInit {
   }
 
   onObjectiveLesson(curValue) {
-    this.documentObjectiveLesson.id = curValue.id;
-    this.documentObjectiveLesson.title = curValue.title;
+    const documentObjectiveLesson = {id: curValue.id, title: curValue.title, delete: 0};
+    const newIndex = this.documentObjectiveLessonList.push(documentObjectiveLesson) - 1;
+    this.list4Form.addControl('subjectResults' + newIndex.toString(), new FormControl(''));
   }
 
 
   onPersonalLesson(curValue) {
-    this.documentPersonalLesson.id = curValue.id;
-    this.documentPersonalLesson.title = curValue.title;
+    const documentPersonalLesson = {id: curValue.id, title: curValue.title, delete: 0};
+    const newIndex = this.documentPersonalLessonList.push(documentPersonalLesson) - 1;
+    this.list4Form.addControl('personalResults' + newIndex.toString(), new FormControl(''));
   }
 
   onEquipment(curValue) {
-    this.documentEquipment.id = curValue.id;
-    this.documentEquipment.title = curValue.title;
+    const documentEquipment = {id: curValue.id, title: curValue.title, delete: 0};
+    const newIndex = this.documentEquipmentList.push(documentEquipment) - 1;
+    this.list4Form.addControl('equipment' + newIndex.toString(), new FormControl(''));
   }
 
   onCurGroupMethod(curGroupValue): void {
@@ -169,24 +173,46 @@ export class List4Component implements OnInit {
 
   onSaveRes() {
 
-
-    const fioteacherhome = this.list4Form.controls.fioteacherhome.value.toString().trim();
-    if (!fioteacherhome) {
+    /* 1 */
+    if (!this.list4Form.controls.fioteacherhome.value) {
       alert('Укажите имя обучающегося');
       return;
     }
+    const fioteacherhome = this.list4Form.controls.fioteacherhome.value.toString().trim();
+    /* end 1 */
 
-    const lessonTopic = this.list4Form.controls.lessonTopic.value.toString().trim();
-    if (!lessonTopic) {
+    /* 2 */
+    if (!this.list4Form.controls.lessonTopic.value) {
       alert('Укажите тему урока');
       return;
     }
+    const lessonTopic = this.list4Form.controls.lessonTopic.value.toString().trim();
+    /* end 2 */
 
-    const lessonObjectives = this.list4Form.controls.lessonObjectives.value.toString().trim();
-    if (!lessonObjectives) {
+    /* 3 */
+    if (!this.list4Form.controls.lessonObjectives.value) {
       alert('Укажите цель урока');
       return;
     }
+    const lessonObjectives = this.list4Form.controls.lessonObjectives.value.toString().trim();
+    /* end 3 */
+
+
+    // загружаем коллекцию documentObjectiveLessonList
+    this.loadInfoFromMultiLevelGuide('subjectResults', this.documentObjectiveLessonList);
+    // формируем коллекцию для записи без удаженных элементов
+    const moveDocumentObjectiveLessonList = this.deleteInfoFromMultiLevelGuide(this.documentObjectiveLessonList);
+
+    // загружаем коллекцию documentObjectiveLessonList
+    this.loadInfoFromMultiLevelGuide('personalResults', this.documentPersonalLessonList);
+    // формируем коллекцию для записи без удаженных элементов
+    const moveDocumentPersonalLessonList = this.deleteInfoFromMultiLevelGuide(this.documentPersonalLessonList);
+
+    // загружаем коллекцию documentEquipmentList
+    this.loadInfoFromMultiLevelGuide('equipment', this.documentEquipmentList);
+    // формируем коллекцию для записи без удаженных элементов
+    const moveDocumentEquipmentList = this.deleteInfoFromMultiLevelGuide(this.documentEquipmentList);
+
 
     if (!this.list4Form.controls.formControlDate.value) {
       this.list4Form.controls.formControlDate.setValue(new Date());
@@ -215,9 +241,9 @@ export class List4Component implements OnInit {
                             documentLessons: this.documentLessons,
                             documentTypeLesson: this.documentTypeLesson,
                             documentType2Lesson: this.documentType2Lesson,
-                            documentObjectiveLesson: this.documentObjectiveLesson,
-                            documentPersonalLesson: this.documentPersonalLesson,
-                            documentEquipment: this.documentEquipment,
+                            documentObjectiveLessonList: moveDocumentObjectiveLessonList,
+                            documentPersonalLessonList: moveDocumentPersonalLessonList,
+                            documentEquipmentList: moveDocumentEquipmentList,
                             documentGroupMethod: this.documentGroupMethod,
                             documentMethod: this.documentMethod,
                             subjectResultsText: this.list4Form.controls.subjectResults.value,
@@ -230,15 +256,33 @@ export class List4Component implements OnInit {
     });
   }
 
-  onClickDeleteEquipment() {
-    this.list4Form.controls.equipment.setValue('');
+  onClickDeleteEquipment(DOL) {
+    DOL.delete = 1;
   }
 
-  onClickDeletePersonalResults() {
-    this.list4Form.controls.personalResults.setValue('');
+  onClickDeletePersonalResults(DOL) {
+    DOL.delete = 1;
   }
 
-  onClickDeleteSubjectResults() {
-    this.list4Form.controls.subjectResults.setValue('');
+  onClickDeleteSubjectResults(DOL) {
+   DOL.delete = 1;
   }
+
+  loadInfoFromMultiLevelGuide(sName: string, arrayCollection: any[]) {
+    for (let i = 0; i < arrayCollection.length; i++) {
+      let sAdditionalMessage = '';
+      if (this.list4Form.controls[sName + i.toString()].value) {
+        sAdditionalMessage = this.list4Form.controls[sName + i.toString()].value.trim();
+      }
+      arrayCollection[i].AdditionalMessage = sAdditionalMessage;
+    }
+  }
+
+  deleteInfoFromMultiLevelGuide(arrayCollection: any[]) {
+    let resultCollection = arrayCollection.map(x => Object.assign({}, x));
+    resultCollection = resultCollection.filter(obj => obj.delete === 0);
+    return resultCollection;
+  }
+
+
 }

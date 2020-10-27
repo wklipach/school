@@ -163,11 +163,20 @@
           </div>
         </div>
 
-      <div class="line-result mb-3">
-       <div class="text-muted font-weight-bold result mx-3 w-25">{{documentObjectiveLesson.title}}</div>    <!-- Результат выбора из справочника  -->
-       <textarea formControlName="subjectResults" class = "form-control" rows = "1" placeholder="Предметные результаты"></textarea>
-        <img class="ml-3 deleteBtn" src="/assets/img/delete.svg" (click)="onClickDeleteSubjectResults()">
-      </div>
+
+        <!-- начало цикла Предполагаемые результаты СПИСОК № 4 -->
+        <div *ngFor="let DOL of documentObjectiveLessonList; let i = index">
+          <div *ngIf="DOL.delete === 0">
+                <div class="line-result mb-3">
+                    <div class="text-muted font-weight-bold result mx-3 w-25">{{DOL.title}}</div>    <!-- Результат выбора из справочника  -->
+                    <textarea formControlName="subjectResults{{i}}" class = "form-control" rows = "1" placeholder="Предметные результаты"></textarea>
+                    <img class="ml-3 deleteBtn" src="/assets/img/delete.svg" (click)="onClickDeleteSubjectResults(DOL)">
+                </div>
+          </div>
+        </div>
+        <!-- конец цикла -->
+
+
 
       </div>
 
@@ -185,11 +194,18 @@
           </div>
         </div>
 
-        <div class="line-result mb-3">
-          <div class="text-muted font-weight-bold result mx-3 w-25">{{documentPersonalLesson.title}}</div>    <!-- Результат выбора из справочника  -->
-          <textarea formControlName="personalResults" class = "form-control" rows = "1" placeholder="Личностные результаты"></textarea>
-          <img class="ml-3 deleteBtn" src="/assets/img/delete.svg" (click)="onClickDeletePersonalResults()">
+
+        <!-- начало цикла Предполагаемые результаты СПИСОК № 5 -->
+        <div *ngFor="let DOL of documentPersonalLessonList; let i = index">
+          <div *ngIf="DOL.delete === 0">
+           <div class="line-result mb-3">
+                <div class="text-muted font-weight-bold result mx-3 w-25">{{DOL.title}}</div>    <!-- Результат выбора из справочника  -->
+                <textarea formControlName="personalResults{{i}}" class = "form-control" rows = "1" placeholder="Личностные результаты"></textarea>
+                <img class="ml-3 deleteBtn" src="/assets/img/delete.svg" (click)="onClickDeletePersonalResults(DOL)">
+           </div>
+          </div>
         </div>
+
 
 
       </div>
@@ -210,10 +226,15 @@
           </div>
         </div>
 
-        <div class="line-result mb-3">
-          <div class="text-muted font-weight-bold result mx-3 w-25">{{documentEquipment.title}}</div>    <!-- Результат выбора из справочника  -->
-          <textarea formControlName="equipment" class = "form-control" rows = "1" placeholder="Оборудование и материалы"></textarea>
-          <img class="ml-3 deleteBtn" src="/assets/img/delete.svg" (click)="onClickDeleteEquipment()">
+        <!-- начало цикла Предполагаемые результаты СПИСОК № 5 -->
+        <div *ngFor="let DOL of documentEquipmentList; let i = index">
+          <div *ngIf="DOL.delete === 0">
+            <div class="line-result mb-3">
+              <div class="text-muted font-weight-bold result mx-3 w-25">{{DOL.title}}</div>    <!-- Результат выбора из справочника  -->
+              <textarea formControlName="equipment{{i}}" class = "form-control" rows = "1" placeholder="Оборудование и материалы"></textarea>
+              <img class="ml-3 deleteBtn" src="/assets/img/delete.svg" (click)="onClickDeleteEquipment(DOL)">
+            </div>
+          </div>
         </div>
 
 
