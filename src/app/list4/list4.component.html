@@ -60,7 +60,7 @@
 
        <div class="line">
          <span class="my-2 w-25 mr-5 text-muted font-weight-bold">ФИО обучающего (на дому)</span>
-         <input type="text" class="form-control" placeholder="ФИО" formControlName="fiostudent">
+         <input type="text" class="form-control" placeholder="ФИО" formControlName="fioteacherhome">
        </div>
       <div class="line">
         <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Тема урока</span>
@@ -166,7 +166,7 @@
       <div class="line-result mb-3">
        <div class="text-muted font-weight-bold result mx-3 w-25">{{documentObjectiveLesson.title}}</div>    <!-- Результат выбора из справочника  -->
        <textarea formControlName="subjectResults" class = "form-control" rows = "1" placeholder="Предметные результаты"></textarea>
-        <img class="ml-3 deleteBtn" src="/assets/img/delete.svg">
+        <img class="ml-3 deleteBtn" src="/assets/img/delete.svg" (click)="onClickDeleteSubjectResults()">
       </div>
 
       </div>
@@ -188,7 +188,7 @@
         <div class="line-result mb-3">
           <div class="text-muted font-weight-bold result mx-3 w-25">{{documentPersonalLesson.title}}</div>    <!-- Результат выбора из справочника  -->
           <textarea formControlName="personalResults" class = "form-control" rows = "1" placeholder="Личностные результаты"></textarea>
-          <img class="ml-3 deleteBtn" src="/assets/img/delete.svg">
+          <img class="ml-3 deleteBtn" src="/assets/img/delete.svg" (click)="onClickDeletePersonalResults()">
         </div>
 
 
@@ -213,7 +213,7 @@
         <div class="line-result mb-3">
           <div class="text-muted font-weight-bold result mx-3 w-25">{{documentEquipment.title}}</div>    <!-- Результат выбора из справочника  -->
           <textarea formControlName="equipment" class = "form-control" rows = "1" placeholder="Оборудование и материалы"></textarea>
-          <img class="ml-3 deleteBtn" src="/assets/img/delete.svg">
+          <img class="ml-3 deleteBtn" src="/assets/img/delete.svg" (click)="onClickDeleteEquipment()">
         </div>
 
 
@@ -246,7 +246,7 @@
 
 </form>
 
-<button (click)="onSaveRes()">!!!!!!!!!!!!!!</button>
+<button (click)="onSaveRes()">Сохранить урок</button>
 
 
 

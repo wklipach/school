@@ -55,8 +55,11 @@ export class List4Component implements OnInit {
       formControlDate: new FormControl(),
       lessonTopic: new FormControl(),
       fio: new FormControl(),
-      fiostudent: new FormControl(),
-      lessonObjectives: new FormControl()
+      fioteacherhome: new FormControl(),
+      lessonObjectives: new FormControl(),
+      subjectResults: new FormControl(),
+      personalResults: new FormControl(),
+      equipment: new FormControl()
     });
 
   }
@@ -167,8 +170,8 @@ export class List4Component implements OnInit {
   onSaveRes() {
 
 
-    const fiostudent = this.list4Form.controls.fiostudent.value.toString().trim();
-    if (!fiostudent) {
+    const fioteacherhome = this.list4Form.controls.fioteacherhome.value.toString().trim();
+    if (!fioteacherhome) {
       alert('Укажите имя обучающегося');
       return;
     }
@@ -189,10 +192,22 @@ export class List4Component implements OnInit {
       this.list4Form.controls.formControlDate.setValue(new Date());
     }
 
+    if (!this.list4Form.controls.subjectResults.value) {
+      this.list4Form.controls.subjectResults.setValue('');
+    }
+
+    if (!this.list4Form.controls.personalResults.value) {
+      this.list4Form.controls.personalResults.setValue('');
+    }
+
+    if (!this.list4Form.controls.equipment.value) {
+      this.list4Form.controls.equipment.setValue('');
+    }
+
     console.log(this.list4Form.controls.formControlDate);
 
     const summaryLesson = { formControlDate: this.list4Form.controls.formControlDate.value,
-                            fiostudent: fiostudent,
+                            fioteacherhome: fioteacherhome,
                             lessonTopic: lessonTopic,
                             lessonObjectives: lessonObjectives,
                             documentClassNameNumber: this.documentClassNameNumber,
@@ -204,11 +219,26 @@ export class List4Component implements OnInit {
                             documentPersonalLesson: this.documentPersonalLesson,
                             documentEquipment: this.documentEquipment,
                             documentGroupMethod: this.documentGroupMethod,
-                            documentMethod: this.documentMethod
+                            documentMethod: this.documentMethod,
+                            subjectResultsText: this.list4Form.controls.subjectResults.value,
+                            personalResultsText: this.list4Form.controls.personalResults.value,
+                            equipmentText: this.list4Form.controls.equipment.value
                            } ;
 
     this.gs.insertSummaryLesson(this.UserInfo.id_user_school, summaryLesson).subscribe(suumaryRes => {
       this.router.navigate(['/archive']);
     });
+  }
+
+  onClickDeleteEquipment() {
+    this.list4Form.controls.equipment.setValue('');
+  }
+
+  onClickDeletePersonalResults() {
+    this.list4Form.controls.personalResults.setValue('');
+  }
+
+  onClickDeleteSubjectResults() {
+    this.list4Form.controls.subjectResults.setValue('');
   }
 }
