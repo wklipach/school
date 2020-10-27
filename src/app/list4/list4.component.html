@@ -59,7 +59,7 @@
       </div>
 
        <div class="line">
-         <span class="my-2 w-25 mr-5 text-muted font-weight-bold">ФИО обучающего (на дому)</span>
+         <span class="my-2 w-25 mr-5 text-muted font-weight-bold">ФИО обучающегося (на дому)</span>
          <input type="text" class="form-control" placeholder="ФИО" formControlName="fioteacherhome">
        </div>
       <div class="line">
@@ -74,7 +74,7 @@
 
      </div>
 
-      <div class="card px-5 py-4 mb-5">
+      <div class="card pl-3 pr-2 py-4 mb-5">
 
       <h5 class="mb-3">Учебный предмет (СПИСОК № 1)</h5>
 
@@ -90,9 +90,9 @@
       <div class="text-muted font-weight-bold result mx-3">{{documentLessons.title}}</div>    <!-- Результат выбора из справочника  -->
 
 
-      <div class="d-flex justify-content-start">
+<!--      <div class="d-flex justify-content-start">
 
-        <!-- Кнопка добавления -->
+        <!-- Кнопка добавления  ->
         <button class="btn btn-outline-primary my-2 mr-4" title="Добавить урок">
           Добавить урок
         </button>
@@ -102,18 +102,18 @@
           Изменить урок
         </button>  -->
 
-        <!-- Кнопка модального окна удаления -->
+        <!-- Кнопка модального окна удаления  ->
         <button type="button" class="btn btn-outline-danger my-2 mr-4"  title="Удалить урок">
           Удалить урок
         </button>
 
-      </div>
+      </div>  -->
 
 
     </div>
 
 
-      <div class="card px-5 py-4 mb-5">
+      <div class="card pl-3 pr-2 py-4 mb-5">
 
         <h5 class="mb-3">Тип урока СПИСОК № 2</h5>
 
@@ -130,7 +130,7 @@
 
       </div>
 
-      <div class="card px-5 py-4 mb-5">
+      <div class="card pl-3 pr-2 py-4 mb-5">
 
         <h5 class="mb-3">Форма проведения урока (вид урока) СПИСОК № 3</h5>
 
@@ -147,7 +147,7 @@
 
       </div>
 
-      <div class="card px-5 py-4 mb-5">
+      <div class="card pl-3 pr-2 py-4 mb-5">
 
         <h5 class="mb-3">Предполагаемые результаты СПИСОК № 4
         </h5>
@@ -168,9 +168,13 @@
         <div *ngFor="let DOL of documentObjectiveLessonList; let i = index">
           <div *ngIf="DOL.delete === 0">
                 <div class="line-result mb-3">
-                    <div class="text-muted font-weight-bold result mx-3 w-25">{{DOL.title}}</div>    <!-- Результат выбора из справочника  -->
+                    <div class="text-muted font-weight-bold result pr-3 w-50">{{DOL.title}}</div>    <!-- Результат выбора из справочника  -->
                     <textarea formControlName="subjectResults{{i}}" class = "form-control" rows = "1" placeholder="Предметные результаты"></textarea>
-                    <img class="ml-3 deleteBtn" src="/assets/img/delete.svg" (click)="onClickDeleteSubjectResults(DOL)">
+                  <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteSubjectResults(DOL)" title="Удалить" style="max-height: 50px">
+                      <img src="/assets/img/delete.svg" width="24" height="24">
+                  </button>
+              <!--    <img src="/assets/img/delete.svg" (click)="onClickDeleteSubjectResults(DOL)"> -->
+
                 </div>
           </div>
         </div>
@@ -180,7 +184,7 @@
 
       </div>
 
-      <div class="card px-5 py-4 mb-5">
+      <div class="card pl-3 pr-2 py-4 mb-5">
 
         <h5 class="mb-3">Предполагаемые результаты СПИСОК № 5
         </h5>
@@ -199,9 +203,14 @@
         <div *ngFor="let DOL of documentPersonalLessonList; let i = index">
           <div *ngIf="DOL.delete === 0">
            <div class="line-result mb-3">
-                <div class="text-muted font-weight-bold result mx-3 w-25">{{DOL.title}}</div>    <!-- Результат выбора из справочника  -->
+                <div class="text-muted font-weight-bold result pr-3 w-50">{{DOL.title}}</div>    <!-- Результат выбора из справочника  -->
                 <textarea formControlName="personalResults{{i}}" class = "form-control" rows = "1" placeholder="Личностные результаты"></textarea>
-                <img class="ml-3 deleteBtn" src="/assets/img/delete.svg" (click)="onClickDeletePersonalResults(DOL)">
+
+             <button class="btn btn-outline-danger ml-2" (click)="onClickDeletePersonalResults(DOL)" title="Удалить" style="max-height: 50px">
+               <img src="/assets/img/delete.svg" width="24" height="24">
+             </button>
+
+            <!--    <img class="ml-3 deleteBtn" src="/assets/img/delete.svg" (click)="onClickDeletePersonalResults(DOL)"> -->
            </div>
           </div>
         </div>
@@ -210,7 +219,7 @@
 
       </div>
 
-      <div class="card px-5 py-4 mb-5">
+      <div class="card pl-3 pr-2 py-4 mb-5">
 
         <h5 class="mb-3">СПИСОК № 6 ОБОРУДОВАНИЕ И МАТЕРИАЛЫ
 
@@ -230,9 +239,14 @@
         <div *ngFor="let DOL of documentEquipmentList; let i = index">
           <div *ngIf="DOL.delete === 0">
             <div class="line-result mb-3">
-              <div class="text-muted font-weight-bold result mx-3 w-25">{{DOL.title}}</div>    <!-- Результат выбора из справочника  -->
+              <div class="text-muted font-weight-bold result pr-3 w-50">{{DOL.title}}</div>    <!-- Результат выбора из справочника  -->
               <textarea formControlName="equipment{{i}}" class = "form-control" rows = "1" placeholder="Оборудование и материалы"></textarea>
-              <img class="ml-3 deleteBtn" src="/assets/img/delete.svg" (click)="onClickDeleteEquipment(DOL)">
+
+              <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteEquipment(DOL)" title="Удалить" style="max-height: 50px">
+                <img src="/assets/img/delete.svg" width="24" height="24">
+              </button>
+
+            <!--  <img class="ml-3 deleteBtn" src="/assets/img/delete.svg" (click)="onClickDeleteEquipment(DOL)">  -->
             </div>
           </div>
         </div>
@@ -242,7 +256,7 @@
 
 
       <!-- начат блок 7 -->
-      <div class="card px-5 py-4 mb-5">
+      <div class="card pl-3 pr-2 py-4 mb-4">
 
         <h5 class="mb-3">СПИСОК № 7 «Методы»</h5>
 
@@ -258,16 +272,21 @@
         <div class="text-muted font-weight-bold result mx-3">{{documentMethod.title}}</div>    <!-- Результат выбора из справочника  -->
     </div>
 
-<!-- закончен блок 7-->
+<!-- закончен блок 7     <button (click)="onSaveRes()">Сохранить урок</button>                 -->
 
 
+
+
+  </div>
 </div>
-</div>
+
+  <button class="btn btn-outline-primary mb-4" (click)="onSaveRes()">Сохранить урок</button>
+
 </div>
 
 </form>
 
-<button (click)="onSaveRes()">Сохранить урок</button>
+
 
 
 

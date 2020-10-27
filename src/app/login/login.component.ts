@@ -102,7 +102,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           }
 
           this.auth.setStorage(value[0].login, true, value[0]._id, bEditor);
-          this.router.navigate(['/list4']);
+          this.router.navigate(['/list3']);
         } // value[0].length === 1
       });
   }

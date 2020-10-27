@@ -20,6 +20,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { List5Component } from './list5/list5.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { ViewerComponent } from './viewer/viewer.component';
+import { ResultV1Component } from './result-v1/result-v1.component';
+import { ResultV2Component } from './result-v2/result-v2.component';
+import { MyLessonsComponent } from './my-lessons/my-lessons.component';
 
 
 // определение маршрутов
@@ -50,7 +53,10 @@ const appRoutes: Routes = [
     ForgotPasswordComponent,
     List5Component,
     ArchiveComponent,
-    ViewerComponent
+    ViewerComponent,
+    ResultV1Component,
+    ResultV2Component,
+    MyLessonsComponent
   ],
   imports: [
     BrowserModule,
