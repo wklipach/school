@@ -152,6 +152,8 @@
         <h5 class="mb-3">Предполагаемые результаты СПИСОК № 4
         </h5>
 
+
+
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Предметные
@@ -161,7 +163,11 @@
           </div>
         </div>
 
-        <div class="text-muted font-weight-bold result mx-3">{{documentObjectiveLesson.title}}</div>    <!-- Результат выбора из справочника  -->
+      <div class="line-result mb-3">
+       <div class="text-muted font-weight-bold result mx-3 w-25">{{documentObjectiveLesson.title}}</div>    <!-- Результат выбора из справочника  -->
+       <textarea formControlName="subjectResults" class = "form-control" rows = "1" placeholder="Предметные результаты"></textarea>
+        <img class="ml-3 deleteBtn" src="/assets/img/delete.svg">
+      </div>
 
       </div>
 
@@ -179,7 +185,12 @@
           </div>
         </div>
 
-        <div class="text-muted font-weight-bold result mx-3">{{documentPersonalLesson.title}}</div>    <!-- Результат выбора из справочника  -->
+        <div class="line-result mb-3">
+          <div class="text-muted font-weight-bold result mx-3 w-25">{{documentPersonalLesson.title}}</div>    <!-- Результат выбора из справочника  -->
+          <textarea formControlName="personalResults" class = "form-control" rows = "1" placeholder="Личностные результаты"></textarea>
+          <img class="ml-3 deleteBtn" src="/assets/img/delete.svg">
+        </div>
+
 
       </div>
 
@@ -192,14 +203,19 @@
 
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Личностные
+            Оборудование
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu5">
             <button class="dropdown-item" type="button" *ngFor="let curValue of listEquipment" (click)="onEquipment(curValue)">{{curValue.title}}</button>
           </div>
         </div>
 
-        <div class="text-muted font-weight-bold result mx-3">{{documentEquipment.title}}</div>    <!-- Результат выбора из справочника  -->
+        <div class="line-result mb-3">
+          <div class="text-muted font-weight-bold result mx-3 w-25">{{documentEquipment.title}}</div>    <!-- Результат выбора из справочника  -->
+          <textarea formControlName="equipment" class = "form-control" rows = "1" placeholder="Оборудование и материалы"></textarea>
+          <img class="ml-3 deleteBtn" src="/assets/img/delete.svg">
+        </div>
+
 
       </div>
 
