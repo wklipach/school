@@ -1,3 +1,4 @@
+<form [formGroup]="list5Form">
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -7,28 +8,31 @@
       <app-caption></app-caption>
 
 
+  <h5 class="mb-4">СПИСОК № 8 «Базовые учебные действия»</h5>
+
+   <div *ngFor="let curGroupValue of methodAggegateList">
       <div class="d-flex justify-content-between line">
 
-          <div *ngFor="let curGroupValue of methodAggegateList">
+                <div class="vertical-column">
+                    <span>{{curGroupValue.title}}</span>
+                </div>
 
-            <div class="vertical-column">
-                <span>{{curGroupValue.title}}</span>
-            </div>
+                <div class="horizontal-column">
 
-            <div class="horizontal-column">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">1.	Формирование умения вступать в контакт (учитель-ученик,
-                  ученик-ученик, ученик-класс)</label>
-              </div>
-            </div>
+                  <div *ngFor="let curInnerDocument of curGroupValue.new_document; let i = index;">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck{{curInnerDocument.id}}" formControlName="aggregateCheck{{curInnerDocument.id}}">
+                      <label class="custom-control-label" for="customCheck{{curInnerDocument.id}}">{{i+1}}.	{{curInnerDocument.title}}</label>
+                    </div>
+                  </div>
 
+                </div>
 
-
-          </div>
       </div>
+   </div>
 
-<h5 class="mb-4">СПИСОК № 8 «Базовые учебные действия»</h5>
+<button (click)="onClickSave()">test</button>
+
 <!--
       <div class="d-flex justify-content-between line">
         <div class="vertical-column">
@@ -374,3 +378,5 @@
 </div>
 
 <br><br><br><br><br><br><br><br><br><br>
+
+</form>

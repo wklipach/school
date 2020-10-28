@@ -3,6 +3,8 @@ import {classBasicLearningActivities, classGroupLearningActivities} from '../cla
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
 import {GuideService} from '../services/guide.service';
+import {FormControl, FormGroup} from '@angular/forms';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-list5',
@@ -12,18 +14,38 @@ import {GuideService} from '../services/guide.service';
 export class List5Component implements OnInit {
 
   UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
+  list5Form: FormGroup;
+  messageEmitter = new Subject<String>();
+
   listBasicLearningActivities: any;
   listGroupLearningActivities: any;
   methodAggegateList: any;
 
-  constructor(private router: Router, private gs: GuideService, private auth: AuthService) { }
+  constructor(private router: Router, private gs: GuideService, private auth: AuthService) {
+    this.UserInfo = this.auth.getStorage();
+    this.list5Form = new FormGroup({});
+  }
 
   ngOnInit(): void {
 
-    this.UserInfo = this.auth.getStorage();
+    this.messageEmitter.subscribe(msg => {
+      if (msg === 'listBasicLearningActivities') {
+        console.log(msg);
+        this.loadCheckBox();
+        this.loadMethodCollection();
+      }
+    });
+
     this.createOrLoadCollection('classBasicLearningActivities', classBasicLearningActivities, 'listBasicLearningActivities');
     this.createOrLoadCollection('classGroupLearningActivities', classGroupLearningActivities, 'listGroupLearningActivities');
-    this.loadMethodCollection();
+
+  }
+
+
+  loadCheckBox() {
+    this.listBasicLearningActivities.forEach( element => {
+      this.list5Form.addControl('aggregateCheck' + element.id.toString(), new FormControl(''));
+    });
   }
 
   createOrLoadCollection(sName, objCollection, sResult: any) {
@@ -31,10 +53,12 @@ export class List5Component implements OnInit {
       if (value === false) {
         this.gs.insertGuideLessonsName(sName, objCollection).subscribe(guideList => {
           this[sResult] = guideList;
+          this.messageEmitter.next(sResult);
         });
       } else {
         this.gs.selectCollection(sName).subscribe(guideList => {
           this[sResult] = guideList;
+          this.messageEmitter.next(sResult);
         });
       }
     });
@@ -47,4 +71,12 @@ export class List5Component implements OnInit {
     });
   }
 
+  onClickSave() {
+    this.listBasicLearningActivities.forEach( element => {
+//      console.log('aggregateCheck' + element.id.toString(), this.list5Form.controls['aggregateCheck' + element.id.toString()].value);
+      if (this.list5Form.controls['aggregateCheck' + element.id.toString()].value) {
+        console.log('aggregateCheck' + element.id.toString(), this.list5Form.controls['aggregateCheck' + element.id.toString()].value);
+      }
+    });
+  }
 }
