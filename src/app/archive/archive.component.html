@@ -2,25 +2,26 @@
   <div class="row">
     <div class="col-12">
 
-      <div class="lesson my-5">АРХИВ УРОКОВ</div>
+      <div class="lesson mt-4 mb-3">АРХИВ УРОКОВ</div>
 
       <app-caption></app-caption>
 
-<h5>Мои уроки</h5>
+      <h5>Мои уроки</h5>
 
       <div class="archive-list mt-4">
 
-        <div class="headlines">
+        <div class="d-flex headline">
           <div class="date">Дата</div>
           <div class="lessons">Урок</div>
           <div class="lesson-topic">Тема урока</div>
         </div>
 
-        <div class="headlines" *ngFor="let lesson of linsLessons">
-          <div class="data">{{lesson.objSummaryLesson.formControlDate | date:'dd.MM.yyyy'}}</div>
-          <div class="data">{{lesson.objSummaryLesson.lessonTopic}}</div>
-          <div class="data">{{lesson.objSummaryLesson.lessonObjectives}}</div>
-          <button (click)="onClickViewing(lesson)">Просмотр</button>
+        <div class="line" *ngFor="let lesson of linsLessons">
+          <div class="date">{{lesson.objSummaryLesson.formControlDate | date:'dd.MM.yyyy'}}</div>
+          <div class="lessons">{{lesson.objSummaryLesson.lessonTopic}}</div>
+          <div class="lesson-topic">{{lesson.objSummaryLesson.lessonObjectives}}</div>
+
+          <button  (click)="onClickViewing(lesson)" type="button" class="btn btn-outline-primary m-2">Просмотр</button>
         </div>
 
 
@@ -30,3 +31,5 @@
     </div>
   </div>
 </div>
+
+

@@ -1,30 +1,36 @@
 .archive-list {
+  font-size: 18px;
   display: flex;
   flex-direction: column;
 }
-.headlines {
-  display: flex;
-  flex-direction: row;
-  margin: 0 auto;
+.headline, .line {
   min-height: 35px;
   height: auto;
+  text-align: center;
+  font-weight: bold;
+  border: solid 1px #cdcdcd;
+  margin: 0;
 }
-.headlines:hover {
-  cursor: pointer;
-  background-color: #d7f5ff;
+.line {
+  text-align: left;
+  font-weight: normal;
+}
 
+.date{
+  width:  120px;
+  padding-left: 3px;
+  border-right: solid 1px #cdcdcd;
 }
-.date, .lessons, .lesson-topic {
-  display: flex;
-  justify-content: center;
-  width:  360px;
-  font-weight: 600;
-  border: solid 1px #cdcdcd;
+.lessons  {
+  width: 360px;
+  padding-left: 3px;
+  border-right: solid 1px #cdcdcd;
 }
-.data {
-  display: flex;
-  justify-content: flex-start;
-  width:  360px;
-  border: solid 1px #cdcdcd;
-  padding-left: 10px;
+.lesson-topic {
+  width: 520px;
+  padding-left: 3px;
 }
+button {
+  max-height: 38px;
+}
+
