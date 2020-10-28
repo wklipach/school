@@ -6,8 +6,30 @@
 
       <app-caption></app-caption>
 
-<h5 class="mb-4">СПИСОК № 8 «Базовые учебные действия»</h5>
 
+      <div class="d-flex justify-content-between line">
+
+          <div *ngFor="let curGroupValue of methodAggegateList">
+
+            <div class="vertical-column">
+                <span>{{curGroupValue.title}}</span>
+            </div>
+
+            <div class="horizontal-column">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">1.	Формирование умения вступать в контакт (учитель-ученик,
+                  ученик-ученик, ученик-класс)</label>
+              </div>
+            </div>
+
+
+
+          </div>
+      </div>
+
+<h5 class="mb-4">СПИСОК № 8 «Базовые учебные действия»</h5>
+<!--
       <div class="d-flex justify-content-between line">
         <div class="vertical-column">
          <span>КОММУНИКАТИВНЫЕ</span>
@@ -275,6 +297,7 @@
 
 
 
+
       <h5 class="mb-4">СПИСОК № 10 «Базовые учебные действия»</h5>
 
       <div class="d-flex justify-content-between line">
@@ -345,9 +368,8 @@
         </div>
       </div>
 
-
-
-    </div>
+-->
+        </div>
   </div>
 </div>
 
