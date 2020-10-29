@@ -20,9 +20,12 @@ export class GuideService {
     return this.http.get(this.gr.sUrlGlobal + 'guide', {params: varparams});
   }
 
-  selectListLessons(id_user) {
+  selectListLessons(id_user, schoolarchive) {
+
     const varparams = new HttpParams()
       .set('get_lessons_user', 'get_lessons_user')
+      .set('date',  schoolarchive.date)
+      .set('current_lessons',  schoolarchive.currentLessons)
       .set('id_user', id_user);
     return this.http.get(this.gr.sUrlGlobal + 'guide', {params: varparams});
   }

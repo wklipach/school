@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 import {GuideService} from '../services/guide.service';
 
@@ -12,21 +12,53 @@ export class ArchiveComponent implements OnInit {
 
   UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
   linsLessons: Array<any> = [];
+  sTitle = '';
 
-  constructor(private router: Router, private gs: GuideService, private auth: AuthService) { }
+  constructor(private router: Router, private gs: GuideService, private auth: AuthService, actroute: ActivatedRoute) {
+
+    const dmove = router.getCurrentNavigation().extras.state;
+    if (dmove && dmove.schoolarchive) {
+     this.auth.setSchoolArchive(dmove.schoolarchive);
+    }
+
+  }
 
   ngOnInit(): void {
+
     this.UserInfo = this.auth.getStorage();
 
     if (!this.UserInfo.id_user_school) {
       this.router.navigate(['/login']);
     }
 
+    let schoolarchive = this.auth.getSchoolArchive();
+
+    if (!schoolarchive) {
+      schoolarchive = {schoolarchive: {date: this.getDateShow(), currentLessons: true}};
+    }
+
+    if (schoolarchive.currentLessons === true) {
+      this.sTitle = 'МОИ УРОКИ';
+    } else {
+      this.sTitle = 'АРХИВ УРОКОВ';
+    }
+
     // получаем список уроков
-    this.gs.selectListLessons(this.UserInfo.id_user_school).subscribe( (summaryRes: Array<any>) => {
+    this.gs.selectListLessons(this.UserInfo.id_user_school, schoolarchive).subscribe( (summaryRes: Array<any>) => {
       this.linsLessons = summaryRes;
     });
 
+  }
+
+  getDateShow() {
+    let dd = new Date();
+    // показываем с прошлого сентября
+    if (dd.getMonth() < 8) {
+      dd =  new Date(dd.getFullYear() - 1, 8, 1);
+    } else {
+      dd =  new Date(dd.getFullYear(), 8, 1);
+    }
+    return dd.toISOString();
   }
 
   onClickViewing(lesson: any) {

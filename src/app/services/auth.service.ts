@@ -37,6 +37,10 @@ export class AuthService {
     window.localStorage.setItem('schoolEditor', JSON.stringify(editor));
   }
 
+  public setSchoolArchive(schoolarchive) {
+    window.localStorage.setItem('schoolarchive', JSON.stringify(schoolarchive));
+  }
+
   public getStorage(): {schoolLogin: string, bSchoolConnected: boolean, id_user_school: string, editor: number} {
     const curSchoolLogin = window.localStorage.getItem('schoolLogin');
     const curSchoolConnected = (window.localStorage.getItem('bSchoolConnected') === 'true');
@@ -53,6 +57,7 @@ export class AuthService {
     window.localStorage.setItem('id_user_school', JSON.stringify(-1));
     window.localStorage.setItem('schoolEditor', JSON.stringify(-1));
     window.localStorage.removeItem('schoollesson');
+    window.localStorage.removeItem('schoolarchive');
   }
 
   public setSchoolLesson(schoollesson) {
@@ -61,6 +66,10 @@ export class AuthService {
 
   public getSchoolLesson() {
     return JSON.parse(window.localStorage.getItem('schoollesson'));
+  }
+
+  public getSchoolArchive() {
+    return JSON.parse(window.localStorage.getItem('schoolarchive'));
   }
 
 
