@@ -1,0 +1,21 @@
+.container {
+  /* min-height: calc(100vh - 160px); */
+  text-align: center;
+}
+.card {
+  width: 60%;
+  min-width: 350px;
+  text-align: left;
+  padding: 30px;
+  margin: 30px auto;
+}
+label {
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 0.9;
+  color: rgba(94, 94, 94, 0.99);
+}
+button {
+  min-width: 150px;
+}

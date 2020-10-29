@@ -23,6 +23,7 @@ import { ViewerComponent } from './viewer/viewer.component';
 import { ResultV1Component } from './result-v1/result-v1.component';
 import { ResultV2Component } from './result-v2/result-v2.component';
 import { MyLessonsComponent } from './my-lessons/my-lessons.component';
+import { LessonTransferComponent } from './lesson-transfer/lesson-transfer.component';
 
 
 // определение маршрутов
@@ -56,7 +57,8 @@ const appRoutes: Routes = [
     ViewerComponent,
     ResultV1Component,
     ResultV2Component,
-    MyLessonsComponent
+    MyLessonsComponent,
+    LessonTransferComponent
   ],
   imports: [
     BrowserModule,

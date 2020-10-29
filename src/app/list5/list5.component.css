@@ -1,3 +1,15 @@
+.headers {
+  text-align: center;
+}
+h2, h4, h5 {
+  margin-bottom: 20px;
+}
+.stage {
+  color: red;
+  text-align: left;
+}
+.card {
+}
 .line {
   height: auto;
   margin: 0;
