@@ -43,4 +43,8 @@ export class List3Component implements OnInit {
     this.router.navigate(['/archive'], {state: beans});
 
   }
+
+  onClickNewLessons() {
+    this.router.navigate(['/list2']);
+  }
 }

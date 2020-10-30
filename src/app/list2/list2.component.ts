@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {lessonsName} from '../class/academicSubject';
 import {GuideService} from '../services/guide.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list2',
@@ -10,7 +11,7 @@ import {GuideService} from '../services/guide.service';
 export class List2Component implements OnInit {
 
   listLessons: any;
-  constructor(private gs: GuideService) {
+  constructor(private gs: GuideService, private router: Router) {
 
   }
 
@@ -31,4 +32,7 @@ export class List2Component implements OnInit {
 
   }
 
+  onClickVar1() {
+    this.router.navigate(['/list4']);
+  }
 }

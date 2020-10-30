@@ -87,6 +87,14 @@ export class AuthService {
     return this.http.get(this.gr.sUrlGlobal + 'users', {params: params});
   }
 
+  // получаем пользователя, поиск по mongo-ID
+  getUserWithoutID(mongoID: string) {
+    const params = new HttpParams()
+      .set('get_user_withoutcurrentid', 'get_user_withoutcurrentid')
+      .set('id_user', mongoID.toString());
+    return this.http.get(this.gr.sUrlGlobal + 'users', {params: params});
+  }
+
 
   sendPassword(email: string, pwd: string, hash: string) {
     const sUrl = this.gr.sUrlGlobal + 'forgotpassword';
