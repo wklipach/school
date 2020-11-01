@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResultV1Component } from './result-v1.component';
+import { List4V2Component } from './list4-v2.component';
 
-describe('ResultV1Component', () => {
-  let component: ResultV1Component;
-  let fixture: ComponentFixture<ResultV1Component>;
+describe('List4V2Component', () => {
+  let component: List4V2Component;
+  let fixture: ComponentFixture<List4V2Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ResultV1Component ]
+      declarations: [ List4V2Component ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ResultV1Component);
+    fixture = TestBed.createComponent(List4V2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

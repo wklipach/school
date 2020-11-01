@@ -26,7 +26,7 @@
       <div class="line">
         <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Класс</span>
 
-        <div class="dropdown">
+        <div class="dropdown mr-1">
           <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenuNumeral" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{documentClassNameNumber.title}}
           </button>
@@ -221,10 +221,7 @@
 
       <div class="card pl-3 pr-2 py-4 mb-5">
 
-        <h5 class="mb-3">СПИСОК № 6 ОБОРУДОВАНИЕ И МАТЕРИАЛЫ
-
-
-        </h5>
+        <h5 class="mb-3">СПИСОК № 6 ОБОРУДОВАНИЕ И МАТЕРИАЛЫ</h5>
 
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -246,11 +243,9 @@
                 <img src="/assets/img/delete.svg" width="24" height="24">
               </button>
 
-            <!--  <img class="ml-3 deleteBtn" src="/assets/img/delete.svg" (click)="onClickDeleteEquipment(DOL)">  -->
             </div>
           </div>
         </div>
-
 
       </div>
 
@@ -270,10 +265,15 @@
 
         </div>
 
-        <div class="text-muted font-weight-bold result mx-3">{{documentMethod.title}}</div>    <!-- Результат выбора из справочника  -->
+        <div class="line-result my-3">
+        <div class="text-muted font-weight-bold result mx-3 w-50">{{documentMethod.title}}</div>    <!-- Результат выбора из справочника  -->
+        <textarea formControlName="equipment{{i}}" class = "form-control" rows = "1" placeholder="Методы"></textarea>
+          <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteEquipment(DOL)" title="Удалить" style="max-height: 50px">
+            <img src="/assets/img/delete.svg" width="24" height="24">
+          </button>
     </div>
-
-<!-- закончен блок 7     <button (click)="onSaveRes()">Сохранить урок</button>                 -->
+      </div>
+<!-- закончен блок 7                   -->
 
 
 

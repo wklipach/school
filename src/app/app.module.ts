@@ -20,10 +20,10 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { List5Component } from './list5/list5.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { ViewerComponent } from './viewer/viewer.component';
-import { ResultV1Component } from './result-v1/result-v1.component';
-import { ResultV2Component } from './result-v2/result-v2.component';
-import { MyLessonsComponent } from './my-lessons/my-lessons.component';
 import { LessonTransferComponent } from './lesson-transfer/lesson-transfer.component';
+import { ViewerV2Component } from './viewer-v2/viewer-v2.component';
+import { List4V2Component } from './list4-v2/list4-v2.component';
+import { List5V2Component } from './list5-v2/list5-v2.component';
 
 
 // определение маршрутов
@@ -32,7 +32,9 @@ const appRoutes: Routes = [
   {path: 'list2', component: List2Component},
   {path: 'list3', component: List3Component},
   {path: 'list4', component: List4Component},
+  {path: 'list4-v2', component: List4V2Component},
   {path: 'list5', component: List5Component},
+  {path: 'list5-v2', component: List5V2Component},
   {path: 'archive', component: ArchiveComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
@@ -56,10 +58,10 @@ const appRoutes: Routes = [
     List5Component,
     ArchiveComponent,
     ViewerComponent,
-    ResultV1Component,
-    ResultV2Component,
-    MyLessonsComponent,
-    LessonTransferComponent
+    LessonTransferComponent,
+    ViewerV2Component,
+    List4V2Component,
+    List5V2Component
   ],
   imports: [
     BrowserModule,

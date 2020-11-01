@@ -35,4 +35,7 @@ export class List2Component implements OnInit {
   onClickVar1() {
     this.router.navigate(['/list4']);
   }
+  onClickVar2() {
+    this.router.navigate(['/list4-v2']);
+  }
 }

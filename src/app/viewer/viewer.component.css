@@ -33,6 +33,10 @@ a {
 .view-half-right {
   border: none;
 }
+.view-half-span {
+  display: flex;
+  flex-direction: column;
+}
 span {
   text-align: left;
   font-size: 18px;

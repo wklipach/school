@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MyLessonsComponent } from './my-lessons.component';
+import { List5V2Component } from './list5-v2.component';
 
-describe('MyLessonsComponent', () => {
-  let component: MyLessonsComponent;
-  let fixture: ComponentFixture<MyLessonsComponent>;
+describe('List5V2Component', () => {
+  let component: List5V2Component;
+  let fixture: ComponentFixture<List5V2Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MyLessonsComponent ]
+      declarations: [ List5V2Component ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MyLessonsComponent);
+    fixture = TestBed.createComponent(List5V2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
