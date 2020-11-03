@@ -32,6 +32,7 @@ export class List4Component implements OnInit {
   methodAggegateList: any;
 
   methodResultat1 = [];
+  methodResultat2 = [];
 
   documentClassNameNumber = {id: -1, title: '--'};
   documentClassNameLetter = {id: -1, title: '--'};
@@ -174,10 +175,14 @@ export class List4Component implements OnInit {
 
   onSaveRes() {
 
-    // отправляем сообщения ко всем кто подписался через observable subject
-    const res = {message: 'guide7', i: 1};
-    this.g7s.sendMessage(res);
+    const res1 = {message: 'guide7', i: 1};
+    this.g7s.sendMessage(res1);
     console.log('methodResultat1=', this.methodResultat1);
+
+    const res2 = {message: 'guide7', i: 2};
+    this.g7s.sendMessage(res2);
+    console.log('methodResultat2=', this.methodResultat2);
+
 
     return;
 
@@ -298,6 +303,10 @@ export class List4Component implements OnInit {
 
     if (i === 1) {
       this.methodResultat1 = event;
+    }
+
+    if (i === 2) {
+      this.methodResultat2 = event;
     }
 
   }
