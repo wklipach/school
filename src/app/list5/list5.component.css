@@ -4,9 +4,15 @@
 h2, h4, h5 {
   margin-bottom: 20px;
 }
+.theme {
+  text-align: left;
+  font-weight: 600;
+  color: #3e3ec8;
+}
 .stage {
   color: red;
   text-align: left;
+  margin-bottom: 30px;
 }
 .card {
 }
@@ -35,4 +41,7 @@ span {
   margin: 20px auto;
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
+}
+button {
+  max-width: 242px;
 }
