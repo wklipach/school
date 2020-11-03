@@ -30,7 +30,7 @@ export class Guide7Component implements OnInit, OnDestroy {
       this.message = message;
 
 
-      if (message.i === this.numberComponent && message.message === 'guide7') {
+      if (message.i.toString() === this.numberComponent.toString() && message.message.toString() === 'guide7') {
         this.loadValue();
       }
 

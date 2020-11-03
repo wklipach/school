@@ -1,0 +1,24 @@
+<form [formGroup]="list8Form">
+
+<div *ngFor="let curGroupValue of methodAggegateList">
+  <div class="d-flex justify-content-between line">
+
+    <div class="vertical-column">
+      <span>{{curGroupValue.title}}</span>
+    </div>
+
+    <div class="horizontal-column">
+
+      <div *ngFor="let curInnerDocument of curGroupValue.new_document; let i = index;">
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="{{numberComponent}}customCheck{{curInnerDocument.id}}" formControlName="{{numberComponent}}aggregateCheck{{curInnerDocument.id}}">
+          <label class="custom-control-label" for="{{numberComponent}}customCheck{{curInnerDocument.id}}">{{i+1}}.	{{curInnerDocument.title}}</label>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+</form>
