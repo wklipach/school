@@ -1,0 +1,8 @@
+.card {
+  border-radius: 10px;
+}
+.line-result {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
