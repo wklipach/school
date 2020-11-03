@@ -24,6 +24,8 @@ import { LessonTransferComponent } from './lesson-transfer/lesson-transfer.compo
 import { ViewerV2Component } from './viewer-v2/viewer-v2.component';
 import { List4V2Component } from './list4-v2/list4-v2.component';
 import { List5V2Component } from './list5-v2/list5-v2.component';
+import { Guide7Component } from './components/guide7/guide7.component';
+import {Guide7Service} from './components/guide7/guide7.service';
 
 
 // определение маршрутов
@@ -61,7 +63,8 @@ const appRoutes: Routes = [
     LessonTransferComponent,
     ViewerV2Component,
     List4V2Component,
-    List5V2Component
+    List5V2Component,
+    Guide7Component
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,7 @@ const appRoutes: Routes = [
     Ng2FlatpickrModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [GlobalRef, GuideService],
+  providers: [GlobalRef, GuideService, Guide7Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

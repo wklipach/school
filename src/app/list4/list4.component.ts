@@ -9,6 +9,7 @@ import { FlatpickrOptions } from 'ng2-flatpickr';
 import Russian from 'flatpickr/dist/l10n/ru.js';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
+import {Guide7Service} from '../components/guide7/guide7.service';
 
 @Component({
   selector: 'app-list4',
@@ -30,6 +31,8 @@ export class List4Component implements OnInit {
   listGroupMethod: any;
   methodAggegateList: any;
 
+  methodResultat1 = [];
+
   documentClassNameNumber = {id: -1, title: '--'};
   documentClassNameLetter = {id: -1, title: '--'};
   documentLessons = {id: -1, title: ''};
@@ -49,7 +52,7 @@ export class List4Component implements OnInit {
     defaultDate: new Date()
   };
 
-  constructor(private router: Router, private gs: GuideService, private auth: AuthService) {
+  constructor(private router: Router, private gs: GuideService, private auth: AuthService, private g7s: Guide7Service) {
 
     this.UserInfo = this.auth.getStorage();
     this.list4Form = new FormGroup({
@@ -100,13 +103,11 @@ export class List4Component implements OnInit {
   loadMethodCollection() {
     this.gs.selectGroupInnerMethod().subscribe(methodList => {
       this.methodAggegateList = methodList;
-      console.log(this.methodAggegateList);
     });
   }
 
   loadCurrentTeacher() {
     this.auth.getUserFromID(this.UserInfo.id_user_school).subscribe(teacher => {
-      console.log(teacher);
       this.list4Form.controls.fio.setValue(teacher[0].fio);
     });
   }
@@ -173,6 +174,14 @@ export class List4Component implements OnInit {
 
   onSaveRes() {
 
+    // отправляем сообщения ко всем кто подписался через observable subject
+    const res = {message: 'guide7', i: 1};
+    this.g7s.sendMessage(res);
+    console.log('methodResultat1=', this.methodResultat1);
+
+    return;
+
+
     /* 1 */
     if (!this.list4Form.controls.fioteacherhome.value) {
       alert('Укажите имя обучающегося');
@@ -230,7 +239,6 @@ export class List4Component implements OnInit {
       this.list4Form.controls.equipment.setValue('');
     }
 
-    console.log(this.list4Form.controls.formControlDate);
 
     const summaryLesson = { formControlDate: this.list4Form.controls.formControlDate.value,
                             fioteacherhome: fioteacherhome,
@@ -244,8 +252,9 @@ export class List4Component implements OnInit {
                             documentObjectiveLessonList: moveDocumentObjectiveLessonList,
                             documentPersonalLessonList: moveDocumentPersonalLessonList,
                             documentEquipmentList: moveDocumentEquipmentList,
-                            documentGroupMethod: this.documentGroupMethod,
-                            documentMethod: this.documentMethod,
+                            GuideMultiOne_method1:  {
+                              documentGroupMethod: this.documentGroupMethod,
+                              documentMethod: this.documentMethod},
                             subjectResultsText: this.list4Form.controls.subjectResults.value,
                             personalResultsText: this.list4Form.controls.personalResults.value,
                             equipmentText: this.list4Form.controls.equipment.value
@@ -285,4 +294,11 @@ export class List4Component implements OnInit {
   }
 
 
+  onResGuide7(event, i) {
+
+    if (i === 1) {
+      this.methodResultat1 = event;
+    }
+
+  }
 }
