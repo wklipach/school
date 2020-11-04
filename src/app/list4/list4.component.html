@@ -250,7 +250,7 @@
       </div>
 
 
-      <!-- начат блок 7 -->
+      <!-- начат блок 7  Здесь не нужен переехал на List5
 
       <div class="card pl-3 pr-2 py-4 mb-4">
 
@@ -266,14 +266,21 @@
         </div>
 
         <div class="line-result my-3">
-        <div class="text-muted font-weight-bold result mx-3 w-50">{{documentMethod.title}}</div>    <!-- Результат выбора из справочника  -->
+        <div class="text-muted font-weight-bold result mx-3 w-50">{{documentMethod.title}}</div>
         <textarea formControlName="equipment{{i}}" class = "form-control" rows = "1" placeholder="Методы"></textarea>
           <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteEquipment(DOL)" title="Удалить" style="max-height: 50px">
             <img src="/assets/img/delete.svg" width="24" height="24">
           </button>
     </div>
       </div>
-<!-- закончен блок 7                   -->
+ закончен блок 7
+
+
+<div>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</div>
+<app-guide7 [numberComponent]="1"  titleMethodComponent = "новый компонент 1" (methodResultat)="onResGuide7($event, 1)" ></app-guide7>
+      <app-guide7 [numberComponent]="2"  titleMethodComponent = "новый компонент 2" (methodResultat)="onResGuide7($event, 2)" ></app-guide7>
+
+      -->
 
 
 
@@ -286,12 +293,6 @@
 </div>
 
 </form>
-
-
-<div>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</div>
-<!-- <app-guide7 [numberComponent]="1"  titleMethodComponent = "новый компонент 1" (methodResultat)="onResGuide7($event, 1)" ></app-guide7> -->
-<app-guide7 [numberComponent]="2"  titleMethodComponent = "новый компонент 2" (methodResultat)="onResGuide7($event, 2)" ></app-guide7>
-
 
 
 

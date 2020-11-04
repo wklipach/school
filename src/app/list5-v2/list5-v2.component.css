@@ -8,6 +8,11 @@ h2, h4, h5 {
   color: red;
   text-align: left;
 }
+.theme {
+  text-align: left;
+  font-weight: 600;
+  color: #3e3ec8;
+}
 .card {
 }
 .line {
