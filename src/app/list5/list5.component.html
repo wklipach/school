@@ -1,9 +1,9 @@
 
+<form [formGroup]="list5Form">
+
 <div class="container">
   <div class="row">
     <div class="col-12">
-
-      <form [formGroup]="list5Form">
 
       <div class="lesson my-5">ЛИСТ 5</div>
 
@@ -47,38 +47,6 @@
           </div>
         </div>
 
-     <!-- Можно удалить
-        <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid0" aria-expanded="false" aria-controls="collapseGuid0">
-          Базовые учебные действия
-        </button>
-
-        <div class="collapse" id="collapseGuid0">
-          <div class="my-1">
-            <div *ngFor="let curGroupValue of methodAggegateList">
-              <div class="d-flex justify-content-between line">
-
-                <div class="vertical-column">
-                  <span>{{curGroupValue.title}}</span>
-                </div>
-
-                <div class="horizontal-column">
-
-                  <div *ngFor="let curInnerDocument of curGroupValue.new_document; let i = index;">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck{{curInnerDocument.id}}" formControlName="aggregateCheck{{curInnerDocument.id}}">
-                      <label class="custom-control-label" for="customCheck{{curInnerDocument.id}}">{{i+1}}.	{{curInnerDocument.title}}</label>
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-
-            <button (click)="onClickSave()">test</button>
-          </div>
-        </div>   -->
-
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
@@ -87,7 +55,7 @@
 
       <!-- Конец ОРГАНИЗАЦИОННОГО этапа -->
 
-</form>
+
 
       <!-- Начало Этап урока - проверка домашнего задания -->
 
@@ -98,12 +66,12 @@
 
       <div class="card pt-2 pb-4 px-4 mb-5">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
-        <textarea formControlName="teacheractivity" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+        <textarea formControlName="teacheractivity2" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
       </div>
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
-        <textarea formControlName="studentactivities" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+        <textarea formControlName="studentactivities2" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
       </div>
 
 
@@ -124,7 +92,7 @@
 
   <div class="card pt-2 pb-4 px-4 mb-4">
     <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
-    <textarea formControlName="reviewerrecommendations" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+    <textarea formControlName="reviewerrecommendations2" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
   </div>
 
   <!-- Конец - проверка домашнего задания  -->
@@ -138,12 +106,12 @@
 
   <div class="card pt-2 pb-4 px-4 mb-5">
     <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
-    <textarea formControlName="teacheractivity" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+    <textarea formControlName="teacheractivity3" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
   </div>
 
   <div class="card pt-2 pb-4 px-4 mb-4">
     <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
-    <textarea formControlName="studentactivities" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+    <textarea formControlName="studentactivities3" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
   </div>
 
 
@@ -165,7 +133,7 @@
 
     <div class="card pt-2 pb-4 px-4 mb-4">
       <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
-      <textarea formControlName="reviewerrecommendations" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+      <textarea formControlName="reviewerrecommendations3" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
     </div>
 
     <!-- Конец - Этап урока - актуализация знаний и умений   -->
@@ -180,12 +148,12 @@
 
       <div class="card pt-2 pb-4 px-4 mb-5">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
-        <textarea formControlName="teacheractivity" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+        <textarea formControlName="teacheractivity4" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
       </div>
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
-        <textarea formControlName="studentactivities" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+        <textarea formControlName="studentactivities4" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
       </div>
 
 
@@ -207,7 +175,7 @@
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
-        <textarea formControlName="reviewerrecommendations" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+        <textarea formControlName="reviewerrecommendations4" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
       </div>
 
       <!-- Конец - Этап урока - сообщение темы и цели урока   -->
@@ -222,12 +190,12 @@
 
       <div class="card pt-2 pb-4 px-4 mb-5">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
-        <textarea formControlName="teacheractivity" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+        <textarea formControlName="teacheractivity5" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
       </div>
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
-        <textarea formControlName="studentactivities" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+        <textarea formControlName="studentactivities5" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
       </div>
 
 
@@ -249,7 +217,7 @@
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
-        <textarea formControlName="reviewerrecommendations" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+        <textarea formControlName="reviewerrecommendations5" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
       </div>
 
       <!-- Конец - Этап урока -  мотивация и планирование учебной деятельности   -->
@@ -265,12 +233,12 @@
 
       <div class="card pt-2 pb-4 px-4 mb-5">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
-        <textarea formControlName="teacheractivity" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+        <textarea formControlName="teacheractivity6" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
       </div>
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
-        <textarea formControlName="studentactivities" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+        <textarea formControlName="studentactivities6" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
       </div>
 
 
@@ -292,7 +260,7 @@
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
-        <textarea formControlName="reviewerrecommendations" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+        <textarea formControlName="reviewerrecommendations6" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
       </div>
 
       <!-- Конец - Этап урока -  изучение нового материала   -->
@@ -307,12 +275,12 @@
 
       <div class="card pt-2 pb-4 px-4 mb-5">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
-        <textarea formControlName="teacheractivity" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+        <textarea formControlName="teacheractivity7" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
       </div>
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
-        <textarea formControlName="studentactivities" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+        <textarea formControlName="studentactivities7" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
       </div>
 
 
@@ -334,7 +302,7 @@
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
-        <textarea formControlName="reviewerrecommendations" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+        <textarea formControlName="reviewerrecommendations7" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
       </div>
 
       <!-- Конец - Этап урока -  закрепление изученного материала   -->
@@ -351,12 +319,12 @@
 
       <div class="card pt-2 pb-4 px-4 mb-5">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
-        <textarea formControlName="teacheractivity" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+        <textarea formControlName="teacheractivity8" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
       </div>
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
-        <textarea formControlName="studentactivities" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+        <textarea formControlName="studentactivities8" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
       </div>
 
 
@@ -378,7 +346,7 @@
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
-        <textarea formControlName="reviewerrecommendations" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+        <textarea formControlName="reviewerrecommendations8" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
       </div>
 
       <!-- Конец - Этап урока - подведение итогов (выводы, оценивание, рефлексия)   -->
@@ -392,12 +360,12 @@
 
       <div class="card pt-2 pb-4 px-4 mb-5">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
-        <textarea formControlName="teacheractivity" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+        <textarea formControlName="teacheractivity9" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
       </div>
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
-        <textarea formControlName="studentactivities" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+        <textarea formControlName="studentactivities9" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
       </div>
 
 
@@ -419,7 +387,7 @@
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
-        <textarea formControlName="reviewerrecommendations" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+        <textarea formControlName="reviewerrecommendations9" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
       </div>
 
       <!-- Конец - Этап урока -  сообщение домашнего задания (инструктаж)  -->
@@ -434,16 +402,17 @@
 
       <div class="card pt-2 pb-4 px-4 mb-5">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
-        <textarea formControlName="teacheractivity" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+        <textarea formControlName="teacheractivity10" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
       </div>
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
-        <textarea formControlName="studentactivities" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+        <textarea formControlName="studentactivities10" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
       </div>
 
 
       <h5 class="mb-4">СПИСОК № 8 «Базовые учебные действия»</h5>
+
 
       <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid10" aria-expanded="false" aria-controls="collapseGuid10">
         Базовые учебные действия
@@ -461,7 +430,7 @@
 
       <div class="card pt-2 pb-4 px-4 mb-4">
         <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
-        <textarea formControlName="reviewerrecommendations" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+        <textarea formControlName="reviewerrecommendations10" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
       </div>
 
       <!-- Конец - Этап урока -  организованное окончание урока  -->
@@ -476,4 +445,4 @@
 
 <br><br><br>
 
-
+</form>

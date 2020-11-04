@@ -70,36 +70,29 @@ export class List4Component implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createOrLoadCollection('lessonsName', lessonsName, 'listLessons');
-    this.createOrLoadCollection('classNameNumber', classNameNumber, 'listClassNameNumber');
-    this.createOrLoadCollection('classNameLetter', classNameLetter, 'listClassNameLetter');
-    this.createOrLoadCollection('classTypeLesson', classTypeLesson, 'listTypeLesson');
-    this.createOrLoadCollection('classType2Lesson', classType2Lesson, 'listType2Lesson');
-    this.createOrLoadCollection('classObjectiveLesson', classObjectiveLesson, 'listObjectiveLesson');
+    this.LoadCollection('lessonsName',  'listLessons');
+    this.LoadCollection('classNameNumber',  'listClassNameNumber');
+    this.LoadCollection('classNameLetter',  'listClassNameLetter');
+    this.LoadCollection('classTypeLesson',  'listTypeLesson');
+    this.LoadCollection('classType2Lesson',  'listType2Lesson');
+    this.LoadCollection('classObjectiveLesson', 'listObjectiveLesson');
 
-    this.createOrLoadCollection('classPersonalLesson', classPersonalLesson, 'listPersonalLesson');
-    this.createOrLoadCollection('classEquipment', classEquipment, 'listEquipment');
+    this.LoadCollection('classPersonalLesson', 'listPersonalLesson');
+    this.LoadCollection('classEquipment', 'listEquipment');
 
-    this.createOrLoadCollection('classMethod', classMethod, 'listMethod');
-    this.createOrLoadCollection('classGroupMethod', classGroupMethod, 'listGroupMethod');
+    this.LoadCollection('classMethod', 'listMethod');
+    this.LoadCollection('classGroupMethod', 'listGroupMethod');
     this.loadMethodCollection();
 
     this.loadCurrentTeacher();
   }
 
-  createOrLoadCollection(sName, objCollection, sResult: any) {
-    this.gs.checkCollection(sName).subscribe(value => {
-      if (value === false) {
-        this.gs.insertGuideLessonsName(sName, objCollection).subscribe(guideList => {
-          this[sResult] = guideList;
-        });
-      } else {
-        this.gs.selectCollection(sName).subscribe(guideList => {
-          this[sResult] = guideList;
-        });
-      }
+  LoadCollection(sName, sResult: any) {
+    this.gs.selectCollection(sName).subscribe(guideList => {
+      this[sResult] = guideList;
     });
   }
+
 
   loadMethodCollection() {
     this.gs.selectGroupInnerMethod().subscribe(methodList => {
@@ -175,6 +168,7 @@ export class List4Component implements OnInit {
 
   onSaveRes() {
 
+    /*
     const res1 = {message: 'guide7', i: 1};
     this.g7s.sendMessage(res1);
     console.log('methodResultat1=', this.methodResultat1);
@@ -182,9 +176,7 @@ export class List4Component implements OnInit {
     const res2 = {message: 'guide7', i: 2};
     this.g7s.sendMessage(res2);
     console.log('methodResultat2=', this.methodResultat2);
-
-
-    return;
+   */
 
 
     /* 1 */
@@ -257,15 +249,17 @@ export class List4Component implements OnInit {
                             documentObjectiveLessonList: moveDocumentObjectiveLessonList,
                             documentPersonalLessonList: moveDocumentPersonalLessonList,
                             documentEquipmentList: moveDocumentEquipmentList,
-                            GuideMultiOne_method1:  {
-                              documentGroupMethod: this.documentGroupMethod,
-                              documentMethod: this.documentMethod},
-                            subjectResultsText: this.list4Form.controls.subjectResults.value,
-                            personalResultsText: this.list4Form.controls.personalResults.value,
-                            equipmentText: this.list4Form.controls.equipment.value
+//                            GuideMultiOne_method1:  {
+//                              documentGroupMethod: this.documentGroupMethod,
+//                              documentMethod: this.documentMethod},
+//                            subjectResultsText: this.list4Form.controls.subjectResults.value,
+//                            personalResultsText: this.list4Form.controls.personalResults.value,
+//                            equipmentText: this.list4Form.controls.equipment.value
                            } ;
 
-    this.gs.insertSummaryLesson(this.UserInfo.id_user_school, summaryLesson).subscribe(suumaryRes => {
+    this.gs.insertSummaryLesson(this.UserInfo.id_user_school, summaryLesson).subscribe( (suumaryRes: any) => {
+      this.auth.setSaveDocumentId(suumaryRes.insertedId);
+      console.log('suumaryRes', suumaryRes.insertedId);
       this.router.navigate(['/list5']);
     });
   }

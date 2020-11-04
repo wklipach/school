@@ -20,6 +20,25 @@ export class List5Component implements OnInit {
   messageEmitter = new Subject<String>();
   Guide8Resultat1 = [];
   Guide8Resultat2 = [];
+  Guide8Resultat3 = [];
+  Guide8Resultat4 = [];
+  Guide8Resultat5 = [];
+  Guide8Resultat6 = [];
+  Guide8Resultat7 = [];
+  Guide8Resultat8 = [];
+  Guide8Resultat9 = [];
+  Guide8Resultat10 = [];
+  Guide7Resultat1 = [];
+  Guide7Resultat2 = [];
+  Guide7Resultat3 = [];
+  Guide7Resultat4 = [];
+  Guide7Resultat5 = [];
+  Guide7Resultat6 = [];
+  Guide7Resultat7 = [];
+  Guide7Resultat8 = [];
+  Guide7Resultat9 = [];
+  Guide7Resultat10 = [];
+
 
 
   listBasicLearningActivities: any;
@@ -32,11 +51,41 @@ export class List5Component implements OnInit {
     this.list5Form = new FormGroup({
       teacheractivity: new FormControl(''),
       studentactivities: new FormControl(''),
-      reviewerrecommendations: new FormControl('')
+      reviewerrecommendations: new FormControl(''),
+      teacheractivity2: new FormControl(''),
+      studentactivities2: new FormControl(''),
+      reviewerrecommendations2: new FormControl(''),
+      teacheractivity3: new FormControl(''),
+      studentactivities3: new FormControl(''),
+      reviewerrecommendations3: new FormControl(''),
+      teacheractivity4: new FormControl(''),
+      studentactivities4: new FormControl(''),
+      reviewerrecommendations4: new FormControl(''),
+      teacheractivity5: new FormControl(''),
+      studentactivities5: new FormControl(''),
+      reviewerrecommendations5: new FormControl(''),
+      teacheractivity6: new FormControl(''),
+      studentactivities6: new FormControl(''),
+      reviewerrecommendations6: new FormControl(''),
+      teacheractivity7: new FormControl(''),
+      studentactivities7: new FormControl(''),
+      reviewerrecommendations7: new FormControl(''),
+      teacheractivity8: new FormControl(''),
+      studentactivities8: new FormControl(''),
+      reviewerrecommendations8: new FormControl(''),
+      teacheractivity9: new FormControl(''),
+      studentactivities9: new FormControl(''),
+      reviewerrecommendations9: new FormControl(''),
+      teacheractivity10: new FormControl(''),
+      studentactivities10: new FormControl(''),
+      reviewerrecommendations10: new FormControl(''),
+
+
     });
   }
 
   ngOnInit(): void {
+
 
     this.messageEmitter.subscribe(msg => {
       if (msg === 'listBasicLearningActivities') {
@@ -45,9 +94,6 @@ export class List5Component implements OnInit {
         this.loadMethodCollection();
       }
     });
-
-    this.createOrLoadCollection('classBasicLearningActivities', classBasicLearningActivities, 'listBasicLearningActivities');
-    this.createOrLoadCollection('classGroupLearningActivities', classGroupLearningActivities, 'listGroupLearningActivities');
 
   }
 
@@ -58,6 +104,7 @@ export class List5Component implements OnInit {
     });
   }
 
+/*
   createOrLoadCollection(sName, objCollection, sResult: any) {
     this.gs.checkCollection(sName).subscribe(value => {
       if (value === false) {
@@ -73,11 +120,11 @@ export class List5Component implements OnInit {
       }
     });
   }
+*/
 
   loadMethodCollection() {
     this.gs.selectLearningActivities().subscribe(methodList => {
       this.methodAggegateList = methodList;
-      console.log(this.methodAggegateList);
     });
   }
 
@@ -100,13 +147,74 @@ export class List5Component implements OnInit {
     console.log('Guide8Resultat2=', this.Guide8Resultat2);
   }
 
+  onResGuide7(event: [], i: number) {
+    if (i === 1) {
+      this.Guide7Resultat1 = event;
+    }
+
+    if (i === 2) {
+      this.Guide7Resultat2 = event;
+    }
+
+    if (i === 3) {
+      this.Guide7Resultat3 = event;
+    }
+    if (i === 4) {
+      this.Guide7Resultat4 = event;
+    }
+    if (i === 5) {
+      this.Guide7Resultat5 = event;
+    }
+    if (i === 6) {
+      this.Guide7Resultat6 = event;
+    }
+    if (i === 7) {
+      this.Guide7Resultat7 = event;
+    }
+    if (i === 8) {
+      this.Guide7Resultat8 = event;
+    }
+    if (i === 9) {
+      this.Guide7Resultat9 = event;
+    }
+    if (i === 10) {
+      this.Guide7Resultat10 = event;
+    }
+  }
+
   onResGuide8(event: [], i: number) {
+
     if (i === 1) {
       this.Guide8Resultat1 = event;
     }
 
     if (i === 2) {
       this.Guide8Resultat2 = event;
+    }
+
+    if (i === 3) {
+      this.Guide8Resultat3 = event;
+    }
+    if (i === 4) {
+      this.Guide8Resultat4 = event;
+    }
+    if (i === 5) {
+      this.Guide8Resultat5 = event;
+    }
+    if (i === 6) {
+      this.Guide8Resultat6 = event;
+    }
+    if (i === 7) {
+      this.Guide8Resultat7 = event;
+    }
+    if (i === 8) {
+      this.Guide8Resultat8 = event;
+    }
+    if (i === 9) {
+      this.Guide8Resultat9 = event;
+    }
+    if (i === 10) {
+      this.Guide8Resultat10 = event;
     }
   }
 }

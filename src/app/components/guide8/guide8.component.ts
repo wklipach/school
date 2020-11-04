@@ -45,8 +45,8 @@ export class Guide8Component implements OnInit, OnDestroy  {
       }
     });
 
-    this.createOrLoadCollection('classBasicLearningActivities', classBasicLearningActivities, 'listBasicLearningActivities');
-    this.createOrLoadCollection('classGroupLearningActivities', classGroupLearningActivities, 'listGroupLearningActivities');
+     this.LoadCollection('classBasicLearningActivities', 'listBasicLearningActivities');
+     this.LoadCollection('classGroupLearningActivities', 'listGroupLearningActivities');
 
   }
 
@@ -64,6 +64,7 @@ export class Guide8Component implements OnInit, OnDestroy  {
   }
 
   loadCheckBox() {
+    console.log('компонент =>', this.numberComponent.toString());
     this.listBasicLearningActivities.forEach( element => {
       this.list8Form.addControl(this.numberComponent.toString() + 'aggregateCheck' + element.id.toString(), new FormControl(''));
     });
@@ -76,21 +77,13 @@ export class Guide8Component implements OnInit, OnDestroy  {
     });
   }
 
-  createOrLoadCollection(sName, objCollection, sResult: any) {
-    this.gs.checkCollection(sName).subscribe(value => {
-      if (value === false) {
-        this.gs.insertGuideLessonsName(sName, objCollection).subscribe(guideList => {
-          this[sResult] = guideList;
-          this.messageEmitter.next(sResult);
-        });
-      } else {
+  LoadCollection(sName, sResult: any) {
         this.gs.selectCollection(sName).subscribe(guideList => {
           this[sResult] = guideList;
           this.messageEmitter.next(sResult);
         });
       }
-    });
-  }
+
 
   ngOnDestroy(): void {
     // нужно отписаться чтобы не выгружать память

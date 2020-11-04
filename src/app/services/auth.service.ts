@@ -58,11 +58,21 @@ export class AuthService {
     window.localStorage.setItem('schoolEditor', JSON.stringify(-1));
     window.localStorage.removeItem('schoollesson');
     window.localStorage.removeItem('schoolarchive');
+    window.localStorage.removeItem('savedocument_id');
   }
 
   public setSchoolLesson(schoollesson) {
     window.localStorage.setItem('schoollesson', JSON.stringify(schoollesson));
   }
+
+  public setSaveDocumentId(id) {
+    window.localStorage.setItem('savedocument_id', JSON.stringify(id));
+  }
+
+  public getSaveDocumentId() {
+    return JSON.parse(window.localStorage.getItem('savedocument_id'));
+  }
+
 
   public getSchoolLesson() {
     return JSON.parse(window.localStorage.getItem('schoollesson'));
