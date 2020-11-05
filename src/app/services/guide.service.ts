@@ -67,6 +67,10 @@ export class GuideService {
     return this.http.post(this.gr.sUrlGlobal + 'guide', datamessage);
   }
 
+  updateSummaryLessonList5(id_key, objSummaryLesson2) {
+    const datamessage = {update_summarylesson: 'update_summarylesson', id_key, objSummaryLesson2};
+    return this.http.post(this.gr.sUrlGlobal + 'guide', datamessage);
+  }
 
 
 }

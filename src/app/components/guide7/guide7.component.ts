@@ -48,15 +48,20 @@ export class Guide7Component implements OnInit, OnDestroy {
     this.methodResultat.emit(res);
   }
 
+
   deleteInfoFromMultiLevelGuide(arrayCollection: any[]) {
     let resultCollection = arrayCollection.map(x => Object.assign({}, x));
+
+    resultCollection.forEach( (value, i) => {
+      value.text = this.methodForm.controls[this.numberComponent.toString() + 'method' + i.toString()].value;
+    });
     resultCollection = resultCollection.filter(obj => obj.delete === 0);
     return resultCollection;
   }
 
   onMethod(curMethodValue, curGroupValue) {
     const documentMethod = {id: curMethodValue.id, id_group: curMethodValue.id_group,
-                            title: curMethodValue.title, group_title: curGroupValue.title,  delete: 0};
+                            title: curMethodValue.title, group_title: curGroupValue.title,  delete: 0, text: ''};
     const newIndex = this.documentComponentMethodList.push(documentMethod) - 1;
     this.methodForm.addControl(this.numberComponent.toString() + 'method' + newIndex.toString(), new FormControl(''));
     console.log('documentMethod=', documentMethod);

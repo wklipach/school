@@ -259,7 +259,6 @@ export class List4Component implements OnInit {
 
     this.gs.insertSummaryLesson(this.UserInfo.id_user_school, summaryLesson).subscribe( (suumaryRes: any) => {
       this.auth.setSaveDocumentId(suumaryRes.insertedId);
-      console.log('suumaryRes', suumaryRes.insertedId);
       this.router.navigate(['/list5']);
     });
   }

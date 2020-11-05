@@ -137,7 +137,16 @@ export class List5Component implements OnInit {
     });
   }
 
+
+  sentCurrentMessage(guideName: string, iNumber: number) {
+    const res = {message: guideName, i: iNumber};
+    this.g7s.sendMessage(res);
+  }
+
+
   saveList5() {
+
+/*
     console.log('111');
     const res1 = {message: 'guide8', i: 1};
     this.g7s.sendMessage(res1);
@@ -145,7 +154,116 @@ export class List5Component implements OnInit {
     const res2 = {message: 'guide8', i: 2};
     this.g7s.sendMessage(res2);
     console.log('Guide8Resultat2=', this.Guide8Resultat2);
+*/
+    // получаем номер id
+    const id = this.auth.getSaveDocumentId();
+
+    // получаем все справочники
+    const objResult: {[k: string]: any} = {};
+    this.sentCurrentMessage('guide7', 1);
+    this.sentCurrentMessage('guide7', 2);
+    this.sentCurrentMessage('guide7', 3);
+    this.sentCurrentMessage('guide7', 4);
+    this.sentCurrentMessage('guide7', 5);
+    this.sentCurrentMessage('guide7', 6);
+    this.sentCurrentMessage('guide7', 7);
+    this.sentCurrentMessage('guide7', 8);
+    this.sentCurrentMessage('guide7', 9);
+    this.sentCurrentMessage('guide7', 10);
+    this.sentCurrentMessage('guide8', 1);
+    this.sentCurrentMessage('guide8', 2);
+    this.sentCurrentMessage('guide8', 3);
+    this.sentCurrentMessage('guide8', 4);
+    this.sentCurrentMessage('guide8', 5);
+    this.sentCurrentMessage('guide8', 6);
+    this.sentCurrentMessage('guide8', 7);
+    this.sentCurrentMessage('guide8', 8);
+    this.sentCurrentMessage('guide8', 9);
+    this.sentCurrentMessage('guide8', 10);
+
+    objResult.Guide7Resultat1 = this.Guide7Resultat1;
+    objResult.Guide7Resultat2 = this.Guide7Resultat2;
+    objResult.Guide7Resultat3 = this.Guide7Resultat3;
+    objResult.Guide7Resultat4 = this.Guide7Resultat4;
+    objResult.Guide7Resultat5 = this.Guide7Resultat5;
+    objResult.Guide7Resultat6 = this.Guide7Resultat6;
+    objResult.Guide7Resultat7 = this.Guide7Resultat7;
+    objResult.Guide7Resultat8 = this.Guide7Resultat8;
+    objResult.Guide7Resultat9 = this.Guide7Resultat9;
+    objResult.Guide7Resultat10 = this.Guide7Resultat10;
+    objResult.Guide8Resultat1 = this.Guide8Resultat1;
+    objResult.Guide8Resultat2 = this.Guide8Resultat2;
+    objResult.Guide8Resultat3 = this.Guide8Resultat3;
+    objResult.Guide8Resultat4 = this.Guide8Resultat4;
+    objResult.Guide8Resultat5 = this.Guide8Resultat5;
+    objResult.Guide8Resultat6 = this.Guide8Resultat6;
+    objResult.Guide8Resultat7 = this.Guide8Resultat7;
+    objResult.Guide8Resultat8 = this.Guide8Resultat8;
+    objResult.Guide8Resultat9 = this.Guide8Resultat9;
+    objResult.Guide8Resultat10 = this.Guide8Resultat10;
+
+    objResult.teacheractivity = this.list5Form.controls.teacheractivity.value;
+    objResult.studentactivities = this.list5Form.controls.studentactivities.value;
+    objResult.reviewerrecommendations = this.list5Form.controls.reviewerrecommendations.value;
+
+    objResult.teacheractivity2 = this.list5Form.controls.teacheractivity2.value;
+    objResult.studentactivities2 = this.list5Form.controls.studentactivities2.value;
+    objResult.reviewerrecommendations2 = this.list5Form.controls.reviewerrecommendations2.value;
+
+    objResult.teacheractivity3 = this.list5Form.controls.teacheractivity3.value;
+    objResult.studentactivities3 = this.list5Form.controls.studentactivities3.value;
+    objResult.reviewerrecommendations3 = this.list5Form.controls.reviewerrecommendations3.value;
+
+    objResult.teacheractivity4 = this.list5Form.controls.teacheractivity4.value;
+    objResult.studentactivities4 = this.list5Form.controls.studentactivities4.value;
+    objResult.reviewerrecommendations4 = this.list5Form.controls.reviewerrecommendations4.value;
+
+    objResult.teacheractivity5 = this.list5Form.controls.teacheractivity5.value;
+    objResult.studentactivities5 = this.list5Form.controls.studentactivities5.value;
+    objResult.reviewerrecommendations5 = this.list5Form.controls.reviewerrecommendations5.value;
+
+    objResult.teacheractivity6 = this.list5Form.controls.teacheractivity6.value;
+    objResult.studentactivities6 = this.list5Form.controls.studentactivities6.value;
+    objResult.reviewerrecommendations6 = this.list5Form.controls.reviewerrecommendations6.value;
+
+    objResult.teacheractivity7 = this.list5Form.controls.teacheractivity7.value;
+    objResult.studentactivities7 = this.list5Form.controls.studentactivities7.value;
+    objResult.reviewerrecommendations7 = this.list5Form.controls.reviewerrecommendations7.value;
+
+    objResult.teacheractivity8 = this.list5Form.controls.teacheractivity8.value;
+    objResult.studentactivities8 = this.list5Form.controls.studentactivities8.value;
+    objResult.reviewerrecommendations8 = this.list5Form.controls.reviewerrecommendations8.value;
+
+    objResult.teacheractivity9 = this.list5Form.controls.teacheractivity9.value;
+    objResult.studentactivities9 = this.list5Form.controls.studentactivities9.value;
+    objResult.reviewerrecommendations9 = this.list5Form.controls.reviewerrecommendations9.value;
+
+    objResult.teacheractivity10 = this.list5Form.controls.teacheractivity10.value;
+    objResult.studentactivities10 = this.list5Form.controls.studentactivities10.value;
+    objResult.reviewerrecommendations10 = this.list5Form.controls.reviewerrecommendations10.value;
+
+    console.log('id=', id, objResult);
+    this.gs.updateSummaryLessonList5(id, objResult).subscribe( resultat => {
+
+      // переход к "моим урокам"
+      const beans = {schoolarchive: {date: this.getDateShow(), currentLessons: true}};
+      this.router.navigate(['/archive'], {state: beans});
+
+    });
+
   }
+
+  getDateShow() {
+    let dd = new Date();
+    // показываем с прошлого сентября
+    if (dd.getMonth() < 8) {
+      dd =  new Date(dd.getFullYear() - 1, 8, 1);
+    } else {
+      dd =  new Date(dd.getFullYear(), 8, 1);
+    }
+    return dd;
+  }
+
 
   onResGuide7(event: [], i: number) {
     if (i === 1) {
