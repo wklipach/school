@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {
-  classBasicLearningActivities, classEquipment, classGroupLearningActivities, classGroupMethod, classMethod, classNameLetter,
+  classBasicLearningActions,
+  classBasicLearningActivities, classEquipment, classGroupLearningActions, classGroupLearningActivities, classGroupMethod, classMethod,
+  classNameLetter,
   classNameNumber, classObjectiveLesson, classPersonalLesson, classType2Lesson, classTypeLesson, lessonsName, lessonsName2
 } from './class/academicSubject';
 import { GuideService } from './services/guide.service';
@@ -14,23 +16,24 @@ export class AppComponent {
   title = 'app';
 
   constructor( private gs: GuideService) {
-    this.createCollection('classBasicLearningActivities', classBasicLearningActivities, 'listBasicLearningActivities');
-    this.createCollection('classGroupLearningActivities', classGroupLearningActivities, 'listGroupLearningActivities');
-    this.createCollection('lessonsName', lessonsName, 'listLessons');
-    this.createCollection('lessonsName2', lessonsName2, 'listLessons2');
-    this.createCollection('classNameNumber', classNameNumber, 'listClassNameNumber');
-    this.createCollection('classNameLetter', classNameLetter, 'listClassNameLetter');
-    this.createCollection('classTypeLesson', classTypeLesson, 'listTypeLesson');
-    this.createCollection('classType2Lesson', classType2Lesson, 'listType2Lesson');
-    this.createCollection('classObjectiveLesson', classObjectiveLesson, 'listObjectiveLesson');
-    this.createCollection('classPersonalLesson', classPersonalLesson, 'listPersonalLesson');
-    this.createCollection('classEquipment', classEquipment, 'listEquipment');
-    this.createCollection('classMethod', classMethod, 'listMethod');
-    this.createCollection('classGroupMethod', classGroupMethod, 'listGroupMethod');
-
+    this.createCollection('classBasicLearningActivities', classBasicLearningActivities);
+    this.createCollection('classGroupLearningActivities', classGroupLearningActivities);
+    this.createCollection('lessonsName', lessonsName);
+    this.createCollection('lessonsName2', lessonsName2);
+    this.createCollection('classNameNumber', classNameNumber);
+    this.createCollection('classNameLetter', classNameLetter);
+    this.createCollection('classTypeLesson', classTypeLesson);
+    this.createCollection('classType2Lesson', classType2Lesson);
+    this.createCollection('classObjectiveLesson', classObjectiveLesson);
+    this.createCollection('classPersonalLesson', classPersonalLesson);
+    this.createCollection('classEquipment', classEquipment);
+    this.createCollection('classMethod', classMethod);
+    this.createCollection('classGroupMethod', classGroupMethod);
+    this.createCollection('classBasicLearningActions', classBasicLearningActions);
+    this.createCollection('classGroupLearningActions', classGroupLearningActions);
   }
 
-  createCollection(sName, objCollection, sResult: any) {
+  createCollection(sName, objCollection) {
     this.gs.checkCollection(sName).subscribe(value => {
       if (value === false) {
         this.gs.insertGuideLessonsName(sName, objCollection).subscribe(guideList => {  });
