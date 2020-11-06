@@ -237,7 +237,9 @@ export class List4Component implements OnInit {
     }
 
 
-    const summaryLesson = { formControlDate: this.list4Form.controls.formControlDate.value,
+    const summaryLesson = {
+                            LESSON: 1,
+                            formControlDate: this.list4Form.controls.formControlDate.value,
                             fioteacherhome: fioteacherhome,
                             lessonTopic: lessonTopic,
                             lessonObjectives: lessonObjectives,

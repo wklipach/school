@@ -144,12 +144,102 @@ export class List4V2Component implements OnInit {
     this.sentCurrentMessage('addStudentElem2lines', i);
   }
 
+  loadInfoFromMultiLevelGuide(sName: string, arrayCollection: any[]) {
+    for (let i = 0; i < arrayCollection.length; i++) {
+      let sAdditionalMessage = '';
+      if (this.list4v2Form.controls[sName + i.toString()].value) {
+        sAdditionalMessage = this.list4v2Form.controls[sName + i.toString()].value.trim();
+      }
+      arrayCollection[i].AdditionalMessage = sAdditionalMessage;
+    }
+  }
 
-    onSaveLis4v2() {
+  deleteInfoFromMultiLevelGuide(arrayCollection: any[]) {
+    let resultCollection = arrayCollection.map(x => Object.assign({}, x));
+    resultCollection = resultCollection.filter(obj => obj.delete === 0);
+    return resultCollection;
+  }
+
+  onSaveLis4v2() {
+
+      /* 1 */
+      if (!this.list4v2Form.controls.fioteacherhome.value) {
+        alert('Укажите имя обучающегося');
+        return;
+      }
+      const fioteacherhome = this.list4v2Form.controls.fioteacherhome.value.toString().trim();
+      /* end 1 */
+
+      /* 2 */
+      if (!this.list4v2Form.controls.lessonTopic.value) {
+        alert('Укажите тему урока');
+        return;
+      }
+      const lessonTopic = this.list4v2Form.controls.lessonTopic.value.toString().trim();
+      /* end 2 */
+
+      /* 3 */
+      if (!this.list4v2Form.controls.lessonObjectives.value) {
+        alert('Укажите цель урока');
+        return;
+      }
+      const lessonObjectives = this.list4v2Form.controls.lessonObjectives.value.toString().trim();
+      /* end 3 */
+
+    // загружаем коллекцию documentEquipmentList
+    this.loadInfoFromMultiLevelGuide('equipment', this.documentEquipmentList);
+    // формируем коллекцию для записи без удаженных элементов
+    const moveDocumentEquipmentList = this.deleteInfoFromMultiLevelGuide(this.documentEquipmentList);
+
+    if (!this.list4v2Form.controls.formControlDate.value) {
+      this.list4v2Form.controls.formControlDate.setValue(new Date());
+    }
+
+    if (!this.list4v2Form.controls.subjectResults.value) {
+      this.list4v2Form.controls.subjectResults.setValue('');
+    }
+
+    if (!this.list4v2Form.controls.personalResults.value) {
+      this.list4v2Form.controls.personalResults.setValue('');
+    }
+
+    if (!this.list4v2Form.controls.equipment.value) {
+      this.list4v2Form.controls.equipment.setValue('');
+    }
+
+    // this.documentLessons2);
+    // this.documentTypeLesson);
+    // this.documentType2Lesson);
+    // this.documentClassNameNumber
+    // this.documentClassNameLetter);
+
     const objResult: {[k: string]: any} = {};
     this.sentCurrentMessage('elem2lines', 1);
     objResult.guide2linesResultat1 = this.guide2linesResultat1;
-    console.log(objResult);
+    this.sentCurrentMessage('guide7', 1);
+    objResult.Guide7Resultat1 = this.Guide7Resultat1;
+
+    const summaryLesson = {
+      LESSON: 2,
+      formControlDate: this.list4v2Form.controls.formControlDate.value,
+      fioteacherhome: fioteacherhome,
+      lessonTopic: lessonTopic,
+      lessonObjectives: lessonObjectives,
+      documentClassNameNumber: this.documentClassNameNumber,
+      documentClassNameLetter: this.documentClassNameLetter,
+      documentLessons2: this.documentLessons2,
+      documentTypeLesson: this.documentTypeLesson,
+      documentType2Lesson: this.documentType2Lesson,
+      documentEquipmentList: moveDocumentEquipmentList,
+      guide2linesResultat1: objResult.guide2linesResultat1,
+      Guide7Resultat1: objResult.Guide7Resultat1
+    };
+
+    this.gs.insertSummaryLesson(this.UserInfo.id_user_school, summaryLesson).subscribe( (suumaryRes: any) => {
+      this.auth.setSaveDocumentId(suumaryRes.insertedId);
+      this.router.navigate(['/list5-v2']);
+    });
+
   }
 
 
