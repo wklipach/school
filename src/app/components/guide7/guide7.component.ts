@@ -64,7 +64,6 @@ export class Guide7Component implements OnInit, OnDestroy {
                             title: curMethodValue.title, group_title: curGroupValue.title,  delete: 0, text: ''};
     const newIndex = this.documentComponentMethodList.push(documentMethod) - 1;
     this.methodForm.addControl(this.numberComponent.toString() + 'method' + newIndex.toString(), new FormControl(''));
-    console.log('documentMethod=', documentMethod);
   }
 
   loadMethodCollection() {

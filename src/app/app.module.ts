@@ -27,6 +27,7 @@ import { List5V2Component } from './list5-v2/list5-v2.component';
 import { Guide7Component } from './components/guide7/guide7.component';
 import {Guide7Service} from './components/guide7/guide7.service';
 import { Guide8Component } from './components/guide8/guide8.component';
+import { Elem2linesComponent } from './components/elem2lines/elem2lines.component';
 
 
 // определение маршрутов
@@ -66,7 +67,8 @@ const appRoutes: Routes = [
     List4V2Component,
     List5V2Component,
     Guide7Component,
-    Guide8Component
+    Guide8Component,
+    Elem2linesComponent
   ],
   imports: [
     BrowserModule,

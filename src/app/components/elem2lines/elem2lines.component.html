@@ -1,0 +1,14 @@
+<form [formGroup]="elem2Form">
+    <div *ngFor="let DOL of documentComponentList; let i = index">
+      <div *ngIf="DOL.delete === 0">
+
+          <div class="d-flex my-3">
+            <input type="text" class="form-control mr-3 pupil-name" placeholder="ФИ ученика" formControlName="{{numberComponent}}text1lines{{i}}">
+            <textarea formControlName="{{numberComponent}}text2lines{{i}}" class = "form-control" rows = "2" placeholder="Предметные / Личностные результаты"></textarea>
+            <button class="btn btn-outline-danger ml-2" title="Удалить ученика" style="max-height: 50px" (click)="onClickDeleteMethod(DOL)">
+              <img src="/assets/img/delete.svg" width="24" height="24">
+            </button>
+          </div>
+      </div>
+    </div>
+</form>

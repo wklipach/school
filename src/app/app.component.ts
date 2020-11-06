@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { classBasicLearningActivities, classEquipment, classGroupLearningActivities, classGroupMethod, classMethod, classNameLetter, classNameNumber, classObjectiveLesson, classPersonalLesson, classType2Lesson, classTypeLesson, lessonsName } from './class/academicSubject';
+import {
+  classBasicLearningActivities, classEquipment, classGroupLearningActivities, classGroupMethod, classMethod, classNameLetter,
+  classNameNumber, classObjectiveLesson, classPersonalLesson, classType2Lesson, classTypeLesson, lessonsName, lessonsName2
+} from './class/academicSubject';
 import { GuideService } from './services/guide.service';
 
 @Component({
@@ -14,6 +17,7 @@ export class AppComponent {
     this.createCollection('classBasicLearningActivities', classBasicLearningActivities, 'listBasicLearningActivities');
     this.createCollection('classGroupLearningActivities', classGroupLearningActivities, 'listGroupLearningActivities');
     this.createCollection('lessonsName', lessonsName, 'listLessons');
+    this.createCollection('lessonsName2', lessonsName2, 'listLessons2');
     this.createCollection('classNameNumber', classNameNumber, 'listClassNameNumber');
     this.createCollection('classNameLetter', classNameLetter, 'listClassNameLetter');
     this.createCollection('classTypeLesson', classTypeLesson, 'listTypeLesson');

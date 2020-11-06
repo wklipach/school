@@ -1,5 +1,5 @@
 
-<form [formGroup]="list4Form">
+<form [formGroup]="list4v2Form">
 
 
   <div class="container">
@@ -49,7 +49,6 @@
 
             </div>
 
-
           </div>
 
           <div class="line">
@@ -78,10 +77,10 @@
             </button>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-              <button class="dropdown-item" type="button" *ngFor="let curValue of listLessons" (click)="onLessons(curValue)">{{curValue.title}}</button>
+              <button class="dropdown-item" type="button" *ngFor="let curValue of listLessons2" (click)="onLessons(curValue)">{{curValue.title}}</button>
             </div>
           </div>
-          <div class="text-muted font-weight-bold result mx-3">{{documentLessons.title}}</div>    <!-- Результат выбора из справочника  -->
+          <div class="text-muted font-weight-bold result mx-3">{{documentLessons2.title}}</div>    <!-- Результат выбора из справочника  -->
 
 <!--   Во втором варианте список предметов вот этот - СПИСОК № 9 «УЧЕБНЫЕ ПРЕДМЕТЫ»:
 
@@ -140,6 +139,11 @@
 
           <h5 class="mb-3">Предполагаемые результаты</h5>
 
+          <div class="d-flex flex-column">
+            <button type="button" class="btn btn-outline-primary mr-3 add-btn" (click)="addStudentClick(1)">Добавить ученика</button>
+            <app-elem2lines [numberComponent]="1"  titleMethodComponent = "новый компонент 1" (methodResultat)="onResElem2lines($event, 1)" ></app-elem2lines>
+          </div>
+<!--
             <div class="d-flex flex-column">
               <button type="button" class="btn btn-outline-primary mr-3 add-btn">Добавить ученика</button>
               <div class="d-flex my-3">
@@ -149,8 +153,10 @@
                   <img src="/assets/img/delete.svg" width="24" height="24">
                 </button>
               </div>
-
             </div>
+-->
+
+
         </div>
 
         <div class="card pl-3 pr-2 py-4 mb-5">
@@ -166,7 +172,7 @@
             </div>
           </div>
 
-          <!-- начало цикла Предполагаемые результаты СПИСОК № 5 -->
+          <!-- начало цикла Предполагаемые результаты СПИСОК № 6 -->
           <div *ngFor="let DOL of documentEquipmentList; let i = index">
             <div *ngIf="DOL.delete === 0">
               <div class="line-result mb-3">
@@ -189,31 +195,13 @@
         <div class="card pl-3 pr-2 py-4 mb-4">
 
           <h5 class="mb-3">СПИСОК № 7 «Методы»</h5>
+          <app-guide7 [numberComponent]="1"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 1)" ></app-guide7>
 
-          <div *ngFor="let curGroupValue of methodAggegateList" (click)="onCurGroupMethod(curGroupValue)">
-            <b>{{curGroupValue.title}}</b>
-
-            <div *ngFor="let curMethodValue of curGroupValue.new_document" (click)="onMethod(curMethodValue)">
-              {{curMethodValue.title}}
-            </div>
-
-          </div>
-
-          <div class="line-result my-3">
-            <div class="text-muted font-weight-bold result mx-3 w-50">{{documentMethod.title}}</div>    <!-- Результат выбора из справочника  -->
-            <textarea formControlName="equipment{{i}}" class = "form-control" rows = "1" placeholder="Методы"></textarea>
-            <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteEquipment(DOL)" title="Удалить" style="max-height: 50px">
-              <img src="/assets/img/delete.svg" width="24" height="24">
-            </button>
-          </div>
         </div>
-        <!-- закончен блок 7                   -->
-
-
       </div>
-    </div>
 
-    <button class="btn btn-outline-primary mb-4" (click)="onSaveRes()">Сохранить урок</button>
+    </div>
+    <button class="btn btn-outline-primary mb-4" (click)="onSaveLis4v2()">Сохранить урок</button>
 
   </div>
 
