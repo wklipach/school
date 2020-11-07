@@ -56,6 +56,11 @@ export class GuideService {
     return this.http.get(this.gr.sUrlGlobal + 'guide', {params: varparams});
   }
 
+  selectLearningActions() {
+    const varparams = new HttpParams()
+      .set('get_learningactions', 'get_learningactions');
+    return this.http.get(this.gr.sUrlGlobal + 'guide', {params: varparams});
+  }
   insertGuideLessonsName(collectionName, objLessonsName) {
     const datamessage = {insert_lessonsName: 'insert_lessonsName', collectionName, objLessonsName};
     return this.http.post(this.gr.sUrlGlobal + 'guide', datamessage);

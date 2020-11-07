@@ -64,7 +64,7 @@ export class Guide8Component implements OnInit, OnDestroy  {
   }
 
   loadCheckBox() {
-    console.log('компонент =>', this.numberComponent.toString());
+    // console.log('компонент =>', this.numberComponent.toString());
     this.listBasicLearningActivities.forEach( element => {
       this.list8Form.addControl(this.numberComponent.toString() + 'aggregateCheck' + element.id.toString(), new FormControl(''));
     });

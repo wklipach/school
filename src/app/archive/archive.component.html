@@ -18,8 +18,8 @@
 
         <div class="line" *ngFor="let lesson of linsLessons">
           <div class="date">{{lesson.objSummaryLesson.formControlDate | date:'dd.MM.yyyy'}}</div>
-          <div class="lessons">{{lesson.objSummaryLesson.lessonTopic}}</div>
-          <div class="lesson-topic">{{lesson.objSummaryLesson.lessonObjectives}}</div>
+          <div class="lessons">{{lesson.objSummaryLesson.lessonObjectives}}</div>
+          <div class="lesson-topic">{{lesson.objSummaryLesson.lessonTopic}}</div>
 
           <button  (click)="onClickViewing(lesson)" type="button" class="btn btn-outline-primary m-2">Просмотр</button>
         </div>
