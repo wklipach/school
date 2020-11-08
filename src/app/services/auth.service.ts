@@ -59,6 +59,7 @@ export class AuthService {
     window.localStorage.removeItem('schoollesson');
     window.localStorage.removeItem('schoolarchive');
     window.localStorage.removeItem('savedocument_id');
+    window.localStorage.removeItem('savedocument_edit');
   }
 
   public setSchoolLesson(schoollesson) {
@@ -69,9 +70,19 @@ export class AuthService {
     window.localStorage.setItem('savedocument_id', JSON.stringify(id));
   }
 
+  public setSaveDocumentEdit(b: boolean) {
+    window.localStorage.setItem('savedocument_edit', JSON.stringify(b));
+  }
+
+
   public getSaveDocumentId() {
     return JSON.parse(window.localStorage.getItem('savedocument_id'));
   }
+
+  public getSaveDocumentEdit() {
+    return JSON.parse(window.localStorage.getItem('savedocument_edit'));
+  }
+
 
 
   public getSchoolLesson() {

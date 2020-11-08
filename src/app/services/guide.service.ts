@@ -77,5 +77,13 @@ export class GuideService {
     return this.http.post(this.gr.sUrlGlobal + 'guide', datamessage);
   }
 
+    // получаем урок, поиск по mongo-ID
+    getLesson(mongoID: string) {
+      const params = new HttpParams()
+        .set('get_lesson', 'get_lesson')
+        .set('id_lesson', mongoID.toString());
+      return this.http.get(this.gr.sUrlGlobal + 'guide', {params: params});
+    }
+
 
 }

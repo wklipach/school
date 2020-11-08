@@ -68,4 +68,23 @@ export class ArchiveComponent implements OnInit {
     this.router.navigate(['/viewer']);
   }
 
+  onClickEdit(lesson: any) {
+    // сохраняем объект в локальном хранилище
+    this.auth.setSaveDocumentId(lesson._id);
+    this.auth.setSaveDocumentEdit(true);
+
+    if (this.itisTypeLessons2) {
+      this.router.navigate(['/list4-v2']);
+    }
+
+  }
+
+  itisTypeLessons2(lesson: any) {
+    if (lesson.objSummaryLesson.LESSON) {
+      if (lesson.objSummaryLesson.LESSON === 2) {
+          return true;
+      } else { return false; }
+    } else {return false; }
+  }
+
 }

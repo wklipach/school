@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
 import { FlatpickrOptions } from 'ng2-flatpickr';
 import Russian from 'flatpickr/dist/l10n/ru.js';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-list4-v2',
@@ -13,6 +14,8 @@ import Russian from 'flatpickr/dist/l10n/ru.js';
   styleUrls: ['./list4-v2.component.css']
 })
 export class List4V2Component implements OnInit {
+
+  edititing_id = '-1';
 
   list4v2Form: FormGroup;
   vDatePickOptions: FlatpickrOptions = {
@@ -57,21 +60,86 @@ export class List4V2Component implements OnInit {
   }
 
   ngOnInit(): void {
-    this.LoadCollection('classNameNumber',  'listClassNameNumber');
-    this.LoadCollection('lessonsName2',  'listLessons2');
-    this.LoadCollection('classTypeLesson',  'listTypeLesson');
-    this.LoadCollection('classType2Lesson',  'listType2Lesson');
-    this.LoadCollection('classEquipment', 'listEquipment');
-    this.LoadCollection('classNameLetter',  'listClassNameLetter');
 
-    this.loadCurrentTeacher();
+    forkJoin([
+             this.loadCurrentTeacher(),
+             this.gs.selectCollection('classNameNumber'),
+             this.gs.selectCollection('lessonsName2'),
+             this.gs.selectCollection('classTypeLesson'),
+             this.gs.selectCollection('classType2Lesson'),
+             this.gs.selectCollection('classEquipment'),
+             this.gs.selectCollection('classNameLetter')
+             ]).subscribe(results => {
+
+              const teacher = results[0];
+              this.list4v2Form.controls.fio.setValue(teacher[0].fio);
+              // console.log('teacher', teacher);
+
+              this.listClassNameNumber = results[1];
+              // console.log('listClassNameNumber', this.listClassNameNumber);
+
+              this.listLessons2 = results[2];
+              // console.log('listLessons2', this.listLessons2);
+
+              this.listTypeLesson = results[3];
+              // console.log('listTypeLesson', this.listTypeLesson);
+
+              this.listType2Lesson = results[4];
+              // console.log('listType2Lesson', this.listType2Lesson);
+
+              this.listEquipment = results[5];
+              // console.log('listEquipment', this.listEquipment);
+
+              this.listClassNameLetter = results[6];
+              // console.log('listClassNameLetter', this.listClassNameLetter);
+
+              // если это редактирование урока, загружаем урок из базы
+              this.loadLesson();
+
+             });
+
+    // this.LoadCollection('classNameNumber',  'listClassNameNumber');
+    // this.LoadCollection('lessonsName2',  'listLessons2');
+    // this.LoadCollection('classTypeLesson',  'listTypeLesson');
+    // this.LoadCollection('classType2Lesson',  'listType2Lesson');
+    // this.LoadCollection('classEquipment', 'listEquipment');
+    // this.LoadCollection('classNameLetter',  'listClassNameLetter');
+    // this.loadCurrentTeacher();
+
+  }
+
+
+  loadLesson() {
+    // если это редактирование урока, загружаем урок из базы
+    if (this.auth.getSaveDocumentEdit()) {
+      this.edititing_id = this.auth.getSaveDocumentId();
+       this.gs.getLesson(this.edititing_id).subscribe( (lesson: []) => {
+        if (lesson) {
+          if (lesson.length > 0) {
+            const lesson4v2 = (lesson as any[])[0].objSummaryLesson;
+            this.loadDataForLesson(lesson4v2);
+          }
+      }
+
+       });
+   }
+  }
+
+  loadDataForLesson(lesson4v2) {
+    const documentEquipmentList: any[] =  lesson4v2.documentEquipmentList;
+
+    documentEquipmentList.forEach( (element, ind) => {
+         console.log('element=', element, 'ind=', ind);
+         const documentEquipment = {id: element.id, title: element.title, delete: 0};
+         const newIndex = this.documentEquipmentList.push(documentEquipment) - 1;
+         this.list4v2Form.addControl('equipment' + newIndex.toString(), new FormControl(element.AdditionalMessage));
+
+    });
 
   }
 
   loadCurrentTeacher() {
-    this.auth.getUserFromID(this.UserInfo.id_user_school).subscribe(teacher => {
-      this.list4v2Form.controls.fio.setValue(teacher[0].fio);
-    });
+    return this.auth.getUserFromID(this.UserInfo.id_user_school);
   }
 
   LoadCollection(sName, sResult: any) {
