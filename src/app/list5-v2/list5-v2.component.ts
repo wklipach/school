@@ -12,6 +12,9 @@ import { GuideService } from '../services/guide.service';
 })
 export class List5V2Component implements OnInit {
 
+  edititing_id = '-1';
+  typeEdit = 'новый документ';
+
   UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
   list5v2Form: FormGroup;
   Guide7Resultat1 = [];
@@ -25,11 +28,27 @@ export class List5V2Component implements OnInit {
   Guide7Resultat9 = [];
   Guide7Resultat10 = [];
   Guide10Resultat1 = [];
+  checkArray: any[] = [];
+
+  inputDocumentComponentMethodList1: any[] = [];
+  inputDocumentComponentMethodList2: any[] = [];
+  inputDocumentComponentMethodList3: any[] = [];
+  inputDocumentComponentMethodList4: any[] = [];
+  inputDocumentComponentMethodList5: any[] = [];
+  inputDocumentComponentMethodList6: any[] = [];
+  inputDocumentComponentMethodList7: any[] = [];
+  inputDocumentComponentMethodList8: any[] = [];
+  inputDocumentComponentMethodList9: any[] = [];
+  inputDocumentComponentMethodList10: any[] = [];
 
   constructor(private router: Router, private gs: GuideService,
     private auth: AuthService, private g7s: Guide7Service) {
 
     this.UserInfo = this.auth.getStorage();
+    if (!this.UserInfo.bSchoolConnected) {
+      this.router.navigate(['/login']);
+    }
+
     this.list5v2Form = new FormGroup({
       teacheractivity: new FormControl(''),
       studentactivities: new FormControl(''),
@@ -67,9 +86,88 @@ export class List5V2Component implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadLesson();
+
+    if (this.auth.getSaveDocumentEdit()) {
+      this.typeEdit = 'редактирование документа';
+    } else {
+      this.typeEdit = 'новый документ';
+    }
+
   }
 
-  onResGuide10(event: [], i: number) {
+  loadLesson() {
+    // если это редактирование урока, загружаем урок из базы
+    if (this.auth.getSaveDocumentEdit()) {
+      this.edititing_id = this.auth.getSaveDocumentId();
+      this.gs.getLesson(this.edititing_id).subscribe( (lesson: []) => {
+        if (lesson) {
+          if (lesson.length > 0) {
+            const lesson5v2 = (lesson as any[])[0].objSummaryLesson2;
+            this.loadDataForLesson(lesson5v2);
+          }
+        }
+      });
+    }
+  }
+
+  loadDataForLesson(lesson5v2) {
+
+    this.inputDocumentComponentMethodList1 = lesson5v2.Guide7Resultat1;
+    this.inputDocumentComponentMethodList2 = lesson5v2.Guide7Resultat2;
+    this.inputDocumentComponentMethodList3 = lesson5v2.Guide7Resultat3;
+    this.inputDocumentComponentMethodList4 = lesson5v2.Guide7Resultat4;
+    this.inputDocumentComponentMethodList5 = lesson5v2.Guide7Resultat5;
+    this.inputDocumentComponentMethodList6 = lesson5v2.Guide7Resultat6;
+    this.inputDocumentComponentMethodList7 = lesson5v2.Guide7Resultat7;
+    this.inputDocumentComponentMethodList8 = lesson5v2.Guide7Resultat8;
+    this.inputDocumentComponentMethodList9 = lesson5v2.Guide7Resultat9;
+    this.inputDocumentComponentMethodList10 = lesson5v2.Guide7Resultat10;
+    this.checkArray = lesson5v2.Guide10Resultat1;
+
+    this.list5v2Form.controls.teacheractivity.setValue(lesson5v2.teacheractivity);
+    this.list5v2Form.controls.studentactivities.setValue(lesson5v2.studentactivities);
+    this.list5v2Form.controls.reviewerrecommendations.setValue(lesson5v2.reviewerrecommendations);
+
+    this.list5v2Form.controls.teacheractivity2.setValue(lesson5v2.teacheractivity2);
+    this.list5v2Form.controls.studentactivities2.setValue(lesson5v2.studentactivities2);
+    this.list5v2Form.controls.reviewerrecommendations2.setValue(lesson5v2.reviewerrecommendations2);
+
+    this.list5v2Form.controls.teacheractivity3.setValue(lesson5v2.teacheractivity3);
+    this.list5v2Form.controls.studentactivities3.setValue(lesson5v2.studentactivities3);
+    this.list5v2Form.controls.reviewerrecommendations3.setValue(lesson5v2.reviewerrecommendations3);
+
+    this.list5v2Form.controls.teacheractivity4.setValue(lesson5v2.teacheractivity4);
+    this.list5v2Form.controls.studentactivities4.setValue(lesson5v2.studentactivities4);
+    this.list5v2Form.controls.reviewerrecommendations4.setValue(lesson5v2.reviewerrecommendations4);
+
+    this.list5v2Form.controls.teacheractivity5.setValue(lesson5v2.teacheractivity5);
+    this.list5v2Form.controls.studentactivities5.setValue(lesson5v2.studentactivities5);
+    this.list5v2Form.controls.reviewerrecommendations5.setValue(lesson5v2.reviewerrecommendations5);
+
+    this.list5v2Form.controls.teacheractivity6.setValue(lesson5v2.teacheractivity6);
+    this.list5v2Form.controls.studentactivities6.setValue(lesson5v2.studentactivities6);
+    this.list5v2Form.controls.reviewerrecommendations6.setValue(lesson5v2.reviewerrecommendations6);
+
+    this.list5v2Form.controls.teacheractivity7.setValue(lesson5v2.teacheractivity7);
+    this.list5v2Form.controls.studentactivities7.setValue(lesson5v2.studentactivities7);
+    this.list5v2Form.controls.reviewerrecommendations7.setValue(lesson5v2.reviewerrecommendations7);
+
+    this.list5v2Form.controls.teacheractivity8.setValue(lesson5v2.teacheractivity8);
+    this.list5v2Form.controls.studentactivities8.setValue(lesson5v2.studentactivities8);
+    this.list5v2Form.controls.reviewerrecommendations8.setValue(lesson5v2.reviewerrecommendations8);
+
+    this.list5v2Form.controls.teacheractivity9.setValue(lesson5v2.teacheractivity9);
+    this.list5v2Form.controls.studentactivities9.setValue(lesson5v2.studentactivities9);
+    this.list5v2Form.controls.reviewerrecommendations9.setValue(lesson5v2.reviewerrecommendations9);
+
+    this.list5v2Form.controls.teacheractivity10.setValue(lesson5v2.teacheractivity10);
+    this.list5v2Form.controls.studentactivities10.setValue(lesson5v2.studentactivities10);
+    this.list5v2Form.controls.reviewerrecommendations10.setValue(lesson5v2.reviewerrecommendations10);
+
+  }
+
+    onResGuide10(event: [], i: number) {
 
     if (i === 1) {
       this.Guide10Resultat1 = event;

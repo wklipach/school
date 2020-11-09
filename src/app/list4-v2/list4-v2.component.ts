@@ -15,14 +15,16 @@ import { forkJoin } from 'rxjs';
 })
 export class List4V2Component implements OnInit {
 
+  typeEdit = 'новый документ';
   edititing_id = '-1';
 
   list4v2Form: FormGroup;
   vDatePickOptions: FlatpickrOptions = {
     locale: Russian.ru,
-    dateFormat: 'd.m.Y',
-    defaultDate: new Date()
+    dateFormat: 'd.m.Y'
   };
+
+  currentDate: Date;
 
   guide2linesResultat1 = [];
   UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
@@ -42,24 +44,40 @@ export class List4V2Component implements OnInit {
   listClassNameLetter: any;
   documentClassNameLetter = {id: -1, title: '--'};
 
+  inputDocumentComponentMethodList: any[] = [];
+  inputDocumentComponentList: any[] = [];
+
 
   constructor(private router: Router, private gs: GuideService,
               private auth: AuthService, private g7s: Guide7Service) {
+
     this.UserInfo = this.auth.getStorage();
+    if (!this.UserInfo.bSchoolConnected) {
+      this.router.navigate(['/login']);
+    }
+
     this.list4v2Form = new FormGroup({
       formControlDate: new FormControl(),
       fio: new FormControl(),
       fioteacherhome: new FormControl(),
       lessonTopic: new FormControl(),
-      lessonObjectives: new FormControl(),
-      subjectResults: new FormControl(),
-      personalResults: new FormControl(),
-      equipment: new FormControl()
+      lessonObjectives: new FormControl()
     });
 
   }
 
   ngOnInit(): void {
+
+    if (this.auth.getSaveDocumentEdit()) {
+      this.typeEdit = 'редактирование документа';
+    } else {
+      this.typeEdit = 'новый документ';
+    }
+
+    setTimeout(() => {
+      this.currentDate = new Date();
+    }, 0);
+
 
     forkJoin([
              this.loadCurrentTeacher(),
@@ -120,8 +138,7 @@ export class List4V2Component implements OnInit {
             this.loadDataForLesson(lesson4v2);
           }
       }
-
-       });
+    });
    }
   }
 
@@ -129,13 +146,28 @@ export class List4V2Component implements OnInit {
     const documentEquipmentList: any[] =  lesson4v2.documentEquipmentList;
 
     documentEquipmentList.forEach( (element, ind) => {
-         console.log('element=', element, 'ind=', ind);
          const documentEquipment = {id: element.id, title: element.title, delete: 0};
          const newIndex = this.documentEquipmentList.push(documentEquipment) - 1;
          this.list4v2Form.addControl('equipment' + newIndex.toString(), new FormControl(element.AdditionalMessage));
-
     });
+    this.inputDocumentComponentMethodList = lesson4v2.Guide7Resultat1;
+    this.list4v2Form.controls.fioteacherhome.setValue(lesson4v2.fioteacherhome);
+    this.list4v2Form.controls.lessonTopic.setValue(lesson4v2.lessonTopic);
+    this.list4v2Form.controls.lessonObjectives.setValue(lesson4v2.lessonObjectives);
+    this.list4v2Form.controls.formControlDate.setValue(new Date(lesson4v2.formControlDate[0]));
 
+    setTimeout(() => {
+      this.currentDate = new Date(lesson4v2.formControlDate[0]);
+    }, 0);
+
+
+
+    this.documentClassNameNumber = lesson4v2.documentClassNameNumber;
+    this.documentClassNameLetter = lesson4v2.documentClassNameLetter;
+    this.documentLessons2 = lesson4v2.documentLessons2;
+    this.documentTypeLesson  = lesson4v2.documentTypeLesson;
+    this.documentType2Lesson = lesson4v2.documentType2Lesson;
+    this.inputDocumentComponentList = lesson4v2.guide2linesResultat1;
   }
 
   loadCurrentTeacher() {
@@ -263,17 +295,6 @@ export class List4V2Component implements OnInit {
       this.list4v2Form.controls.formControlDate.setValue(new Date());
     }
 
-    if (!this.list4v2Form.controls.subjectResults.value) {
-      this.list4v2Form.controls.subjectResults.setValue('');
-    }
-
-    if (!this.list4v2Form.controls.personalResults.value) {
-      this.list4v2Form.controls.personalResults.setValue('');
-    }
-
-    if (!this.list4v2Form.controls.equipment.value) {
-      this.list4v2Form.controls.equipment.setValue('');
-    }
 
     // this.documentLessons2);
     // this.documentTypeLesson);
@@ -303,10 +324,18 @@ export class List4V2Component implements OnInit {
       Guide7Resultat1: objResult.Guide7Resultat1
     };
 
-    this.gs.insertSummaryLesson(this.UserInfo.id_user_school, summaryLesson).subscribe( (suumaryRes: any) => {
-      this.auth.setSaveDocumentId(suumaryRes.insertedId);
-      this.router.navigate(['/list5-v2']);
-    });
+
+    if (this.auth.getSaveDocumentEdit()) {
+      this.gs.updateSummaryLessonList4(this.edititing_id, summaryLesson).subscribe( resultat => {
+        this.auth.setSaveDocumentId(this.edititing_id);
+        this.router.navigate(['/list5-v2']);
+      });
+    } else {
+      this.gs.insertSummaryLesson(this.UserInfo.id_user_school, summaryLesson).subscribe((suumaryRes: any) => {
+        this.auth.setSaveDocumentId(suumaryRes.insertedId);
+        this.router.navigate(['/list5-v2']);
+      });
+    }
 
   }
 

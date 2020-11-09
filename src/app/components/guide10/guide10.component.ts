@@ -15,6 +15,20 @@ export class Guide10Component implements OnInit, OnDestroy {
   @Input() titleMethodComponent = '';
   @Output() methodResultat = new EventEmitter<[]>();
 
+  @Input() set checkArray(value: any[]) {
+    value.forEach( (element, ind) => {
+      const sname = this.numberComponent.toString() + 'comp10aggregateCheck' + element.toString();
+      if (this.component10Form.controls[sname]) {
+        this.component10Form.controls[sname].setValue(true);
+      }
+    });
+    this._checkArray = value;
+  }
+
+  get checkArray(): any[] {
+    return this._checkArray;
+  }
+  _checkArray: any[] = [];
   component10Form: FormGroup;
   message: any;
   subscription: Subscription;
@@ -23,7 +37,7 @@ export class Guide10Component implements OnInit, OnDestroy {
   messageEmitter = new Subject<String>();
 
 
-  constructor(private gs: GuideService, private g7s: Guide7Service) { 
+  constructor(private gs: GuideService, private g7s: Guide7Service) {
     this.component10Form = new FormGroup({});
   }
 
@@ -55,6 +69,14 @@ export class Guide10Component implements OnInit, OnDestroy {
       this.component10Form.addControl(this.numberComponent.toString() + 'comp10aggregateCheck' +
                                                         element.id.toString(), new FormControl(''));
     });
+
+    this.checkArray.forEach( (element, ind) => {
+      const sname = this.numberComponent.toString() + 'comp10aggregateCheck' + element.toString();
+      if (this.component10Form.controls[sname]) {
+        this.component10Form.controls[sname].setValue(true);
+      }
+    });
+
   }
 
   LoadCollection(sName, sResult: any) {

@@ -11,13 +11,26 @@ import {Subscription} from 'rxjs';
 })
 export class Elem2linesComponent implements OnInit, OnDestroy {
 
+  _documentComponentList: any[] = [];
   @Input() numberComponent: number;
   @Input() titleMethodComponent = '';
+
+  @Input() set documentComponentList(value: any[]) {
+    value.forEach( (element, ind) => {
+      const documentMethod = {text1: element.text1, text2: element.text2,  delete: 0};
+      const newIndex = this._documentComponentList.push(documentMethod) - 1;
+      this.elem2Form.addControl(this.numberComponent.toString() + 'text1lines' + newIndex.toString(), new FormControl(element.text1));
+      this.elem2Form.addControl(this.numberComponent.toString() + 'text2lines' + newIndex.toString(), new FormControl(element.text2));
+    });
+  }
+  get documentComponentList(): any[] {
+    return this._documentComponentList;
+  }
+
   @Output() methodResultat = new EventEmitter<[]>();
 
-
   elem2Form: FormGroup;
-  documentComponentList = [];
+  // documentComponentList = [];
   message: any;
   subscription: Subscription;
 

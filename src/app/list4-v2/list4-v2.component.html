@@ -1,4 +1,4 @@
-
+{{typeEdit}}
 <form [formGroup]="list4v2Form">
 
 
@@ -13,7 +13,7 @@
 
           <div class="line">
             <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Дата</span> <span>
-           <ng2-flatpickr [config]="vDatePickOptions" formControlName="formControlDate"></ng2-flatpickr>
+           <ng2-flatpickr [config]="vDatePickOptions" formControlName="formControlDate" [setDate]="currentDate"></ng2-flatpickr>
         </span>
           </div>
 
@@ -141,7 +141,9 @@
 
           <div class="d-flex flex-column">
             <button type="button" class="btn btn-outline-primary mr-3 add-btn" (click)="addStudentClick(1)">Добавить ученика</button>
-            <app-elem2lines [numberComponent]="1"  titleMethodComponent = "новый компонент 1" (methodResultat)="onResElem2lines($event, 1)" ></app-elem2lines>
+            <app-elem2lines [numberComponent]="1"  titleMethodComponent = "новый компонент 1"
+                            [documentComponentList]="inputDocumentComponentList"
+                            (methodResultat)="onResElem2lines($event, 1)" ></app-elem2lines>
           </div>
 <!--
             <div class="d-flex flex-column">
@@ -195,7 +197,7 @@
         <div class="card pl-3 pr-2 py-4 mb-4">
 
           <h5 class="mb-3">СПИСОК № 7 «Методы»</h5>
-          <app-guide7 [numberComponent]="1"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 1)" ></app-guide7>
+          <app-guide7 [numberComponent]="1" [documentComponentMethodList]="inputDocumentComponentMethodList"   titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 1)" ></app-guide7>
 
         </div>
       </div>

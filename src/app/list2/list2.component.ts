@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {lessonsName} from '../class/academicSubject';
 import {GuideService} from '../services/guide.service';
 import {Router} from '@angular/router';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-list2',
@@ -11,7 +12,7 @@ import {Router} from '@angular/router';
 export class List2Component implements OnInit {
 
   listLessons: any;
-  constructor(private gs: GuideService, private router: Router) {
+  constructor(private gs: GuideService, private router: Router, private auth: AuthService) {
 
   }
 
@@ -36,6 +37,9 @@ export class List2Component implements OnInit {
     this.router.navigate(['/list4']);
   }
   onClickVar2() {
+    // сохраняем объект в локальном хранилище
+    this.auth.setSaveDocumentId('');
+    this.auth.setSaveDocumentEdit(false);
     this.router.navigate(['/list4-v2']);
   }
 }

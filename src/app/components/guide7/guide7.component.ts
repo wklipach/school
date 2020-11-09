@@ -13,10 +13,26 @@ export class Guide7Component implements OnInit, OnDestroy {
 
   @Input() numberComponent: number;
   @Input() titleMethodComponent = '';
+
+  @Input() set documentComponentMethodList(value: any[]) {
+    value.forEach( (element, ind) => {
+      const documentMethod = {id: element.id, id_group: element.id_group,
+        title: element.title, group_title: element.title,  delete: 0, text: element.text};
+      const newIndex = this._documentComponentMethodList.push(documentMethod) - 1;
+      this.methodForm.addControl(this.numberComponent.toString() + 'method' + newIndex.toString(), new FormControl(element.text));
+      });
+  }
+  get documentComponentMethodList(): any[] {
+    return this._documentComponentMethodList;
+  }
+
   @Output() methodResultat = new EventEmitter<[]>();
 
   methodAggegateList: any;
-  documentComponentMethodList = [];
+  _documentComponentMethodList = [];
+
+
+  // documentComponentMethodList = [];
 
   methodForm: FormGroup;
 
@@ -60,6 +76,9 @@ export class Guide7Component implements OnInit, OnDestroy {
   }
 
   onMethod(curMethodValue, curGroupValue) {
+
+    console.log(curMethodValue, curGroupValue);
+
     const documentMethod = {id: curMethodValue.id, id_group: curMethodValue.id_group,
                             title: curMethodValue.title, group_title: curGroupValue.title,  delete: 0, text: ''};
     const newIndex = this.documentComponentMethodList.push(documentMethod) - 1;

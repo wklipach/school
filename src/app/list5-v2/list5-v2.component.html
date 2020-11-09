@@ -1,3 +1,5 @@
+{{typeEdit}}
+
 <form [formGroup]="list5v2Form">
 <div class="container">
   <div class="row">
@@ -23,7 +25,7 @@
 
       <div class="collapse" id="collapseGuid11">
         <div class="my-11">
-          <app-guide10 numberComponent="1" titleMethodComponent="чекбокс 1" (methodResultat)="onResGuide10($event, 1)"></app-guide10>
+          <app-guide10 numberComponent="1" titleMethodComponent="чекбокс 1" [checkArray]="checkArray" (methodResultat)="onResGuide10($event, 1)"></app-guide10>
         </div>
       </div>
 
@@ -32,7 +34,7 @@
 
       <h4 class="stage">Этап урока - организационный этап</h4>
       <!--  7 справочник -->
-      <app-guide7 [numberComponent]="1"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 1)" ></app-guide7>
+      <app-guide7 [numberComponent]="1"  [documentComponentMethodList]="inputDocumentComponentMethodList1" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 1)" ></app-guide7>
 
       <div class="card pt-2 pb-4 px-4 mb-5">
         <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
@@ -57,7 +59,7 @@
 
       <h4 class="stage">Этап урока - проверка домашнего задания</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="2"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 2)" ></app-guide7>
+      <app-guide7 [numberComponent]="2" [documentComponentMethodList]="inputDocumentComponentMethodList2" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 2)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -82,7 +84,7 @@
 
       <h4 class="stage">Этап урока - актуализация знаний и умений</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="3"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 3)" ></app-guide7>
+      <app-guide7 [numberComponent]="3" [documentComponentMethodList]="inputDocumentComponentMethodList3" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 3)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -108,7 +110,7 @@
 
       <h4 class="stage">Этап урока - сообщение темы и цели урока</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="4"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 4)" ></app-guide7>
+      <app-guide7 [numberComponent]="4" [documentComponentMethodList]="inputDocumentComponentMethodList4" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 4)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -134,7 +136,7 @@
 
       <h4 class="stage">Этап урока -  мотивация и планирование учебной деятельности</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="5"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 5)" ></app-guide7>
+      <app-guide7 [numberComponent]="5"  [documentComponentMethodList]="inputDocumentComponentMethodList5" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 5)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -160,7 +162,7 @@
 
       <h4 class="stage">Этап урока -  изучение нового материала</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="6"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 6)" ></app-guide7>
+      <app-guide7 [numberComponent]="6"  [documentComponentMethodList]="inputDocumentComponentMethodList6" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 6)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -186,7 +188,7 @@
 
       <h4 class="stage">Этап урока -  закрепление изученного материала</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="7"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 7)" ></app-guide7>
+      <app-guide7 [numberComponent]="7"  [documentComponentMethodList]="inputDocumentComponentMethodList7" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 7)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -214,7 +216,7 @@
 
       <h4 class="stage">Этап урока - подведение итогов (выводы, оценивание, рефлексия)</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="8"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 8)" ></app-guide7>
+      <app-guide7 [numberComponent]="8"  [documentComponentMethodList]="inputDocumentComponentMethodList8" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 8)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -239,7 +241,7 @@
 
       <h4 class="stage">Этап урока -  сообщение домашнего задания (инструктаж)</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="9"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 9)" ></app-guide7>
+      <app-guide7 [numberComponent]="9" [documentComponentMethodList]="inputDocumentComponentMethodList9" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 9)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -265,7 +267,7 @@
 
       <h4 class="stage">Этап урока -  организованное окончание урока</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="10"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 10)" ></app-guide7>
+      <app-guide7 [numberComponent]="10"  [documentComponentMethodList]="inputDocumentComponentMethodList10" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 10)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
