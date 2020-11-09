@@ -10,6 +10,7 @@ import Russian from 'flatpickr/dist/l10n/ru.js';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
 import {Guide7Service} from '../components/guide7/guide7.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-list4',
@@ -18,8 +19,12 @@ import {Guide7Service} from '../components/guide7/guide7.service';
 })
 export class List4Component implements OnInit {
 
+  currentDate: Date;
+  typeEdit = 'новый документ';
+  edititing_id = '-1';
+
   UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
-  listLessons: any;
+  listLessonsname: any;
   listTypeLesson: any;
   listType2Lesson: any;
   listClassNameNumber: any;
@@ -49,8 +54,7 @@ export class List4Component implements OnInit {
   list4Form: FormGroup;
   vDatePickOptions: FlatpickrOptions = {
     locale: Russian.ru,
-    dateFormat: 'd.m.Y',
-    defaultDate: new Date()
+    dateFormat: 'd.m.Y'
   };
 
   constructor(private router: Router, private gs: GuideService, private auth: AuthService, private g7s: Guide7Service) {
@@ -61,30 +65,108 @@ export class List4Component implements OnInit {
       lessonTopic: new FormControl(),
       fio: new FormControl(),
       fioteacherhome: new FormControl(),
-      lessonObjectives: new FormControl(),
-      subjectResults: new FormControl(),
-      personalResults: new FormControl(),
-      equipment: new FormControl()
+      lessonObjectives: new FormControl()
     });
 
   }
 
   ngOnInit(): void {
-    this.LoadCollection('lessonsName',  'listLessons');
-    this.LoadCollection('classNameNumber',  'listClassNameNumber');
-    this.LoadCollection('classNameLetter',  'listClassNameLetter');
-    this.LoadCollection('classTypeLesson',  'listTypeLesson');
-    this.LoadCollection('classType2Lesson',  'listType2Lesson');
-    this.LoadCollection('classObjectiveLesson', 'listObjectiveLesson');
 
-    this.LoadCollection('classPersonalLesson', 'listPersonalLesson');
-    this.LoadCollection('classEquipment', 'listEquipment');
+    if (this.auth.getSaveDocumentEdit()) {
+      this.typeEdit = 'редактирование документа';
+    } else {
+      this.typeEdit = 'новый документ';
+    }
 
-    this.LoadCollection('classMethod', 'listMethod');
-    this.LoadCollection('classGroupMethod', 'listGroupMethod');
-    this.loadMethodCollection();
 
-    this.loadCurrentTeacher();
+    setTimeout(() => {
+      this.currentDate = new Date();
+    }, 0);
+
+
+    forkJoin([
+              this.gs.selectCollection('lessonsName'),
+              this.gs.selectCollection('classNameNumber'),
+              this.gs.selectCollection('classNameLetter'),
+              this.gs.selectCollection('classTypeLesson'),
+              this.gs.selectCollection('classType2Lesson'),
+              this.gs.selectCollection('classObjectiveLesson'),
+              this.gs.selectCollection('classPersonalLesson'),
+              this.gs.selectCollection('classEquipment'),
+              this.gs.selectCollection('classMethod'),
+              this.gs.selectCollection('classGroupMethod'),
+              this.gs.selectGroupInnerMethod(),
+              this.auth.getUserFromID(this.UserInfo.id_user_school)
+    ]).subscribe(results => {
+
+      this.listLessonsname = results[0];
+      this.listClassNameNumber = results[1];
+      this.listClassNameLetter = results[2];
+      this.listTypeLesson = results[3];
+      this.listType2Lesson = results[4];
+      this.listObjectiveLesson = results[5];
+      this.listPersonalLesson = results[6];
+      this.listEquipment = results[7];
+      this.listMethod = results[8];
+      this.listGroupMethod = results[9];
+      this.methodAggegateList = results[10];
+      this.list4Form.controls.fio.setValue(results[11][0].fio);
+      // если это редактирование урока, загружаем урок из базы
+      this.loadLesson();
+  });
+}
+
+
+loadLesson() {
+  // если это редактирование урока, загружаем урок из базы
+  if (this.auth.getSaveDocumentEdit()) {
+    this.edititing_id = this.auth.getSaveDocumentId();
+     this.gs.getLesson(this.edititing_id).subscribe( (lesson: []) => {
+      if (lesson) {
+        if (lesson.length > 0) {
+          const lesson4 = (lesson as any[])[0].objSummaryLesson;
+          this.loadDataForLesson(lesson4);
+        }
+    }
+  });
+ }
+}
+
+  loadDataForLesson(lesson4) {
+    const documentEquipmentList: any[] =  lesson4.documentEquipmentList;
+
+    documentEquipmentList.forEach( (element, ind) => {
+        const documentEquipment = {id: element.id, title: element.title, delete: 0};
+        const newIndex = this.documentEquipmentList.push(documentEquipment) - 1;
+        this.list4Form.addControl('equipment' + newIndex.toString(), new FormControl(element.AdditionalMessage));
+    });
+
+    this.list4Form.controls.fioteacherhome.setValue(lesson4.fioteacherhome);
+    this.list4Form.controls.lessonTopic.setValue(lesson4.lessonTopic);
+    this.list4Form.controls.lessonObjectives.setValue(lesson4.lessonObjectives);
+    this.list4Form.controls.formControlDate.setValue(new Date(lesson4.formControlDate[0]));
+
+    setTimeout(() => {
+      this.currentDate = new Date(lesson4.formControlDate[0]);
+    }, 0);
+    this.documentClassNameNumber = lesson4.documentClassNameNumber;
+    this.documentClassNameLetter = lesson4.documentClassNameLetter;
+    this.documentLessons = lesson4.documentLessons;
+    this.documentTypeLesson = lesson4.documentTypeLesson;
+    this.documentType2Lesson = lesson4.documentType2Lesson;
+
+    lesson4.documentObjectiveLessonList.forEach( (element, ind) => {
+      const documentObjective = {id: element.id, title: element.title, delete: 0};
+      const newIndex = this.documentObjectiveLessonList.push(documentObjective) - 1;
+      this.list4Form.addControl('subjectResults' + newIndex.toString(), new FormControl(element.AdditionalMessage));
+    });
+
+    lesson4.documentPersonalLessonList.forEach( (element, ind) => {
+      const documentPersonal = {id: element.id, title: element.title, delete: 0};
+      const newIndex = this.documentPersonalLessonList.push(documentPersonal) - 1;
+      this.list4Form.addControl('personalResults' + newIndex.toString(), new FormControl(element.AdditionalMessage));
+    });
+
   }
 
   LoadCollection(sName, sResult: any) {
@@ -224,17 +306,6 @@ export class List4Component implements OnInit {
       this.list4Form.controls.formControlDate.setValue(new Date());
     }
 
-    if (!this.list4Form.controls.subjectResults.value) {
-      this.list4Form.controls.subjectResults.setValue('');
-    }
-
-    if (!this.list4Form.controls.personalResults.value) {
-      this.list4Form.controls.personalResults.setValue('');
-    }
-
-    if (!this.list4Form.controls.equipment.value) {
-      this.list4Form.controls.equipment.setValue('');
-    }
 
 
     const summaryLesson = {

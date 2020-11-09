@@ -34,6 +34,9 @@ export class List2Component implements OnInit {
   }
 
   onClickVar1() {
+    // сохраняем объект в локальном хранилище
+    this.auth.setSaveDocumentId('');
+    this.auth.setSaveDocumentEdit(false);
     this.router.navigate(['/list4']);
   }
   onClickVar2() {

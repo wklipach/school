@@ -73,14 +73,17 @@ export class ArchiveComponent implements OnInit {
     this.auth.setSaveDocumentId(lesson._id);
     this.auth.setSaveDocumentEdit(true);
 
-    if (this.itisTypeLessons2) {
-      this.router.navigate(['/list4-v2']);
+    if (this.itisTypeLessons2(lesson)) {
+       this.router.navigate(['/list4-v2']);
+    } else {
+      this.router.navigate(['/list4']);
     }
 
   }
 
   itisTypeLessons2(lesson: any) {
     if (lesson.objSummaryLesson.LESSON) {
+      
       if (lesson.objSummaryLesson.LESSON === 2) {
           return true;
       } else { return false; }
