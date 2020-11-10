@@ -330,10 +330,20 @@ loadLesson() {
 //                            equipmentText: this.list4Form.controls.equipment.value
                            } ;
 
-    this.gs.insertSummaryLesson(this.UserInfo.id_user_school, summaryLesson).subscribe( (suumaryRes: any) => {
-      this.auth.setSaveDocumentId(suumaryRes.insertedId);
-      this.router.navigate(['/list5']);
-    });
+
+
+    if (this.auth.getSaveDocumentEdit()) {
+      this.gs.updateSummaryLessonList4(this.edititing_id, summaryLesson).subscribe( resultat => {
+        this.auth.setSaveDocumentId(this.edititing_id);
+        this.router.navigate(['/list5']);
+      });
+    } else {
+      this.gs.insertSummaryLesson(this.UserInfo.id_user_school, summaryLesson).subscribe( (suumaryRes: any) => {
+        this.auth.setSaveDocumentId(suumaryRes.insertedId);
+        this.router.navigate(['/list5']);
+      });
+    }
+
   }
 
   onClickDeleteEquipment(DOL) {

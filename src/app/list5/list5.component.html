@@ -1,4 +1,4 @@
-
+{{typeEdit}}
 <form [formGroup]="list5Form">
 
 <div class="container">
@@ -20,7 +20,7 @@
 
         <h4 class="stage">Этап урока - организационный этап</h4>
       <!--  7 справочник -->
-        <app-guide7 [numberComponent]="1"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 1)" ></app-guide7>
+        <app-guide7 [numberComponent]="1" [documentComponentMethodList]="inputDocumentComponentMethodList1" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 1)" ></app-guide7>
 
         <div class="card pt-2 pb-4 px-4 mb-5">
           <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
@@ -42,7 +42,7 @@
         <div class="collapse" id="collapseGuid1">
           <div class="my-1">
 
-            <app-guide8 numberComponent="1" titleMethodComponent="чекбокс 1" (methodResultat)="onResGuide8($event, 1)"></app-guide8>
+            <app-guide8 numberComponent="1" titleMethodComponent="чекбокс 1" [checkArray]="checkArray1" (methodResultat)="onResGuide8($event, 1)"></app-guide8>
 
           </div>
         </div>
@@ -61,7 +61,7 @@
 
       <h4 class="stage">Этап урока - проверка домашнего задания</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="2"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 2)" ></app-guide7>
+      <app-guide7 [numberComponent]="2" [documentComponentMethodList]="inputDocumentComponentMethodList2" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 2)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -84,7 +84,7 @@
       <div class="collapse" id="collapseGuid2">
         <div class="my-1">
 
-          <app-guide8 numberComponent="2" titleMethodComponent="чекбокс 2" (methodResultat)="onResGuide8($event, 2)"></app-guide8>
+          <app-guide8 numberComponent="2" titleMethodComponent="чекбокс 2" [checkArray]="checkArray2" (methodResultat)="onResGuide8($event, 2)"></app-guide8>
 
         </div>
       </div>
@@ -101,7 +101,7 @@
 
   <h4 class="stage">Этап урока - актуализация знаний и умений</h4>
   <!-- 7 справочник -->
-  <app-guide7 [numberComponent]="3"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 3)" ></app-guide7>
+  <app-guide7 [numberComponent]="3"  [documentComponentMethodList]="inputDocumentComponentMethodList3" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 3)" ></app-guide7>
 
 
   <div class="card pt-2 pb-4 px-4 mb-5">
@@ -124,7 +124,7 @@
       <div class="collapse" id="collapseGuid3">
         <div class="my-1">
 
-          <app-guide8 numberComponent="3" titleMethodComponent="чекбокс 3" (methodResultat)="onResGuide8($event, 3)"></app-guide8>
+          <app-guide8 numberComponent="3" titleMethodComponent="чекбокс 3" [checkArray]="checkArray3" (methodResultat)="onResGuide8($event, 3)"></app-guide8>
 
         </div>
       </div>
@@ -143,7 +143,7 @@
 
       <h4 class="stage">Этап урока - сообщение темы и цели урока</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="4"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 4)" ></app-guide7>
+      <app-guide7 [numberComponent]="4" [documentComponentMethodList]="inputDocumentComponentMethodList4" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 4)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -166,7 +166,7 @@
       <div class="collapse" id="collapseGuid4">
         <div class="my-1">
 
-          <app-guide8 numberComponent="4" titleMethodComponent="чекбокс 4" (methodResultat)="onResGuide8($event, 4)"></app-guide8>
+          <app-guide8 numberComponent="4" titleMethodComponent="чекбокс 4" [checkArray]="checkArray4" (methodResultat)="onResGuide8($event, 4)"></app-guide8>
 
         </div>
       </div>
@@ -185,7 +185,7 @@
 
       <h4 class="stage">Этап урока -  мотивация и планирование учебной деятельности</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="5"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 5)" ></app-guide7>
+      <app-guide7 [numberComponent]="5" [documentComponentMethodList]="inputDocumentComponentMethodList5" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 5)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -208,7 +208,7 @@
       <div class="collapse" id="collapseGuid5">
         <div class="my-1">
 
-          <app-guide8 numberComponent="5" titleMethodComponent="чекбокс 5" (methodResultat)="onResGuide8($event, 5)"></app-guide8>
+          <app-guide8 numberComponent="5" titleMethodComponent="чекбокс 5" [checkArray]="checkArray5" (methodResultat)="onResGuide8($event, 5)"></app-guide8>
 
         </div>
       </div>
@@ -228,7 +228,7 @@
 
       <h4 class="stage">Этап урока -  изучение нового материала</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="6"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 6)" ></app-guide7>
+      <app-guide7 [numberComponent]="6" [documentComponentMethodList]="inputDocumentComponentMethodList6" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 6)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -251,7 +251,7 @@
       <div class="collapse" id="collapseGuid6">
         <div class="my-1">
 
-          <app-guide8 numberComponent="6" titleMethodComponent="чекбокс 6" (methodResultat)="onResGuide8($event, 6)"></app-guide8>
+          <app-guide8 numberComponent="6" titleMethodComponent="чекбокс 6" [checkArray]="checkArray6" (methodResultat)="onResGuide8($event, 6)"></app-guide8>
 
         </div>
       </div>
@@ -270,7 +270,7 @@
 
       <h4 class="stage">Этап урока -  закрепление изученного материала</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="7"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 7)" ></app-guide7>
+      <app-guide7 [numberComponent]="7"  [documentComponentMethodList]="inputDocumentComponentMethodList7" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 7)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -293,7 +293,7 @@
       <div class="collapse" id="collapseGuid7">
         <div class="my-1">
 
-          <app-guide8 numberComponent="7" titleMethodComponent="чекбокс 7" (methodResultat)="onResGuide8($event, 7)"></app-guide8>
+          <app-guide8 numberComponent="7" titleMethodComponent="чекбокс 7" [checkArray]="checkArray7" (methodResultat)="onResGuide8($event, 7)"></app-guide8>
 
         </div>
       </div>
@@ -314,7 +314,7 @@
 
       <h4 class="stage">Этап урока - подведение итогов (выводы, оценивание, рефлексия)</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="8"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 8)" ></app-guide7>
+      <app-guide7 [numberComponent]="8" [documentComponentMethodList]="inputDocumentComponentMethodList8" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 8)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -337,7 +337,7 @@
       <div class="collapse" id="collapseGuid8">
         <div class="my-1">
 
-          <app-guide8 numberComponent="8" titleMethodComponent="чекбокс 8" (methodResultat)="onResGuide8($event, 8)"></app-guide8>
+          <app-guide8 numberComponent="8" titleMethodComponent="чекбокс 8" [checkArray]="checkArray8" (methodResultat)="onResGuide8($event, 8)"></app-guide8>
 
         </div>
       </div>
@@ -355,7 +355,7 @@
 
       <h4 class="stage">Этап урока -  сообщение домашнего задания (инструктаж)</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="9"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 9)" ></app-guide7>
+      <app-guide7 [numberComponent]="9" [documentComponentMethodList]="inputDocumentComponentMethodList9" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 9)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -378,7 +378,7 @@
       <div class="collapse" id="collapseGuid9">
         <div class="my-1">
 
-          <app-guide8 numberComponent="9" titleMethodComponent="чекбокс 9" (methodResultat)="onResGuide8($event, 9)"></app-guide8>
+          <app-guide8 numberComponent="9" titleMethodComponent="чекбокс 9" [checkArray]="checkArray9" (methodResultat)="onResGuide8($event, 9)"></app-guide8>
 
         </div>
       </div>
@@ -397,7 +397,7 @@
 
       <h4 class="stage">Этап урока -  организованное окончание урока</h4>
       <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="10"  titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 10)" ></app-guide7>
+      <app-guide7 [numberComponent]="10" [documentComponentMethodList]="inputDocumentComponentMethodList10" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 10)" ></app-guide7>
 
 
       <div class="card pt-2 pb-4 px-4 mb-5">
@@ -421,7 +421,7 @@
       <div class="collapse" id="collapseGuid10">
         <div class="my-1">
 
-          <app-guide8 numberComponent="10" titleMethodComponent="чекбокс 10" (methodResultat)="onResGuide8($event, 10)"></app-guide8>
+          <app-guide8 numberComponent="10" titleMethodComponent="чекбокс 10" [checkArray]="checkArray10" (methodResultat)="onResGuide8($event, 10)"></app-guide8>
 
         </div>
       </div>

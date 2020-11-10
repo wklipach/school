@@ -77,8 +77,6 @@ export class Guide7Component implements OnInit, OnDestroy {
 
   onMethod(curMethodValue, curGroupValue) {
 
-    console.log(curMethodValue, curGroupValue);
-
     const documentMethod = {id: curMethodValue.id, id_group: curMethodValue.id_group,
                             title: curMethodValue.title, group_title: curGroupValue.title,  delete: 0, text: ''};
     const newIndex = this.documentComponentMethodList.push(documentMethod) - 1;

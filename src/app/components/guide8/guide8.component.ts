@@ -16,6 +16,22 @@ export class Guide8Component implements OnInit, OnDestroy  {
   @Input() titleMethodComponent = '';
   @Output() methodResultat = new EventEmitter<[]>();
 
+  @Input() set checkArray(value: any[]) {
+    value.forEach( (element, ind) => {
+      const sname = this.numberComponent.toString() + 'aggregateCheck' + element.toString();
+      if (this.list8Form.controls[sname]) {
+        this.list8Form.controls[sname].setValue(true);
+      }
+    });
+    this._checkArray = value;
+  }
+
+  get checkArray(): any[] {
+    return this._checkArray;
+  }
+  _checkArray: any[] = [];
+
+
   list8Form: FormGroup;
   methodAggegateList: any;
   listBasicLearningActivities: any;
@@ -68,12 +84,19 @@ export class Guide8Component implements OnInit, OnDestroy  {
     this.listBasicLearningActivities.forEach( element => {
       this.list8Form.addControl(this.numberComponent.toString() + 'aggregateCheck' + element.id.toString(), new FormControl(''));
     });
+
+    this.checkArray.forEach( (element, ind) => {
+      const sname = this.numberComponent.toString() + 'aggregateCheck' + element.toString();
+      if (this.list8Form.controls[sname]) {
+        this.list8Form.controls[sname].setValue(true);
+      }
+    });
+
   }
 
   loadMethodCollection() {
     this.gs.selectLearningActivities().subscribe(methodList => {
       this.methodAggegateList = methodList;
-      console.log(this.methodAggegateList);
     });
   }
 

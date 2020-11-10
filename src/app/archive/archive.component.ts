@@ -83,7 +83,6 @@ export class ArchiveComponent implements OnInit {
 
   itisTypeLessons2(lesson: any) {
     if (lesson.objSummaryLesson.LESSON) {
-      
       if (lesson.objSummaryLesson.LESSON === 2) {
           return true;
       } else { return false; }
