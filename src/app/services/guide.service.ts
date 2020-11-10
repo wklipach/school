@@ -90,5 +90,14 @@ export class GuideService {
       return this.http.get(this.gr.sUrlGlobal + 'guide', {params: params});
     }
 
+  // получаем название урока по уроку, поиск по mongo-ID
+  getThemeLesson(mongoID: string) {
+    const params = new HttpParams()
+      .set('get_theme_lesson', 'get_theme_lesson')
+      .set('id_lesson', mongoID.toString());
+    return this.http.get(this.gr.sUrlGlobal + 'guide', {params: params});
+  }
+
+
 
 }

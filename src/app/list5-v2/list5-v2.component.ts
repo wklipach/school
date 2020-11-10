@@ -12,6 +12,7 @@ import { GuideService } from '../services/guide.service';
 })
 export class List5V2Component implements OnInit {
 
+  thisTheme = '---';
   edititing_id = '-1';
   typeEdit = 'новый документ';
 
@@ -86,6 +87,18 @@ export class List5V2Component implements OnInit {
   }
 
   ngOnInit(): void {
+
+    // загружаем тему урока из базы
+    const id = this.auth.getSaveDocumentId();
+    this.gs.getThemeLesson(id).subscribe( (value: any[]) => {
+      if (value.length > 0) {
+        const document = value[0];
+        if (document.objSummaryLesson.documentTypeLesson) {
+          this.thisTheme = document.objSummaryLesson.documentTypeLesson.title;
+        }
+      }
+    });
+
     this.loadLesson();
 
     if (this.auth.getSaveDocumentEdit()) {

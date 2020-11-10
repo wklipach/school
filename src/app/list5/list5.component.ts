@@ -14,6 +14,7 @@ import {Guide7Service} from '../components/guide7/guide7.service';
 })
 export class List5Component implements OnInit {
 
+  thisTheme = '---';
   edititing_id = '-1';
   typeEdit = 'новый документ';
   UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
@@ -107,6 +108,20 @@ export class List5Component implements OnInit {
   }
 
   ngOnInit(): void {
+
+      // загружаем тему урока из базы
+    const id = this.auth.getSaveDocumentId();
+    this.gs.getThemeLesson(id).subscribe( (value: any[]) => {
+      if (value.length > 0) {
+        const document = value[0];
+        if (document.objSummaryLesson.documentTypeLesson) {
+          this.thisTheme = document.objSummaryLesson.documentTypeLesson.title;
+        }
+      }
+    });
+
+
+    // this.thisTheme
 
       this.loadLesson();
 
