@@ -20,17 +20,22 @@
   width:  120px;
   padding-left: 3px;
   border-right: solid 1px #cdcdcd;
+  font-size: 15px;
 }
 .lessons  {
   width: 360px;
   padding-left: 3px;
   border-right: solid 1px #cdcdcd;
+  font-size: 15px;
 }
 .lesson-topic {
   width: 520px;
   padding-left: 3px;
+  font-size: 15px;
 }
 button {
-  max-height: 38px;
+  max-height: 36px;
 }
-
+a {
+  cursor: pointer;
+}

@@ -48,3 +48,6 @@ span {
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
+h3 {
+  margin: 5px;
+}
