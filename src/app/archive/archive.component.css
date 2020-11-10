@@ -39,3 +39,6 @@ button {
 a {
   cursor: pointer;
 }
+.badge {
+  width: 20px;
+}
