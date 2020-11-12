@@ -17,9 +17,11 @@
         </div>
 
         <div class="line" *ngFor="let lesson of linsLessons">
+
           <div class="date">{{lesson.objSummaryLesson.formControlDate | date:'dd.MM.yyyy'}}
-            <span class="badge badge-pill badge-primary ml-2">Ч</span>
+               <span *ngIf="!lesson.objSummaryLesson2" class="badge badge-pill badge-primary ml-2">Ч</span>
           </div>
+
           <div class="lesson-topic">{{lesson.objSummaryLesson.lessonTopic}}</div>
           <div class="lessons">{{lesson.objSummaryLesson.lessonObjectives}}</div>
 
