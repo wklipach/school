@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
+
+      <div id="print-section">
       <div class="lesson mb-3">АООП Вариант 1</div>
 
       <div class="d-flex justify-content-between line">
@@ -53,7 +55,7 @@
 
             <div *ngFor="let DOL of documentObjectiveLessonList">
               <span>{{DOL.title}} : {{DOL.AdditionalMessage}}</span>
-            </div>  
+            </div>
           </div>
         </div>
         <div class="w-50 view-half">
@@ -98,151 +100,192 @@
               <div class="data-3">
                   <div *ngFor="let dad of Guide7Resultat1">
                     {{dad.title}} : {{dad.text}}
-                  </div>  
+                  </div>
               </div>
               <div class="data-4">{{teacheractivity}}</div>
               <div class="data-5">{{studentactivities}}</div>
-              <div class="data-6">Формирование умения вступать в контакт (учитель-ученик, ученик-ученик, ученик-класс)</div>
+              <div class="data-6">
+                <div *ngFor="let g8 of this.Guide8Resultat1">
+                  <span>{{Guide8Filter(g8)}}</span><br>
+                </div>
+              </div>
               <div class="data-7">{{reviewerrecommendations}}</div>
         </div>
 
-        <div class="line">  
+        <div class="line">
           <div class="data-1"></div>
           <div class="data-2">проверка домашнего задания</div>
           <div class="data-3">
             <div *ngFor="let dad of Guide7Resultat2">
               {{dad.title}} : {{dad.text}}
-            </div>  
+            </div>
           </div>
           <div class="data-4">{{teacheractivity2}}</div>
           <div class="data-5">{{studentactivities2}}</div>
-          <div class="data-6"></div>
+          <div class="data-6">
+            <div *ngFor="let g8 of this.Guide8Resultat2">
+              <span>{{Guide8Filter(g8)}}</span><br>
+            </div>
+          </div>
           <div class="data-7">{{reviewerrecommendations2}}</div>
        </div>
 
-       <div class="line">  
+       <div class="line">
         <div class="data-1"></div>
         <div class="data-2">актуализация знаний и умений</div>
         <div class="data-3">
           <div *ngFor="let dad of Guide7Resultat3">
             {{dad.title}} : {{dad.text}}
-          </div>  
+          </div>
         </div>
         <div class="data-4">{{teacheractivity3}}</div>
         <div class="data-5">{{studentactivities3}}</div>
-        <div class="data-6"></div>
+        <div class="data-6">
+          <div *ngFor="let g8 of this.Guide8Resultat3">
+            <span>{{Guide8Filter(g8)}}</span><br>
+          </div>
+        </div>
         <div class="data-7">{{reviewerrecommendations3}}</div>
        </div>
 
-       <div class="line">  
+       <div class="line">
         <div class="data-1"></div>
         <div class="data-2">сообщение темы и цели урока</div>
         <div class="data-3">
           <div *ngFor="let dad of Guide7Resultat4">
             {{dad.title}} : {{dad.text}}
-          </div>  
+          </div>
         </div>
         <div class="data-4">{{teacheractivity4}}</div>
         <div class="data-5">{{studentactivities4}}</div>
-        <div class="data-6"></div>
+        <div class="data-6">
+          <div *ngFor="let g8 of this.Guide8Resultat4">
+            <span>{{Guide8Filter(g8)}}</span><br>
+          </div>
+        </div>
         <div class="data-7">{{reviewerrecommendations4}}</div>
        </div>
 
-       <div class="line">  
+       <div class="line">
         <div class="data-1"></div>
         <div class="data-2">мотивация и планирование учебной деятельности</div>
         <div class="data-3">
           <div *ngFor="let dad of Guide7Resultat5">
             {{dad.title}} : {{dad.text}}
-          </div>  
+          </div>
         </div>
         <div class="data-4">{{teacheractivity5}}</div>
         <div class="data-5">{{studentactivities5}}</div>
-        <div class="data-6"></div>
+        <div class="data-6">
+          <div *ngFor="let g8 of this.Guide8Resultat5">
+            <span>{{Guide8Filter(g8)}}</span><br>
+          </div>
+        </div>
         <div class="data-7">{{reviewerrecommendations5}}</div>
        </div>
 
-       <div class="line">  
+       <div class="line">
         <div class="data-1">ОСНОВНАЯ ЧАСТЬ</div>
         <div class="data-2">изучение нового материала</div>
         <div class="data-3">
           <div *ngFor="let dad of Guide7Resultat6">
             {{dad.title}} : {{dad.text}}
-          </div>  
+          </div>
         </div>
         <div class="data-4">{{teacheractivity6}}</div>
         <div class="data-5">{{studentactivities6}}</div>
-        <div class="data-6"></div>
+        <div class="data-6">
+          <div *ngFor="let g8 of this.Guide8Resultat6">
+            <span>{{Guide8Filter(g8)}}</span><br>
+          </div>
+        </div>
         <div class="data-7">{{reviewerrecommendations6}}</div>
        </div>
 
-       <div class="line">  
+       <div class="line">
         <div class="data-1"></div>
         <div class="data-2">закрепление изученного материала</div>
         <div class="data-3">
           <div *ngFor="let dad of Guide7Resultat7">
             {{dad.title}} : {{dad.text}}
-          </div>  
+          </div>
         </div>
         <div class="data-4">{{teacheractivity7}}</div>
         <div class="data-5">{{studentactivities7}}</div>
-        <div class="data-6"></div>
+        <div class="data-6">
+          <div *ngFor="let g8 of this.Guide8Resultat7">
+            <span>{{Guide8Filter(g8)}}</span><br>
+          </div>
+        </div>
         <div class="data-7">{{reviewerrecommendations7}}</div>
        </div>
 
-       <div class="line">  
+       <div class="line">
         <div class="data-1">ЗАКЛЮЧИТЕЛЬНАЯ ЧАСТЬ</div>
         <div class="data-2">подведение итогов (выводы, оценивание, рефлексия)</div>
         <div class="data-3">
           <div *ngFor="let dad of Guide7Resultat8">
             {{dad.title}} : {{dad.text}}
-          </div>  
+          </div>
         </div>
         <div class="data-4">{{teacheractivity8}}</div>
         <div class="data-5">{{studentactivities8}}</div>
-        <div class="data-6"></div>
+        <div class="data-6">
+          <div *ngFor="let g8 of this.Guide8Resultat8">
+            <span>{{Guide8Filter(g8)}}</span><br>
+          </div>
+        </div>
         <div class="data-7">{{reviewerrecommendations8}}</div>
        </div>
 
-       <div class="line">  
+       <div class="line">
         <div class="data-1"></div>
         <div class="data-2">сообщение домашнего задания (инструктаж)</div>
         <div class="data-3">
           <div *ngFor="let dad of Guide7Resultat9">
             {{dad.title}} : {{dad.text}}
-          </div>  
+          </div>
         </div>
         <div class="data-4">{{teacheractivity9}}</div>
         <div class="data-5">{{studentactivities9}}</div>
-        <div class="data-6"></div>
+        <div class="data-6">
+          <div *ngFor="let g8 of this.Guide8Resultat9">
+            <span>{{Guide8Filter(g8)}}</span><br>
+          </div>
+        </div>
         <div class="data-7">{{reviewerrecommendations9}}</div>
        </div>
 
-       <div class="line">  
+       <div class="line">
         <div class="data-1"></div>
         <div class="data-2">организованное окончание урока</div>
         <div class="data-3">
           <div *ngFor="let dad of Guide7Resultat10">
             {{dad.title}} : {{dad.text}}
-          </div>  
+          </div>
         </div>
         <div class="data-4">{{teacheractivity10}}</div>
         <div class="data-5">{{studentactivities10}}</div>
-        <div class="data-6"></div>
+        <div class="data-6">
+          <div *ngFor="let g8 of this.Guide8Resultat10">
+            <span>{{Guide8Filter(g8)}}</span><br>
+          </div>
+        </div>
         <div class="data-7">{{reviewerrecommendations10}}</div>
        </div>
 
      </div>
 
+      </div> <!--  это закрывающий див для секции печати-->
+
       <div class="btn-line my-5">
         <button type="button" class="btn btn-outline-primary mr-3">Назад</button>
         <button type="button" class="btn btn-outline-primary mr-3">Редактировать</button>
-        <button type="button" class="btn btn-outline-primary mr-3">Распечатать</button>
+        <!-- <button type="button" class="btn btn-outline-primary mr-3">Распечатать</button> -->
+        <button type="button" class="btn btn-outline-primary mr-3" (click)="print()">Распечатать</button>
         <button type="button" class="btn btn-outline-primary mr-3">Сохранить в файл</button>
         <button type="button" class="btn btn-outline-primary">Поделиться</button>
       </div>
-
-
 
 
     </div>

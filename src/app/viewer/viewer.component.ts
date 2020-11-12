@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 import {GuideService} from '../services/guide.service';
 
+
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
@@ -183,26 +184,38 @@ export class ViewerComponent implements OnInit {
       this.Guide8Resultat9 = this.lesson.objSummaryLesson2.Guide8Resultat9;
       this.Guide8Resultat10 = this.lesson.objSummaryLesson2.Guide8Resultat10;
 
-      this.loadGuide8Title(this.Guide8Resultat1);
-      this.loadGuide8Title(this.Guide8Resultat2);
-      this.loadGuide8Title(this.Guide8Resultat3);
-      this.loadGuide8Title(this.Guide8Resultat4);
-      this.loadGuide8Title(this.Guide8Resultat5);
-      this.loadGuide8Title(this.Guide8Resultat6);
-      this.loadGuide8Title(this.Guide8Resultat7);
-      this.loadGuide8Title(this.Guide8Resultat8);
-      this.loadGuide8Title(this.Guide8Resultat9);
-      this.loadGuide8Title(this.Guide8Resultat10);
-
      }
   }
 
-  loadGuide8Title(mass: any[]) {
-    mass.forEach ((element, i) => {
-       const res = this.guide8list.filter( value => value[i] === element.id);
-       console.log('res=', res);
-    })
+  Guide8Filter(id_element): string {
+    return this.guide8list.filter(value => {
+      return value.id === id_element;
+    })[0].title;
+  }
 
+  print() {
+    let printContents, popupWin;
+    printContents = document.getElementById('print-section').innerHTML;
+    popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+    popupWin.document.open();
+
+/*
+    popupWin.document.write(`
+      <html>
+        <head>
+          <title>Print tab</title>
+        </head>
+
+         <body onload="window.print();window.close()">${printContents}</body>
+
+      </html>`
+    );
+*/
+
+    popupWin.document.write(`
+         <body onload="window.print();">${printContents}</body>
+    `);
+    popupWin.document.close();
   }
 
 }

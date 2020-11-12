@@ -65,7 +65,13 @@ export class ArchiveComponent implements OnInit {
     // сохраняем объект в локальном хранилище
      this.auth.setSchoolLesson(lesson);
     // переходим к странице
-    this.router.navigate(['/viewer']);
+    if (this.itisTypeLessons2(lesson)) {
+      this.router.navigate(['/viewer-v2']);
+    } else {
+      this.router.navigate(['/viewer']);
+    }
+
+    // this.router.navigate(['/viewer']);
   }
 
   onClickEdit(lesson: any) {
