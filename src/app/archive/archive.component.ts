@@ -61,9 +61,11 @@ export class ArchiveComponent implements OnInit {
     return dd.toISOString();
   }
 
-  onClickViewing(lesson: any) {
+  onClickViewing(lesson) {
     // сохраняем объект в локальном хранилище
-     this.auth.setSchoolLesson(lesson);
+    // this.auth.setSchoolLesson(lesson);
+    this.auth.setViewPrintId(lesson._id);
+
     // переходим к странице
     if (this.itisTypeLessons2(lesson)) {
       this.router.navigate(['/viewer-v2']);

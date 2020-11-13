@@ -3,7 +3,7 @@
     <div class="col-12">
 
       <div id="print-section">
-        <div class="lesson mb-3">АООП Вариант 1</div>
+        <div class="lesson mb-3">{{sNamePrint}}</div>
 
         <div class="d-flex justify-content-between line">
           <div class="view-left w-25">Дата</div>
@@ -25,7 +25,7 @@
         <!-- Сюда из справочника Lessons2-->
         <div class="d-flex justify-content-between line">
           <div class="view-left w-25">Учебный предмет</div>
-          <span class="w-75">{{documentLessons.title}}</span>
+          <span class="w-75">{{documentLessons2.title}}</span>
         </div>
 
         <div class="d-flex justify-content-between line">
@@ -54,26 +54,15 @@
           <div class="view-left w-50">Предметные/Личностные</div>
         </div>
 
-     <!-- Сюда из list4-v2 строка - 142 по 149  -->
-
-        <div class="d-flex justify-content-between line">
-          <div class="w-50 view-half">Петров И</div>
-          <div class="w-50 view-half">
-           <span>Концентрируется на тактильных ощущениях<br>
-            Позволяет выполнить задание методом «рука в руке»
-           </span>
-          </div>
+       <!-- Сюда из list4-v2 строка - 142 по 149  -->
+        <div *ngFor ="let EL of guide2linesResultat1">
+            <div class="d-flex justify-content-between line">
+              <div class="w-50 view-half">{{EL.text1}}</div>
+              <div class="w-50 view-half">
+             <span>{{EL.text2}}</span>
+              </div>
+            </div>
         </div>
-
-        <div class="d-flex justify-content-between line">
-          <div class="w-50 view-half">Сидоров В</div>
-          <div class="w-50 view-half">
-           <span>  Принимает физическую помощь со стороны педагога<br>
-                   Демонстрирует слуховые и зрительные ориентировочно-поисковые реакции
-           </span>
-          </div>
-        </div>
-
         <!-- Конец Предполагаемые результаты  -->
 
         <div class="d-flex justify-content-between line">

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 import {GuideService} from '../services/guide.service';
+import {forkJoin} from "rxjs";
 
 
 @Component({
@@ -10,6 +11,8 @@ import {GuideService} from '../services/guide.service';
   styleUrls: ['./viewer.component.css']
 })
 export class ViewerComponent implements OnInit {
+
+  sNamePrint = 'АООП Вариант 1';
 
   lesson: any = {};
   fio = '';
@@ -23,9 +26,9 @@ export class ViewerComponent implements OnInit {
   documentPersonalLessonList: any[] = [];
   documentEquipmentList: any[] = [];
 
-  documentEquipment = {id: -1, title: ''};
-  documentGroupMethod = {id: -1, id_group: -1, title: ''};
-  documentMethod = {id: -1, id_group: -1, title: ''};
+//  documentEquipment = {id: -1, title: ''};
+//  documentGroupMethod = {id: -1, id_group: -1, title: ''};
+//  documentMethod = {id: -1, id_group: -1, title: ''};
   fioTeacherhome = '';
   lessonTopic = '';
   lessonObjectives = '';
@@ -90,16 +93,22 @@ export class ViewerComponent implements OnInit {
   listBasicLearningActivities: any;
   guide8list: any[]  = [];
 
-  constructor(private router: Router, private gs: GuideService, private auth: AuthService) { }
+  constructor(private router: Router, private gs: GuideService, private auth: AuthService) {
+    if (!this.auth.getViewPrintId()) {
+      this.router.navigate(['/']);
+    }
+  }
 
   ngOnInit(): void {
-    this.lesson =  this.auth.getSchoolLesson();
-    console.log(this.lesson);
-    console.log(this.lesson.objSummaryLesson);
+    // this.lesson =  this.auth.getSchoolLesson();
 
-    // classBasicLearningActions
-    this.gs.selectCollection('classBasicLearningActions').subscribe((guideList: any[]) => {
-      this.guide8list = guideList;
+    const lesson_id = this.auth.getViewPrintId();
+    forkJoin([
+      this.gs.selectCollection('classBasicLearningActions'),
+      this.gs.getLesson(lesson_id)
+    ]).subscribe(results => {
+      this.guide8list = <any[]>results[0];
+      this.lesson = results[1][0];
       this.loadData();
     });
 
@@ -195,7 +204,7 @@ export class ViewerComponent implements OnInit {
 
   print() {
     let printContents, popupWin;
-    printContents = document.getElementById('print-section').innerHTML;
+    printContents = document.getElementById('print-section').outerHTML;
     console.log('printContents=', printContents);
     popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
     popupWin.document.open();

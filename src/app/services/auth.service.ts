@@ -60,10 +60,19 @@ export class AuthService {
     window.localStorage.removeItem('schoolarchive');
     window.localStorage.removeItem('savedocument_id');
     window.localStorage.removeItem('savedocument_edit');
+    window.localStorage.removeItem('viewprint_id');
   }
 
   public setSchoolLesson(schoollesson) {
     window.localStorage.setItem('schoollesson', JSON.stringify(schoollesson));
+  }
+
+  public setViewPrintId(lesson_id) {
+    window.localStorage.setItem('viewprint_id', JSON.stringify(lesson_id));
+  }
+
+  public getViewPrintId() {
+    return JSON.parse(window.localStorage.getItem('viewprint_id'));
   }
 
   public setSaveDocumentId(id) {

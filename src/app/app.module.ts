@@ -44,6 +44,7 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'viewer', component: ViewerComponent},
+  {path: 'viewer-v2', component: ViewerV2Component},
   {path: 'lesson-transfer', component: LessonTransferComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent}
 ];
