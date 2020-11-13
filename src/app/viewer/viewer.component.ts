@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 import {GuideService} from '../services/guide.service';
-import {forkJoin} from "rxjs";
+import {forkJoin} from 'rxjs';
 
 
 @Component({
@@ -104,7 +104,7 @@ export class ViewerComponent implements OnInit {
 
     const lesson_id = this.auth.getViewPrintId();
     forkJoin([
-      this.gs.selectCollection('listBasicLearningActivities'),
+      this.gs.selectCollection('classBasicLearningActivities'),
       this.gs.getLesson(lesson_id)
     ]).subscribe(results => {
       this.guide8list = <any[]>results[0];
