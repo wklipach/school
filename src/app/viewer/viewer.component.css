@@ -1,6 +1,7 @@
-.container {
+.container-fluid {
   /* min-height: calc(100vh - 160px); */
   text-align: center;
+  padding: 0 5%;
 }
 a {
   cursor: pointer;
@@ -9,11 +10,10 @@ a {
   height: auto;
   margin: 0;
   border: solid 1px #cdcdcd;
-
 }
 .view-left {
   height: auto;
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 600;
   background-color: #e5e5e5;
   border-right: solid 1px #cdcdcd;
@@ -50,57 +50,71 @@ ul {
   padding: 10px 0;
 }
 .topic-1 {
-  width: 160px;
+  width: 9%;
 }
 .topic-2 {
-  width: 160px;
+  width: 8%;
 }
 .topic-3 {
-  width: 170px;
+  width: 20%;
 }
 .topic-4 {
-  width: 150px;
+  width: 12%;
 }
 .topic-5 {
-  width: 150px;
+  width: 12%;
 }
 .topic-6 {
-  width: 180px;
+  width: 30%;
 }
 .topic-7 {
-  width: 140px;
+  width: 9%;
 }
 .data-1 {
   font-size: 15px;
-  width: 160px;
+  width: 9%;
   border-right: solid 1px #cdcdcd;
 }
 .data-2 {
   font-size: 15px;
-  width: 160px ;
+  width: 8%;
   border-right: solid 1px #cdcdcd;
 }
 .data-3 {
-  font-size: 15px;
-  width: 170px ;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
   border-right: solid 1px #cdcdcd;
+  text-align: left;
+}
+.d-3 {
+  padding: 2px 0 0 3px;
+  font-size: 15px;
 }
 .data-4 {
   font-size: 15px;
-  width: 150px ;
+  width: 12%;
   border-right: solid 1px #cdcdcd;
+  text-align: left;
 }
 .data-5 {
   font-size: 15px;
-  width: 150px ;
+  width: 12%;
   border-right: solid 1px #cdcdcd;
+  text-align: left;
 }
 .data-6 {
-  font-size: 15px;
-  width: 180px ;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
   border-right: solid 1px #cdcdcd;
+  text-align: left;
+}
+.d-6 {
+  font-size: 15px;
 }
 .data-7 {
   font-size: 15px;
-  width: 140px ;
+  width: 9%;
+  text-align: left;
 }

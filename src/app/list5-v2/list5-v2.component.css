@@ -40,14 +40,7 @@ h2, h4, h5 {
   padding: 20px 10px;
   border-left: solid 1px #cdcdcd;
 }
-span {
-  writing-mode: tb-rl;
-  font-size: 20px;
-  font-weight: 700;
-  margin: 20px auto;
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
 h3 {
+  position: fixed;
   margin: 5px;
 }

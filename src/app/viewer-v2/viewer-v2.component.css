@@ -1,0 +1,40 @@
+.container-fluid {
+  /* min-height: calc(100vh - 160px); */
+  text-align: center;
+  padding: 0 5%;
+}
+a {
+  cursor: pointer;
+}
+.line {
+  height: auto;
+  margin: 0;
+  border: solid 1px #cdcdcd;
+}
+.view-left {
+  height: auto;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #e5e5e5;
+  border-right: solid 1px #cdcdcd;
+  padding: 10px 0;
+}
+.view-half, .view-half-right {
+  height: auto;
+  text-align: left;
+  font-size: 18px;
+  border-right: solid 1px #cdcdcd;
+  padding: 10px 5px;
+}
+.view-half-right {
+  border: none;
+}
+.view-half-span {
+  display: flex;
+  flex-direction: column;
+}
+span {
+  text-align: left;
+  font-size: 18px;
+  padding: 10px 0 15px 10px;
+}
