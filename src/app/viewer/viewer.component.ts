@@ -90,7 +90,7 @@ export class ViewerComponent implements OnInit {
   Guide8Resultat9: any[] = [];
   Guide8Resultat10: any[] = [];
 
-  listBasicLearningActivities: any;
+  // listBasicLearningActivities: any;
   guide8list: any[]  = [];
 
   constructor(private router: Router, private gs: GuideService, private auth: AuthService) {
@@ -104,7 +104,7 @@ export class ViewerComponent implements OnInit {
 
     const lesson_id = this.auth.getViewPrintId();
     forkJoin([
-      this.gs.selectCollection('classBasicLearningActions'),
+      this.gs.selectCollection('listBasicLearningActivities'),
       this.gs.getLesson(lesson_id)
     ]).subscribe(results => {
       this.guide8list = <any[]>results[0];

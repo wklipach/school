@@ -71,7 +71,19 @@ export class ViewerV2Component implements OnInit {
   Guide7Resultat9: any[] = [];
   Guide7Resultat10: any[] = [];
 
+  Guide10Resultat1: any[] = [];
+  Guide10Resultat2: any[] = [];
+  Guide10Resultat3: any[] = [];
+  Guide10Resultat4: any[] = [];
+  Guide10Resultat5: any[] = [];
+  Guide10Resultat6: any[] = [];
+  Guide10Resultat7: any[] = [];
+  Guide10Resultat8: any[] = [];
+  Guide10Resultat9: any[] = [];
+  Guide10Resultat10: any[] = [];
+
   guide2linesResultat1: any[] = [];
+  guide10list: any[] = [];
 
 
   constructor(private router: Router, private gs: GuideService, private auth: AuthService) {
@@ -85,10 +97,11 @@ export class ViewerV2Component implements OnInit {
   ngOnInit(): void {
     const lesson_id = this.auth.getViewPrintId();
     forkJoin([
+
       this.gs.selectCollection('classBasicLearningActions'),
       this.gs.getLesson(lesson_id)
     ]).subscribe(results => {
-        // this.guide8list = guideList;
+        this.guide10list = <any[]>results[0];
         this.lesson = results[1][0];
         this.loadData();
     });
@@ -164,7 +177,25 @@ export class ViewerV2Component implements OnInit {
       this.Guide7Resultat10 = this.lesson.objSummaryLesson2.Guide7Resultat10;
       // дволной справочник берется именно из objSummaryLesson, а не objSummaryLesson2
       this.guide2linesResultat1 = this.lesson.objSummaryLesson.guide2linesResultat1;
+
+      this.Guide10Resultat1 = this.lesson.objSummaryLesson2.Guide10Resultat1;
+      this.Guide10Resultat2 = this.lesson.objSummaryLesson2.Guide10Resultat2;
+      this.Guide10Resultat3 = this.lesson.objSummaryLesson2.Guide10Resultat3;
+      this.Guide10Resultat4 = this.lesson.objSummaryLesson2.Guide10Resultat4;
+      this.Guide10Resultat5 = this.lesson.objSummaryLesson2.Guide10Resultat5;
+      this.Guide10Resultat6 = this.lesson.objSummaryLesson2.Guide10Resultat6;
+      this.Guide10Resultat7 = this.lesson.objSummaryLesson2.Guide10Resultat7;
+      this.Guide10Resultat8 = this.lesson.objSummaryLesson2.Guide10Resultat8;
+      this.Guide10Resultat9 = this.lesson.objSummaryLesson2.Guide10Resultat9;
+      this.Guide10Resultat10 = this.lesson.objSummaryLesson2.Guide10Resultat10;
     }
+  }
+
+
+  Guide10Filter(id_element): string {
+    return this.guide10list.filter(value => {
+      return value.id === id_element;
+    })[0].title;
   }
 
 

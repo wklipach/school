@@ -54,15 +54,18 @@
           <div class="view-left w-75">Предметные/Личностные</div>
         </div>
 
-       <!-- Сюда из list4-v2 строка - 142 по 149
-        <div *ngFor ="let EL of guide2linesResultat1">  -->
+
+
+        <div *ngFor ="let EL of guide2linesResultat1">
             <div class="d-flex justify-content-between line">
-              <div class="w-25 view-half">Маша Ж.</div>
+              <div class="w-25 view-half">{{EL.text1}}</div>
               <div class="w-75 view-half-data">
-                <span class="p-0">Концентрируется на тактильных ощущениях</span>
+                <span class="p-0">{{EL.text2}}</span>
               </div>
             </div>
+        </div>
 
+<!--
         <div class="d-flex justify-content-between line">
           <div class="w-25 view-half">Даня П.</div>
           <div class="w-75 view-half-data">
@@ -72,6 +75,7 @@
 
           </div>
         </div>
+-->
 
         <!-- Конец Предполагаемые результаты  -->
 
@@ -113,6 +117,12 @@
             <div class="data-4">{{teacheractivity}}</div>
             <div class="data-5">{{studentactivities}}</div>
 
+            <div class="data-6">
+                <div *ngFor="let g10 of this.Guide10Resultat1">
+                  <span class="d-6">{{Guide10Filter(g10)}}</span><br>
+                </div>
+            </div>
+
             <div class="data-7">{{reviewerrecommendations}}</div>
           </div>
 
@@ -126,6 +136,12 @@
             </div>
             <div class="data-4">{{teacheractivity2}}</div>
             <div class="data-5">{{studentactivities2}}</div>
+            <div class="data-6">
+              <div *ngFor="let g10 of this.Guide10Resultat2">
+                <span class="d-6">{{Guide10Filter(g10)}}</span><br>
+              </div>
+            </div>
+
             <div class="data-7">{{reviewerrecommendations2}}</div>
           </div>
 
@@ -139,6 +155,13 @@
             </div>
             <div class="data-4">{{teacheractivity3}}</div>
             <div class="data-5">{{studentactivities3}}</div>
+
+            <div class="data-6">
+              <div *ngFor="let g10 of this.Guide10Resultat3">
+                <span class="d-6">{{Guide10Filter(g10)}}</span><br>
+              </div>
+            </div>
+
             <div class="data-7">{{reviewerrecommendations3}}</div>
           </div>
 
@@ -152,6 +175,13 @@
             </div>
             <div class="data-4">{{teacheractivity4}}</div>
             <div class="data-5">{{studentactivities4}}</div>
+
+            <div class="data-6">
+              <div *ngFor="let g10 of this.Guide10Resultat4">
+                <span class="d-6">{{Guide10Filter(g10)}}</span><br>
+              </div>
+            </div>
+
             <div class="data-7">{{reviewerrecommendations4}}</div>
           </div>
 
@@ -165,6 +195,14 @@
             </div>
             <div class="data-4">{{teacheractivity5}}</div>
             <div class="data-5">{{studentactivities5}}</div>
+
+            <div class="data-6">
+              <div *ngFor="let g10 of this.Guide10Resultat5">
+                <span class="d-6">{{Guide10Filter(g10)}}</span><br>
+              </div>
+            </div>
+
+
             <div class="data-7">{{reviewerrecommendations5}}</div>
           </div>
 
@@ -178,6 +216,14 @@
             </div>
             <div class="data-4">{{teacheractivity6}}</div>
             <div class="data-5">{{studentactivities6}}</div>
+
+            <div class="data-6">
+              <div *ngFor="let g10 of this.Guide10Resultat6">
+                <span class="d-6">{{Guide10Filter(g10)}}</span><br>
+              </div>
+            </div>
+
+
             <div class="data-7">{{reviewerrecommendations6}}</div>
           </div>
 
@@ -191,6 +237,14 @@
             </div>
             <div class="data-4">{{teacheractivity7}}</div>
             <div class="data-5">{{studentactivities7}}</div>
+
+            <div class="data-6">
+              <div *ngFor="let g10 of this.Guide10Resultat7">
+                <span class="d-6">{{Guide10Filter(g10)}}</span><br>
+              </div>
+            </div>
+
+
             <div class="data-7">{{reviewerrecommendations7}}</div>
           </div>
 
@@ -204,6 +258,14 @@
             </div>
             <div class="data-4">{{teacheractivity8}}</div>
             <div class="data-5">{{studentactivities8}}</div>
+
+            <div class="data-6">
+              <div *ngFor="let g10 of this.Guide10Resultat8">
+                <span class="d-6">{{Guide10Filter(g10)}}</span><br>
+              </div>
+            </div>
+
+
             <div class="data-7">{{reviewerrecommendations8}}</div>
           </div>
 
@@ -217,6 +279,14 @@
             </div>
             <div class="data-4">{{teacheractivity9}}</div>
             <div class="data-5">{{studentactivities9}}</div>
+
+            <div class="data-6">
+              <div *ngFor="let g10 of this.Guide10Resultat9">
+                <span class="d-6">{{Guide10Filter(g10)}}</span><br>
+              </div>
+            </div>
+
+
             <div class="data-7">{{reviewerrecommendations9}}</div>
           </div>
 
@@ -230,6 +300,13 @@
             </div>
             <div class="data-4">{{teacheractivity10}}</div>
             <div class="data-5">{{studentactivities10}}</div>
+
+            <div class="data-6">
+              <div *ngFor="let g10 of this.Guide10Resultat10">
+                <span class="d-6">{{Guide10Filter(g10)}}</span><br>
+              </div>
+            </div>
+
             <div class="data-7">{{reviewerrecommendations10}}</div>
           </div>
 
