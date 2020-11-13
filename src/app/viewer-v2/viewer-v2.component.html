@@ -50,19 +50,29 @@
           <div class="view-left w-100">Предполагаемые результаты</div>
         </div>
         <div class="d-flex justify-content-between line" style="border-bottom:solid 1px #cdcdcd;">
-          <div class="view-left w-50">ФИ ученика</div>
-          <div class="view-left w-50">Предметные/Личностные</div>
+          <div class="view-left w-25">ФИ ученика</div>
+          <div class="view-left w-75">Предметные/Личностные</div>
         </div>
 
-       <!-- Сюда из list4-v2 строка - 142 по 149  -->
-        <div *ngFor ="let EL of guide2linesResultat1">
+       <!-- Сюда из list4-v2 строка - 142 по 149
+        <div *ngFor ="let EL of guide2linesResultat1">  -->
             <div class="d-flex justify-content-between line">
-              <div class="w-50 view-half">{{EL.text1}}</div>
-              <div class="w-50 view-half">
-             <span>{{EL.text2}}</span>
+              <div class="w-25 view-half">Маша Ж.</div>
+              <div class="w-75 view-half-data">
+                <span class="p-0">Концентрируется на тактильных ощущениях</span>
               </div>
             </div>
+
+        <div class="d-flex justify-content-between line">
+          <div class="w-25 view-half">Даня П.</div>
+          <div class="w-75 view-half-data">
+            <span class="p-0">Принимает физическую помощь со стороны педагога
+            Демонстрирует слуховые и зрительные ориентировочно-поисковые реакции
+           </span>
+
+          </div>
         </div>
+
         <!-- Конец Предполагаемые результаты  -->
 
         <div class="d-flex justify-content-between line">
@@ -72,12 +82,12 @@
 
         <div *ngFor="let DOL of documentEquipmentList">
           <div class="d-flex justify-content-between line">
-            <div class="view-half w-50">{{DOL.title}}</div>
-            <div class="view-half-right w-50">{{DOL.AdditionalMessage}}</div>
+            <div class="view-half w-25">{{DOL.title}}</div>
+            <div class="view-half-right w-75">{{DOL.AdditionalMessage}}</div>
           </div>
         </div>
 
-
+    </div>
 
 
         <div class="p-0">
@@ -239,4 +249,4 @@
 
     </div>
   </div>
-</div>
+
