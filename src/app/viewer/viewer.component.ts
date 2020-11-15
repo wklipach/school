@@ -1,8 +1,12 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 import {GuideService} from '../services/guide.service';
 import {forkJoin} from 'rxjs';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
@@ -93,13 +97,15 @@ export class ViewerComponent implements OnInit {
   // listBasicLearningActivities: any;
   guide8list: any[]  = [];
 
-  constructor(private router: Router, private gs: GuideService, private auth: AuthService) {
+  constructor(private router: Router, private gs: GuideService, private auth: AuthService, private http: HttpClient) {
     if (!this.auth.getViewPrintId()) {
       this.router.navigate(['/']);
     }
-  }
+
+   }
 
   ngOnInit(): void {
+
     // this.lesson =  this.auth.getSchoolLesson();
 
     const lesson_id = this.auth.getViewPrintId();
@@ -203,29 +209,65 @@ export class ViewerComponent implements OnInit {
   }
 
   print() {
-    let printContents, popupWin;
-    printContents = document.getElementById('print-section').outerHTML;
-    console.log('printContents=', printContents);
-    popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
-    popupWin.document.open();
-
-/*
-    popupWin.document.write(`
-      <html>
-        <head>
-          <title>Print tab</title>
-        </head>
-
-         <body onload="window.print();window.close()">${printContents}</body>
-
-      </html>`
-    );
-*/
-
-    popupWin.document.write(`
-         <body onload="window.print();">${printContents}</body>
-    `);
-    popupWin.document.close();
+    this.print4x();
   }
+
+
+  printTable() {
+    let printContents = document.getElementById('contentToConvert');
+    html2canvas(printContents, 
+      {
+        //размеры, если надо
+         width: 2500,
+         height: 500,
+    }).then(async function(canvas) {
+        let win = window.open();
+        await win.document.write("<br><img src='"+canvas.toDataURL()+"'/>");
+        win.print();
+    });
+}
+
+  doCapture(){
+    console.log('contentToConvert=', document.getElementById('contentToConvert'));
+    html2canvas(document.getElementById('contentToConvert')).then( canvas =>{
+        var img = canvas.toDataURL('image/png').replace('image/png','image/octet-stream');
+        //console.log(img);
+        window.location.href = img;
+    });
+
+}
+
+  convetToPDF()  {
+    var data = document.getElementById('contentToConvert');
+    html2canvas(data, {
+      windowWidth: data.scrollWidth,
+      windowHeight: data.scrollHeight
+  }).then(canvas => {
+      var imgWidth = 208;
+      var imgHeight = canvas.height * imgWidth / canvas.width;
+      const contentDataURL = canvas.toDataURL('image/png')
+      let pdf = new jsPDF('p', 'mm', 'a4');
+      var position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.save('newPDF.pdf');
+    });
+}
+
+
+print4x() {
+        this.http.get('assets/viewer.txt', { responseType: 'text' }).subscribe( data =>  {
+              console.log(data);
+              const printContent = document.getElementById('contentToConvert');
+              const WindowPrt = window.open('', '', 'left=0,top=0,width=900,height=900,toolbar=0,scrollbars=0,status=0');
+              WindowPrt.document.write('<html><head><style>' +
+              data +
+              '</style></head>');
+              WindowPrt.document.write(printContent.innerHTML + '</html>');
+              WindowPrt.document.close();
+              WindowPrt.focus();
+              WindowPrt.print();
+              WindowPrt.close();
+      });
+}
 
 }
