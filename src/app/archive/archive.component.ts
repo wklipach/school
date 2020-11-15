@@ -97,4 +97,12 @@ export class ArchiveComponent implements OnInit {
     } else {return false; }
   }
 
+  onClickMove(lesson) {
+    // сохраняем объект в локальном хранилище
+    this.auth.setViewPrintId(lesson._id);
+    // переходим к странице
+      this.router.navigate(['/lesson-transfer']);
+  }
+
+
 }

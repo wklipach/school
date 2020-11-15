@@ -72,6 +72,11 @@ export class GuideService {
     return this.http.post(this.gr.sUrlGlobal + 'guide', datamessage);
   }
 
+  setInsertManyLessons(arrResult) {
+    const datamessage = {insert_manylessons: 'insert_manylessons', arrResult};
+    return this.http.post(this.gr.sUrlGlobal + 'guide', datamessage);
+  }
+
   updateSummaryLessonList4(id_key, objSummaryLesson) {
     const datamessage = {update_summarylesson_1: 'update_summarylesson_1', id_key, objSummaryLesson};
     return this.http.post(this.gr.sUrlGlobal + 'guide', datamessage);

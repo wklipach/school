@@ -3,8 +3,6 @@ import {Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 import {GuideService} from '../services/guide.service';
 import {forkJoin} from 'rxjs';
-import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -213,6 +211,7 @@ export class ViewerComponent implements OnInit {
   }
 
 
+  /*
   printTable() {
     let printContents = document.getElementById('contentToConvert');
     html2canvas(printContents, 
@@ -226,7 +225,9 @@ export class ViewerComponent implements OnInit {
         win.print();
     });
 }
+*/
 
+/*
   doCapture(){
     console.log('contentToConvert=', document.getElementById('contentToConvert'));
     html2canvas(document.getElementById('contentToConvert')).then( canvas =>{
@@ -234,9 +235,10 @@ export class ViewerComponent implements OnInit {
         //console.log(img);
         window.location.href = img;
     });
-
 }
+*/
 
+/*
   convetToPDF()  {
     var data = document.getElementById('contentToConvert');
     html2canvas(data, {
@@ -252,7 +254,7 @@ export class ViewerComponent implements OnInit {
       pdf.save('newPDF.pdf');
     });
 }
-
+*/
 
 print4x() {
         this.http.get('assets/viewer.txt', { responseType: 'text' }).subscribe( data =>  {
