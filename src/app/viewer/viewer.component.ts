@@ -267,7 +267,7 @@ print4x() {
               '<style>' +
               data +
               '</style></head>');
-              WindowPrt.document.write(printContent.innerHTML + '<button type="button" class="btn btn-primary">Test Bootstrap</button>' + '</html>');
+              WindowPrt.document.write(printContent.innerHTML + '</html>');
               WindowPrt.document.close();
               WindowPrt.focus();
               WindowPrt.print();

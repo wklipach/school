@@ -2,11 +2,15 @@
   /* min-height: calc(100vh - 160px); */
   text-align: center;
   padding: 0 5%;
+
 }
 a {
   cursor: pointer;
 }
 .line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   height: auto;
   margin: 0;
   border: solid 1px #cdcdcd;
@@ -41,7 +45,9 @@ span {
 ul {
   padding: 1px 6px 5px 20px;
 }
-.topic-1,.topic-2,.topic-3,.topic-4,.topic-5,.topic-6,.topic-7 {
+
+.topic-1 {
+  width: 9%;
   height: auto;
   font-size: 18px;
   font-weight: 600;
@@ -49,26 +55,59 @@ ul {
   border-right: solid 1px #cdcdcd;
   padding: 10px 0;
 }
-.topic-1 {
-  width: 9%;
-}
 .topic-2 {
   width: 8%;
+  height: auto;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #e5e5e5;
+  border-right: solid 1px #cdcdcd;
+  padding: 10px 0;
 }
 .topic-3 {
+  height: auto;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #e5e5e5;
+  border-right: solid 1px #cdcdcd;
+  padding: 10px 0;
   width: 20%;
 }
 .topic-4 {
   width: 12%;
+  height: auto;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #e5e5e5;
+  border-right: solid 1px #cdcdcd;
+  padding: 10px 0;
 }
 .topic-5 {
   width: 12%;
+  height: auto;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #e5e5e5;
+  border-right: solid 1px #cdcdcd;
+  padding: 10px 0;
 }
 .topic-6 {
   width: 30%;
+  height: auto;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #e5e5e5;
+  border-right: solid 1px #cdcdcd;
+  padding: 10px 0;
 }
 .topic-7 {
   width: 9%;
+  height: auto;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #e5e5e5;
+  border-right: solid 1px #cdcdcd;
+  padding: 10px 0;
 }
 .data-1 {
   font-size: 15px;
