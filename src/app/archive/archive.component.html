@@ -12,8 +12,9 @@
 
         <div class="d-flex headline">
           <div class="date">Дата</div>
-          <div class="lesson-topic">Цель урока</div>
-          <div class="lessons">Тема урока</div>
+
+          <div class="lessons">Цель урока</div>
+          <div class="lesson-topic">Тема урока</div>
 
         </div>
 
@@ -23,8 +24,9 @@
                <span *ngIf="!lesson.objSummaryLesson2" class="badge badge-pill badge-primary ml-2">Ч</span>
           </div>
 
-          <div class="lesson-topic">{{lesson.objSummaryLesson.lessonTopic}}</div>
           <div class="lessons">{{lesson.objSummaryLesson.lessonObjectives}}</div>
+          <div class="lesson-topic">{{lesson.objSummaryLesson.lessonTopic}}</div>
+
 
           <div class="dropdown m-1">
             <button class="btn btn-outline-primary dropdown-toggle"
@@ -45,8 +47,8 @@
           <!--
              <button  (click)="onClickViewing(lesson)" type="button" class="btn btn-outline-primary m-2">Просмотр</button>
              <button  (click)="onClickEdit(lesson)" type="button" class="btn btn-outline-primary m-2">...</button>
-
           -->
+
         </div>
       </div>
 

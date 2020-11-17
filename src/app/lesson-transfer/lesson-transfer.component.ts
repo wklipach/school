@@ -14,6 +14,7 @@ export class LessonTransferComponent implements OnInit {
 
   lesson_id = '-1';
   listuser:  any[] = [];
+  fio = '';
   UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
   LessonTransferForm: FormGroup;
 
@@ -33,9 +34,12 @@ export class LessonTransferComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.auth.getUserWithoutID(this.UserInfo.id_user_school).subscribe( (resuser: any[]) => {
-      console.log('resuser=', resuser);
 
+    this.auth.getUserFromID(this.UserInfo.id_user_school).subscribe( user => {
+      this.fio = user[0].fio;
+    });
+
+    this.auth.getUserWithoutID(this.UserInfo.id_user_school).subscribe( (resuser: any[]) => {
       this.listuser = resuser;
       // listuser
       this.listuser.forEach( element => {
@@ -74,6 +78,9 @@ export class LessonTransferComponent implements OnInit {
      if (lesson.objSummaryLesson) {
         newLesson.objSummaryLesson = lesson.objSummaryLesson;
      }
+
+     newLesson.objSummaryLesson.lessonTopic = 'от ' + this.fio + ': ' + newLesson.objSummaryLesson.lessonTopic;
+
      if (lesson.objSummaryLesson2) {
       newLesson.objSummaryLesson2  = lesson.objSummaryLesson2;
     }
@@ -84,7 +91,6 @@ export class LessonTransferComponent implements OnInit {
       arrResult.push(objCopy);
     });
 
-    console.log('arrResult=', arrResult);
     this.gs.setInsertManyLessons(arrResult).subscribe( res => {
       alert('Уроки переданы');
       this.location.back();

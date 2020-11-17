@@ -211,54 +211,8 @@ export class ViewerComponent implements OnInit {
   }
 
 
-  /*
-  printTable() {
-    let printContents = document.getElementById('contentToConvert');
-    html2canvas(printContents,
-      {
-        //размеры, если надо
-         width: 2500,
-         height: 500,
-    }).then(async function(canvas) {
-        let win = window.open();
-        await win.document.write("<br><img src='"+canvas.toDataURL()+"'/>");
-        win.print();
-    });
-}
-*/
-
-/*
-  doCapture(){
-    console.log('contentToConvert=', document.getElementById('contentToConvert'));
-    html2canvas(document.getElementById('contentToConvert')).then( canvas =>{
-        var img = canvas.toDataURL('image/png').replace('image/png','image/octet-stream');
-        //console.log(img);
-        window.location.href = img;
-    });
-}
-*/
-
-/*
-  convetToPDF()  {
-    var data = document.getElementById('contentToConvert');
-    html2canvas(data, {
-      windowWidth: data.scrollWidth,
-      windowHeight: data.scrollHeight
-  }).then(canvas => {
-      var imgWidth = 208;
-      var imgHeight = canvas.height * imgWidth / canvas.width;
-      const contentDataURL = canvas.toDataURL('image/png')
-      let pdf = new jsPDF('p', 'mm', 'a4');
-      var position = 0;
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
-      pdf.save('newPDF.pdf');
-    });
-}
-*/
-
 print4x() {
         this.http.get('assets/viewer.txt', { responseType: 'text' }).subscribe( data =>  {
-              console.log(data);
               const printContent = document.getElementById('contentToConvert');
               const WindowPrt = window.open('', '', 'left=0,top=0,width=900,height=900,toolbar=0,scrollbars=0,status=0');
               WindowPrt.document.write('<html><head>' +

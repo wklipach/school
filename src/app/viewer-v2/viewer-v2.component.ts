@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {AuthService} from "../services/auth.service";
 import {GuideService} from "../services/guide.service";
 import {forkJoin} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-viewer-v2',
@@ -86,7 +87,7 @@ export class ViewerV2Component implements OnInit {
   guide10list: any[] = [];
 
 
-  constructor(private router: Router, private gs: GuideService, private auth: AuthService) {
+  constructor(private router: Router, private gs: GuideService, private auth: AuthService, private http: HttpClient) {
 
     if (!this.auth.getViewPrintId()) {
       this.router.navigate(['/']);
@@ -197,6 +198,30 @@ export class ViewerV2Component implements OnInit {
       return value.id === id_element;
     })[0].title;
   }
+
+  print() {
+    this.print4x();
+  }
+
+
+  print4x() {
+    this.http.get('assets/viewer.txt', { responseType: 'text' }).subscribe( data =>  {
+      const printContent = document.getElementById('contentToConvert');
+      const WindowPrt = window.open('', '', 'left=0,top=0,width=900,height=900,toolbar=0,scrollbars=0,status=0');
+      WindowPrt.document.write('<html><head>' +
+        '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" ' +
+        'integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">'+
+        '<style>' +
+        data +
+        '</style></head>');
+      WindowPrt.document.write(printContent.innerHTML + '</html>');
+      WindowPrt.document.close();
+      WindowPrt.focus();
+      WindowPrt.print();
+      // WindowPrt.close();
+    });
+  }
+
 
 
 }
