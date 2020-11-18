@@ -29,6 +29,7 @@ import {Guide7Service} from './components/guide7/guide7.service';
 import { Guide8Component } from './components/guide8/guide8.component';
 import { Elem2linesComponent } from './components/elem2lines/elem2lines.component';
 import { Guide10Component } from './components/guide10/guide10.component';
+import { RightpanelComponent } from './components/rightpanel/rightpanel.component';
 
 
 // определение маршрутов
@@ -71,7 +72,8 @@ const appRoutes: Routes = [
     Guide7Component,
     Guide8Component,
     Elem2linesComponent,
-    Guide10Component
+    Guide10Component,
+    RightpanelComponent
   ],
   imports: [
     BrowserModule,

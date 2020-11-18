@@ -70,7 +70,13 @@ export class List5Component implements OnInit {
 
   constructor(private router: Router, private gs: GuideService,
               private auth: AuthService, private g7s: Guide7Service) {
+
     this.UserInfo = this.auth.getStorage();
+    if (!this.UserInfo.bSchoolConnected) {
+      this.router.navigate(['/login']);
+    }
+
+
     this.list5Form = new FormGroup({
       teacheractivity: new FormControl(''),
       studentactivities: new FormControl(''),

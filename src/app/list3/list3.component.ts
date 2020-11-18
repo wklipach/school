@@ -27,15 +27,12 @@ export class List3Component implements OnInit {
       } else {
         dd =  new Date(dd.getFullYear(), 8, 1);
       }
-
       return dd;
-
    }
 
   onClickMyLessons() {
     const beans = {schoolarchive: {date: this.getDateShow(), currentLessons: true}};
     this.router.navigate(['/archive'], {state: beans});
-
   }
 
   onClickArchive() {

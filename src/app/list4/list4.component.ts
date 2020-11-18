@@ -11,6 +11,7 @@ import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
 import {Guide7Service} from '../components/guide7/guide7.service';
 import { forkJoin } from 'rxjs';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-list4',
@@ -57,9 +58,14 @@ export class List4Component implements OnInit {
     dateFormat: 'd.m.Y'
   };
 
-  constructor(private router: Router, private gs: GuideService, private auth: AuthService, private g7s: Guide7Service) {
+  constructor(private router: Router, private gs: GuideService, private auth: AuthService,
+              private g7s: Guide7Service, private _location: Location) {
 
     this.UserInfo = this.auth.getStorage();
+    if (!this.UserInfo.bSchoolConnected) {
+      this.router.navigate(['/login']);
+    }
+
     this.list4Form = new FormGroup({
       formControlDate: new FormControl(),
       lessonTopic: new FormControl(),
@@ -388,9 +394,33 @@ loadLesson() {
   }
 
   onClickNewLessons() {
+
     this.router.navigate(['/list2']);
   }
+
   onClickMyLessons() {
-    this.router.navigate(['/archive']);
+    const beans = {schoolarchive: {date: this.getDateShow(), currentLessons: true}};
+    this.router.navigate(['/archive'], {state: beans});
   }
+
+  getDateShow() {
+    let dd = new Date();
+    // показываем с прошлого сентября
+    if (dd.getMonth() < 8) {
+      dd =  new Date(dd.getFullYear() - 1, 8, 1);
+    } else {
+      dd =  new Date(dd.getFullYear(), 8, 1);
+    }
+    return dd;
+ }
+
+ onClickExit() {
+   this.auth.clearStorage();
+   this.router.navigate(['/login']);
+ }
+
+ onBack() {
+  this._location.back();
+ }
+
  }

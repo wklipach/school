@@ -101,6 +101,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             bEditor = value[0].editor;
           }
 
+          console.log('111111111111111111');
           this.auth.setStorage(value[0].login, true, value[0]._id, bEditor);
           this.router.navigate(['/list3']);
         } // value[0].length === 1
