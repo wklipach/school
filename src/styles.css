@@ -13,3 +13,32 @@
 .result {
   font-size: 1.2em;
 }
+.buttons-block {
+  position: fixed;
+  top: 0.25em;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+}
+/*
+.span-but {
+  writing-mode: tb-rl;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 20px auto;
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+&nbsp;
+*/
+
+.btn-menu {
+  min-height: 150px;
+}
+.span-but {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  line-height: 0.9;
+}

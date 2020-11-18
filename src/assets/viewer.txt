@@ -1,8 +1,10 @@
-.container-fluid {
-  /* min-height: calc(100vh - 160px); */
+body {
   text-align: center;
-  padding: 0 5%;
-
+  padding: 0 2%;
+ }
+.container-fluid {
+  text-align: center;
+  padding: 0 2%;
 }
 a {
   cursor: pointer;
@@ -26,7 +28,7 @@ a {
 .view-half, .view-half-right {
   height: auto;
   text-align: left;
-  font-size: 18px;
+  font-size: 17px;
   border-right: solid 1px #cdcdcd;
   padding: 10px 5px;
 }
@@ -39,8 +41,11 @@ a {
 }
 span {
   text-align: left;
-  font-size: 18px;
+  font-size: 17px;
   padding: 10px 0 15px 10px;
+}
+.span-d{
+  font-size: 14px;
 }
 ul {
   padding: 1px 6px 5px 20px;
@@ -49,7 +54,7 @@ ul {
 .topic-1 {
   width: 9%;
   height: auto;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   background-color: #e5e5e5;
   border-right: solid 1px #cdcdcd;
@@ -58,7 +63,7 @@ ul {
 .topic-2 {
   width: 8%;
   height: auto;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   background-color: #e5e5e5;
   border-right: solid 1px #cdcdcd;
@@ -66,7 +71,7 @@ ul {
 }
 .topic-3 {
   height: auto;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   background-color: #e5e5e5;
   border-right: solid 1px #cdcdcd;
@@ -76,7 +81,7 @@ ul {
 .topic-4 {
   width: 12%;
   height: auto;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   background-color: #e5e5e5;
   border-right: solid 1px #cdcdcd;
@@ -85,7 +90,7 @@ ul {
 .topic-5 {
   width: 12%;
   height: auto;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   background-color: #e5e5e5;
   border-right: solid 1px #cdcdcd;
@@ -94,7 +99,7 @@ ul {
 .topic-6 {
   width: 30%;
   height: auto;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   background-color: #e5e5e5;
   border-right: solid 1px #cdcdcd;
@@ -103,23 +108,30 @@ ul {
 .topic-7 {
   width: 9%;
   height: auto;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   background-color: #e5e5e5;
   border-right: solid 1px #cdcdcd;
   padding: 10px 0;
 }
 .data-1 {
-  font-size: 15px;
+  hyphens: auto;
+  -moz-hyphens: auto;
+     -webkit-hyphens: auto;
+     -ms-hyphens: auto;
+     hyphenate-limit-chars: 6 3 3;
+  font-size: 14px;
   width: 9%;
   border-right: solid 1px #cdcdcd;
 }
 .data-2 {
-  font-size: 15px;
+  hyphens: auto;
+  font-size: 14px;
   width: 8%;
   border-right: solid 1px #cdcdcd;
 }
 .data-3 {
+  hyphens: auto;
   display: flex;
   flex-direction: column;
   width: 20%;
@@ -127,33 +139,40 @@ ul {
   text-align: left;
 }
 .d-3 {
+  hyphens: auto;
   padding: 2px 0 0 3px;
-  font-size: 15px;
+  font-size: 14px;
 }
 .data-4 {
-  font-size: 15px;
+  hyphens: auto;
+  font-size: 14px;
   width: 12%;
   border-right: solid 1px #cdcdcd;
   text-align: left;
 }
 .data-5 {
-  font-size: 15px;
+  hyphens: auto;
+  font-size: 14px;
   width: 12%;
   border-right: solid 1px #cdcdcd;
   text-align: left;
 }
 .data-6 {
+  hyphens: auto;
+  font-size: 14px;
   display: flex;
   flex-direction: column;
   width: 30%;
   border-right: solid 1px #cdcdcd;
   text-align: left;
 }
-.d-6 {
-  font-size: 15px;
+.d-6, .d-7 {
+  hyphens: auto;
+  font-size: 14px;
 }
 .data-7 {
-  font-size: 15px;
+  hyphens: auto;
+  font-size: 14px;
   width: 9%;
   text-align: left;
 }

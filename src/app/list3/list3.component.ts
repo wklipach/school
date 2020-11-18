@@ -47,4 +47,5 @@ export class List3Component implements OnInit {
   onClickNewLessons() {
     this.router.navigate(['/list2']);
   }
+
 }

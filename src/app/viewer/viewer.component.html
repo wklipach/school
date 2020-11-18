@@ -2,8 +2,16 @@
   <div class="row">
     <div class="col-12">
 
+     <div class="buttons-block">
+       <button type="button" class="btn btn-outline-primary mr-3">Назад</button>
+       <button type="button" class="btn btn-outline-primary mr-3">Новый урок</button>
+       <button type="button" class="btn btn-outline-primary mr-3">Архив</button>
+       <button type="button" class="btn btn-outline-primary mr-3">Войти/Выйти</button>
+     </div>
+
+
       <div id="contentToConvert">
-      <div class="lesson mb-3">{{sNamePrint}}</div>
+      <h3 class="lesson mb-3">{{sNamePrint}}</h3>
 
       <div class="d-flex justify-content-between line">
         <div class="view-left w-25">Дата</div>
@@ -214,7 +222,7 @@
         <div class="data-5">{{studentactivities7}}</div>
         <div class="data-6">
           <div *ngFor="let g8 of this.Guide8Resultat7">
-            <span>{{Guide8Filter(g8)}}</span><br>
+            <span class="d-6">{{Guide8Filter(g8)}}</span><br>
           </div>
         </div>
         <div class="data-7">{{reviewerrecommendations7}}</div>
@@ -232,7 +240,7 @@
         <div class="data-5">{{studentactivities8}}</div>
         <div class="data-6">
           <div *ngFor="let g8 of this.Guide8Resultat8">
-            <span>{{Guide8Filter(g8)}}</span><br>
+            <span class="d-6">{{Guide8Filter(g8)}}</span><br>
           </div>
         </div>
         <div class="data-7">{{reviewerrecommendations8}}</div>
@@ -250,7 +258,7 @@
         <div class="data-5">{{studentactivities9}}</div>
         <div class="data-6">
           <div *ngFor="let g8 of this.Guide8Resultat9">
-            <span>{{Guide8Filter(g8)}}</span><br>
+            <span class="d-6">{{Guide8Filter(g8)}}</span><br>
           </div>
         </div>
         <div class="data-7">{{reviewerrecommendations9}}</div>
@@ -268,7 +276,7 @@
         <div class="data-5">{{studentactivities10}}</div>
         <div class="data-6">
           <div *ngFor="let g8 of this.Guide8Resultat10">
-            <span>{{Guide8Filter(g8)}}</span><br>
+            <span class="d-6">{{Guide8Filter(g8)}}</span><br>
           </div>
         </div>
         <div class="data-7">{{reviewerrecommendations10}}</div>

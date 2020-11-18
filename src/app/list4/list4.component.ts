@@ -386,4 +386,11 @@ loadLesson() {
     }
 
   }
-}
+
+  onClickNewLessons() {
+    this.router.navigate(['/list2']);
+  }
+  onClickMyLessons() {
+    this.router.navigate(['/archive']);
+  }
+ }
