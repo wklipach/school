@@ -12,8 +12,13 @@ import {AuthService} from '../services/auth.service';
 export class List2Component implements OnInit {
 
   listLessons: any;
-  constructor(private gs: GuideService, private router: Router, private auth: AuthService) {
+  UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
 
+  constructor(private gs: GuideService, private router: Router, private auth: AuthService) {
+    this.UserInfo = this.auth.getStorage();
+    if (!this.UserInfo.bSchoolConnected) {
+      this.router.navigate(['/login']);
+    }
   }
 
   ngOnInit(): void {

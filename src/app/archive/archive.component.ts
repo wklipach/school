@@ -16,6 +16,11 @@ export class ArchiveComponent implements OnInit {
 
   constructor(private router: Router, private gs: GuideService, private auth: AuthService, actroute: ActivatedRoute) {
 
+    this.UserInfo = this.auth.getStorage();
+    if (!this.UserInfo.bSchoolConnected) {
+      this.router.navigate(['/login']);
+    }
+
     const dmove = router.getCurrentNavigation().extras.state;
     if (dmove && dmove.schoolarchive) {
      this.auth.setSchoolArchive(dmove.schoolarchive);

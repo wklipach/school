@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-list3',
@@ -8,7 +9,14 @@ import {Router} from '@angular/router';
 })
 export class List3Component implements OnInit {
 
-  constructor(private router: Router) { }
+  UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
+
+  constructor(private router: Router, private auth: AuthService,) {
+    this.UserInfo = this.auth.getStorage();
+    if (!this.UserInfo.bSchoolConnected) {
+      this.router.navigate(['/login']);
+    }
+  }
 
   ngOnInit(): void {
   }

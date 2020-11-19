@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {GuideService} from '../services/guide.service';
 import {curuserL, lessonsName} from '../class/academicSubject';
+import {Guide7Service} from "../components/guide7/guide7.service";
+import {Router} from "@angular/router";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-mainschool',
@@ -10,7 +13,15 @@ import {curuserL, lessonsName} from '../class/academicSubject';
 export class MainschoolComponent implements OnInit {
 
   collectionUsers: any;
-  constructor(private gs: GuideService) { }
+  UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
+
+  constructor(private gs: GuideService, private router: Router, private auth: AuthService) {
+    this.UserInfo = this.auth.getStorage();
+    if (!this.UserInfo.bSchoolConnected) {
+      this.router.navigate(['/login']);
+    }
+
+  }
 
   ngOnInit(): void {
   }

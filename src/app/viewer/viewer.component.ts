@@ -15,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
 export class ViewerComponent implements OnInit {
 
   sNamePrint = 'АООП Вариант 1';
-
+  UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
   lesson: any = {};
   fio = '';
   documentClassNameNumber = {id: -1, title: '--'};
@@ -98,6 +98,11 @@ export class ViewerComponent implements OnInit {
   constructor(private router: Router, private gs: GuideService, private auth: AuthService, private http: HttpClient) {
     if (!this.auth.getViewPrintId()) {
       this.router.navigate(['/']);
+    }
+
+    this.UserInfo = this.auth.getStorage();
+    if (!this.UserInfo.bSchoolConnected) {
+      this.router.navigate(['/login']);
     }
 
    }
