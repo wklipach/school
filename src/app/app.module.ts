@@ -35,7 +35,7 @@ import { RightpanelComponent } from './components/rightpanel/rightpanel.componen
 // определение маршрутов
 const appRoutes: Routes = [
   {path: '', component: List2Component},
-  {path: 'list3', component: List2Component},
+  {path: 'list2', component: List2Component},
   {path: 'list3', component: List3Component},
   {path: 'list4', component: List4Component},
   {path: 'list4-v2', component: List4V2Component},
