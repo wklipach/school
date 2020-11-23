@@ -268,11 +268,10 @@ loadLesson() {
 
 
     /* 1 */
-    if (!this.list4Form.controls.fioteacherhome.value) {
-      alert('Укажите имя обучающегося');
-      return;
+    let fioteacherhome = '';
+    if (this.list4Form.controls.fioteacherhome.value) {
+      fioteacherhome = this.list4Form.controls.fioteacherhome.value.toString().trim();
     }
-    const fioteacherhome = this.list4Form.controls.fioteacherhome.value.toString().trim();
     /* end 1 */
 
     /* 2 */
