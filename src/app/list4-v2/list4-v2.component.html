@@ -59,6 +59,24 @@
             <span class="my-2 w-25 mr-5 text-muted font-weight-bold">ФИО обучающегося (на дому)</span>
             <input type="text" class="form-control" placeholder="ФИО" formControlName="fioteacherhome">
           </div>
+
+          <div class="card pl-3 pr-2 py-4 mb-5">
+
+            <h5 class="mb-3">Учебный предмет (СПИСОК № 9)</h5>
+
+            <div class="dropdown">
+              <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Выбрать урок
+              </button>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                <button class="dropdown-item" type="button" *ngFor="let curValue of listLessons2" (click)="onLessons(curValue)">{{curValue.title}}</button>
+              </div>
+            </div>
+            <div class="text-muted font-weight-bold result mx-auto">{{documentLessons2.title}}</div>    <!-- Результат выбора из справочника  -->
+
+          </div>
+
           <div class="line">
             <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Тема урока</span>
             <textarea formControlName="lessonTopic" class = "form-control" rows = "3" placeholder="Тема урока"></textarea>
@@ -70,40 +88,6 @@
           </div>
 
         </div>
-
-        <div class="card pl-3 pr-2 py-4 mb-5">
-
-          <h5 class="mb-3">Учебный предмет (СПИСОК № 9)</h5>
-
-          <div class="dropdown">
-            <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Выбрать урок
-            </button>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-              <button class="dropdown-item" type="button" *ngFor="let curValue of listLessons2" (click)="onLessons(curValue)">{{curValue.title}}</button>
-            </div>
-          </div>
-          <div class="text-muted font-weight-bold result mx-auto">{{documentLessons2.title}}</div>    <!-- Результат выбора из справочника  -->
-
-<!--   Во втором варианте список предметов вот этот - СПИСОК № 9 «УЧЕБНЫЕ ПРЕДМЕТЫ»:
-
-Речь и альтернативная коммуникация
-Математические представления
-Окружающий природный мир
-Человек
-Домоводство
-Окружающий социальный мир
-Музыка и движение
-Изобразительная деятельность
-Адаптивная физкультура
-Профильный труд
-Иное
-
--->
-
-        </div>
-
 
         <div class="card pl-3 pr-2 py-4 mb-5">
 
