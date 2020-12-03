@@ -88,6 +88,8 @@ export class List5V2Component implements OnInit {
 
   ngOnInit(): void {
 
+    window.scroll(0,0);
+
     // загружаем тему урока из базы
     const id = this.auth.getSaveDocumentId();
     this.gs.getThemeLesson(id).subscribe( (value: any[]) => {

@@ -78,6 +78,8 @@ export class List4Component implements OnInit {
 
   ngOnInit(): void {
 
+    window.scroll(0,0);
+
     if (this.auth.getSaveDocumentEdit()) {
       this.typeEdit = 'редактирование документа';
     } else {
