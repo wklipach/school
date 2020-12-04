@@ -61,7 +61,8 @@ export class List4V2Component implements OnInit {
       fio: new FormControl(),
       fioteacherhome: new FormControl(),
       lessonTopic: new FormControl(),
-      lessonObjectives: new FormControl()
+      lessonObjectives: new FormControl(),
+      lessonTasks: new FormControl()
     });
 
   }
@@ -156,6 +157,11 @@ export class List4V2Component implements OnInit {
     this.list4v2Form.controls.fioteacherhome.setValue(lesson4v2.fioteacherhome);
     this.list4v2Form.controls.lessonTopic.setValue(lesson4v2.lessonTopic);
     this.list4v2Form.controls.lessonObjectives.setValue(lesson4v2.lessonObjectives);
+
+    if (lesson4v2.lessonTasks) {
+      this.list4v2Form.controls.lessonTasks.setValue(lesson4v2.lessonTasks);
+    }
+
     this.list4v2Form.controls.formControlDate.setValue(new Date(lesson4v2.formControlDate[0]));
 
     setTimeout(() => {
@@ -288,6 +294,11 @@ export class List4V2Component implements OnInit {
       const lessonObjectives = this.list4v2Form.controls.lessonObjectives.value.toString().trim();
       /* end 3 */
 
+    let lessonTasks = '';
+    if (this.list4v2Form.controls.lessonTasks.value) {
+      lessonTasks = this.list4v2Form.controls.lessonTasks.value.toString().trim();
+    }
+
     // загружаем коллекцию documentEquipmentList
     this.loadInfoFromMultiLevelGuide('equipment', this.documentEquipmentList);
     // формируем коллекцию для записи без удаженных элементов
@@ -316,6 +327,7 @@ export class List4V2Component implements OnInit {
       fioteacherhome: fioteacherhome,
       lessonTopic: lessonTopic,
       lessonObjectives: lessonObjectives,
+      lessonTasks: lessonTasks,
       documentClassNameNumber: this.documentClassNameNumber,
       documentClassNameLetter: this.documentClassNameLetter,
       documentLessons2: this.documentLessons2,
