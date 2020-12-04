@@ -71,7 +71,8 @@ export class List4Component implements OnInit {
       lessonTopic: new FormControl(),
       fio: new FormControl(),
       fioteacherhome: new FormControl(),
-      lessonObjectives: new FormControl()
+      lessonObjectives: new FormControl(),
+      lessonTasks: new FormControl()
     });
 
   }
@@ -152,6 +153,9 @@ loadLesson() {
     this.list4Form.controls.fioteacherhome.setValue(lesson4.fioteacherhome);
     this.list4Form.controls.lessonTopic.setValue(lesson4.lessonTopic);
     this.list4Form.controls.lessonObjectives.setValue(lesson4.lessonObjectives);
+    if (lesson4.lessonTasks) {
+      this.list4Form.controls.lessonTasks.setValue(lesson4.lessonTasks);
+    }
     this.list4Form.controls.formControlDate.setValue(new Date(lesson4.formControlDate[0]));
 
     setTimeout(() => {
@@ -293,6 +297,11 @@ loadLesson() {
     /* end 3 */
 
 
+    let lessonTasks = '';
+    if (this.list4Form.controls.lessonTasks.value) {
+      lessonTasks = this.list4Form.controls.lessonTasks.value.toString().trim();
+    }
+
     // загружаем коллекцию documentObjectiveLessonList
     this.loadInfoFromMultiLevelGuide('subjectResults', this.documentObjectiveLessonList);
     // формируем коллекцию для записи без удаженных элементов
@@ -321,6 +330,7 @@ loadLesson() {
                             fioteacherhome: fioteacherhome,
                             lessonTopic: lessonTopic,
                             lessonObjectives: lessonObjectives,
+                            lessonTasks: lessonTasks,
                             documentClassNameNumber: this.documentClassNameNumber,
                             documentClassNameLetter: this.documentClassNameLetter,
                             documentLessons: this.documentLessons,
