@@ -34,6 +34,7 @@ export class ViewerComponent implements OnInit {
   fioTeacherhome = '';
   lessonTopic = '';
   lessonObjectives = '';
+  lessonTasks = '';
   curFormDate: Date;
 
 
@@ -138,6 +139,11 @@ export class ViewerComponent implements OnInit {
     this.documentLessons = this.lesson.objSummaryLesson.documentLessons;
     this.lessonTopic = this.lesson.objSummaryLesson.lessonTopic;
     this.lessonObjectives = this.lesson.objSummaryLesson.lessonObjectives;
+
+    if (this.lesson.objSummaryLesson.lessonTasks) {
+      this.lessonTasks = this.lesson.objSummaryLesson.lessonTasks;
+    }
+
     this.documentTypeLesson = this.lesson.objSummaryLesson.documentTypeLesson;
     this.documentType2Lesson = this.lesson.objSummaryLesson.documentType2Lesson;
     this.documentObjectiveLessonList = this.lesson.objSummaryLesson.documentObjectiveLessonList;
