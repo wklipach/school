@@ -35,7 +35,11 @@ export class ArchiveComponent implements OnInit {
     if (!this.UserInfo.id_user_school) {
       this.router.navigate(['/login']);
     }
+    this.showLessons();
+  }
 
+
+  showLessons() {
     let schoolarchive = this.auth.getSchoolArchive();
 
     if (!schoolarchive) {
@@ -107,6 +111,16 @@ export class ArchiveComponent implements OnInit {
     this.auth.setViewPrintId(lesson._id);
     // переходим к странице
       this.router.navigate(['/lesson-transfer']);
+  }
+
+
+  onClickCopy(lesson) {
+    if (confirm("Копировать урок?")) {
+      this.gs.setCopyLesson(lesson._id).subscribe( value => {
+        this.showLessons();
+      });
+    }
+
   }
 
 
