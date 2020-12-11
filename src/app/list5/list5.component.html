@@ -19,18 +19,19 @@
        <h4>Часть урока: ВВОДНО-ПОДГОТОВИТЕЛЬНАЯ ЧАСТЬ</h4>
       </div>
 
-      <!-- Начало ОРГАНИЗАЦИОННОГО этапа -->
+      <!-- Начало ОРГАНИЗАЦИОННОГО этапа  -->
 
         <h4 class="stage">Этап урока - организационный этап</h4>
+
+      <div class="card pt-2 pb-4 px-4 mb-5">
+
       <!--  7 справочник -->
         <app-guide7 [numberComponent]="1" [documentComponentMethodList]="inputDocumentComponentMethodList1" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 1)" ></app-guide7>
 
-        <div class="card pt-2 pb-4 px-4 mb-5">
+
           <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
           <textarea formControlName="teacheractivity" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
-        </div>
 
-        <div class="card pt-2 pb-4 px-4 mb-4">
           <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
           <textarea formControlName="studentactivities" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
         </div>

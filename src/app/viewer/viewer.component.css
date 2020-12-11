@@ -92,7 +92,7 @@ span {
   padding: 10px 0;
 }
 .topic-6 {
-  width: 30%;
+  width: 100%;
   height: auto;
   font-size: 18px;
   font-weight: 600;
@@ -152,16 +152,17 @@ span {
 }
 .data-6 {
   hyphens: auto;
-  font-size: 15px;
+  font-size: 16px;
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 100%;
   border-right: solid 1px #cdcdcd;
   text-align: left;
 }
-.d-6, .d-7 {
+.d-6 {
   hyphens: auto;
-  font-size: 15px;
+  font-size: 16px;
+  border-bottom: solid 1px #cdcdcd;
 }
 .data-7 {
   hyphens: auto;
@@ -169,4 +170,7 @@ span {
   width: 9%;
   text-align: left;
 }
-
+.d-7 {
+  hyphens: auto;
+  font-size: 15px;
+}
