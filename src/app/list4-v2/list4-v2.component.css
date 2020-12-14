@@ -16,3 +16,15 @@ h3 {
   position: fixed;
   margin: 5px;
 }
+.button {
+  margin-top: 0;
+  margin-right: 0;
+}
+.column1 {
+  width: 15%;
+  vertical-align: middle;
+  font-weight: 600;
+}
+.column2 {
+  width: 25%;
+}

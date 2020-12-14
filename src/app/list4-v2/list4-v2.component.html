@@ -12,6 +12,123 @@
 
         <app-caption></app-caption>
 
+        <div class="card px-3 py-1">
+          <h5 class="card-title">Задачи урока</h5>
+
+          <!-- Справочники для второго второго столбца таблицы
+
+Образовательные: educationalTasksV2
+
+Выявить
+Дифференцировать
+Закрепить
+Знакомить
+Обобщить
+Повторить
+Познакомить
+Проверить
+Продолжать знакомить
+Продолжать формировать
+Расширить
+Систематизировать
+Содействовать
+Способствовать
+Тренировать
+Уточнить
+Учить
+Учить пользоваться
+Учить применять на практике
+Формировать
+Формировать у учащихся представления
+-----
+
+коррекционно-развивающие: correctionalTasksV2
+
+Корригировать
+Поддерживать
+Продолжать формировать
+Продолжать развивать
+Развивать
+Совершенствовать
+Содействовать
+Тренировать
+Формировать
+----
+Воспитательные: raisetionalTasksV2
+Воспитывать
+Воспитывать интерес
+Воспитывать умение работать в паре
+Воспитывать умение работать в команде
+Воспитывать самостоятельность
+Воспитывать бережное отношение к
+Воспитывать умение сопереживать
+----
+
+  -->
+
+          <table class="table table-bordered">
+            <tr>
+              <td class="column1" rowspan="3">Образовательные</td>
+              <td class="column2">
+                <div class="dropdown d-flex justify-content-between">
+                <button class="dropdown-toggle"
+                        type="button" id="dropdownMenu1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <span class="dropdown-item">Продолжать формировать</span>
+                  <span class="dropdown-item">Продолжать формировать</span>
+                  <span class="dropdown-item">321321321</span>
+                  <span class="dropdown-item">321321321</span>
+                </div>
+              </div>Воспитывать умение работать в команде
+              </td>
+              <td class="column3"><textarea formControlName="lessonTasks" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea></td>
+            </tr>
+            <tr>
+              <td>
+
+              </td>
+              <td>Продолжать формировать</td>
+            </tr>
+            <tr>
+              <td>Выявить</td>
+              <td>Выявить</td>
+            </tr>
+            <tr>
+              <td class="column1" rowspan="3">Коррекционно-развивающие</td>
+              <td>Воспитывать умение работать в команде</td>
+              <td>Выявить</td>
+            </tr>
+            <tr>
+              <td>Выявить</td>
+              <td>Выявить</td>
+            </tr>
+            <tr>
+              <td>Выявить</td>
+              <td>Выявить</td>
+            </tr>
+            <tr>
+              <td class="column1" rowspan="3">Воспитательные</td>
+              <td>Выявить</td>
+              <td>Выявить</td>
+            </tr>
+            <tr>
+              <td>Воспитывать умение работать в команде</td>
+              <td>Воспитывать умение работать в команде</td>
+            </tr>
+            <tr>
+              <td>Воспитывать умение работать в команде</td>
+              <td>Воспитывать умение работать в команде</td>
+            </tr>
+          </table>
+
+
+        </div>
+
+
+
+
         <div class="card px-5 py-4 mb-5">
 
           <div class="line">
@@ -87,12 +204,80 @@
             <textarea formControlName="lessonObjectives" class = "form-control" rows = "3" placeholder="Цель урока"></textarea>
           </div>
 
-          <div class="line">
-            <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Задачи урока</span>
+        </div>
+
+        <div class="card px-3 py-1">
+          <h5 class="card-title">Задачи урока</h5>
+
+         <!-- <div class="line">
+            <span class="my-2 w-25 mr-5 text-muted font-weight-bold"></span>
             <textarea formControlName="lessonTasks" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea>
-          </div>
+          </div>  -->
+
+          <table class="table table-bordered">
+            <tr>
+              <td rowspan="3">Образовательные</td>
+              <td>Выявить</td>
+              <td>Выявить</td>
+            </tr>
+            <tr>
+              <td>Выявить</td>
+              <td>Выявить</td>
+            </tr>
+            <tr>
+              <td>Выявить</td>
+              <td>Выявить</td>
+            </tr>
+            <tr>
+              <td rowspan="3">Коррекционно-развивающие</td>
+              <td>Выявить</td>
+              <td>Выявить</td>
+            </tr>
+            <tr>
+              <td>Выявить</td>
+              <td>Выявить</td>
+            </tr>
+            <tr>
+              <td>Выявить</td>
+              <td>Выявить</td>
+            </tr>
+            <tr>
+              <td rowspan="3">Воспитательные</td>
+              <td>Выявить</td>
+              <td>Выявить</td>
+            </tr>
+            <tr>
+              <td>Выявить</td>
+              <td>Выявить</td>
+            </tr>
+            <tr>
+              <td>Выявить</td>
+              <td>Выявить</td>
+            </tr>
+          </table>
+
+
+          <table class="table table-bordered">
+            <tr>
+              <td width="10%"></td>
+              <td width="40%">Воспитывать умение работать в команде</td>
+              <td width="50%">Выбор</td>
+            </tr>
+
+            <tr>
+              <th scope="row"></th>
+              <td>Mark</td>
+              <td>Otto</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+            </tr>
+            </table>
 
         </div>
+
 
         <div class="card pl-3 pr-2 py-4 mb-5">
 
