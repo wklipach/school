@@ -68,11 +68,11 @@ export class List4Component implements OnInit {
 
     this.list4Form = new FormGroup({
       formControlDate: new FormControl(),
-      lessonTopic: new FormControl(),
+      lessonTopic: new FormControl(''),
       fio: new FormControl(),
-      fioteacherhome: new FormControl(),
-      lessonObjectives: new FormControl(),
-      lessonTasks: new FormControl()
+      fioteacherhome: new FormControl(''),
+      lessonObjectives: new FormControl(''),
+      lessonTasks: new FormControl('')
     });
 
   }
@@ -282,16 +282,15 @@ loadLesson() {
 
     /* 2 */
     if (!this.list4Form.controls.lessonTopic.value) {
-      alert('Укажите тему урока');
-      return;
+      this.list4Form.controls.lessonTopic.setValue('');
+
     }
     const lessonTopic = this.list4Form.controls.lessonTopic.value.toString().trim();
     /* end 2 */
 
     /* 3 */
     if (!this.list4Form.controls.lessonObjectives.value) {
-      alert('Укажите цель урока');
-      return;
+      this.list4Form.controls.lessonObjectives.setValue('');
     }
     const lessonObjectives = this.list4Form.controls.lessonObjectives.value.toString().trim();
     /* end 3 */

@@ -7,6 +7,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import { FlatpickrOptions } from 'ng2-flatpickr';
 import Russian from 'flatpickr/dist/l10n/ru.js';
 import { forkJoin } from 'rxjs';
+import {classCorrectionalTasksV2, classEducationalTasksV2, classRaisetionalTasksV2} from "../class/academicSubject";
 
 @Component({
   selector: 'app-list4-v2',
@@ -44,6 +45,21 @@ export class List4V2Component implements OnInit {
   listClassNameLetter: any;
   documentClassNameLetter = {id: -1, title: '--'};
 
+  listClassEducationalTasksV2: any;
+  documentClassEducationalTasks1 = {id: -1, title: '--'};
+  documentClassEducationalTasks2 = {id: -1, title: '--'};
+  documentClassEducationalTasks3 = {id: -1, title: '--'};
+
+  listClassCorrectionalTasksV2: any;
+  documentClassCorrectionalTasks1 = {id: -1, title: '--'};
+  documentClassCorrectionalTasks2 = {id: -1, title: '--'};
+  documentClassCorrectionalTasks3 = {id: -1, title: '--'};
+
+  listClassRaisetionalTasksV2: any;
+  documentClassRaisetionalTasks1 = {id: -1, title: '--'};
+  documentClassRaisetionalTasks2 = {id: -1, title: '--'};
+  documentClassRaisetionalTasks3 = {id: -1, title: '--'};
+
   inputDocumentComponentMethodList: any[] = [];
   inputDocumentComponentList: any[] = [];
 
@@ -60,11 +76,20 @@ export class List4V2Component implements OnInit {
       formControlDate: new FormControl(),
       fio: new FormControl(),
       fioteacherhome: new FormControl(),
-      lessonTopic: new FormControl(),
-      lessonObjectives: new FormControl(),
-      lessonTasks: new FormControl()
-    });
+      lessonTopic: new FormControl(''),
+      lessonObjectives: new FormControl(''),
+      lessonTasks: new FormControl(''),
 
+      textEducationalTasks1: new FormControl(''),
+      textEducationalTasks2: new FormControl(''),
+      textEducationalTasks3: new FormControl(''),
+      textCorrectionalTasks1: new FormControl(''),
+      textCorrectionalTasks2: new FormControl(''),
+      textCorrectionalTasks3: new FormControl(''),
+      textRaisetionalTasks1: new FormControl(''),
+      textRaisetionalTasks2: new FormControl(''),
+      textRaisetionalTasks3: new FormControl('')
+    });
   }
 
   ngOnInit(): void {
@@ -83,13 +108,17 @@ export class List4V2Component implements OnInit {
 
 
     forkJoin([
+
              this.loadCurrentTeacher(),
              this.gs.selectCollection('classNameNumber'),
              this.gs.selectCollection('lessonsName2'),
              this.gs.selectCollection('classTypeLesson'),
              this.gs.selectCollection('classType2Lesson'),
              this.gs.selectCollection('classEquipment'),
-             this.gs.selectCollection('classNameLetter')
+             this.gs.selectCollection('classNameLetter'),
+             this.gs.selectCollection('classEducationalTasksV2'),
+             this.gs.selectCollection('classCorrectionalTasksV2'),
+             this.gs.selectCollection('classRaisetionalTasksV2')
              ]).subscribe(results => {
 
               const teacher = results[0];
@@ -113,7 +142,9 @@ export class List4V2Component implements OnInit {
 
               this.listClassNameLetter = results[6];
               // console.log('listClassNameLetter', this.listClassNameLetter);
-
+              this.listClassEducationalTasksV2 = results[7];
+              this.listClassCorrectionalTasksV2 = results[8];
+              this.listClassRaisetionalTasksV2 = results[9];
               // если это редактирование урока, загружаем урок из базы
               this.loadLesson();
 
@@ -176,6 +207,62 @@ export class List4V2Component implements OnInit {
     this.documentTypeLesson  = lesson4v2.documentTypeLesson;
     this.documentType2Lesson = lesson4v2.documentType2Lesson;
     this.inputDocumentComponentList = lesson4v2.guide2linesResultat1;
+
+
+    if (lesson4v2.EducationalTasks1) {
+      this.documentClassEducationalTasks1.id = lesson4v2.EducationalTasks1.id;
+      if (lesson4v2.EducationalTasks1.id > 0) this.documentClassEducationalTasks1.title = this.listClassEducationalTasksV2.find( value => value.id === lesson4v2.EducationalTasks1.id).title;
+      this.list4v2Form.controls.textEducationalTasks1.setValue(lesson4v2.EducationalTasks1.text);
+    }
+
+    if (lesson4v2.CorrectionalTasks1) {
+      this.documentClassCorrectionalTasks1.id = lesson4v2.CorrectionalTasks1.id;
+      if (lesson4v2.CorrectionalTasks1.id > 0) this.documentClassCorrectionalTasks1.title = this.listClassCorrectionalTasksV2.find( value => value.id === lesson4v2.CorrectionalTasks1.id).title;
+      this.list4v2Form.controls.textCorrectionalTasks1.setValue(lesson4v2.CorrectionalTasks1.text);
+    }
+
+    if (lesson4v2.RaisetionalTasks1) {
+      this.documentClassRaisetionalTasks1.id = lesson4v2.RaisetionalTasks1.id;
+      if (lesson4v2.RaisetionalTasks1.id > 0) this.documentClassRaisetionalTasks1.title = this.listClassRaisetionalTasksV2.find( value => value.id === lesson4v2.RaisetionalTasks1.id).title;
+      this.list4v2Form.controls.textRaisetionalTasks1.setValue(lesson4v2.RaisetionalTasks1.text);
+    }
+
+    if (lesson4v2.EducationalTasks2) {
+      this.documentClassEducationalTasks2.id = lesson4v2.EducationalTasks2.id;
+      if (lesson4v2.EducationalTasks2.id > 0) this.documentClassEducationalTasks2.title = this.listClassEducationalTasksV2.find( value => value.id === lesson4v2.EducationalTasks2.id).title;
+      this.list4v2Form.controls.textEducationalTasks2.setValue(lesson4v2.EducationalTasks2.text);
+    }
+
+    if (lesson4v2.CorrectionalTasks2) {
+      this.documentClassCorrectionalTasks2.id = lesson4v2.CorrectionalTasks2.id;
+      if (lesson4v2.CorrectionalTasks2.id > 0) this.documentClassCorrectionalTasks2.title = this.listClassCorrectionalTasksV2.find( value => value.id === lesson4v2.CorrectionalTasks2.id).title;
+      this.list4v2Form.controls.textCorrectionalTasks2.setValue(lesson4v2.CorrectionalTasks2.text);
+    }
+
+    if (lesson4v2.RaisetionalTasks2) {
+      this.documentClassRaisetionalTasks2.id = lesson4v2.RaisetionalTasks2.id;
+      if (lesson4v2.RaisetionalTasks2.id > 0) this.documentClassRaisetionalTasks2.title = this.listClassRaisetionalTasksV2.find( value => value.id === lesson4v2.RaisetionalTasks2.id).title;
+      this.list4v2Form.controls.textRaisetionalTasks2.setValue(lesson4v2.RaisetionalTasks2.text);
+    }
+
+    if (lesson4v2.EducationalTasks3) {
+      this.documentClassEducationalTasks3.id = lesson4v2.EducationalTasks3.id;
+      if (lesson4v2.EducationalTasks3.id > 0) this.documentClassEducationalTasks3.title = this.listClassEducationalTasksV2.find( value => value.id === lesson4v2.EducationalTasks3.id).title;
+      this.list4v2Form.controls.textEducationalTasks3.setValue(lesson4v2.EducationalTasks3.text);
+    }
+
+    if (lesson4v2.CorrectionalTasks3) {
+      this.documentClassCorrectionalTasks3.id = lesson4v2.CorrectionalTasks3.id;
+      if (lesson4v2.CorrectionalTasks3.id > 0) this.documentClassCorrectionalTasks3.title = this.listClassCorrectionalTasksV2.find( value => value.id === lesson4v2.CorrectionalTasks3.id).title;
+      this.list4v2Form.controls.textCorrectionalTasks3.setValue(lesson4v2.CorrectionalTasks3.text);
+    }
+
+    if (lesson4v2.RaisetionalTasks3) {
+      this.documentClassRaisetionalTasks3.id = lesson4v2.RaisetionalTasks3.id;
+      if (lesson4v2.RaisetionalTasks3.id > 0) this.documentClassRaisetionalTasks3.title = this.listClassRaisetionalTasksV2.find( value => value.id === lesson4v2.RaisetionalTasks3.id).title;
+      this.list4v2Form.controls.textRaisetionalTasks3.setValue(lesson4v2.RaisetionalTasks3.text);
+    }
+
   }
 
   loadCurrentTeacher() {
@@ -227,6 +314,52 @@ export class List4V2Component implements OnInit {
     this.documentClassNameNumber.id = curValue.id;
     this.documentClassNameNumber.title = curValue.title;
   }
+
+  onClassEducationalTasks1(curValue) {
+    this.documentClassEducationalTasks1.id = curValue.id;
+    this.documentClassEducationalTasks1.title = curValue.title;
+  }
+
+  onClassEducationalTasks2(curValue) {
+    this.documentClassEducationalTasks2.id = curValue.id;
+    this.documentClassEducationalTasks2.title = curValue.title;
+  }
+
+  onClassEducationalTasks3(curValue) {
+    this.documentClassEducationalTasks3.id = curValue.id;
+    this.documentClassEducationalTasks3.title = curValue.title;
+  }
+
+  onClassCorrectionalTasks1(curValue) {
+    this.documentClassCorrectionalTasks1.id = curValue.id;
+    this.documentClassCorrectionalTasks1.title = curValue.title;
+  }
+
+  onClassCorrectionalTasks2(curValue) {
+    this.documentClassCorrectionalTasks2.id = curValue.id;
+    this.documentClassCorrectionalTasks2.title = curValue.title;
+  }
+
+  onClassCorrectionalTasks3(curValue) {
+    this.documentClassCorrectionalTasks3.id = curValue.id;
+    this.documentClassCorrectionalTasks3.title = curValue.title;
+  }
+
+  onClassRaisetionalTasks1(curValue) {
+    this.documentClassRaisetionalTasks1.id = curValue.id;
+    this.documentClassRaisetionalTasks1.title = curValue.title;
+  }
+
+  onClassRaisetionalTasks2(curValue) {
+    this.documentClassRaisetionalTasks2.id = curValue.id;
+    this.documentClassRaisetionalTasks2.title = curValue.title;
+  }
+
+  onClassRaisetionalTasks3(curValue) {
+    this.documentClassRaisetionalTasks3.id = curValue.id;
+    this.documentClassRaisetionalTasks3.title = curValue.title;
+  }
+
 
   onClassNameLetter(curValue) {
     this.documentClassNameLetter.id = curValue.id;
@@ -280,19 +413,28 @@ export class List4V2Component implements OnInit {
 
       /* 2 */
       if (!this.list4v2Form.controls.lessonTopic.value) {
-        alert('Укажите тему урока');
-        return;
+        this.list4v2Form.controls.lessonTopic.setValue('');
       }
       const lessonTopic = this.list4v2Form.controls.lessonTopic.value.toString().trim();
       /* end 2 */
 
       /* 3 */
       if (!this.list4v2Form.controls.lessonObjectives.value) {
-        alert('Укажите цель урока');
-        return;
+        this.list4v2Form.controls.lessonObjectives.setValue('');
       }
       const lessonObjectives = this.list4v2Form.controls.lessonObjectives.value.toString().trim();
       /* end 3 */
+
+
+    const textEducationalTasks1 = this.list4v2Form.controls.textEducationalTasks1.value.toString().trim();
+    const textEducationalTasks2 = this.list4v2Form.controls.textEducationalTasks2.value.toString().trim();
+    const textEducationalTasks3 = this.list4v2Form.controls.textEducationalTasks3.value.toString().trim();
+    const textCorrectionalTasks1 = this.list4v2Form.controls.textCorrectionalTasks1.value.toString().trim();
+    const textCorrectionalTasks2 = this.list4v2Form.controls.textCorrectionalTasks2.value.toString().trim();
+    const textCorrectionalTasks3 = this.list4v2Form.controls.textCorrectionalTasks3.value.toString().trim();
+    const textRaisetionalTasks1 = this.list4v2Form.controls.textRaisetionalTasks1.value.toString().trim();
+    const textRaisetionalTasks2 = this.list4v2Form.controls.textRaisetionalTasks2.value.toString().trim();
+    const textRaisetionalTasks3 = this.list4v2Form.controls.textRaisetionalTasks3.value.toString().trim();
 
     let lessonTasks = '';
     if (this.list4v2Form.controls.lessonTasks.value) {
@@ -335,9 +477,17 @@ export class List4V2Component implements OnInit {
       documentType2Lesson: this.documentType2Lesson,
       documentEquipmentList: moveDocumentEquipmentList,
       guide2linesResultat1: objResult.guide2linesResultat1,
-      Guide7Resultat1: objResult.Guide7Resultat1
+      Guide7Resultat1: objResult.Guide7Resultat1,
+      EducationalTasks1 : {text: textEducationalTasks1, id: this.documentClassEducationalTasks1.id},
+      EducationalTasks2 : {text: textEducationalTasks2, id: this.documentClassEducationalTasks2.id},
+      EducationalTasks3 : {text: textEducationalTasks3, id: this.documentClassEducationalTasks3.id},
+      CorrectionalTasks1 : {text: textCorrectionalTasks1, id: this.documentClassCorrectionalTasks1.id},
+      CorrectionalTasks2 : {text: textCorrectionalTasks2, id: this.documentClassCorrectionalTasks2.id},
+      CorrectionalTasks3 : {text: textCorrectionalTasks3, id: this.documentClassCorrectionalTasks3.id},
+      RaisetionalTasks1: {text: textRaisetionalTasks1, id: this.documentClassRaisetionalTasks1.id},
+      RaisetionalTasks2: {text: textRaisetionalTasks2, id: this.documentClassRaisetionalTasks2.id},
+      RaisetionalTasks3: {text: textRaisetionalTasks3, id: this.documentClassRaisetionalTasks3.id}
     };
-
 
     if (this.auth.getSaveDocumentEdit()) {
       this.gs.updateSummaryLessonList4(this.edititing_id, summaryLesson).subscribe( resultat => {

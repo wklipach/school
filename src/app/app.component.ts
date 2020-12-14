@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import {
   classBasicLearningActions,
-  classBasicLearningActivities, classEquipment, classGroupLearningActions, classGroupLearningActivities, classGroupMethod, classMethod,
+  classBasicLearningActivities, classCorrectionalTasksV2, classEducationalTasksV2, classEquipment, classGroupLearningActions,
+  classGroupLearningActivities,
+  classGroupMethod, classMethod,
   classNameLetter,
-  classNameNumber, classObjectiveLesson, classPersonalLesson, classType2Lesson, classTypeLesson, lessonsName, lessonsName2
-} from './class/academicSubject';
+  classNameNumber, classObjectiveLesson, classPersonalLesson, classRaisetionalTasksV2, classType2Lesson, classTypeLesson, lessonsName,
+  lessonsName2
+} from "./class/academicSubject";
 import { GuideService } from './services/guide.service';
 
 @Component({
@@ -31,6 +34,9 @@ export class AppComponent {
     this.createCollection('classGroupMethod', classGroupMethod);
     this.createCollection('classBasicLearningActions', classBasicLearningActions);
     this.createCollection('classGroupLearningActions', classGroupLearningActions);
+    this.createCollection('classEducationalTasksV2', classEducationalTasksV2);
+    this.createCollection('classCorrectionalTasksV2', classCorrectionalTasksV2);
+    this.createCollection('classRaisetionalTasksV2', classRaisetionalTasksV2);
   }
 
   createCollection(sName, objCollection) {
