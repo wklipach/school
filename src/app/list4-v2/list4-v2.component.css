@@ -16,9 +16,11 @@ h3 {
   position: fixed;
   margin: 5px;
 }
-.button {
-  margin-top: 0;
-  margin-right: 0;
+.dropdown {
+  width: 0;
+}
+.dropdown-toggle {
+  margin-bottom: 20px;
 }
 .column1 {
   width: 15%;
@@ -27,4 +29,7 @@ h3 {
 }
 .column2 {
   width: 25%;
+  color: #6f6a6a;
+  font-size: 1em;
+  font-weight: 600;
 }
