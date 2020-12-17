@@ -222,6 +222,7 @@
 
       <!-- Начало Этап урока -  закрепление изученного материала  -->
 
+<div *ngIf="this.thisThemeId === 1 || this.thisThemeId === 2 || this.thisThemeId === 3">
       <h4 class="stage">Этап урока -  закрепление изученного материала</h4>
       <!-- 7 справочник -->
       <app-guide7 [numberComponent]="7"  [documentComponentMethodList]="inputDocumentComponentMethodList7" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 7)" ></app-guide7>
@@ -243,7 +244,9 @@
         <textarea formControlName="reviewerrecommendations7" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
       </div>
 
+</div>
       <!-- Конец - Этап урока -  закрепление изученного материала   -->
+
 
       <div class="headers"><h4>Часть урока: ЗАКЛЮЧИТЕЛЬНАЯ ЧАСТЬ</h4></div>
 

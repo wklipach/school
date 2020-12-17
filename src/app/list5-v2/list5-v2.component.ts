@@ -16,6 +16,7 @@ export class List5V2Component implements OnInit {
   boolVE2  = false;
   boolVE3  = false;
 
+  thisThemeId = -1;
   thisTheme = '---';
   edititing_id = '-1';
   typeEdit = 'новый документ';
@@ -100,6 +101,8 @@ export class List5V2Component implements OnInit {
       if (value.length > 0) {
         const document = value[0];
         if (document.objSummaryLesson.documentTypeLesson) {
+          this.thisThemeId = document.objSummaryLesson.documentTypeLesson.id;
+          console.log('this.thisThemeId ===', this.thisThemeId);
           this.thisTheme = document.objSummaryLesson.documentTypeLesson.title;
         }
       }
@@ -122,12 +125,21 @@ export class List5V2Component implements OnInit {
       this.gs.getLesson(this.edititing_id).subscribe( (lesson: []) => {
         if (lesson) {
           if (lesson.length > 0) {
+
+            // const lesson4v2 = (lesson as any[])[0].objSummaryLesson;
             const lesson5v2 = (lesson as any[])[0].objSummaryLesson2;
+            // this.loadDataPriorLesson(lesson4v2);
             this.loadDataForLesson(lesson5v2);
           }
         }
       });
     }
+  }
+
+  loadDataPriorLesson(lesson4v2) {
+
+
+      console.log('lesson4v2.documentTypeLesson=', lesson4v2.documentTypeLesson);
   }
 
   loadDataForLesson(lesson5v2) {
