@@ -84,8 +84,34 @@
 
       <!-- Начало Этап урока - актуализация знаний и умений  -->
 
+
+      <div class="btn-group" role="group">
+        <button id="btnGroupDropVE" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Выбор этапа
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="btnGroupDropVE">
+          <div *ngIf = "!boolVE1">
+            <li><a class="dropdown-item" (click)="clickGroupDropVE(1)">Актуализация знаний и умений</a></li>
+          </div>
+
+          <div *ngIf = "!boolVE2">
+            <li><a class="dropdown-item" (click)="clickGroupDropVE(2)">Сообщение темы и цели урока</a></li>
+          </div>
+
+          <div *ngIf = "!boolVE3">
+            <li><a class="dropdown-item" (click)="clickGroupDropVE(3)">Мотивация и планирование учебной деятельности.</a></li>
+          </div>
+        </ul>
+      </div>
+
+
+<div *ngIf = "boolVE1">
       <h4 class="stage">Этап урока - актуализация знаний и умений</h4>
-      <!-- 7 справочник -->
+      <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteVE(1)" title="Удалить" style="max-height: 50px">
+        <img src="/assets/img/delete.svg" width="24" height="24">
+      </button>
+
+  <!-- 7 справочник -->
       <app-guide7 [numberComponent]="3" [documentComponentMethodList]="inputDocumentComponentMethodList3" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 3)" ></app-guide7>
 
 
@@ -106,11 +132,15 @@
       </div>
 
       <!-- Конец - Этап урока - актуализация знаний и умений   -->
-
+</div>
 
       <!-- Начало Этап урока - сообщение темы и цели урока  -->
-
+<div *ngIf = "boolVE2">
       <h4 class="stage">Этап урока - сообщение темы и цели урока</h4>
+      <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteVE(2)" title="Удалить" style="max-height: 50px">
+        <img src="/assets/img/delete.svg" width="24" height="24">
+      </button>
+
       <!-- 7 справочник -->
       <app-guide7 [numberComponent]="4" [documentComponentMethodList]="inputDocumentComponentMethodList4" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 4)" ></app-guide7>
 
@@ -130,13 +160,17 @@
         <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
         <textarea formControlName="reviewerrecommendations4" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
       </div>
-
+</div>
       <!-- Конец - Этап урока - сообщение темы и цели урока   -->
 
 
       <!-- Начало Этап урока -  мотивация и планирование учебной деятельности  -->
-
+<div *ngIf = "boolVE3">
       <h4 class="stage">Этап урока -  мотивация и планирование учебной деятельности</h4>
+      <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteVE(3)" title="Удалить" style="max-height: 50px">
+        <img src="/assets/img/delete.svg" width="24" height="24">
+      </button>
+
       <!-- 7 справочник -->
       <app-guide7 [numberComponent]="5"  [documentComponentMethodList]="inputDocumentComponentMethodList5" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 5)" ></app-guide7>
 
@@ -155,7 +189,7 @@
         <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
         <textarea formControlName="reviewerrecommendations5" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
       </div>
-
+</div>
       <!-- Конец - Этап урока -  мотивация и планирование учебной деятельности   -->
 
       <div class="headers"><h4>Часть урока: ОСНОВНАЯ ЧАСТЬ</h4></div>

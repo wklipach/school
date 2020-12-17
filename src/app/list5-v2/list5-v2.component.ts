@@ -12,6 +12,10 @@ import { GuideService } from '../services/guide.service';
 })
 export class List5V2Component implements OnInit {
 
+  boolVE1  = false;
+  boolVE2  = false;
+  boolVE3  = false;
+
   thisTheme = '---';
   edititing_id = '-1';
   typeEdit = 'новый документ';
@@ -322,4 +326,32 @@ export class List5V2Component implements OnInit {
   }
 
 
+  clickGroupDropVE(i: number) {
+    if (i === 1) {
+      this.boolVE1  = true;
+    }
+
+    if (i === 2) {
+      this.boolVE2  = true;
+    }
+
+    if (i === 3) {
+      this.boolVE3  = true;
+    }
+  }
+
+  onClickDeleteVE(i: number) {
+    if (i === 1) {
+      this.boolVE1  = false;
+    }
+
+    if (i === 2) {
+      this.boolVE2  = false;
+    }
+
+    if (i === 3) {
+      this.boolVE3  = false;
+    }
+
+  }
 }
