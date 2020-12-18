@@ -24,28 +24,34 @@ export class List5V2Component implements OnInit {
   UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
   list5v2Form: FormGroup;
   Guide7Resultat1 = [];
-  Guide7Resultat2 = [];
+  //Guide7Resultat2 = [];
   Guide7Resultat3 = [];
   Guide7Resultat4 = [];
   Guide7Resultat5 = [];
   Guide7Resultat6 = [];
   Guide7Resultat7 = [];
   Guide7Resultat8 = [];
-  Guide7Resultat9 = [];
+ // Guide7Resultat9 = [];
   Guide7Resultat10 = [];
+  Guide7Resultat11 = [];
+  Guide7Resultat12 = [];
   Guide10Resultat1 = [];
   checkArray: any[] = [];
 
   inputDocumentComponentMethodList1: any[] = [];
-  inputDocumentComponentMethodList2: any[] = [];
+  //inputDocumentComponentMethodList2: any[] = [];
   inputDocumentComponentMethodList3: any[] = [];
   inputDocumentComponentMethodList4: any[] = [];
   inputDocumentComponentMethodList5: any[] = [];
   inputDocumentComponentMethodList6: any[] = [];
   inputDocumentComponentMethodList7: any[] = [];
   inputDocumentComponentMethodList8: any[] = [];
-  inputDocumentComponentMethodList9: any[] = [];
+  //inputDocumentComponentMethodList9: any[] = [];
   inputDocumentComponentMethodList10: any[] = [];
+
+
+  inputDocumentComponentMethodList11: any[] = [];
+  inputDocumentComponentMethodList12: any[] = [];
 
   constructor(private router: Router, private gs: GuideService,
     private auth: AuthService, private g7s: Guide7Service) {
@@ -60,9 +66,9 @@ export class List5V2Component implements OnInit {
       studentactivities: new FormControl(''),
       reviewerrecommendations: new FormControl(''),
 
-      teacheractivity2: new FormControl(''),
-      studentactivities2: new FormControl(''),
-      reviewerrecommendations2: new FormControl(''),
+//      teacheractivity2: new FormControl(''),
+//      studentactivities2: new FormControl(''),
+//      reviewerrecommendations2: new FormControl(''),
       teacheractivity3: new FormControl(''),
       studentactivities3: new FormControl(''),
       reviewerrecommendations3: new FormControl(''),
@@ -81,12 +87,18 @@ export class List5V2Component implements OnInit {
       teacheractivity8: new FormControl(''),
       studentactivities8: new FormControl(''),
       reviewerrecommendations8: new FormControl(''),
-      teacheractivity9: new FormControl(''),
-      studentactivities9: new FormControl(''),
-      reviewerrecommendations9: new FormControl(''),
+//      teacheractivity9: new FormControl(''),
+//      studentactivities9: new FormControl(''),
+//      reviewerrecommendations9: new FormControl(''),
       teacheractivity10: new FormControl(''),
       studentactivities10: new FormControl(''),
       reviewerrecommendations10: new FormControl(''),
+      teacheractivity11: new FormControl(''),
+      studentactivities11: new FormControl(''),
+      reviewerrecommendations11: new FormControl(''),
+      teacheractivity12: new FormControl(''),
+      studentactivities12: new FormControl(''),
+      reviewerrecommendations12: new FormControl(''),
     });
 
   }
@@ -126,10 +138,10 @@ export class List5V2Component implements OnInit {
         if (lesson) {
           if (lesson.length > 0) {
 
-            // const lesson4v2 = (lesson as any[])[0].objSummaryLesson;
+            const lesson4v2 = (lesson as any[])[0].objSummaryLesson;
             const lesson5v2 = (lesson as any[])[0].objSummaryLesson2;
             // this.loadDataPriorLesson(lesson4v2);
-            this.loadDataForLesson(lesson5v2);
+            this.loadDataForLesson(lesson5v2, lesson4v2);
           }
         }
       });
@@ -142,27 +154,46 @@ export class List5V2Component implements OnInit {
       console.log('lesson4v2.documentTypeLesson=', lesson4v2.documentTypeLesson);
   }
 
-  loadDataForLesson(lesson5v2) {
+  loadDataForLesson(lesson5v2, lesson4v2) {
+
+    let curThemeId = -1;
+    if (lesson4v2.documentTypeLesson.id) {
+      curThemeId = lesson4v2.documentTypeLesson.id;
+    }
 
     this.inputDocumentComponentMethodList1 = lesson5v2.Guide7Resultat1;
-    this.inputDocumentComponentMethodList2 = lesson5v2.Guide7Resultat2;
+    //this.inputDocumentComponentMethodList2 = lesson5v2.Guide7Resultat2;
     this.inputDocumentComponentMethodList3 = lesson5v2.Guide7Resultat3;
     this.inputDocumentComponentMethodList4 = lesson5v2.Guide7Resultat4;
     this.inputDocumentComponentMethodList5 = lesson5v2.Guide7Resultat5;
     this.inputDocumentComponentMethodList6 = lesson5v2.Guide7Resultat6;
-    this.inputDocumentComponentMethodList7 = lesson5v2.Guide7Resultat7;
+
+
+    if (curThemeId === 1 || curThemeId === 2 || curThemeId === 3) {
+      this.inputDocumentComponentMethodList7 = lesson5v2.Guide7Resultat7;
+    }
+
     this.inputDocumentComponentMethodList8 = lesson5v2.Guide7Resultat8;
-    this.inputDocumentComponentMethodList9 = lesson5v2.Guide7Resultat9;
+    //this.inputDocumentComponentMethodList9 = lesson5v2.Guide7Resultat9;
     this.inputDocumentComponentMethodList10 = lesson5v2.Guide7Resultat10;
+
+    if (curThemeId === 2 || curThemeId === 3) {
+      if (lesson5v2.Guide7Resultat11) this.inputDocumentComponentMethodList11 = lesson5v2.Guide7Resultat11;
+    }
+
+    if (curThemeId === 4) {
+      if (lesson5v2.Guide7Resultat12) this.inputDocumentComponentMethodList12 = lesson5v2.Guide7Resultat12;
+    }
+
     this.checkArray = lesson5v2.Guide10Resultat1;
 
     this.list5v2Form.controls.teacheractivity.setValue(lesson5v2.teacheractivity);
     this.list5v2Form.controls.studentactivities.setValue(lesson5v2.studentactivities);
     this.list5v2Form.controls.reviewerrecommendations.setValue(lesson5v2.reviewerrecommendations);
 
-    this.list5v2Form.controls.teacheractivity2.setValue(lesson5v2.teacheractivity2);
-    this.list5v2Form.controls.studentactivities2.setValue(lesson5v2.studentactivities2);
-    this.list5v2Form.controls.reviewerrecommendations2.setValue(lesson5v2.reviewerrecommendations2);
+//    this.list5v2Form.controls.teacheractivity2.setValue(lesson5v2.teacheractivity2);
+//    this.list5v2Form.controls.studentactivities2.setValue(lesson5v2.studentactivities2);
+//    this.list5v2Form.controls.reviewerrecommendations2.setValue(lesson5v2.reviewerrecommendations2);
 
     this.list5v2Form.controls.teacheractivity3.setValue(lesson5v2.teacheractivity3);
     this.list5v2Form.controls.studentactivities3.setValue(lesson5v2.studentactivities3);
@@ -180,21 +211,40 @@ export class List5V2Component implements OnInit {
     this.list5v2Form.controls.studentactivities6.setValue(lesson5v2.studentactivities6);
     this.list5v2Form.controls.reviewerrecommendations6.setValue(lesson5v2.reviewerrecommendations6);
 
-    this.list5v2Form.controls.teacheractivity7.setValue(lesson5v2.teacheractivity7);
-    this.list5v2Form.controls.studentactivities7.setValue(lesson5v2.studentactivities7);
-    this.list5v2Form.controls.reviewerrecommendations7.setValue(lesson5v2.reviewerrecommendations7);
+    if (curThemeId === 1 || curThemeId === 2 || curThemeId === 3) {
+      this.list5v2Form.controls.teacheractivity7.setValue(lesson5v2.teacheractivity7);
+      this.list5v2Form.controls.studentactivities7.setValue(lesson5v2.studentactivities7);
+      this.list5v2Form.controls.reviewerrecommendations7.setValue(lesson5v2.reviewerrecommendations7);
+    }
 
     this.list5v2Form.controls.teacheractivity8.setValue(lesson5v2.teacheractivity8);
     this.list5v2Form.controls.studentactivities8.setValue(lesson5v2.studentactivities8);
     this.list5v2Form.controls.reviewerrecommendations8.setValue(lesson5v2.reviewerrecommendations8);
 
-    this.list5v2Form.controls.teacheractivity9.setValue(lesson5v2.teacheractivity9);
-    this.list5v2Form.controls.studentactivities9.setValue(lesson5v2.studentactivities9);
-    this.list5v2Form.controls.reviewerrecommendations9.setValue(lesson5v2.reviewerrecommendations9);
+//    this.list5v2Form.controls.teacheractivity9.setValue(lesson5v2.teacheractivity9);
+//    this.list5v2Form.controls.studentactivities9.setValue(lesson5v2.studentactivities9);
+//    this.list5v2Form.controls.reviewerrecommendations9.setValue(lesson5v2.reviewerrecommendations9);
 
     this.list5v2Form.controls.teacheractivity10.setValue(lesson5v2.teacheractivity10);
     this.list5v2Form.controls.studentactivities10.setValue(lesson5v2.studentactivities10);
     this.list5v2Form.controls.reviewerrecommendations10.setValue(lesson5v2.reviewerrecommendations10);
+
+    if (curThemeId === 2 || curThemeId === 3) {
+      this.list5v2Form.controls.teacheractivity11.setValue(lesson5v2.teacheractivity11);
+      this.list5v2Form.controls.studentactivities11.setValue(lesson5v2.studentactivities11);
+      this.list5v2Form.controls.reviewerrecommendations11.setValue(lesson5v2.reviewerrecommendations11);
+    }
+
+    if (curThemeId === 4) {
+      this.list5v2Form.controls.teacheractivity12.setValue(lesson5v2.teacheractivity12);
+      this.list5v2Form.controls.studentactivities12.setValue(lesson5v2.studentactivities12);
+      this.list5v2Form.controls.reviewerrecommendations12.setValue(lesson5v2.reviewerrecommendations12);
+    }
+
+
+    this.boolVE1 = lesson5v2.boolVE1;
+    this.boolVE2 = lesson5v2.boolVE2;
+    this.boolVE3 = lesson5v2.boolVE3;
 
   }
 
@@ -210,9 +260,9 @@ export class List5V2Component implements OnInit {
       this.Guide7Resultat1 = event;
     }
 
-    if (i === 2) {
-      this.Guide7Resultat2 = event;
-    }
+//    if (i === 2) {
+//      this.Guide7Resultat2 = event;
+//    }
 
     if (i === 3) {
       this.Guide7Resultat3 = event;
@@ -232,12 +282,23 @@ export class List5V2Component implements OnInit {
     if (i === 8) {
       this.Guide7Resultat8 = event;
     }
-    if (i === 9) {
-      this.Guide7Resultat9 = event;
-    }
+
+//    if (i === 9) {
+//      this.Guide7Resultat9 = event;
+//    }
+
     if (i === 10) {
       this.Guide7Resultat10 = event;
     }
+
+    if (i === 11) {
+      this.Guide7Resultat11 = event;
+    }
+
+    if (i === 12) {
+      this.Guide7Resultat12 = event;
+    }
+
   }
 
   sentCurrentMessage(guideName: string, iNumber: number) {
@@ -255,34 +316,38 @@ export class List5V2Component implements OnInit {
     objResult.Guide10Resultat1 = this.Guide10Resultat1;
 
     this.sentCurrentMessage('guide7', 1);
-    this.sentCurrentMessage('guide7', 2);
+    //this.sentCurrentMessage('guide7', 2);
     this.sentCurrentMessage('guide7', 3);
     this.sentCurrentMessage('guide7', 4);
     this.sentCurrentMessage('guide7', 5);
     this.sentCurrentMessage('guide7', 6);
     this.sentCurrentMessage('guide7', 7);
     this.sentCurrentMessage('guide7', 8);
-    this.sentCurrentMessage('guide7', 9);
+    //this.sentCurrentMessage('guide7', 9);
     this.sentCurrentMessage('guide7', 10);
+    this.sentCurrentMessage('guide7', 11);
+    this.sentCurrentMessage('guide7', 12);
     objResult.Guide7Resultat1 = this.Guide7Resultat1;
-    objResult.Guide7Resultat2 = this.Guide7Resultat2;
+    //objResult.Guide7Resultat2 = this.Guide7Resultat2;
     objResult.Guide7Resultat3 = this.Guide7Resultat3;
     objResult.Guide7Resultat4 = this.Guide7Resultat4;
     objResult.Guide7Resultat5 = this.Guide7Resultat5;
     objResult.Guide7Resultat6 = this.Guide7Resultat6;
     objResult.Guide7Resultat7 = this.Guide7Resultat7;
     objResult.Guide7Resultat8 = this.Guide7Resultat8;
-    objResult.Guide7Resultat9 = this.Guide7Resultat9;
+    //objResult.Guide7Resultat9 = this.Guide7Resultat9;
     objResult.Guide7Resultat10 = this.Guide7Resultat10;
+    objResult.Guide7Resultat11 = this.Guide7Resultat11;
+    objResult.Guide7Resultat12 = this.Guide7Resultat12;
 
 
     objResult.teacheractivity = this.list5v2Form.controls.teacheractivity.value;
     objResult.studentactivities = this.list5v2Form.controls.studentactivities.value;
     objResult.reviewerrecommendations = this.list5v2Form.controls.reviewerrecommendations.value;
 
-    objResult.teacheractivity2 = this.list5v2Form.controls.teacheractivity2.value;
-    objResult.studentactivities2 = this.list5v2Form.controls.studentactivities2.value;
-    objResult.reviewerrecommendations2 = this.list5v2Form.controls.reviewerrecommendations2.value;
+    //objResult.teacheractivity2 = this.list5v2Form.controls.teacheractivity2.value;
+    //objResult.studentactivities2 = this.list5v2Form.controls.studentactivities2.value;
+    //objResult.reviewerrecommendations2 = this.list5v2Form.controls.reviewerrecommendations2.value;
 
     objResult.teacheractivity3 = this.list5v2Form.controls.teacheractivity3.value;
     objResult.studentactivities3 = this.list5v2Form.controls.studentactivities3.value;
@@ -308,13 +373,25 @@ export class List5V2Component implements OnInit {
     objResult.studentactivities8 = this.list5v2Form.controls.studentactivities8.value;
     objResult.reviewerrecommendations8 = this.list5v2Form.controls.reviewerrecommendations8.value;
 
-    objResult.teacheractivity9 = this.list5v2Form.controls.teacheractivity9.value;
-    objResult.studentactivities9 = this.list5v2Form.controls.studentactivities9.value;
-    objResult.reviewerrecommendations9 = this.list5v2Form.controls.reviewerrecommendations9.value;
+    //objResult.teacheractivity9 = this.list5v2Form.controls.teacheractivity9.value;
+    //objResult.studentactivities9 = this.list5v2Form.controls.studentactivities9.value;
+    //objResult.reviewerrecommendations9 = this.list5v2Form.controls.reviewerrecommendations9.value;
 
     objResult.teacheractivity10 = this.list5v2Form.controls.teacheractivity10.value;
     objResult.studentactivities10 = this.list5v2Form.controls.studentactivities10.value;
     objResult.reviewerrecommendations10 = this.list5v2Form.controls.reviewerrecommendations10.value;
+
+    objResult.teacheractivity11 = this.list5v2Form.controls.teacheractivity11.value;
+    objResult.studentactivities11 = this.list5v2Form.controls.studentactivities11.value;
+    objResult.reviewerrecommendations11 = this.list5v2Form.controls.reviewerrecommendations11.value;
+
+    objResult.teacheractivity12 = this.list5v2Form.controls.teacheractivity12.value;
+    objResult.studentactivities12 = this.list5v2Form.controls.studentactivities12.value;
+    objResult.reviewerrecommendations12 = this.list5v2Form.controls.reviewerrecommendations12.value;
+
+    objResult.boolVE1  = this.boolVE1;
+    objResult.boolVE2  = this.boolVE2;
+    objResult.boolVE3  = this.boolVE3;
 
     console.log('objResult=', objResult);
 
@@ -355,14 +432,23 @@ export class List5V2Component implements OnInit {
   onClickDeleteVE(i: number) {
     if (i === 1) {
       this.boolVE1  = false;
+      this.list5v2Form.controls.teacheractivity3.setValue('');
+      this.list5v2Form.controls.studentactivities3.setValue('');
+      this.list5v2Form.controls.reviewerrecommendations3.setValue('');
     }
 
     if (i === 2) {
       this.boolVE2  = false;
+      this.list5v2Form.controls.teacheractivity4.setValue('');
+      this.list5v2Form.controls.studentactivities4.setValue('');
+      this.list5v2Form.controls.reviewerrecommendations4.setValue('');
     }
 
     if (i === 3) {
       this.boolVE3  = false;
+      this.list5v2Form.controls.teacheractivity5.setValue('');
+      this.list5v2Form.controls.studentactivities5.setValue('');
+      this.list5v2Form.controls.reviewerrecommendations5.setValue('');
     }
 
   }
