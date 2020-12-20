@@ -119,3 +119,14 @@ span {
   width: 9%;
   text-align: left;
 }
+.column1 {
+  width: 15%;
+  vertical-align: middle;
+  font-weight: 600;
+}
+.column2 {
+  width: 25%;
+  color: #6f6a6a;
+  font-size: 1em;
+  font-weight: 600;
+}
