@@ -1,3 +1,6 @@
+<!-- 407 по 435 строку  -->
+
+
 <app-rightpanel></app-rightpanel>
 
 <div class="container-fluid">
@@ -7,6 +10,66 @@
       <div id="print-section">
         <div class="lesson mb-3">{{sNamePrint}}</div>
 
+        <table class="table table-bordered">
+          <tr>
+            <td class="table1Col1">Дата</td>
+            <td><span>{{curFormDate  | date:'dd.MM.yyyy'}}</span></td>
+          </tr>
+          <tr>
+            <td width="20%">Учитель</td>
+            <td><span>{{fio}}</span></td>
+          </tr>
+          <tr>
+            <td class="table1Col1">Класс</td>
+            <td><span>{{documentClassNameNumber.title}}	{{documentClassNameLetter.title}}</span></td>
+          </tr>
+          <tr>
+            <td class="table1Col1">ФИО обучающего (индивидуальное обучение)</td>
+            <td><span>{{fioTeacherhome}}</span></td>
+          </tr>
+          <tr>
+            <td class="table1Col1">Учебный предмет</td>
+            <td><span>{{documentLessons2.title}}</span></td>
+          </tr>
+          <tr>
+            <td class="table1Col1">Тема урока</td>
+            <td><span>{{lessonTopic}}</span></td>
+          </tr>
+          <tr>
+            <td class="table1Col1">Цель урока</td>
+            <td><span>{{lessonObjectives}}</span></td>
+          </tr>
+          <tr>
+            <td class="table1Col1">Тип урока</td>
+            <td><span>{{documentTypeLesson.title}}</span></td>
+          </tr>
+          <tr>
+            <td class="table1Col1">Форма проведения урока(вид урока)</td>
+            <td><span>{{documentType2Lesson.title}}</span></td>
+          </tr>
+          <tr>
+            <td colspan="2" class="view-left text-center">Предполагаемые результаты</td>
+          </tr>
+          <tr>
+            <td class="table1Col1">ФИ ученика</td>
+            <td><span>Предметные/Личностные</span></td>
+          </tr>
+          <tr  *ngFor ="let EL of guide2linesResultat1">
+            <td>{{EL.text1}}</td>
+            <td><span>{{EL.text2}}</span></td>
+          </tr>
+          <tr>
+            <td colspan="2" class="view-left text-center">Оборудование и материалы</td>
+          </tr>
+          <tr *ngFor="let DOL of documentEquipmentList">
+            <td>{{DOL.title}}</td>
+            <td><span>{{DOL.AdditionalMessage}}</span></td>
+          </tr>
+        </table>
+
+
+
+        <!--
         <div class="d-flex justify-content-between line">
           <div class="view-left w-25">Дата</div>
           <span class="w-75">{{curFormDate  | date:'dd.MM.yyyy'}}</span>
@@ -24,7 +87,7 @@
           <span class="w-75">{{fioTeacherhome}}</span>
         </div>
 
-        <!-- Сюда из справочника Lessons2-->
+        <!-- Сюда из справочника Lessons2 ->
         <div class="d-flex justify-content-between line">
           <div class="view-left w-25">Учебный предмет</div>
           <span class="w-75">{{documentLessons2.title}}</span>
@@ -71,19 +134,9 @@
             </div>
         </div>
 
-<!--
-        <div class="d-flex justify-content-between line">
-          <div class="w-25 view-half">Даня П.</div>
-          <div class="w-75 view-half-data">
-            <span class="p-0">Принимает физическую помощь со стороны педагога
-            Демонстрирует слуховые и зрительные ориентировочно-поисковые реакции
-           </span>
 
-          </div>
-        </div>
--->
 
-        <!-- Конец Предполагаемые результаты  -->
+        <!-- Конец Предполагаемые результаты  ->
 
         <div class="d-flex justify-content-between line">
           <div class="view-left w-100">Оборудование и материалы</div>
@@ -96,6 +149,7 @@
             <div class="view-half-right w-75">{{DOL.AdditionalMessage}}</div>
           </div>
         </div>
+-->
 
     </div>
 
@@ -341,8 +395,9 @@
   </div>
 
 
-  <div *ngIf="taskList.length > 0">
+
       <div>ЗАДАЧИ</div>
+    <div *ngIf="taskList.length > 0">
       <div *ngFor="let value of taskList">
         {{value.title}} <=> {{value.text}}
       </div>
@@ -352,21 +407,45 @@
       <h5 class="card-title text-center">Задачи урока</h5>
 
 
-      <table class="table table-bordered">
+      <table class="table table-bordered mb-5">
         <tr>
           <td class="column1" rowspan="3">Образовательные</td>
-
-          <td class="column2">
-            Выявить
+          <td class="column2">Выявить</td>
           <td class="column3">
+            выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
+            задания однократно до его выполнения)
+          </td>
+        </tr>
+        <td class="column2">Корригировать</td>
+        <td class="column3">
           выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
           задания однократно до его выполнения)
         </td>
 
+        <tr>
+          <td class="column2">
+            Воспитывать
+          </td>
+          <td class="column3">выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
+            задания однократно до его выполнения)
+          </td>
+
         </tr>
-        <td class="column2">
-          Корригировать
+
+      </table>
+
+      <div style="height: 300px"></div>
+
+      <table class="table table-bordered">
+        <tr>
+          <td class="column1" rowspan="3">Образовательные</td>
+          <td class="column2">Выявить</td>
+          <td class="column3">
+          выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
+          задания однократно до его выполнения)
         </td>
+        </tr>
+        <td class="column2">Корригировать</td>
         <td class="column3">
           выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
           задания однократно до его выполнения)
