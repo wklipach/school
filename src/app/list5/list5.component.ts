@@ -115,7 +115,7 @@ export class List5Component implements OnInit {
 
   ngOnInit(): void {
 
-    window.scroll(0,0);
+    window.scroll(0, 0);
 
       // загружаем тему урока из базы
     const id = this.auth.getSaveDocumentId();
@@ -166,6 +166,11 @@ export class List5Component implements OnInit {
   }
 
   loadDataForLesson(lesson5) {
+
+
+    if (!lesson5) {
+      return;
+    }
 
     this.inputDocumentComponentMethodList1 = lesson5.Guide7Resultat1;
     this.inputDocumentComponentMethodList2 = lesson5.Guide7Resultat2;

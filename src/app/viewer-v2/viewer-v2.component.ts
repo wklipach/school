@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../services/auth.service";
 import {GuideService} from "../services/guide.service";
@@ -28,6 +28,10 @@ export class ViewerV2Component implements OnInit {
   lessonObjectives = '';
   lessonTasks = '';
   curFormDate: Date;
+
+  listClassEducationalTasksV2: any;
+  listClassCorrectionalTasksV2: any;
+  listClassRaisetionalTasksV2: any;
 
   reviewerrecommendations = '';
   reviewerrecommendations2 = '';
@@ -87,6 +91,8 @@ export class ViewerV2Component implements OnInit {
   guide2linesResultat1: any[] = [];
   guide10list: any[] = [];
 
+  taskList: any[] = [];
+
 
   UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
 
@@ -106,12 +112,20 @@ export class ViewerV2Component implements OnInit {
   ngOnInit(): void {
     const lesson_id = this.auth.getViewPrintId();
     forkJoin([
-
       this.gs.selectCollection('classBasicLearningActions'),
-      this.gs.getLesson(lesson_id)
+      this.gs.getLesson(lesson_id),
+      this.gs.selectCollection('classEducationalTasksV2'),
+      this.gs.selectCollection('classCorrectionalTasksV2'),
+      this.gs.selectCollection('classRaisetionalTasksV2')
     ]).subscribe(results => {
         this.guide10list = <any[]>results[0];
         this.lesson = results[1][0];
+
+        this.listClassEducationalTasksV2 = <any[]>results[2];
+        this.listClassCorrectionalTasksV2 = <any[]>results[3];
+        this.listClassRaisetionalTasksV2 = <any[]>results[4];
+      
+
         this.loadData();
     });
 
@@ -204,6 +218,78 @@ export class ViewerV2Component implements OnInit {
       this.Guide10Resultat9 = this.lesson.objSummaryLesson2.Guide10Resultat9;
       this.Guide10Resultat10 = this.lesson.objSummaryLesson2.Guide10Resultat10;
     }
+
+
+    this.taskList = [];
+    if (this.lesson.objSummaryLesson.EducationalTasks1 && this.lesson.objSummaryLesson.EducationalTasks1.id !== -1) {
+
+              const title = this.listClassEducationalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.EducationalTasks1.id).title;
+              this.taskList.push({title, 
+                                  text: this.lesson.objSummaryLesson.EducationalTasks1.text
+                                });
+    }
+
+    if (this.lesson.objSummaryLesson.EducationalTasks2 && this.lesson.objSummaryLesson.EducationalTasks2.id !== -1) {
+      const title = this.listClassEducationalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.EducationalTasks2.id).title;
+      this.taskList.push({title, 
+                          text: this.lesson.objSummaryLesson.EducationalTasks2.text
+                        });
+    }
+
+    if (this.lesson.objSummaryLesson.EducationalTasks3 && this.lesson.objSummaryLesson.EducationalTasks3.id !== -1) {
+      const title = this.listClassEducationalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.EducationalTasks3.id).title;
+      this.taskList.push({title, 
+                          text: this.lesson.objSummaryLesson.EducationalTasks3.text
+                        });
+    }
+
+
+    if (this.lesson.objSummaryLesson.CorrectionalTasks1 && this.lesson.objSummaryLesson.CorrectionalTasks1.id !== -1) {
+      const title = this.listClassCorrectionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.CorrectionalTasks1.id).title;
+      this.taskList.push({title, 
+                          text: this.lesson.objSummaryLesson.CorrectionalTasks1.text
+                        });
+    }
+
+    if (this.lesson.objSummaryLesson.CorrectionalTasks2 && this.lesson.objSummaryLesson.CorrectionalTasks2.id !== -1) {
+      const title = this.listClassCorrectionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.CorrectionalTasks2.id).title;
+      this.taskList.push({title, 
+                          text: this.lesson.objSummaryLesson.CorrectionalTasks2.text
+                        });
+    }
+
+    if (this.lesson.objSummaryLesson.CorrectionalTasks3 && this.lesson.objSummaryLesson.CorrectionalTasks3.id !== -1) {
+      const title = this.listClassCorrectionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.CorrectionalTasks3.id).title;
+      this.taskList.push({title, 
+                          text: this.lesson.objSummaryLesson.CorrectionalTasks3.text
+                        });
+    }
+    
+
+    if (this.lesson.objSummaryLesson.RaisetionalTasks1 && this.lesson.objSummaryLesson.RaisetionalTasks1.id !== -1) {
+      const title = this.listClassRaisetionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.RaisetionalTasks1.id).title;
+      this.taskList.push({title, 
+                          text: this.lesson.objSummaryLesson.RaisetionalTasks1.text
+                        });
+    }
+
+    if (this.lesson.objSummaryLesson.RaisetionalTasks2 && this.lesson.objSummaryLesson.RaisetionalTasks2.id !== -1) {
+      const title = this.listClassRaisetionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.RaisetionalTasks2.id).title;
+      this.taskList.push({title, 
+                          text: this.lesson.objSummaryLesson.RaisetionalTasks2.text
+                        });
+    }
+
+    if (this.lesson.objSummaryLesson.RaisetionalTasks3 && this.lesson.objSummaryLesson.RaisetionalTasks3.id !== -1) {
+      const title = this.listClassRaisetionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.RaisetionalTasks3.id).title;
+      this.taskList.push({title, 
+                          text: this.lesson.objSummaryLesson.RaisetionalTasks3.text
+                        });
+    }
+
+
+    console.log('this.taskList=', this.taskList);
+        
   }
 
 

@@ -333,6 +333,7 @@ export class List4V2Component implements OnInit {
   onClassCorrectionalTasks1(curValue) {
     this.documentClassCorrectionalTasks1.id = curValue.id;
     this.documentClassCorrectionalTasks1.title = curValue.title;
+    console.log('this.documentClassCorrectionalTasks1=', curValue, this.documentClassCorrectionalTasks1, this.listClassCorrectionalTasksV2);
   }
 
   onClassCorrectionalTasks2(curValue) {
@@ -425,6 +426,8 @@ export class List4V2Component implements OnInit {
       const lessonObjectives = this.list4v2Form.controls.lessonObjectives.value.toString().trim();
       /* end 3 */
 
+
+     console.log('this.documentClassCorrectionalTasks1====', this.documentClassCorrectionalTasks1); 
 
     const textEducationalTasks1 = this.list4v2Form.controls.textEducationalTasks1.value.toString().trim();
     const textEducationalTasks2 = this.list4v2Form.controls.textEducationalTasks2.value.toString().trim();

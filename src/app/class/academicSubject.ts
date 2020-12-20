@@ -1134,15 +1134,15 @@ export const classCorrectionalTasksV2 = [
   },
   {
     title: 'Содействовать',
-    id: 1
+    id: 7
   },
   {
     title: 'Тренировать',
-    id: 1
+    id: 8
   },
   {
     title: 'Формировать',
-    id: 1
+    id: 9
   }
 ];
 

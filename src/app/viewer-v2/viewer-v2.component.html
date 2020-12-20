@@ -340,3 +340,11 @@
     </div>
   </div>
 
+
+  <div *ngIf="taskList.length > 0">
+      <div>ЗАДАЧИ</div>
+      <div *ngFor="let value of taskList">
+        {{value.title}} <=> {{value.text}}
+      </div>
+
+  </div> 
