@@ -92,7 +92,9 @@ export class ViewerV2Component implements OnInit {
   guide10list: any[] = [];
 
   taskList: any[] = [];
-
+  taskList1: any[] = [];
+  taskList2: any[] = [];
+  taskList3: any[] = [];
 
   UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
 
@@ -221,77 +223,113 @@ export class ViewerV2Component implements OnInit {
 
 
     this.taskList = [];
+    this.taskList1 = [];
+    this.taskList2 = [];
+    this.taskList3 = [];
     if (this.lesson.objSummaryLesson.EducationalTasks1 && this.lesson.objSummaryLesson.EducationalTasks1.id !== -1) {
 
-              const title = this.listClassEducationalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.EducationalTasks1.id).title;
-              this.taskList.push({title, 
-                                  text: this.lesson.objSummaryLesson.EducationalTasks1.text
+              const title = this.listClassEducationalTasksV2.find(value =>
+                                                value.id === this.lesson.objSummaryLesson.EducationalTasks1.id).title;
+              this.taskList.push({title,
+                                  text: this.lesson.objSummaryLesson.EducationalTasks1.text,
+                                  type: 1,
+                                  sortindex: 1
                                 });
     }
 
     if (this.lesson.objSummaryLesson.EducationalTasks2 && this.lesson.objSummaryLesson.EducationalTasks2.id !== -1) {
       const title = this.listClassEducationalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.EducationalTasks2.id).title;
-      this.taskList.push({title, 
-                          text: this.lesson.objSummaryLesson.EducationalTasks2.text
+      this.taskList.push({title,
+                          text: this.lesson.objSummaryLesson.EducationalTasks2.text,
+                          type: 2,
+                          sortindex: 4
                         });
     }
 
     if (this.lesson.objSummaryLesson.EducationalTasks3 && this.lesson.objSummaryLesson.EducationalTasks3.id !== -1) {
       const title = this.listClassEducationalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.EducationalTasks3.id).title;
-      this.taskList.push({title, 
-                          text: this.lesson.objSummaryLesson.EducationalTasks3.text
+      this.taskList.push({title,
+                          text: this.lesson.objSummaryLesson.EducationalTasks3.text,
+                          type: 3,
+                          sortindex: 7
                         });
     }
 
 
     if (this.lesson.objSummaryLesson.CorrectionalTasks1 && this.lesson.objSummaryLesson.CorrectionalTasks1.id !== -1) {
       const title = this.listClassCorrectionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.CorrectionalTasks1.id).title;
-      this.taskList.push({title, 
-                          text: this.lesson.objSummaryLesson.CorrectionalTasks1.text
+      this.taskList.push({title,
+                          text: this.lesson.objSummaryLesson.CorrectionalTasks1.text,
+                          type: 1,
+                          sortindex: 2
                         });
     }
 
     if (this.lesson.objSummaryLesson.CorrectionalTasks2 && this.lesson.objSummaryLesson.CorrectionalTasks2.id !== -1) {
       const title = this.listClassCorrectionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.CorrectionalTasks2.id).title;
-      this.taskList.push({title, 
-                          text: this.lesson.objSummaryLesson.CorrectionalTasks2.text
+      this.taskList.push({title,
+                          text: this.lesson.objSummaryLesson.CorrectionalTasks2.text,
+                          type: 2,
+                          sortindex: 5
                         });
     }
 
     if (this.lesson.objSummaryLesson.CorrectionalTasks3 && this.lesson.objSummaryLesson.CorrectionalTasks3.id !== -1) {
       const title = this.listClassCorrectionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.CorrectionalTasks3.id).title;
-      this.taskList.push({title, 
-                          text: this.lesson.objSummaryLesson.CorrectionalTasks3.text
+      this.taskList.push({title,
+                          text: this.lesson.objSummaryLesson.CorrectionalTasks3.text,
+                          type: 3,
+                          sortindex: 8
                         });
     }
-    
+
 
     if (this.lesson.objSummaryLesson.RaisetionalTasks1 && this.lesson.objSummaryLesson.RaisetionalTasks1.id !== -1) {
       const title = this.listClassRaisetionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.RaisetionalTasks1.id).title;
-      this.taskList.push({title, 
-                          text: this.lesson.objSummaryLesson.RaisetionalTasks1.text
+      this.taskList.push({title,
+                          text: this.lesson.objSummaryLesson.RaisetionalTasks1.text,
+                          type: 1,
+                          sortindex: 3
                         });
     }
 
     if (this.lesson.objSummaryLesson.RaisetionalTasks2 && this.lesson.objSummaryLesson.RaisetionalTasks2.id !== -1) {
       const title = this.listClassRaisetionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.RaisetionalTasks2.id).title;
-      this.taskList.push({title, 
-                          text: this.lesson.objSummaryLesson.RaisetionalTasks2.text
+      this.taskList.push({title,
+                          text: this.lesson.objSummaryLesson.RaisetionalTasks2.text,
+                          type: 2,
+                          sortindex: 6
                         });
     }
 
     if (this.lesson.objSummaryLesson.RaisetionalTasks3 && this.lesson.objSummaryLesson.RaisetionalTasks3.id !== -1) {
       const title = this.listClassRaisetionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.RaisetionalTasks3.id).title;
-      this.taskList.push({title, 
-                          text: this.lesson.objSummaryLesson.RaisetionalTasks3.text
+      this.taskList.push({title,
+                          text: this.lesson.objSummaryLesson.RaisetionalTasks3.text,
+                          type: 3,
+                          sortindex: 9
                         });
     }
 
+    this.taskList = this.taskList.sort(this.compare);
+    this.taskList1 = this.taskList.filter(x => x.type === 1);
+    this.taskList2 = this.taskList.filter(x => x.type === 2);
+    this.taskList3 = this.taskList.filter(x => x.type === 3);
 
-    console.log('this.taskList=', this.taskList);
-        
+    // console.log('this.taskList=', this.taskList);
+    // console.log('this.taskList=', this.taskList.sort(this.compare));
+
   }
 
+  compare(a, b) {
+    if ( a.sortindex < b.sortindex ){
+      return -1;
+    }
+    if ( a.sortindex > b.sortindex ){
+      return 1;
+    }
+    return 0;
+  }
 
   Guide10Filter(id_element): string {
     return this.guide10list.filter(value => {
