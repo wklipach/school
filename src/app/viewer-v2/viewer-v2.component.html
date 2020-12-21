@@ -403,48 +403,50 @@
 
 <!-- мой код строка 1-->
 <div class="card px-3 py-1">
-  <h5 class="card-title text-center">Задачи урока</h5>
+  <h5 class="card-title text-center">ЭТО ВСТАВКА Задачи урока</h5>
   <table class="table table-bordered mb-5">
 
    <!-- первые три строки если есть -->
-      <div *ngIf="taskList1.length > 0">
+   <ng-container *ngIf="taskList1.length > 0">
         <tr>
-        <td class="column1" rowspan="3">Образовательные</td>
-        <div *ngFor="let value of taskList1">
-            <td class="column2">{{value.title}}</td>
-            <td class="column3">{{value.text}}</td>
-        </div>
+              <td>Образовательные</td>
+              <td>
+              <tr *ngFor="let value of taskList1">
+                  <td class=".column_wit">{{value.title}}</td>
+                  <td class="column_wit">{{value.text}}</td>
+              </tr>
+              </td>
+        </tr>
+   </ng-container>
+   <!-- конец первых трех строк если есть-->
+
+   <ng-container *ngIf="taskList2.length > 0">
+        <tr>
+              <td>Развивающие</td>
+              <td>
+              <tr *ngFor="let value of taskList2">
+                  <td class="column_wit">{{value.title}}</td>
+                  <td class="column_wit">{{value.text}}</td>
+              </tr>
+              </td>
+        </tr>
+   </ng-container>
+
+    <ng-container *ngIf="taskList3.length > 0">
+      <tr>
+        <td>Воспитательные</td>
+        <td>
+      <tr *ngFor="let value of taskList3">
+        <td class="column_wit">{{value.title}}</td>
+        <td class="column_wit">{{value.text}}</td>
       </tr>
-      </div>  
-   <!-- конец первых трех строк если есть-->  
+      </td>
+      </tr>
+    </ng-container>
 
-
-   <!-- вторые три строки если есть -->
-   <div *ngIf="taskList2.length > 0">
-    <tr>
-    <td class="column1" rowspan="3">Коррекционно-развивающие</td>
-    <div *ngFor="let value of taskList2">
-        <td class="column2">{{value.title}}</td>
-        <td class="column3">{{value.text}}</td>
-    </div>
-  </tr>
-  </div>  
-<!-- конец вторых трех строк если есть-->  
-
-   <!-- третьи три строки если есть -->
-   <div *ngIf="taskList3.length > 0">
-    <tr>
-    <td class="column1" rowspan="3">Воспитательные</td>
-    <div *ngFor="let value of taskList3">
-        <td class="column2">{{value.title}}</td>
-        <td class="column3">{{value.text}}</td>
-    </div>
-  </tr>
-  </div>  
-<!-- конец третьих трех строк если есть-->  
   </table>
   </div>
-<!-- конец мой код строка 1-->
+
 
     <!-- Начало ЗАДАЧИ УРОКА -->
     <div class="card px-3 py-1">
