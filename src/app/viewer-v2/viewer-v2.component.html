@@ -9,7 +9,7 @@
       <div id="print-section">
         <div class="lesson mb-3">{{sNamePrint}}</div>
 
-        <table class="table table-bordered">
+        <table class="table table-bordered text-left">
           <tr>
             <td class="table1Col1">Дата</td>
             <td><span>{{curFormDate  | date:'dd.MM.yyyy'}}</span></td>
@@ -47,9 +47,9 @@
             <td><span>{{documentType2Lesson.title}}</span></td>
           </tr>
           <tr>
-            <td colspan="2" class="view-left text-center">Предполагаемые результаты</td>
+            <td colspan="2" class="view-left text-center" style="border-bottom: solid 1px #000000">Предполагаемые результаты</td>
           </tr>
-          <tr>
+          <tr class="view-left text-center">
             <td class="table1Col1">ФИ ученика</td>
             <td><span>Предметные/Личностные</span></td>
           </tr>
@@ -152,11 +152,53 @@
 
     </div>
 
+      <!-- мой код строка 1-->
+      <div class="card px-3 py-1">
+        <h4 class="card-title text-center mb-3">Задачи урока</h4>
 
+        <table class="table table-bordered mb-2">
+
+          <!-- первые три строки если есть -->
+          <ng-container *ngIf="taskList1.length > 0">
+            <tr>
+              <td class="column1">Образовательные</td>
+              <td class="noMargin">
+            <tr *ngFor="let value of taskList1" class="myTest">
+              <td class="column2">{{value.title}}</td>
+              <td class="column3">{{value.text}}</td>
+            </tr>
+          </ng-container>
+
+          <!-- конец первых трех строк если есть-->
+
+          <ng-container *ngIf="taskList2.length > 0">
+            <tr>
+              <td class="column1">Развивающие</td>
+              <td class="noMargin">
+            <tr *ngFor="let value of taskList2">
+              <td class="column2">{{value.title}}</td>
+              <td class="column3">{{value.text}}</td>
+            </tr>
+          </ng-container>
+
+          <ng-container *ngIf="taskList3.length > 0">
+            <tr>
+              <td class="column1">Воспитательные</td>
+              <td class="noMargin">
+            <tr *ngFor="let value of taskList3">
+              <td class="column2">{{value.title}}</td>
+              <td class="column3">{{value.text}}</td>
+            </tr>
+          </ng-container>
+
+        </table>
+
+
+       <!-- Ход урока
         <div class="p-0">
           <h3 class="my-4">Ход урока</h3>
           <div class="line">
-            <div class=" topic-1">Часть урока</div>
+            <div class=" topic-1">Часть</div>
             <div class="topic-2">Этап урока</div>
             <div class="topic-3">Методы и приёмы</div>
             <div class="topic-4">Деятельность учителя</div>
@@ -166,7 +208,7 @@
           </div>
 
           <div class="line">
-            <div class="data-1">Вводно-подготовительная часть</div>
+            <div class="data-1"><span class="span-but">Вводно-подготовительная</span></div>
             <div class="data-2">организационный этап</div>
             <div class="data-3 mb-3">
               <div *ngFor="let dad of Guide7Resultat1">
@@ -369,7 +411,7 @@
             <div class="data-7">{{reviewerrecommendations10}}</div>
           </div>
 
-        </div>
+        </div>    Конец Ход урока  -->
 
       </div> <!--  это закрывающий див для секции печати-->
 
@@ -394,194 +436,16 @@
   </div>
 
 
-
+<!--
       <div>ЗАДАЧИ</div>
     <div *ngIf="taskList.length > 0">
       <div *ngFor="let value of taskList">
         {{value.title}} <=> {{value.text}} <=> {{value.type}}
       </div>
-
-<!-- мой код строка 1-->
-<div class="card px-3 py-1">
-  <h5 class="card-title text-center">ЭТО ВСТАВКА Задачи урока</h5>
-  <table class="table table-bordered mb-5">
-
-   <!-- первые три строки если есть -->
-   <ng-container *ngIf="taskList1.length > 0">
-        <tr>
-              <td>Образовательные</td>
-              <td>
-              <tr *ngFor="let value of taskList1">
-                  <td class=".column_wit">{{value.title}}</td>
-                  <td class="column_wit">{{value.text}}</td>
-              </tr>
-              </td>
-        </tr>
-   </ng-container>
-   <!-- конец первых трех строк если есть-->
-
-   <ng-container *ngIf="taskList2.length > 0">
-        <tr>
-              <td>Развивающие</td>
-              <td>
-              <tr *ngFor="let value of taskList2">
-                  <td class="column_wit">{{value.title}}</td>
-                  <td class="column_wit">{{value.text}}</td>
-              </tr>
-              </td>
-        </tr>
-   </ng-container>
-
-    <ng-container *ngIf="taskList3.length > 0">
-      <tr>
-        <td>Воспитательные</td>
-        <td>
-      <tr *ngFor="let value of taskList3">
-        <td class="column_wit">{{value.title}}</td>
-        <td class="column_wit">{{value.text}}</td>
-      </tr>
-      </td>
-      </tr>
-    </ng-container>
-
-  </table>
-  </div>
-
-
-    <!-- Начало ЗАДАЧИ УРОКА -->
-    <div class="card px-3 py-1">
-      <h5 class="card-title text-center">Задачи урока</h5>
-
-
-      <table class="table table-bordered mb-5">
-        <tr>
-          <td class="column1" rowspan="3">Образовательные</td>
-
-          <td class="column2">Выявить</td>
-          <td class="column3">
-            выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
-            задания однократно до его выполнения)
-          </td>
-        </tr>
-        <td class="column2">Корригировать</td>
-        <td class="column3">
-          выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
-          задания однократно до его выполнения)
-        </td>
-
-        <tr>
-          <td class="column2">
-            Воспитывать
-          </td>
-          <td class="column3">выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
-            задания однократно до его выполнения)
-          </td>
-
-        </tr>
-
-      </table>
-
-      <div style="height: 300px"></div>
-
-      <table class="table table-bordered">
-        <tr>
-          <td class="column1" rowspan="3">Образовательные</td>
-          <td class="column2">Выявить</td>
-          <td class="column3">
-          выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
-          задания однократно до его выполнения)
-        </td>
-        </tr>
-        <td class="column2">Корригировать</td>
-        <td class="column3">
-          выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
-          задания однократно до его выполнения)
-        </td>
-
-        <tr>
-          <td class="column2">
-            Воспитывать
-          </td>
-          <td class="column3">выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
-            задания однократно до его выполнения)
-          </td>
-
-        </tr>
-
-
-        <tr>
-          <td class="column1" rowspan="3">Коррекционно-развивающие</td>
-
-          <td class="column2">
-            Учить применять на практике
-          </td>
-          <td class="column3">выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
-            задания однократно до его выполнения)
-
-          </td>
-
-        </tr>
-
-        <tr>
-          <td class="column2">
-            Поддерживать
-          </td>
-          <td class="column3">
-            выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
-            задания однократно до его выполнения)
-          </td>
-        </tr>
-
-        <tr>
-          <td class="column2">
-            Воспитывать умение работать в паре
-          </td>
-          <td class="column3">
-            выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
-            задания однократно до его выполнения)
-          </td>
-
-        </tr>
-
-        <tr>
-          <td class="column1" rowspan="3">Воспитательные</td>
-          <td class="column2">
-            Учить применять на практике
-          </td>
-          <td class="column3">
-            выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
-            задания однократно до его выполнения)
-          </td>
-
-        </tr>
-        <tr>
-
-          <td class="column2">
-            Совершенствовать
-          </td>
-          <td class="column3">
-            выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
-            задания однократно до его выполнения)
-          </td>
-
-        </tr>
-        <tr>
-
-          <td class="column2">
-            Воспитывать умение работать в команде
-          </td>
-          <td class="column3">
-            выполнение инструкции педагога по образцу (взрослый демонстрирует учащемуся выполнение
-            задания однократно до его выполнения)
-          </td>
-
-        </tr>
-      </table>
-
-    </div> <!-- Конец ЗАДАЧИ УРОКА -->
-
+</div>
+-->
 
 
   </div>
 
-  <div>просто так для коммита</div>
+

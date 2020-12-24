@@ -42,6 +42,15 @@ span {
   font-size: 18px;
   padding: 10px 0 15px 10px;
 }
+
+.span-but {
+  writing-mode: tb-rl;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 20px auto;
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
 .topic-1,.topic-2,.topic-3,.topic-4,.topic-5,.topic-6,.topic-7 {
   height: auto;
   font-size: 18px;
@@ -75,6 +84,7 @@ span {
   font-size: 15px;
   width: 9%;
   border-right: solid 1px #cdcdcd;
+  vertical-align: middle;
 }
 .data-2 {
   font-size: 15px;
@@ -120,18 +130,28 @@ span {
   text-align: left;
 }
 .column1 {
-  width: 15%;
   vertical-align: middle;
   font-weight: 600;
+  width: 200px;
 }
 .column2 {
-  width: 25%;
+  width: 400px;
   color: #6f6a6a;
   font-size: 1em;
   font-weight: 600;
+  text-align: left
 }
-
-
-.column_wit {
-  width: 25%;
+.column3 {
+  width: 75%;
+  font-size: 1em;
+  text-align: left;
+}
+.noMargin {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  border: none;
+}
+.myTest {
+  display: block;
 }

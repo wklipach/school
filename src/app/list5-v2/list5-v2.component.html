@@ -30,9 +30,22 @@
 
       <h5 class="mb-4">СПИСОК № 10 «БАЗОВЫЕ УЧЕБНЫЕ ДЕЙСТВИЯ»</h5>
 
+     <div class="card">
+
+      <button class="btn btn-outline-primary dropdown-toggle w-25 mb-4" type="button" data-toggle="collapse">
+      <!-- data-target="#collapseGuid11" aria-expanded="false" aria-controls="collapseGuid11" -->
+
+        Добавить ученика
+      </button>
+
+      <div class="d-flex">
+      <input type="text" class="form-control w-25 mr-5" placeholder="Фамилия ученика" formControlName="fu">
       <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid11" aria-expanded="false" aria-controls="collapseGuid11">
         Базовые учебные действия
       </button>
+    </div>
+
+     </div>
 
       <div class="collapse" id="collapseGuid11">
         <div class="my-11">
@@ -43,7 +56,7 @@
 
       <!-- Начало ОРГАНИЗАЦИОННОГО этапа -->
 
-      <h4 class="stage">Этап урока - организационный этап</h4>
+      <h4 class="stage mt-5">Этап урока - организационный этап</h4>
       <!--  7 справочник -->
       <app-guide7 [numberComponent]="1"  [documentComponentMethodList]="inputDocumentComponentMethodList1" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 1)" ></app-guide7>
 
@@ -209,7 +222,7 @@
         <textarea formControlName="reviewerrecommendations6" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
       </div>
 
-    </div>      
+    </div>
       <!-- Конец - Этап урока -  изучение нового материала   -->
 
 
