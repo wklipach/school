@@ -11,6 +11,7 @@ import { Guide7Service } from '../guide7/guide7.service';
 })
 export class Guide10Component implements OnInit, OnDestroy {
 
+  vnumberComponent = '1';
   @Input() numberComponent: number;
   @Input() titleMethodComponent = '';
   @Output() methodResultat = new EventEmitter<[]>();
@@ -38,10 +39,14 @@ export class Guide10Component implements OnInit, OnDestroy {
 
 
   constructor(private gs: GuideService, private g7s: Guide7Service) {
-    this.component10Form = new FormGroup({});
+
+    const a = new FormControl('');
+
+    this.component10Form = new FormGroup({ });
   }
 
   ngOnInit(): void {
+    this.component10Form.addControl(this.numberComponent + 'FamStu', new FormControl(''));
     this.subscription = this.g7s.getMessage().subscribe(message => {
       this.message = message;
 

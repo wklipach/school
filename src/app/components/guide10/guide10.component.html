@@ -1,24 +1,41 @@
 <form [formGroup]="component10Form">
 
-  <div *ngFor="let curGroupValue of methodAggegateList">
-    <div class="card mb-4">
+  <input type="text" class="form-control w-25 mr-5" placeholder="Фамилия ученика" formControlName="{{numberComponent}}FamStu">
 
-      <div class="view-head">
-        <span>{{curGroupValue.title}}</span>
-      </div>
+  <div class="d-flex">
+    <button class="btn btn-outline-primary dropdown-toggle mb-4"
+            type="button"
+            aria-expanded="false"
+            data-toggle="collapse"
+            [attr.data-target] ='"#" +  "collapseGuide10_" + numberComponent'>
+      Базовые учебные действия
+    </button>
+  </div>
 
-      <div class="horizontal-column">
+  <div class="collapse" id="collapseGuide10_{{numberComponent}}">
+    <div class="my-11">
+                  <div *ngFor="let curGroupValue of methodAggegateList">
+                    <div class="card mb-4">
 
-        <div *ngFor="let curInnerDocument of curGroupValue.new_document; let i = index;">
-          <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="{{numberComponent}}comp10Check{{curInnerDocument.id}}" formControlName="{{numberComponent}}comp10aggregateCheck{{curInnerDocument.id}}">
-            <label class="custom-control-label" for="{{numberComponent}}comp10Check{{curInnerDocument.id}}">{{i+1}}. {{curInnerDocument.title}}</label>
-          </div>
-        </div>
+                      <div class="view-head">
+                        <span>{{curGroupValue.title}}</span>
+                      </div>
 
-      </div>
+                      <div class="horizontal-column">
 
+                        <div *ngFor="let curInnerDocument of curGroupValue.new_document; let i = index;">
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="{{numberComponent}}comp10Check{{curInnerDocument.id}}" formControlName="{{numberComponent}}comp10aggregateCheck{{curInnerDocument.id}}">
+                            <label class="custom-control-label" for="{{numberComponent}}comp10Check{{curInnerDocument.id}}">{{i+1}}. {{curInnerDocument.title}}</label>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
     </div>
   </div>
+
 
 </form>
