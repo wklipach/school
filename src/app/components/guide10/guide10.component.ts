@@ -14,22 +14,28 @@ export class Guide10Component implements OnInit, OnDestroy {
   vnumberComponent = '1';
   @Input() numberComponent: number;
   @Input() titleMethodComponent = '';
-  @Output() methodResultat = new EventEmitter<[]>();
+  @Output() methodResultat = new EventEmitter<{}>();
 
-  @Input() set checkArray(value: any[]) {
-    value.forEach( (element, ind) => {
-      const sname = this.numberComponent.toString() + 'comp10aggregateCheck' + element.toString();
-      if (this.component10Form.controls[sname]) {
-        this.component10Form.controls[sname].setValue(true);
-      }
-    });
-    this._checkArray = value;
+  @Input() set checkArray(value) {
+
+    if (value && 'checkArray' in value) {
+      const arr: [] = value['checkArray'];
+      arr.forEach((element, ind) => {
+        const sname = this.numberComponent.toString() + 'comp10aggregateCheck' + element;
+        if (this.component10Form.controls[sname]) {
+          this.component10Form.controls[sname].setValue(true);
+        }
+      });
+      this._checkArray = value;
+    }
   }
 
-  get checkArray(): any[] {
+  get checkArray() {
     return this._checkArray;
   }
-  _checkArray: any[] = [];
+  _checkArray  = {};
+
+
   component10Form: FormGroup;
   message: any;
   subscription: Subscription;
@@ -49,6 +55,8 @@ export class Guide10Component implements OnInit, OnDestroy {
     this.component10Form.addControl(this.numberComponent + 'FamStu', new FormControl(''));
     this.subscription = this.g7s.getMessage().subscribe(message => {
       this.message = message;
+
+      // console.log(message.i.toString(), this.numberComponent.toString(),  message.message.toString());
 
       if (message.i.toString() === this.numberComponent.toString() && message.message.toString() === 'guide10') {
         this.loadValue();
@@ -75,12 +83,24 @@ export class Guide10Component implements OnInit, OnDestroy {
                                                         element.id.toString(), new FormControl(''));
     });
 
-    this.checkArray.forEach( (element, ind) => {
-      const sname = this.numberComponent.toString() + 'comp10aggregateCheck' + element.toString();
+
+    if ('checkArray' in this.checkArray) {
+      const arr: [] = this.checkArray['checkArray'];
+
+      arr.forEach((element, ind) => {
+        const sname = this.numberComponent.toString() + 'comp10aggregateCheck' + element;
+        if (this.component10Form.controls[sname]) {
+          this.component10Form.controls[sname].setValue(true);
+        }
+      });
+    }
+
+    if ('text' in this.checkArray) {
+      const sname = this.numberComponent.toString() + 'FamStu';
       if (this.component10Form.controls[sname]) {
-        this.component10Form.controls[sname].setValue(true);
+        this.component10Form.controls[sname].setValue(this.checkArray['text']);
       }
-    });
+    }
 
   }
 
@@ -100,7 +120,7 @@ this.subscription.unsubscribe();
 loadMethodCollection() {
   this.gs.selectLearningActions().subscribe(methodList => {
     this.methodAggegateList = methodList;
-    console.log(this.methodAggegateList);
+    // console.log(this.methodAggegateList);
   });
 }
 
@@ -109,12 +129,16 @@ loadValue() {
   const res: any = [];
 
    this.listBasicLearningActions.forEach( element => {
-//      console.log('aggregateCheck' + element.id.toString(), this.list5Form.controls['aggregateCheck' + element.id.toString()].value);
      if (this.component10Form.controls[this.numberComponent.toString() + 'comp10aggregateCheck' + element.id.toString()].value) {
        res.push(element.id);
      }
    });
-   this.methodResultat.emit(res);
+
+   const text = this.component10Form.controls[this.numberComponent.toString() + 'FamStu'].value
+   const resObj = {text: text, checkArray: res};
+   this.methodResultat.emit(resObj);
+
+
  }
 
 

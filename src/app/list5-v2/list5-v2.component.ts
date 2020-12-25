@@ -12,6 +12,8 @@ import { GuideService } from '../services/guide.service';
 })
 export class List5V2Component implements OnInit {
 
+  documentGuide10List = [];
+  documentGuide10AggregateList = [];
   boolVE1  = false;
   boolVE2  = false;
   boolVE3  = false;
@@ -35,8 +37,7 @@ export class List5V2Component implements OnInit {
   Guide7Resultat10 = [];
   Guide7Resultat11 = [];
   Guide7Resultat12 = [];
-  Guide10Resultat1 = [];
-  checkArray: any[] = [];
+  checkArray: any = [];
 
   inputDocumentComponentMethodList1: any[] = [];
   // inputDocumentComponentMethodList2: any[] = [];
@@ -193,7 +194,13 @@ export class List5V2Component implements OnInit {
       }
     }
 
-    this.checkArray = lesson5v2.Guide10Resultat1;
+    this.checkArray = lesson5v2.documentGuide10AggregateList;
+
+    this.checkArray.forEach( (value) => {
+      this.documentGuide10List.push({delete: 0});
+    });
+
+
 
     this.list5v2Form.controls.teacheractivity.setValue(lesson5v2.teacheractivity);
     this.list5v2Form.controls.studentactivities.setValue(lesson5v2.studentactivities);
@@ -257,10 +264,7 @@ export class List5V2Component implements OnInit {
   }
 
     onResGuide10(event: [], i: number) {
-
-    if (i === 1) {
-      this.Guide10Resultat1 = event;
-    }
+      this.documentGuide10AggregateList[i-1] =  event;
   }
 
   onResGuide7(event: [], i: number) {
@@ -320,8 +324,26 @@ export class List5V2Component implements OnInit {
 
     // получаем все справочники
     const objResult: {[k: string]: any} = {};
-    this.sentCurrentMessage('guide10', 1);
-    objResult.Guide10Resultat1 = this.Guide10Resultat1;
+
+     // this.sentCurrentMessage('guide10', 1);
+    // objResult.Guide10Resultat1 = this.Guide10Resultat1;
+
+    this.documentGuide10List.forEach( (value, index) => {
+      if (value.delete === 0) {
+        this.sentCurrentMessage('guide10', index + 1);
+      }
+    });
+
+    console.log('this.documentGuide10AggregateList=', this.documentGuide10AggregateList);
+
+    // удаляем из массива null
+    const curAggregateList = [];
+    this.documentGuide10AggregateList.forEach( value =>{
+          if (value) {
+            curAggregateList.push(value);
+          }
+    });
+    objResult.documentGuide10AggregateList = curAggregateList;
 
     this.sentCurrentMessage('guide7', 1);
     // this.sentCurrentMessage('guide7', 2);
@@ -458,6 +480,18 @@ export class List5V2Component implements OnInit {
       this.list5v2Form.controls.studentactivities5.setValue('');
       this.list5v2Form.controls.reviewerrecommendations5.setValue('');
     }
+
+  }
+
+  onClickDeleteGuide10List(DOL: any) {
+    DOL.delete = 1;
+  }
+
+  onAddStudent() {
+    const documentObjectiveLesson = {delete: 0};
+    const newIndex = this.documentGuide10List.push(documentObjectiveLesson) - 1;
+    console.log('newIndex=', newIndex);
+    // this.list5v2Form.addControl('subjectResults' + newIndex.toString(), new FormControl(''));
 
   }
 }
