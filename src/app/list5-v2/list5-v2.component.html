@@ -1,11 +1,3 @@
-<!--
-Со строки 237 по 289 добавлены новые этапы, им нужны СВОИ обработчики.
-
-Со строки 350 по 400 этапы которые не используются. Можно их спрятать.
-
--->
-
-
 
 <h3><span class="badge badge-info">{{typeEdit}}</span></h3>
 
@@ -30,25 +22,24 @@
 
       <h5 class="mb-4">СПИСОК № 10 «БАЗОВЫЕ УЧЕБНЫЕ ДЕЙСТВИЯ»</h5>
 
-     <div class="card">
+
 
       <button class="btn btn-outline-primary dropdown-toggle w-25 mb-4" type="button" (click)="onAddStudent()">
         Добавить ученика
       </button>
 
-     </div>
-
+      <div class="line-result mb-3">
       <!-- начало цикла Предполагаемые результаты СПИСОК № 4 -->
       <div *ngFor="let DOL of documentGuide10List; let i = index">
         <div *ngIf="DOL.delete === 0">
-          <div class="line-result mb-3">
 
 
-            <app-guide10 numberComponent = {{i+1}} titleMethodComponent="чекбокс 1" [checkArray]="checkArray[i]" (methodResultat)="onResGuide10($event, i+1)"></app-guide10>
-            <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteGuide10List(DOL)" title="Удалить" style="max-height: 50px">
+
+          <app-guide10 numberComponent = {{i+1}} titleMethodComponent="чекбокс 1" [checkArray]="checkArray[i]" (methodResultat)="onResGuide10($event, i+1)"></app-guide10>
+            <button class="btn btn-outline-danger ml-auto" (click)="onClickDeleteGuide10List(DOL)" title="Удалить" style="max-height: 50px">
               <img src="/assets/img/delete.svg" width="24" height="24">
             </button>
-            <!--    <img src="/assets/img/delete.svg" (click)="onClickDeleteSubjectResults(DOL)"> -->
+
 
           </div>
         </div>

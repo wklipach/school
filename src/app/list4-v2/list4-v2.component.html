@@ -113,27 +113,101 @@
                 {{documentClassEducationalTasks1.title}}
               </td>
 
-
               <td class="column3"><textarea formControlName="textEducationalTasks1" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea></td>
 
             </tr>
 
-
             <td class="column2">
               <div class="dropdown">
                 <button class="dropdown-toggle"
-                        type="button" id="dropdownMenu1_2" data-toggle="dropdown"
+                        type="button" id="dropdownMenu2_1" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu1_2">
-                  <span class="dropdown-item" *ngFor="let curValue of listClassCorrectionalTasksV2" (click)="onClassCorrectionalTasks1(curValue)">{{curValue.title}}</span>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2_1">
+                  <span class="dropdown-item" *ngFor="let curValue of listClassEducationalTasksV2" (click)="onClassEducationalTasks2(curValue)">{{curValue.title}}</span>
                 </div>
               </div>
-              {{documentClassCorrectionalTasks1.title}}
+              {{documentClassEducationalTasks2.title}}
             </td>
-            <td class="column3"><textarea formControlName="textCorrectionalTasks1" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea></td>
+            <td class="column3"><textarea formControlName="textEducationalTasks2" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea></td>
 
             <tr>
+    <td class="column2">
+                             <div class="dropdown">
+                               <button class="dropdown-toggle"
+                                       type="button" id="dropdownMenu3_1" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">
+                               </button>
+                               <div class="dropdown-menu" aria-labelledby="dropdownMenu3_1">
+                                 <span class="dropdown-item" *ngFor="let curValue of listClassEducationalTasksV2" (click)="onClassEducationalTasks3(curValue)">{{curValue.title}}</span>
+                               </div>
+                             </div>
+                             {{documentClassEducationalTasks3.title}}
+                           </td>
+                           <td class="column3"><textarea formControlName="textEducationalTasks3" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea></td>
+
+
+            </tr>
+
+
+            <tr>
+              <td class="column1" rowspan="3">Коррекционно-развивающие</td>
+
+
+              <td class="column2">
+                <div class="dropdown">
+                  <button class="dropdown-toggle"
+                          type="button" id="dropdownMenu1_2" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenu1_2">
+                    <span class="dropdown-item" *ngFor="let curValue of listClassCorrectionalTasksV2" (click)="onClassCorrectionalTasks1(curValue)">{{curValue.title}}</span>
+                  </div>
+                </div>
+                {{documentClassCorrectionalTasks1.title}}
+              </td>
+              <td class="column3"><textarea formControlName="textCorrectionalTasks1" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea></td>
+
+
+            </tr>
+
+            <tr>
+             <td class="column2">
+                <div class="dropdown">
+                  <button class="dropdown-toggle"
+                          type="button" id="dropdownMenu2_2" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenu2_2">
+                    <span class="dropdown-item" *ngFor="let curValue of listClassCorrectionalTasksV2" (click)="onClassCorrectionalTasks2(curValue)">{{curValue.title}}</span>
+                  </div>
+                </div>
+                {{documentClassCorrectionalTasks2.title}}
+              </td>
+              <td class="column3"><textarea formControlName="textCorrectionalTasks2" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea></td>
+
+            </tr>
+
+            <tr>
+              <td class="column2">
+                <div class="dropdown">
+                  <button class="dropdown-toggle"
+                          type="button" id="dropdownMenu3_2" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenu3_2">
+                    <span class="dropdown-item" *ngFor="let curValue of listClassCorrectionalTasksV2" (click)="onClassCorrectionalTasks3(curValue)">{{curValue.title}}</span>
+                  </div>
+                </div>
+                {{documentClassCorrectionalTasks3.title}}
+              </td>
+              <td class="column3"><textarea formControlName="textCorrectionalTasks3" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea></td><!--  Здесь 3-ий коррегировать    -->
+
+
+            </tr>
+
+            <tr>
+              <td class="column1" rowspan="3">Воспитательные</td>
               <td class="column2">
                 <div class="dropdown">
                   <button class="dropdown-toggle"
@@ -148,45 +222,9 @@
               </td>
               <td class="column3"><textarea formControlName="textRaisetionalTasks1" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea></td>
 
-            </tr>
 
-
-            <tr>
-              <td class="column1" rowspan="3">Коррекционно-развивающие</td>
-
-
-              <td class="column2">
-                <div class="dropdown">
-                  <button class="dropdown-toggle"
-                          type="button" id="dropdownMenu2_1" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenu2_1">
-                    <span class="dropdown-item" *ngFor="let curValue of listClassEducationalTasksV2" (click)="onClassEducationalTasks2(curValue)">{{curValue.title}}</span>
-                  </div>
-                </div>
-                {{documentClassEducationalTasks2.title}}
-              </td>
-              <td class="column3"><textarea formControlName="textEducationalTasks2" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea></td>
 
             </tr>
-
-            <tr>
-              <td class="column2">
-                <div class="dropdown">
-                  <button class="dropdown-toggle"
-                          type="button" id="dropdownMenu2_2" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenu2_2">
-                    <span class="dropdown-item" *ngFor="let curValue of listClassCorrectionalTasksV2" (click)="onClassCorrectionalTasks2(curValue)">{{curValue.title}}</span>
-                  </div>
-                </div>
-                {{documentClassCorrectionalTasks2.title}}
-              </td>
-              <td class="column3"><textarea formControlName="textCorrectionalTasks2" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea></td>
-            </tr>
-
             <tr>
               <td class="column2">
                 <div class="dropdown">
@@ -201,47 +239,8 @@
                 {{documentClassRaisetionalTasks2.title}}
               </td>
               <td class="column3"><textarea formControlName="textRaisetionalTasks2" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea></td>
-
             </tr>
 
-            <!--
-                        </tr>
-            -->
-
-            <tr>
-              <td class="column1" rowspan="3">Воспитательные</td>
-              <td class="column2">
-                <div class="dropdown">
-                  <button class="dropdown-toggle"
-                          type="button" id="dropdownMenu3_1" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenu3_1">
-                    <span class="dropdown-item" *ngFor="let curValue of listClassEducationalTasksV2" (click)="onClassEducationalTasks3(curValue)">{{curValue.title}}</span>
-                  </div>
-                </div>
-                {{documentClassEducationalTasks3.title}}
-              </td>
-              <td class="column3"><textarea formControlName="textEducationalTasks3" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea></td>
-
-            </tr>
-            <tr>
-
-              <td class="column2">
-                <div class="dropdown">
-                  <button class="dropdown-toggle"
-                          type="button" id="dropdownMenu3_2" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenu3_2">
-                    <span class="dropdown-item" *ngFor="let curValue of listClassCorrectionalTasksV2" (click)="onClassCorrectionalTasks3(curValue)">{{curValue.title}}</span>
-                  </div>
-                </div>
-                {{documentClassCorrectionalTasks3.title}}
-              </td>
-              <td class="column3"><textarea formControlName="textCorrectionalTasks3" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea></td>
-
-            </tr>
             <tr>
 
               <td class="column2">
