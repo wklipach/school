@@ -35,7 +35,7 @@
 
 
          <div class="d-flex">
-          <app-guide10 numberComponent = {{i+1}} titleMethodComponent="чекбокс 1" [checkArray]="checkArray[i]" (methodResultat)="onResGuide10($event, i+1)" class="w-75"></app-guide10>
+          <app-guide10 numberComponent = {{i+1}} titleMethodComponent="чекбокс 1" [checkArray]="checkArray[i]" (methodResultat)="onResGuide10($event, i+1)" class="w-100"></app-guide10>
             <button class="btn btn-outline-danger ml-auto" (click)="onClickDeleteGuide10List(DOL)" title="Удалить" style="max-height: 50px">
               <img src="/assets/img/delete.svg" width="24" height="24">
             </button>
@@ -45,29 +45,6 @@
         </div>
       </div>
       <!-- конец цикла -->
-
-
-
-
-
-
-
-
-<!--
-      <div class="d-flex">
-        <input type="text" class="form-control w-25 mr-5" placeholder="Фамилия ученика" formControlName="fu">
-        <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid11" aria-expanded="false" aria-controls="collapseGuid11">
-          Базовые учебные действия
-        </button>
-      </div>
-
-
-      <div class="collapse" id="collapseGuid11">
-        <div class="my-11">
-          <app-guide10 numberComponent="1" titleMethodComponent="чекбокс 1" [checkArray]="checkArray" (methodResultat)="onResGuide10($event, 1)"></app-guide10>
-        </div>
-      </div>
--->
 
       <!-- Начало ОРГАНИЗАЦИОННОГО этапа -->
 
@@ -93,11 +70,7 @@
 
       <!-- Конец ОРГАНИЗАЦИОННОГО этапа -->
 
-
-
-
       <!-- Начало Этап урока - актуализация знаний и умений  -->
-
 
       <div class="btn-group" role="group">
         <button id="btnGroupDropVE" type="button" class="btn btn-outline-primary dropdown-toggle mb-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

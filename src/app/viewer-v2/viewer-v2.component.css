@@ -155,3 +155,26 @@ span {
 .myTest {
   display: block;
 }
+.topic, .topic2 {
+  font-weight: 600;
+  background-color: #e5e5e5;
+  border: solid 1px #cdcdcd;
+  padding: 10px 0;
+  margin: 0;
+}
+.topic2 {
+  width: 50%;
+}
+.hod-text-topic {
+  width: calc(100vw/3);
+  border: solid 1px #cdcdcd;
+  padding: 10px;
+  margin: 0;
+}
+.hod-text {
+  width: calc(100vw/3);
+  text-align: left;
+  border: solid 1px #cdcdcd;
+  padding: 2px 6px;
+  margin: 0;
+}
