@@ -25,11 +25,13 @@ import { ViewerV2Component } from './viewer-v2/viewer-v2.component';
 import { List4V2Component } from './list4-v2/list4-v2.component';
 import { List5V2Component } from './list5-v2/list5-v2.component';
 import { Guide7Component } from './components/guide7/guide7.component';
+import { Guide7_2Component } from './components/guide7_2/guide7_2.component';
 import {Guide7Service} from './components/guide7/guide7.service';
 import { Guide8Component } from './components/guide8/guide8.component';
 import { Elem2linesComponent } from './components/elem2lines/elem2lines.component';
 import { Guide10Component } from './components/guide10/guide10.component';
 import { RightpanelComponent } from './components/rightpanel/rightpanel.component';
+import {Guide7_2Service} from "./components/guide7_2/guide7_2.service";
 
 
 // определение маршрутов
@@ -70,6 +72,7 @@ const appRoutes: Routes = [
     List4V2Component,
     List5V2Component,
     Guide7Component,
+    Guide7_2Component,
     Guide8Component,
     Elem2linesComponent,
     Guide10Component,
@@ -83,7 +86,7 @@ const appRoutes: Routes = [
     Ng2FlatpickrModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [GlobalRef, GuideService, Guide7Service],
+  providers: [GlobalRef, GuideService, Guide7Service, Guide7_2Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+<form [formGroup]="methodForm">
+
+
+
+<div class="dropdown">
+  <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="btnGroupDropMethod{{numberComponent}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Методы и приёмы
+  </button>
+
+
+  <div class="dropdown-menu" attr.aria-labelledby="btnGroupDropMethod{{numberComponent}}">
+
+    <div *ngFor="let curGroupValue of methodAggegateList">
+      <b>{{curGroupValue.title}}</b>
+      <div class="dropdown-item" type="button" *ngFor="let curMethodValue of curGroupValue.new_document" (click)="onMethod(curMethodValue, curGroupValue)">
+        {{curMethodValue.title}}
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ЗА ПРЕДЕЛАМИ СПИСКА РИСУЕМ СОЗДАННЫЕ КОМПОНЕНТЫ -->
+<div *ngFor="let DOL of documentComponentMethodList; let i = index">
+  <div *ngIf="DOL.delete === 0">
+    <div class="line-result mb-3">
+      <div class="text-muted font-weight-bold result pr-3 w-50">{{DOL.title}}</div>    <!-- Результат выбора из справочника  -->
+      <textarea formControlName="{{numberComponent}}method{{i}}" class = "form-control" rows = "1" placeholder={{titleMethodComponent}}></textarea>
+
+      <div class="card pb-4 px-4 mb-4">
+        <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
+        <textarea formControlName="{{numberComponent}}teacheractivity{{i}}" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+      </div>
+
+      <div class="card pb-4 px-4 mb-4">
+        <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
+        <textarea formControlName="{{numberComponent}}studentactivities{{i}}" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+      </div>
+
+
+      <div class="card pb-4 px-4 mb-4">
+        <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
+        <textarea formControlName="{{numberComponent}}reviewerrecommendations{{i}}" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+      </div>
+
+
+      <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteMethod(DOL)" title="Удалить" style="max-height: 50px">
+        <img src="/assets/img/delete.svg" width="24" height="24">
+      </button>
+
+    </div>
+  </div>
+</div>
+
+
+</form>
+
+    </div>
+  </div>
+</div>

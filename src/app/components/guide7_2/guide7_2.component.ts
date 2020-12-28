@@ -1,15 +1,15 @@
 import {Component, Input, OnInit, Output, EventEmitter, OnDestroy} from '@angular/core';
 import {GuideService} from '../../services/guide.service';
 import {FormControl, FormGroup} from '@angular/forms';
-import {Guide7Service} from './guide7.service';
+import {Guide7_2Service} from './guide7_2.service';
 import {Subscription} from 'rxjs';
 
 @Component({
-  selector: 'app-guide7',
-  templateUrl: './guide7.component.html',
-  styleUrls: ['./guide7.component.css']
+  selector: 'app-guide7_2',
+  templateUrl: './guide7_2.component.html',
+  styleUrls: ['./guide7_2.component.css']
 })
-export class Guide7Component implements OnInit, OnDestroy {
+export class Guide7_2Component implements OnInit, OnDestroy {
 
   @Input() numberComponent: number;
   @Input() titleMethodComponent = '';
@@ -19,8 +19,27 @@ export class Guide7Component implements OnInit, OnDestroy {
       const documentMethod = {id: element.id, id_group: element.id_group,
         title: element.title, group_title: element.title,  delete: 0, text: element.text};
 
+        let teacheractivity = '';
+        if (element.teacheractivity) {
+          teacheractivity = element.teacheractivity;
+        }
+
+        let studentactivities = '';
+        if (element.studentactivities) {
+          studentactivities = element.studentactivities;
+        }
+
+      let  reviewerrecommendations = '';
+      if (element.reviewerrecommendations) {
+        reviewerrecommendations = element.reviewerrecommendations;
+      }
+
       const newIndex = this._documentComponentMethodList.push(documentMethod) - 1;
       this.methodForm.addControl(this.numberComponent.toString() + 'method' + newIndex.toString(), new FormControl(element.text));
+
+      this.methodForm.addControl(this.numberComponent.toString() + 'teacheractivity' + newIndex.toString(), new FormControl(teacheractivity));
+      this.methodForm.addControl(this.numberComponent.toString() + 'studentactivities' + newIndex.toString(), new FormControl(studentactivities));
+      this.methodForm.addControl(this.numberComponent.toString() + 'reviewerrecommendations' + newIndex.toString(), new FormControl(reviewerrecommendations));
       });
   }
   get documentComponentMethodList(): any[] {
@@ -40,14 +59,14 @@ export class Guide7Component implements OnInit, OnDestroy {
   message: any;
   subscription: Subscription;
 
-  constructor(private gs: GuideService, private g7s: Guide7Service) {
+  constructor(private gs: GuideService, private g7_2s: Guide7_2Service) {
     this.methodForm = new FormGroup({});
 
-    this.subscription = this.g7s.getMessage().subscribe(message => {
+    this.subscription = this.g7_2s.getMessage().subscribe(message => {
       this.message = message;
 
 
-      if (message.i.toString() === this.numberComponent.toString() && message.message.toString() === 'guide7') {
+      if (message.i.toString() === this.numberComponent.toString() && message.message.toString() === 'guide7_2') {
         this.loadValue();
       }
 
@@ -71,6 +90,10 @@ export class Guide7Component implements OnInit, OnDestroy {
 
     resultCollection.forEach( (value, i) => {
       value.text = this.methodForm.controls[this.numberComponent.toString() + 'method' + i.toString()].value;
+      value.teacheractivity = this.methodForm.controls[this.numberComponent.toString() + 'teacheractivity' + i.toString()].value;
+      value.studentactivities = this.methodForm.controls[this.numberComponent.toString() + 'studentactivities' + i.toString()].value;
+      value.reviewerrecommendations = this.methodForm.controls[this.numberComponent.toString() + 'reviewerrecommendations' + i.toString()].value;
+
     });
     resultCollection = resultCollection.filter(obj => obj.delete === 0);
     return resultCollection;
@@ -82,6 +105,9 @@ export class Guide7Component implements OnInit, OnDestroy {
                             title: curMethodValue.title, group_title: curGroupValue.title,  delete: 0, text: ''};
     const newIndex = this.documentComponentMethodList.push(documentMethod) - 1;
     this.methodForm.addControl(this.numberComponent.toString() + 'method' + newIndex.toString(), new FormControl(''));
+    this.methodForm.addControl(this.numberComponent.toString() + 'teacheractivity' + newIndex.toString(), new FormControl(''));
+    this.methodForm.addControl(this.numberComponent.toString() + 'studentactivities' + newIndex.toString(), new FormControl(''));
+    this.methodForm.addControl(this.numberComponent.toString() + 'reviewerrecommendations' + newIndex.toString(), new FormControl(''));
   }
 
   loadMethodCollection() {

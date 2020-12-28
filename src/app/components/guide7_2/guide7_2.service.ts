@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import {Subject} from 'rxjs';
+import {Subject, Subscription} from 'rxjs';
 import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class Guide7Service {
+export class Guide7_2Service {
 
   private subject = new Subject<any>();
 
