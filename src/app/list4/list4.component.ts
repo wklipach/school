@@ -108,17 +108,18 @@ export class List4Component implements OnInit {
               this.auth.getUserFromID(this.UserInfo.id_user_school)
     ]).subscribe(results => {
 
-      this.listLessonsname = results[0];
-      this.listClassNameNumber = results[1];
-      this.listClassNameLetter = results[2];
-      this.listTypeLesson = results[3];
-      this.listType2Lesson = results[4];
-      this.listObjectiveLesson = results[5];
-      this.listPersonalLesson = results[6];
-      this.listEquipment = results[7];
-      this.listMethod = results[8];
-      this.listGroupMethod = results[9];
-      this.methodAggegateList = results[10];
+      console.log(results[0]);
+      this.listLessonsname = Array<any>(results[0])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+      this.listClassNameNumber = Array<any>(results[1])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
+      this.listClassNameLetter = Array<any>(results[2])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
+      this.listTypeLesson = Array<any>(results[3])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
+      this.listType2Lesson = Array<any>(results[4])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
+      this.listObjectiveLesson = Array<any>(results[5])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
+      this.listPersonalLesson = Array<any>(results[6])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
+      this.listEquipment = Array<any>(results[7])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
+      this.listMethod = Array<any>(results[8])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
+      this.listGroupMethod = Array<any>(results[9])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
+      this.methodAggegateList = Array<any>(results[10])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
       this.list4Form.controls.fio.setValue(results[11][0].fio);
       // если это редактирование урока, загружаем урок из базы
       this.loadLesson();

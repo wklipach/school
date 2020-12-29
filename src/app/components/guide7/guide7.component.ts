@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output, EventEmitter, OnDestroy} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter, OnDestroy, ɵConsole} from '@angular/core';
 import {GuideService} from '../../services/guide.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Guide7Service} from './guide7.service';
@@ -86,7 +86,14 @@ export class Guide7Component implements OnInit, OnDestroy {
 
   loadMethodCollection() {
     this.gs.selectGroupInnerMethod().subscribe(methodList => {
-      this.methodAggegateList = methodList;
+      let mList = [];
+      mList = Array<any>(methodList)[0].sort( (a,b) => (a.title < b.title ? -1 : 1) ) ;
+
+      mList.forEach(element => {
+        element.new_document.sort((a, b) => (a.title < b.title ? -1 : 1));
+      });
+
+      this.methodAggegateList = mList; // Array<any>(methodList)[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
     });
   }
 

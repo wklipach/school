@@ -121,30 +121,30 @@ export class List4V2Component implements OnInit {
              this.gs.selectCollection('classRaisetionalTasksV2')
              ]).subscribe(results => {
 
-              const teacher = results[0];
+              const teacher = Array<any>(results[0])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               this.list4v2Form.controls.fio.setValue(teacher[0].fio);
               // console.log('teacher', teacher);
 
-              this.listClassNameNumber = results[1];
+              this.listClassNameNumber = Array<any>(results[1])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // console.log('listClassNameNumber', this.listClassNameNumber);
 
-              this.listLessons2 = results[2];
+              this.listLessons2 = Array<any>(results[2])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // console.log('listLessons2', this.listLessons2);
 
-              this.listTypeLesson = results[3];
+              this.listTypeLesson = Array<any>(results[3])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // console.log('listTypeLesson', this.listTypeLesson);
 
-              this.listType2Lesson = results[4];
+              this.listType2Lesson = Array<any>(results[4])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // console.log('listType2Lesson', this.listType2Lesson);
 
-              this.listEquipment = results[5];
+              this.listEquipment = Array<any>(results[5])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // console.log('listEquipment', this.listEquipment);
 
-              this.listClassNameLetter = results[6];
+              this.listClassNameLetter = Array<any>(results[6])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // console.log('listClassNameLetter', this.listClassNameLetter);
-              this.listClassEducationalTasksV2 = results[7];
-              this.listClassCorrectionalTasksV2 = results[8];
-              this.listClassRaisetionalTasksV2 = results[9];
+              this.listClassEducationalTasksV2 = Array<any>(results[7])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+              this.listClassCorrectionalTasksV2 = Array<any>(results[8])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+              this.listClassRaisetionalTasksV2 = Array<any>(results[9])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // если это редактирование урока, загружаем урок из базы
               this.loadLesson();
 
