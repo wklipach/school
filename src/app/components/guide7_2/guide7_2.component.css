@@ -1,5 +1,6 @@
 .card {
   border-radius: 10px;
+  border: solid 1px;
 }
 .line-result {
   display: flex;

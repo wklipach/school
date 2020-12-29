@@ -7,7 +7,7 @@
     <div class="col-12">
 
       <div id="print-section">
-        <div class="lesson mb-3">{{sNamePrint}}</div>
+        <div class="lesson my-2">{{sNamePrint}}</div>
 
         <table class="table table-bordered text-left">
           <tr>
@@ -15,7 +15,7 @@
             <td><span>{{curFormDate  | date:'dd.MM.yyyy'}}</span></td>
           </tr>
           <tr>
-            <td width="20%">Учитель</td>
+            <td class="table1Col1">Учитель</td>
             <td><span>{{fio}}</span></td>
           </tr>
           <tr>
@@ -69,7 +69,7 @@
         <!-- мой код строка 1-->
         <h4 class="text-center mb-3">Задачи урока</h4>
 
-        <table class="table table-bordered mb-2">
+        <table class="table mb-2">
 
           <!-- первые три строки если есть -->
           <ng-container *ngIf="taskList1.length > 0">
@@ -87,7 +87,7 @@
           <ng-container *ngIf="taskList2.length > 0">
             <tr>
               <td class="column1">Развивающие</td>
-              <td class="noMargin">
+              <td class="noMargin p-0 m-0">
             <tr *ngFor="let value of taskList2">
               <td class="column2">{{value.title}}</td>
               <td class="column3">{{value.text}}</td>
@@ -97,7 +97,7 @@
           <ng-container *ngIf="taskList3.length > 0">
             <tr>
               <td class="column1">Воспитательные</td>
-              <td class="noMargin">
+              <td class="noMargin p-0 m-0">
             <tr *ngFor="let value of taskList3">
               <td class="column2">{{value.title}}</td>
               <td class="column3">{{value.text}}</td>
@@ -106,7 +106,7 @@
 
         </table>
 
-        <h3 class="my-4">Базовые учебные действия</h3>
+        <h4 class="my-4">Базовые учебные действия</h4>
 
         <table class="table table-bordered">
           <tr>
@@ -440,9 +440,9 @@
 
         </div>    Конец Ход урока  -->
 
-      <h3 class="my-4">Ход урока</h3>
-      <h4 class="topic">Вводно-подготовительная часть (Часть урока)</h4>
-      <h4 class="topic">Урок изучения нового материала (Этап урока)</h4>
+      <h4 class="my-4">Ход урока</h4>
+      <h5 class="topic">Вводно-подготовительная часть (Часть урока)</h5>
+      <h5 class="topic">Урок изучения нового материала (Этап урока)</h5>
       <div class="d-flex justify-content-around">
         <h5 class="hod-text-topic">Методы и приемы</h5>
         <h5 class="hod-text-topic">Деятельность учителя</h5>

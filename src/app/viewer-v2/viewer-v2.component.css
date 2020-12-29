@@ -15,7 +15,7 @@ a {
   height: auto;
   font-size: 1.1rem;
   font-weight: 600;
-  background-color: #e5e5e5;
+  background-color: #eeeeee;
   border-right: solid 1px #cdcdcd;
   padding: 10px 0;
 }
@@ -39,8 +39,8 @@ a {
 }
 span {
   text-align: left;
-  font-size: 18px;
-  padding: 10px 0 15px 10px;
+  font-size: .95em;
+  padding: 5px 0 5px 10px;
 }
 
 .span-but {
@@ -51,6 +51,7 @@ span {
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
+/*
 .topic-1,.topic-2,.topic-3,.topic-4,.topic-5,.topic-6,.topic-7 {
   height: auto;
   font-size: 18px;
@@ -129,37 +130,34 @@ span {
   width: 9%;
   text-align: left;
 }
+*/
 .column1 {
   vertical-align: middle;
   font-weight: 600;
-  width: 200px;
+  width: 300px;
 }
 .column2 {
-  width: 400px;
   color: #6f6a6a;
   font-size: 1em;
   font-weight: 600;
-  text-align: left
+  text-align: left;
+  width: 500px;
 }
 .column3 {
-  width: 75%;
+  width: auto;
   font-size: 1em;
   text-align: left;
 }
 .noMargin {
-  padding: 0;
-  margin: 0;
   width: 100%;
   border: none;
 }
-.myTest {
-  display: block;
-}
-.topic, .topic2 {
+
+.topic, .topic2, .table1Col1 {
   font-weight: 600;
-  background-color: #e5e5e5;
+  background-color: #eeeeee;
   border: solid 1px #cdcdcd;
-  padding: 10px 0;
+  padding: 6px 0;
   margin: 0;
 }
 .topic2 {
@@ -177,4 +175,10 @@ span {
   border: solid 1px #cdcdcd;
   padding: 2px 6px;
   margin: 0;
+}
+.table1Col1 {
+width: 23%;
+}
+.table td {
+  padding: .2rem;
 }
