@@ -69,6 +69,9 @@
 
         <h4 class="text-center mb-3">Задачи урока</h4>
 
+
+<!-- тестовая трока --> 
+
         <div class="d-flex justify-content-start mb-5">
 
           <div class="p-0 m-0"  style="width:200px;border: dashed 1px #cdcdcd;">Образовательные</div>
@@ -92,48 +95,116 @@
 
         </div>
 
+<!-- КОНЕЦ тестовая трока --> 
 
 
-
-
-        <!-- мой код строка 1-->
-
-        <table class="table mb-2">
-
+      <div>11111</div>
           <!-- первые три строки если есть -->
           <ng-container *ngIf="taskList1.length > 0">
-            <tr>
-              <td class="column1">Образовательные</td>
-              <td class="noMargin">
-            <tr *ngFor="let value of taskList1" class="myTest">
-              <td class="column2">{{value.title}}</td>
-              <td class="column3">{{value.text}}</td>
-            </tr>
+            <div class="d-flex justify-content-start mb-5">
+
+              <div class="p-0 m-0"  style="width:200px;border: dashed 1px #cdcdcd;">Образовательные</div>
+              <div class="d-flex flex-column p-0 m-0">
+
+                <ng-container *ngIf="taskList1.length > 0">  
+                    <div class="d-flex justify-content-start">
+                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList1[0].title}}</div>
+                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList1[0].text}}</div>
+                    </div>
+                </ng-container>
+    
+                <ng-container *ngIf="taskList1.length > 1">
+                    <div class="d-flex justify-content-start">
+                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList1[1].title}}</div>
+                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList1[1].text}}</div>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="taskList1.length > 2">
+                    <div class="d-flex justify-content-start">
+                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList1[2].title}}</div>
+                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList1[2].text}}</div>
+                    </div>
+                </ng-container>
+
+
+              </div>  
+            </div>
           </ng-container>
 
+
+          <!-- вторые три строки если есть -->
+          <ng-container *ngIf="taskList2.length > 0">
+            <div class="d-flex justify-content-start mb-5">
+
+              <div class="p-0 m-0"  style="width:200px;border: dashed 1px #cdcdcd;">Развивающие</div>
+              <div class="d-flex flex-column p-0 m-0">
+
+                <ng-container *ngIf="taskList2.length > 0">  
+                    <div class="d-flex justify-content-start">
+                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList2[0].title}}</div>
+                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList2[0].text}}</div>
+                    </div>
+                </ng-container>
+    
+                <ng-container *ngIf="taskList2.length > 1">
+                    <div class="d-flex justify-content-start">
+                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList2[1].title}}</div>
+                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList2[1].text}}</div>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="taskList2.length > 2">
+                    <div class="d-flex justify-content-start">
+                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList2[2].title}}</div>
+                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList2[2].text}}</div>
+                    </div>
+                </ng-container>
+
+
+              </div>  
+            </div>
+          </ng-container>
+
+
+          <!-- третьи три строки если есть -->
+          <ng-container *ngIf="taskList3.length > 0">
+            <div class="d-flex justify-content-start mb-5">
+              <div class="p-0 m-0"  style="width:200px;border: dashed 1px #cdcdcd;">Развивающие</div>
+              <div class="d-flex flex-column p-0 m-0">
+
+                <ng-container *ngIf="taskList3.length > 0">  
+                    <div class="d-flex justify-content-start">
+                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList3[0].title}}</div>
+                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList3[0].text}}</div>
+                    </div>
+                </ng-container>
+    
+                <ng-container *ngIf="taskList3.length > 1">
+                    <div class="d-flex justify-content-start">
+                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList3[1].title}}</div>
+                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList3[1].text}}</div>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="taskList3.length > 2">
+                    <div class="d-flex justify-content-start">
+                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList3[2].title}}</div>
+                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList3[2].text}}</div>
+                    </div>
+                </ng-container>
+
+
+              </div>  
+            </div>
+          </ng-container>
+
+
+          <div>22222222</div>
           <!-- конец первых трех строк если есть-->
 
-          <ng-container *ngIf="taskList2.length > 0">
-            <tr>
-              <td class="column1">Развивающие</td>
-              <td class="noMargin p-0 m-0">
-            <tr *ngFor="let value of taskList2">
-              <td class="column2">{{value.title}}</td>
-              <td class="column3">{{value.text}}</td>
-            </tr>
-          </ng-container>
 
-          <ng-container *ngIf="taskList3.length > 0">
-            <tr>
-              <td class="column1">Воспитательные</td>
-              <td class="noMargin p-0 m-0">
-            <tr *ngFor="let value of taskList3">
-              <td class="column2">{{value.title}}</td>
-              <td class="column3">{{value.text}}</td>
-            </tr>
-          </ng-container>
 
-        </table>
 
         <h4 class="my-4">Базовые учебные действия</h4>
 
