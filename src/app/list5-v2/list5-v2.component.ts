@@ -223,6 +223,7 @@ export class List5V2Component implements OnInit {
 
   sentCurrentMessage(guideName: string, iNumber: number) {
     const res = {message: guideName, i: iNumber};
+    console.log('передаем', res );
     this.g7_2s.sendMessage(res);
   }
 
@@ -233,16 +234,11 @@ export class List5V2Component implements OnInit {
     // получаем все справочники
     const objResult: {[k: string]: any} = {};
 
-     // this.sentCurrentMessage('guide10', 1);
-    // objResult.Guide10Resultat1 = this.Guide10Resultat1;
-
     this.documentGuide10List.forEach( (value, index) => {
       if (value.delete === 0) {
         this.sentCurrentMessage('guide10', index + 1);
       }
     });
-
-    console.log('this.documentGuide10AggregateList=', this.documentGuide10AggregateList);
 
     // удаляем из массива null
     const curAggregateList = [];
@@ -251,6 +247,7 @@ export class List5V2Component implements OnInit {
             curAggregateList.push(value);
           }
     });
+
     objResult.documentGuide10AggregateList = curAggregateList;
 
     this.sentCurrentMessage('guide7_2', 1);

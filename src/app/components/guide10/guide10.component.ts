@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angu
 import { FormControl, FormGroup } from '@angular/forms';
 import { Subject, Subscription } from 'rxjs';
 import { GuideService } from 'src/app/services/guide.service';
-import { Guide7Service } from '../guide7/guide7.service';
+import { Guide7_2Service } from '../guide7_2/guide7_2.service';
 
 @Component({
   selector: 'app-guide10',
@@ -44,7 +44,7 @@ export class Guide10Component implements OnInit, OnDestroy {
   messageEmitter = new Subject<String>();
 
 
-  constructor(private gs: GuideService, private g7s: Guide7Service) {
+  constructor(private gs: GuideService, private g7_2s: Guide7_2Service) {
 
     const a = new FormControl('');
 
@@ -53,10 +53,8 @@ export class Guide10Component implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.component10Form.addControl(this.numberComponent + 'FamStu', new FormControl(''));
-    this.subscription = this.g7s.getMessage().subscribe(message => {
+    this.subscription = this.g7_2s.getMessage().subscribe(message => {
       this.message = message;
-
-      // console.log(message.i.toString(), this.numberComponent.toString(),  message.message.toString());
 
       if (message.i.toString() === this.numberComponent.toString() && message.message.toString() === 'guide10') {
         this.loadValue();
