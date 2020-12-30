@@ -236,6 +236,40 @@
             </ul>
           </div>
         </div>
+
+
+<div>всякая мура от Виталика</div>
+
+<ng-container *ngIf="documentGuide10AggregateList.length > 0">
+    <h4 class="my-4">Базовые учебные действия</h4>
+    <div class="d-flex justify-content-between">
+      <div class="p-0">Ученик</div>
+      <div class="p-0">БУД</div>
+    </div>
+
+    <div class="d-flex justify-content-between" *ngFor="let document10 of documentGuide10AggregateList">
+
+      <div class="hod-text">{{document10.text}}</div>
+      <div class="hod-text">
+        <ul *ngFor="let element of document10.checkArray">
+                       <li>{{Guide10Filter(element)}}</li>
+        </ul>
+      </div>
+    </div>
+
+
+
+  </ng-container>
+
+
+<div>мура от Виталика окончена</div>
+
+
+
+
+
+
+
         <!--
         <div class="d-flex justify-content-between line">
           <div class="view-left w-25">Дата</div>

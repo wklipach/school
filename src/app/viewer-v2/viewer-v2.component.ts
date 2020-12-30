@@ -77,6 +77,7 @@ export class ViewerV2Component implements OnInit {
   Guide7Resultat9: any[] = [];
   Guide7Resultat10: any[] = [];
 
+/*  
   Guide10Resultat1: any[] = [];
   Guide10Resultat2: any[] = [];
   Guide10Resultat3: any[] = [];
@@ -87,6 +88,9 @@ export class ViewerV2Component implements OnInit {
   Guide10Resultat8: any[] = [];
   Guide10Resultat9: any[] = [];
   Guide10Resultat10: any[] = [];
+*/
+
+documentGuide10AggregateList: any[] = [];
 
   guide2linesResultat1: any[] = [];
   guide10list: any[] = [];
@@ -209,6 +213,7 @@ export class ViewerV2Component implements OnInit {
       // дволной справочник берется именно из objSummaryLesson, а не objSummaryLesson2
       this.guide2linesResultat1 = this.lesson.objSummaryLesson.guide2linesResultat1;
 
+      /*
       this.Guide10Resultat1 = this.lesson.objSummaryLesson2.Guide10Resultat1;
       this.Guide10Resultat2 = this.lesson.objSummaryLesson2.Guide10Resultat2;
       this.Guide10Resultat3 = this.lesson.objSummaryLesson2.Guide10Resultat3;
@@ -219,6 +224,10 @@ export class ViewerV2Component implements OnInit {
       this.Guide10Resultat8 = this.lesson.objSummaryLesson2.Guide10Resultat8;
       this.Guide10Resultat9 = this.lesson.objSummaryLesson2.Guide10Resultat9;
       this.Guide10Resultat10 = this.lesson.objSummaryLesson2.Guide10Resultat10;
+      */
+
+     this.documentGuide10AggregateList = this.lesson.objSummaryLesson2.documentGuide10AggregateList;
+
     }
 
 
