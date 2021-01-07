@@ -69,61 +69,31 @@
 
         <h4 class="text-center mb-3">Задачи урока</h4>
 
-
-<!-- тестовая трока -->
-
-        <div class="d-flex justify-content-start mb-5">
-
-          <div class="p-0 m-0"  style="width:200px;border: dashed 1px #cdcdcd;">Образовательные</div>
-
-          <div class="d-flex flex-column p-0 m-0">
-            <div class="d-flex justify-content-start">
-              <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">Продолжать формировать</div>
-              <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">правильное отношение к делу</div>
-            </div>
-
-            <div class="d-flex justify-content-start">
-              <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">Систематизировать</div>
-              <div class="p-0 m-0"   style="width:800px;border: dashed 1px #cdcdcd;">знания и умения</div>
-            </div>
-
-            <div class="d-flex justify-content-start mb-1">
-              <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">Учить</div>
-              <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">формировать мнение</div>
-            </div>
-          </div>
-
-        </div>
-
-<!-- КОНЕЦ тестовая трока -->
-
-
-      <div>11111</div>
           <!-- первые три строки если есть -->
           <ng-container *ngIf="taskList1.length > 0">
-            <div class="d-flex justify-content-start mb-5">
+            <div class="d-flex">
 
-              <div class="p-0 m-0"  style="width:200px;border: dashed 1px #cdcdcd;">Образовательные</div>
+              <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Образовательные</div>
               <div class="d-flex flex-column p-0 m-0">
 
                 <ng-container *ngIf="taskList1.length > 0">
                     <div class="d-flex justify-content-start">
-                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList1[0].title}}</div>
-                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList1[0].text}}</div>
+                      <div class="tasks1">{{taskList1[0].title}}</div>
+                      <div class="tasks2">{{taskList1[0].text}}</div>
                     </div>
                 </ng-container>
 
                 <ng-container *ngIf="taskList1.length > 1">
                     <div class="d-flex justify-content-start">
-                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList1[1].title}}</div>
-                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList1[1].text}}</div>
+                      <div class="tasks1">{{taskList1[1].title}}</div>
+                      <div class="tasks2">{{taskList1[1].text}}</div>
                     </div>
                 </ng-container>
 
                 <ng-container *ngIf="taskList1.length > 2">
                     <div class="d-flex justify-content-start">
-                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList1[2].title}}</div>
-                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList1[2].text}}</div>
+                      <div class="tasks1">{{taskList1[2].title}}</div>
+                      <div class="tasks2">{{taskList1[2].text}}</div>
                     </div>
                 </ng-container>
 
@@ -135,29 +105,29 @@
 
           <!-- вторые три строки если есть -->
           <ng-container *ngIf="taskList2.length > 0">
-            <div class="d-flex justify-content-start mb-5">
+            <div class="d-flex">
 
-              <div class="p-0 m-0"  style="width:200px;border: dashed 1px #cdcdcd;">Развивающие</div>
+              <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Развивающие</div>
               <div class="d-flex flex-column p-0 m-0">
 
                 <ng-container *ngIf="taskList2.length > 0">
                     <div class="d-flex justify-content-start">
-                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList2[0].title}}</div>
-                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList2[0].text}}</div>
+                      <div class="tasks1">{{taskList2[0].title}}</div>
+                      <div class="tasks2">{{taskList2[0].text}}</div>
                     </div>
                 </ng-container>
 
                 <ng-container *ngIf="taskList2.length > 1">
                     <div class="d-flex justify-content-start">
-                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList2[1].title}}</div>
-                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList2[1].text}}</div>
+                      <div class="tasks1">{{taskList2[1].title}}</div>
+                      <div class="tasks2">{{taskList2[1].text}}</div>
                     </div>
                 </ng-container>
 
                 <ng-container *ngIf="taskList2.length > 2">
                     <div class="d-flex justify-content-start">
-                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList2[2].title}}</div>
-                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList2[2].text}}</div>
+                      <div class="tasks1">{{taskList2[2].title}}</div>
+                      <div class="tasks2">{{taskList2[2].text}}</div>
                     </div>
                 </ng-container>
 
@@ -169,28 +139,28 @@
 
           <!-- третьи три строки если есть -->
           <ng-container *ngIf="taskList3.length > 0">
-            <div class="d-flex justify-content-start mb-5">
-              <div class="p-0 m-0"  style="width:200px;border: dashed 1px #cdcdcd;">Развивающие</div>
+            <div class="d-flex">
+              <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Развивающие</div>
               <div class="d-flex flex-column p-0 m-0">
 
                 <ng-container *ngIf="taskList3.length > 0">
                     <div class="d-flex justify-content-start">
-                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList3[0].title}}</div>
-                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList3[0].text}}</div>
+                      <div class="tasks1">{{taskList3[0].title}}</div>
+                      <div class="tasks2">{{taskList3[0].text}}</div>
                     </div>
                 </ng-container>
 
                 <ng-container *ngIf="taskList3.length > 1">
                     <div class="d-flex justify-content-start">
-                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList3[1].title}}</div>
-                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList3[1].text}}</div>
+                      <div class="tasks1">{{taskList3[1].title}}</div>
+                      <div class="tasks2">{{taskList3[1].text}}</div>
                     </div>
                 </ng-container>
 
                 <ng-container *ngIf="taskList3.length > 2">
                     <div class="d-flex justify-content-start">
-                      <div class="p-0 m-0"  style="width:400px;border: dashed 1px #cdcdcd;">{{taskList3[2].title}}</div>
-                      <div class="p-0 m-0"  style="width:800px;border: dashed 1px #cdcdcd;">{{taskList3[2].text}}</div>
+                      <div class="tasks1">{{taskList3[2].title}}</div>
+                      <div class="tasks2">{{taskList3[2].text}}</div>
                     </div>
                 </ng-container>
 
@@ -200,57 +170,20 @@
           </ng-container>
 
 
-          <div>22222222</div>
-          <!-- конец первых трех строк если есть-->
 
-
-
-
-        <h4 class="my-4">Базовые учебные действия</h4>
-
-        <div class="d-flex justify-content-between">
-
-          <div class="p-0">Ученик</div>
-          <div class="p-0">БУД</div>
-        </div>
-
-        <div class="d-flex justify-content-between">
-          <div class="hod-text">Сюда вносится фамилия ученика, которую мы берем из list5 v2 со строки 28</div>
-          <div class="hod-text">
-            <ul>
-              <li>принимает ситуацию взаимодействия с педагогом, специалистом (в процессе выполнения какого-либо действия в течение определённого периода времени)</li>
-              <li>1принимает ситуацию нахождения в классе (группе) без выполнения какого-либо задания</li>
-              <li>Переходит от одного действия, операции, упражнения, задания к другому с физической помощью взрослого</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="d-flex justify-content-between">
-          <div class="hod-text">Сюда вносится ВТОРАЯ фамилия ученика (Если есть), которую мы берем из list5 v2 со строки 28</div>
-          <div class="hod-text">
-            <ul>
-              <li>принимает физическую помощь со стороны педагога, специалиста (в процессе выполнения какого-либо действия)</li>
-              <li>принимает ситуацию взаимодействия с одноклассниками [в процессе выполнения определенного задания/в процессе игры/в процессе
-                свободной деятельности]: не уклоняется, когда к нему подходят дети</li>
-              <li>Самостоятельно переходит от одного действия, операции, упражнения, задания к другому по визуальной инструкции (расписанию)</li>
-            </ul>
-          </div>
-        </div>
-
-
-<div>всякая мура от Виталика</div>
 
 <ng-container *ngIf="documentGuide10AggregateList.length > 0">
     <h4 class="my-4">Базовые учебные действия</h4>
-    <div class="d-flex justify-content-between">
-      <div class="p-0">Ученик</div>
-      <div class="p-0">БУД</div>
+
+    <div class="d-flex justify-content-start">
+      <div class="topic" style="width: 200px">Ученик</div>
+      <div class="topic" style="width:1600px">БУД</div>
     </div>
 
-    <div class="d-flex justify-content-between" *ngFor="let document10 of documentGuide10AggregateList">
+    <div class="d-flex" *ngFor="let document10 of documentGuide10AggregateList">
 
-      <div class="hod-text">{{document10.text}}</div>
-      <div class="hod-text">
+      <div class="bud-topic">{{document10.text}}</div>
+      <div class="bud-text">
         <ul *ngFor="let element of document10.checkArray">
                        <li>{{Guide10Filter(element)}}</li>
         </ul>
@@ -262,7 +195,7 @@
   </ng-container>
 
 
-<div>мура от Виталика окончена</div>
+
 
 
 
