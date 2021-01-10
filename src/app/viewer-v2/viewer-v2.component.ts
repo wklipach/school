@@ -1,9 +1,9 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
-import {Router} from "@angular/router";
-import {AuthService} from "../services/auth.service";
-import {GuideService} from "../services/guide.service";
-import {forkJoin} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from '../services/auth.service';
+import {GuideService} from '../services/guide.service';
+import {forkJoin} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-viewer-v2',
@@ -11,6 +11,14 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./viewer-v2.component.css']
 })
 export class ViewerV2Component implements OnInit {
+
+  partEnd = false;
+  partBase = false;
+  partBegin = false;
+  boolVE1  = false;
+  boolVE2  = false;
+  boolVE3  = false;
+  thisThemeId = -1;
 
   sNamePrint = 'АООП Вариант 2';
 
@@ -33,6 +41,7 @@ export class ViewerV2Component implements OnInit {
   listClassCorrectionalTasksV2: any;
   listClassRaisetionalTasksV2: any;
 
+  /*
   reviewerrecommendations = '';
   reviewerrecommendations2 = '';
   reviewerrecommendations3 = '';
@@ -65,6 +74,8 @@ export class ViewerV2Component implements OnInit {
   studentactivities8 = '';
   studentactivities9 = '';
   studentactivities10 = '';
+*/
+
 
   Guide7Resultat1: any[] = [];
   Guide7Resultat2: any[] = [];
@@ -76,6 +87,8 @@ export class ViewerV2Component implements OnInit {
   Guide7Resultat8: any[] = [];
   Guide7Resultat9: any[] = [];
   Guide7Resultat10: any[] = [];
+  Guide7Resultat11: any[] = [];
+  Guide7Resultat12: any[] = [];
 
 /*  
   Guide10Resultat1: any[] = [];
@@ -130,8 +143,6 @@ documentGuide10AggregateList: any[] = [];
         this.listClassEducationalTasksV2 = <any[]>results[2];
         this.listClassCorrectionalTasksV2 = <any[]>results[3];
         this.listClassRaisetionalTasksV2 = <any[]>results[4];
-      
-
         this.loadData();
     });
 
@@ -167,6 +178,8 @@ documentGuide10AggregateList: any[] = [];
     // таблица
     const list5 = this.lesson.objSummaryLesson2;
     if (list5) {
+
+/*
       this.reviewerrecommendations = this.lesson.objSummaryLesson2.reviewerrecommendations;
       this.reviewerrecommendations2 = this.lesson.objSummaryLesson2.reviewerrecommendations2;
       this.reviewerrecommendations3 = this.lesson.objSummaryLesson2.reviewerrecommendations3;
@@ -199,6 +212,8 @@ documentGuide10AggregateList: any[] = [];
       this.studentactivities8 = this.lesson.objSummaryLesson2.studentactivities8;
       this.studentactivities9 = this.lesson.objSummaryLesson2.studentactivities9;
       this.studentactivities10 = this.lesson.objSummaryLesson2.studentactivities10;
+*/
+
 
       this.Guide7Resultat1 = this.lesson.objSummaryLesson2.Guide7Resultat1;
       this.Guide7Resultat2 = this.lesson.objSummaryLesson2.Guide7Resultat2;
@@ -210,6 +225,8 @@ documentGuide10AggregateList: any[] = [];
       this.Guide7Resultat8 = this.lesson.objSummaryLesson2.Guide7Resultat8;
       this.Guide7Resultat9 = this.lesson.objSummaryLesson2.Guide7Resultat9;
       this.Guide7Resultat10 = this.lesson.objSummaryLesson2.Guide7Resultat10;
+      this.Guide7Resultat11 = this.lesson.objSummaryLesson2.Guide7Resultat11;
+      this.Guide7Resultat12 = this.lesson.objSummaryLesson2.Guide7Resultat12;
       // дволной справочник берется именно из objSummaryLesson, а не objSummaryLesson2
       this.guide2linesResultat1 = this.lesson.objSummaryLesson.guide2linesResultat1;
 
@@ -227,6 +244,33 @@ documentGuide10AggregateList: any[] = [];
       */
 
      this.documentGuide10AggregateList = this.lesson.objSummaryLesson2.documentGuide10AggregateList;
+
+     this.boolVE1 = this.lesson.objSummaryLesson2.boolVE1;
+     this.boolVE2 = this.lesson.objSummaryLesson2.boolVE2;
+     this.boolVE3 = this.lesson.objSummaryLesson2.boolVE3;
+
+     this.thisThemeId = -1;
+     if (this.lesson.objSummaryLesson.documentTypeLesson.id) {
+      this.thisThemeId = this.lesson.objSummaryLesson.documentTypeLesson.id;
+     }
+
+
+     if (this.Guide7Resultat1.length > 0 || this.Guide7Resultat3.length > 0 ||
+      this.Guide7Resultat4.length > 0 || this.Guide7Resultat5.length > 0) {
+        this.partBegin = true;
+    }
+
+
+     if (this.Guide7Resultat6.length > 0 || this.Guide7Resultat7.length > 0 ||
+         this.Guide7Resultat11.length > 0 || this.Guide7Resultat12.length > 0) {
+           this.partBase = true;
+
+     }
+
+     if (this.Guide7Resultat8.length > 0 || this.Guide7Resultat10.length > 0) {
+       console.log('есть заключительный  этап');
+       this.partEnd = true;
+     };
 
     }
 
