@@ -1,3 +1,6 @@
+<!-- Нужен показ Задач урока строка с 88 по 197-->
+
+
 <app-rightpanel></app-rightpanel>
 
 <div class="container-fluid">
@@ -85,10 +88,116 @@
         </div>
       </div>
 
+<!--  НАЧАЛО ПОКАЗА РЕЗУЛЬТАТОВ ЗАДАЧ УРОКА. Данные из list4 ->
 
 
+        <h4 class="text-center mb-3">Задачи урока</h4>
 
-      <div class="p-0">
+        <!-- первые три строки если есть ->
+        <ng-container *ngIf="taskList1.length > 0">
+          <div class="d-flex">
+
+            <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Образовательные</div>
+            <div class="d-flex flex-column p-0 m-0">
+
+              <ng-container *ngIf="taskList1.length > 0">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1">{{taskList1[0].title}}</div>
+                  <div class="tasks2">{{taskList1[0].text}}</div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="taskList1.length > 1">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1">{{taskList1[1].title}}</div>
+                  <div class="tasks2">{{taskList1[1].text}}</div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="taskList1.length > 2">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1">{{taskList1[2].title}}</div>
+                  <div class="tasks2">{{taskList1[2].text}}</div>
+                </div>
+              </ng-container>
+
+
+            </div>
+          </div>
+        </ng-container>
+
+
+        <!-- вторые три строки если есть ->
+        <ng-container *ngIf="taskList2.length > 0">
+          <div class="d-flex">
+
+            <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Развивающие</div>
+            <div class="d-flex flex-column p-0 m-0">
+
+              <ng-container *ngIf="taskList2.length > 0">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1">{{taskList2[0].title}}</div>
+                  <div class="tasks2">{{taskList2[0].text}}</div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="taskList2.length > 1">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1">{{taskList2[1].title}}</div>
+                  <div class="tasks2">{{taskList2[1].text}}</div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="taskList2.length > 2">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1">{{taskList2[2].title}}</div>
+                  <div class="tasks2">{{taskList2[2].text}}</div>
+                </div>
+              </ng-container>
+
+
+            </div>
+          </div>
+        </ng-container>
+
+
+        <!-- третьи три строки если есть ->
+        <ng-container *ngIf="taskList3.length > 0">
+          <div class="d-flex">
+            <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Развивающие</div>
+            <div class="d-flex flex-column p-0 m-0">
+
+              <ng-container *ngIf="taskList3.length > 0">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1">{{taskList3[0].title}}</div>
+                  <div class="tasks2">{{taskList3[0].text}}</div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="taskList3.length > 1">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1">{{taskList3[1].title}}</div>
+                  <div class="tasks2">{{taskList3[1].text}}</div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="taskList3.length > 2">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1">{{taskList3[2].title}}</div>
+                  <div class="tasks2">{{taskList3[2].text}}</div>
+                </div>
+              </ng-container>
+
+
+            </div>
+          </div>
+        </ng-container>
+
+
+      КОНЕЦ ПОКАЗА РЕЗУЛЬТАТОВ ЗАДАЧ УРОКА. Данные из list4     -->
+
+
+        <div class="p-0">
           <h3 class="my-4">Ход урока</h3>
       <div class="line">
         <div class=" topic-1">Часть урока</div>
