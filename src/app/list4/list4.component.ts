@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  lessonsName, classNameLetter, classNameNumber, classTypeLesson, classType2Lesson,
-  classObjectiveLesson, classPersonalLesson, classEquipment, classMethod, classGroupMethod
-} from '../class/academicSubject';
 import {GuideService} from '../services/guide.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import { FlatpickrOptions } from 'ng2-flatpickr';
@@ -23,6 +19,21 @@ export class List4Component implements OnInit {
   currentDate: Date;
   typeEdit = 'новый документ';
   edititing_id = '-1';
+
+  listClassEducationalTasksV1: any;
+  documentClassEducationalTasks1 = {id: -1, title: '--'};
+  documentClassEducationalTasks2 = {id: -1, title: '--'};
+  documentClassEducationalTasks3 = {id: -1, title: '--'};
+
+  listClassCorrectionalTasksV1: any;
+  documentClassCorrectionalTasks1 = {id: -1, title: '--'};
+  documentClassCorrectionalTasks2 = {id: -1, title: '--'};
+  documentClassCorrectionalTasks3 = {id: -1, title: '--'};
+
+  listClassRaisetionalTasksV1: any;
+  documentClassRaisetionalTasks1 = {id: -1, title: '--'};
+  documentClassRaisetionalTasks2 = {id: -1, title: '--'};
+  documentClassRaisetionalTasks3 = {id: -1, title: '--'};
 
   UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
   listLessonsname: any;
@@ -72,7 +83,16 @@ export class List4Component implements OnInit {
       fio: new FormControl(),
       fioteacherhome: new FormControl(''),
       lessonObjectives: new FormControl(''),
-      lessonTasks: new FormControl('')
+      lessonTasks: new FormControl(''),
+      textEducationalTasks1: new FormControl(''),
+      textEducationalTasks2: new FormControl(''),
+      textEducationalTasks3: new FormControl(''),
+      textCorrectionalTasks1: new FormControl(''),
+      textCorrectionalTasks2: new FormControl(''),
+      textCorrectionalTasks3: new FormControl(''),
+      textRaisetionalTasks1: new FormControl(''),
+      textRaisetionalTasks2: new FormControl(''),
+      textRaisetionalTasks3: new FormControl('')
     });
 
   }
@@ -105,7 +125,10 @@ export class List4Component implements OnInit {
               this.gs.selectCollection('classMethod'),
               this.gs.selectCollection('classGroupMethod'),
               this.gs.selectGroupInnerMethod(),
-              this.auth.getUserFromID(this.UserInfo.id_user_school)
+              this.auth.getUserFromID(this.UserInfo.id_user_school),
+              this.gs.selectCollection('classEducationalTasksV1'),
+              this.gs.selectCollection('classCorrectionalTasksV1'),
+              this.gs.selectCollection('classRaisetionalTasksV1')
     ]).subscribe(results => {
 
       console.log(results[0]);
@@ -121,6 +144,17 @@ export class List4Component implements OnInit {
       this.listGroupMethod = Array<any>(results[9])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
       this.methodAggegateList = Array<any>(results[10])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
       this.list4Form.controls.fio.setValue(results[11][0].fio);
+
+      this.listClassEducationalTasksV1 = Array<any>(results[12])[0].sort((a, b) =>
+                                    (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+
+      this.listClassCorrectionalTasksV1 = Array<any>(results[13])[0].sort((a, b) =>
+                                    (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+
+      this.listClassRaisetionalTasksV1 = Array<any>(results[14])[0].sort((a, b) =>
+                                    (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+
+
       // если это редактирование урока, загружаем урок из базы
       this.loadLesson();
   });
@@ -179,6 +213,88 @@ loadLesson() {
       const newIndex = this.documentPersonalLessonList.push(documentPersonal) - 1;
       this.list4Form.addControl('personalResults' + newIndex.toString(), new FormControl(element.AdditionalMessage));
     });
+
+
+    if (lesson4.EducationalTasks1) {
+      this.documentClassEducationalTasks1.id = lesson4.EducationalTasks1.id;
+      if (lesson4.EducationalTasks1.id > 0) {
+        this.documentClassEducationalTasks1.title =
+            this.listClassEducationalTasksV1.find( value => value.id === lesson4.EducationalTasks1.id).title;
+      }
+      this.list4Form.controls.textEducationalTasks1.setValue(lesson4.EducationalTasks1.text);
+    }
+
+    if (lesson4.CorrectionalTasks1) {
+      this.documentClassCorrectionalTasks1.id = lesson4.CorrectionalTasks1.id;
+      if (lesson4.CorrectionalTasks1.id > 0) {
+        this.documentClassCorrectionalTasks1.title = 
+           this.listClassCorrectionalTasksV1.find( value => value.id === lesson4.CorrectionalTasks1.id).title;
+      }
+      this.list4Form.controls.textCorrectionalTasks1.setValue(lesson4.CorrectionalTasks1.text);
+    }
+
+    if (lesson4.RaisetionalTasks1) {
+      this.documentClassRaisetionalTasks1.id = lesson4.RaisetionalTasks1.id;
+      if (lesson4.RaisetionalTasks1.id > 0) {
+        this.documentClassRaisetionalTasks1.title =
+         this.listClassRaisetionalTasksV1.find( value => value.id === lesson4.RaisetionalTasks1.id).title;
+      }
+      this.list4Form.controls.textRaisetionalTasks1.setValue(lesson4.RaisetionalTasks1.text);
+    }
+
+    if (lesson4.EducationalTasks2) {
+      this.documentClassEducationalTasks2.id = lesson4.EducationalTasks2.id;
+      if (lesson4.EducationalTasks2.id > 0) {
+              this.documentClassEducationalTasks2.title =
+                  this.listClassEducationalTasksV1.find( value => value.id === lesson4.EducationalTasks2.id).title;
+      }
+      this.list4Form.controls.textEducationalTasks2.setValue(lesson4.EducationalTasks2.text);
+    }
+
+    if (lesson4.CorrectionalTasks2) {
+      this.documentClassCorrectionalTasks2.id = lesson4.CorrectionalTasks2.id;
+      if (lesson4.CorrectionalTasks2.id > 0) {
+        this.documentClassCorrectionalTasks2.title =
+                 this.listClassCorrectionalTasksV1.find(value => value.id === lesson4.CorrectionalTasks2.id).title;
+      }
+      this.list4Form.controls.textCorrectionalTasks2.setValue(lesson4.CorrectionalTasks2.text);
+    }
+
+    if (lesson4.RaisetionalTasks2) {
+      this.documentClassRaisetionalTasks2.id = lesson4.RaisetionalTasks2.id;
+      if (lesson4.RaisetionalTasks2.id > 0) {
+        this.documentClassRaisetionalTasks2.title =
+            this.listClassRaisetionalTasksV1.find( value => value.id === lesson4.RaisetionalTasks2.id).title;
+      }
+      this.list4Form.controls.textRaisetionalTasks2.setValue(lesson4.RaisetionalTasks2.text);
+    }
+
+    if (lesson4.EducationalTasks3) {
+      this.documentClassEducationalTasks3.id = lesson4.EducationalTasks3.id;
+      if (lesson4.EducationalTasks3.id > 0) {
+         this.documentClassEducationalTasks3.title =
+                   this.listClassEducationalTasksV1.find( value => value.id === lesson4.EducationalTasks3.id).title;
+      }
+      this.list4Form.controls.textEducationalTasks3.setValue(lesson4.EducationalTasks3.text);
+    }
+
+    if (lesson4.CorrectionalTasks3) {
+      this.documentClassCorrectionalTasks3.id = lesson4.CorrectionalTasks3.id;
+      if (lesson4.CorrectionalTasks3.id > 0) {
+        this.documentClassCorrectionalTasks3.title =
+               this.listClassCorrectionalTasksV1.find( value => value.id === lesson4.CorrectionalTasks3.id).title;
+      }
+      this.list4Form.controls.textCorrectionalTasks3.setValue(lesson4.CorrectionalTasks3.text);
+    }
+
+    if (lesson4.RaisetionalTasks3) {
+      this.documentClassRaisetionalTasks3.id = lesson4.RaisetionalTasks3.id;
+      if (lesson4.RaisetionalTasks3.id > 0) {
+       this.documentClassRaisetionalTasks3.title =
+               this.listClassRaisetionalTasksV1.find( value => value.id === lesson4.RaisetionalTasks3.id).title;
+      }
+      this.list4Form.controls.textRaisetionalTasks3.setValue(lesson4.RaisetionalTasks3.text);
+    }
 
   }
 
@@ -297,6 +413,18 @@ loadLesson() {
     /* end 3 */
 
 
+    const textEducationalTasks1 = this.list4Form.controls.textEducationalTasks1.value.toString().trim();
+    const textEducationalTasks2 = this.list4Form.controls.textEducationalTasks2.value.toString().trim();
+    const textEducationalTasks3 = this.list4Form.controls.textEducationalTasks3.value.toString().trim();
+    const textCorrectionalTasks1 = this.list4Form.controls.textCorrectionalTasks1.value.toString().trim();
+    const textCorrectionalTasks2 = this.list4Form.controls.textCorrectionalTasks2.value.toString().trim();
+    const textCorrectionalTasks3 = this.list4Form.controls.textCorrectionalTasks3.value.toString().trim();
+    const textRaisetionalTasks1 = this.list4Form.controls.textRaisetionalTasks1.value.toString().trim();
+    const textRaisetionalTasks2 = this.list4Form.controls.textRaisetionalTasks2.value.toString().trim();
+    const textRaisetionalTasks3 = this.list4Form.controls.textRaisetionalTasks3.value.toString().trim();
+
+
+
     let lessonTasks = '';
     if (this.list4Form.controls.lessonTasks.value) {
       lessonTasks = this.list4Form.controls.lessonTasks.value.toString().trim();
@@ -339,6 +467,15 @@ loadLesson() {
                             documentObjectiveLessonList: moveDocumentObjectiveLessonList,
                             documentPersonalLessonList: moveDocumentPersonalLessonList,
                             documentEquipmentList: moveDocumentEquipmentList,
+                            EducationalTasks1 : {text: textEducationalTasks1, id: this.documentClassEducationalTasks1.id},
+                            EducationalTasks2 : {text: textEducationalTasks2, id: this.documentClassEducationalTasks2.id},
+                            EducationalTasks3 : {text: textEducationalTasks3, id: this.documentClassEducationalTasks3.id},
+                            CorrectionalTasks1 : {text: textCorrectionalTasks1, id: this.documentClassCorrectionalTasks1.id},
+                            CorrectionalTasks2 : {text: textCorrectionalTasks2, id: this.documentClassCorrectionalTasks2.id},
+                            CorrectionalTasks3 : {text: textCorrectionalTasks3, id: this.documentClassCorrectionalTasks3.id},
+                            RaisetionalTasks1: {text: textRaisetionalTasks1, id: this.documentClassRaisetionalTasks1.id},
+                            RaisetionalTasks2: {text: textRaisetionalTasks2, id: this.documentClassRaisetionalTasks2.id},
+                            RaisetionalTasks3: {text: textRaisetionalTasks3, id: this.documentClassRaisetionalTasks3.id}
 //                            GuideMultiOne_method1:  {
 //                              documentGroupMethod: this.documentGroupMethod,
 //                              documentMethod: this.documentMethod},
@@ -434,4 +571,50 @@ loadLesson() {
   this._location.back();
  }
 
- }
+ onClassEducationalTasks1(curValue) {
+  this.documentClassEducationalTasks1.id = curValue.id;
+  this.documentClassEducationalTasks1.title = curValue.title;
+}
+
+onClassEducationalTasks2(curValue) {
+  this.documentClassEducationalTasks2.id = curValue.id;
+  this.documentClassEducationalTasks2.title = curValue.title;
+}
+
+onClassEducationalTasks3(curValue) {
+  this.documentClassEducationalTasks3.id = curValue.id;
+  this.documentClassEducationalTasks3.title = curValue.title;
+}
+
+onClassCorrectionalTasks1(curValue) {
+  this.documentClassCorrectionalTasks1.id = curValue.id;
+  this.documentClassCorrectionalTasks1.title = curValue.title;
+}
+
+onClassCorrectionalTasks2(curValue) {
+  this.documentClassCorrectionalTasks2.id = curValue.id;
+  this.documentClassCorrectionalTasks2.title = curValue.title;
+}
+
+onClassCorrectionalTasks3(curValue) {
+  this.documentClassCorrectionalTasks3.id = curValue.id;
+  this.documentClassCorrectionalTasks3.title = curValue.title;
+}
+
+onClassRaisetionalTasks1(curValue) {
+  this.documentClassRaisetionalTasks1.id = curValue.id;
+  this.documentClassRaisetionalTasks1.title = curValue.title;
+}
+
+onClassRaisetionalTasks2(curValue) {
+  this.documentClassRaisetionalTasks2.id = curValue.id;
+  this.documentClassRaisetionalTasks2.title = curValue.title;
+}
+
+onClassRaisetionalTasks3(curValue) {
+  this.documentClassRaisetionalTasks3.id = curValue.id;
+  this.documentClassRaisetionalTasks3.title = curValue.title;
+}
+
+
+}

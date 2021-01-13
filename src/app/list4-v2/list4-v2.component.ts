@@ -7,7 +7,6 @@ import {FormControl, FormGroup} from '@angular/forms';
 import { FlatpickrOptions } from 'ng2-flatpickr';
 import Russian from 'flatpickr/dist/l10n/ru.js';
 import { forkJoin } from 'rxjs';
-import {classCorrectionalTasksV2, classEducationalTasksV2, classRaisetionalTasksV2} from "../class/academicSubject";
 
 @Component({
   selector: 'app-list4-v2',
@@ -125,26 +124,31 @@ export class List4V2Component implements OnInit {
               this.list4v2Form.controls.fio.setValue(teacher[0].fio);
               // console.log('teacher', teacher);
 
-              this.listClassNameNumber = Array<any>(results[1])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+              this.listClassNameNumber = Array<any>(results[1])[0].sort( 
+                                                 (a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // console.log('listClassNameNumber', this.listClassNameNumber);
 
-              this.listLessons2 = Array<any>(results[2])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+              this.listLessons2 = Array<any>(results[2])[0].sort( (a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // console.log('listLessons2', this.listLessons2);
 
-              this.listTypeLesson = Array<any>(results[3])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+              this.listTypeLesson = Array<any>(results[3])[0].sort( (a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // console.log('listTypeLesson', this.listTypeLesson);
 
-              this.listType2Lesson = Array<any>(results[4])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+              this.listType2Lesson = Array<any>(results[4])[0].sort( (a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // console.log('listType2Lesson', this.listType2Lesson);
 
-              this.listEquipment = Array<any>(results[5])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+              this.listEquipment = Array<any>(results[5])[0].sort( (a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // console.log('listEquipment', this.listEquipment);
 
-              this.listClassNameLetter = Array<any>(results[6])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+              this.listClassNameLetter = Array<any>(results[6])[0].sort( 
+                                         (a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // console.log('listClassNameLetter', this.listClassNameLetter);
-              this.listClassEducationalTasksV2 = Array<any>(results[7])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
-              this.listClassCorrectionalTasksV2 = Array<any>(results[8])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
-              this.listClassRaisetionalTasksV2 = Array<any>(results[9])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+              this.listClassEducationalTasksV2 = Array<any>(results[7])[0].sort(
+                            (a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+              this.listClassCorrectionalTasksV2 = Array<any>(results[8])[0].sort(
+                            (a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+              this.listClassRaisetionalTasksV2 = Array<any>(results[9])[0].sort(
+                            (a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // если это редактирование урока, загружаем урок из базы
               this.loadLesson();
 
