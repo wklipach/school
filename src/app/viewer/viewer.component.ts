@@ -284,8 +284,8 @@ if (objSummaryLesson.EducationalTasks2 && objSummaryLesson.EducationalTasks2.id 
 const title = this.listClassEducationalTasksV1.find(value => value.id === objSummaryLesson.EducationalTasks2.id).title;
 this.taskList.push({title,
                 text: objSummaryLesson.EducationalTasks2.text,
-                type: 2,
-                sortindex: 4
+                type: 1,
+                sortindex: 2
               });
 }
 
@@ -293,8 +293,8 @@ if (objSummaryLesson.EducationalTasks3 && objSummaryLesson.EducationalTasks3.id 
 const title = this.listClassEducationalTasksV1.find(value => value.id === objSummaryLesson.EducationalTasks3.id).title;
 this.taskList.push({title,
                 text: objSummaryLesson.EducationalTasks3.text,
-                type: 3,
-                sortindex: 7
+                type: 1,
+                sortindex: 3
               });
 }
 
@@ -303,8 +303,8 @@ if (objSummaryLesson.CorrectionalTasks1 && objSummaryLesson.CorrectionalTasks1.i
 const title = this.listClassCorrectionalTasksV1.find(value => value.id === objSummaryLesson.CorrectionalTasks1.id).title;
 this.taskList.push({title,
                 text: objSummaryLesson.CorrectionalTasks1.text,
-                type: 1,
-                sortindex: 2
+                type: 2,
+                sortindex: 4
               });
 }
 
@@ -321,8 +321,8 @@ if (objSummaryLesson.CorrectionalTasks3 && objSummaryLesson.CorrectionalTasks3.i
 const title = this.listClassCorrectionalTasksV1.find(value => value.id === objSummaryLesson.CorrectionalTasks3.id).title;
 this.taskList.push({title,
                 text: objSummaryLesson.CorrectionalTasks3.text,
-                type: 3,
-                sortindex: 8
+                type: 2,
+                sortindex: 6
               });
 }
 
@@ -331,8 +331,8 @@ if (objSummaryLesson.RaisetionalTasks1 && objSummaryLesson.RaisetionalTasks1.id 
 const title = this.listClassRaisetionalTasksV1.find(value => value.id === objSummaryLesson.RaisetionalTasks1.id).title;
 this.taskList.push({title,
                 text: objSummaryLesson.RaisetionalTasks1.text,
-                type: 1,
-                sortindex: 3
+                type: 3,
+                sortindex: 7
               });
 }
 
@@ -340,8 +340,8 @@ if (objSummaryLesson.RaisetionalTasks2 && objSummaryLesson.RaisetionalTasks2.id 
 const title = this.listClassRaisetionalTasksV1.find(value => value.id === objSummaryLesson.RaisetionalTasks2.id).title;
 this.taskList.push({title,
                 text: objSummaryLesson.RaisetionalTasks2.text,
-                type: 2,
-                sortindex: 6
+                type: 3,
+                sortindex: 8
               });
 }
 
