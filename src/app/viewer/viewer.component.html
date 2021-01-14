@@ -88,16 +88,16 @@
         </div>
       </div>
 
-<!--  НАЧАЛО ПОКАЗА РЕЗУЛЬТАТОВ ЗАДАЧ УРОКА. Данные из list4 ->
+<!--  НАЧАЛО ПОКАЗА РЕЗУЛЬТАТОВ ЗАДАЧ УРОКА. Данные из list4 -->
 
 
         <h4 class="text-center mb-3">Задачи урока</h4>
 
-        <!-- первые три строки если есть ->
+        <!-- первые три строки если есть -->
         <ng-container *ngIf="taskList1.length > 0">
           <div class="d-flex">
 
-            <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Образовательные</div>
+            <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Первые строки</div>
             <div class="d-flex flex-column p-0 m-0">
 
               <ng-container *ngIf="taskList1.length > 0">
@@ -127,11 +127,11 @@
         </ng-container>
 
 
-        <!-- вторые три строки если есть ->
+        <!-- вторые три строки если есть -->
         <ng-container *ngIf="taskList2.length > 0">
           <div class="d-flex">
 
-            <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Развивающие</div>
+            <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Вторые строки</div>
             <div class="d-flex flex-column p-0 m-0">
 
               <ng-container *ngIf="taskList2.length > 0">
@@ -161,10 +161,10 @@
         </ng-container>
 
 
-        <!-- третьи три строки если есть ->
+        <!-- третьи три строки если есть -->
         <ng-container *ngIf="taskList3.length > 0">
           <div class="d-flex">
-            <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Развивающие</div>
+            <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Последние строки</div>
             <div class="d-flex flex-column p-0 m-0">
 
               <ng-container *ngIf="taskList3.length > 0">
@@ -194,7 +194,7 @@
         </ng-container>
 
 
-      КОНЕЦ ПОКАЗА РЕЗУЛЬТАТОВ ЗАДАЧ УРОКА. Данные из list4     -->
+      <!-- КОНЕЦ ПОКАЗА РЕЗУЛЬТАТОВ ЗАДАЧ УРОКА. Данные из list4     -->
 
 
         <div class="p-0">

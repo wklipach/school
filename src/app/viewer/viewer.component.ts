@@ -28,6 +28,15 @@ export class ViewerComponent implements OnInit {
   documentPersonalLessonList: any[] = [];
   documentEquipmentList: any[] = [];
 
+
+  taskList: any[] = [];
+  taskList1: any[] = [];
+  taskList2: any[] = [];
+  taskList3: any[] = [];
+  listClassEducationalTasksV1: any;
+  listClassCorrectionalTasksV1: any;
+  listClassRaisetionalTasksV1: any;
+
 //  documentEquipment = {id: -1, title: ''};
 //  documentGroupMethod = {id: -1, id_group: -1, title: ''};
 //  documentMethod = {id: -1, id_group: -1, title: ''};
@@ -115,10 +124,18 @@ export class ViewerComponent implements OnInit {
     const lesson_id = this.auth.getViewPrintId();
     forkJoin([
       this.gs.selectCollection('classBasicLearningActivities'),
-      this.gs.getLesson(lesson_id)
+      this.gs.getLesson(lesson_id),
+      this.gs.selectCollection('classEducationalTasksV1'),
+      this.gs.selectCollection('classCorrectionalTasksV1'),
+      this.gs.selectCollection('classRaisetionalTasksV1')
+
     ]).subscribe(results => {
       this.guide8list = <any[]>results[0];
       this.lesson = results[1][0];
+      this.listClassEducationalTasksV1 = <any[]>results[2];
+      this.listClassCorrectionalTasksV1 = <any[]>results[3];
+      this.listClassRaisetionalTasksV1 = <any[]>results[4];
+
       this.loadData();
     });
 
@@ -149,6 +166,10 @@ export class ViewerComponent implements OnInit {
     this.documentObjectiveLessonList = this.lesson.objSummaryLesson.documentObjectiveLessonList;
     this.documentPersonalLessonList = this.lesson.objSummaryLesson.documentPersonalLessonList;
     this.documentEquipmentList = this.lesson.objSummaryLesson.documentEquipmentList;
+
+
+    // задачи из листа 4
+    this.loadTask(this.lesson.objSummaryLesson);
 
     // таблица
     const list5 = this.lesson.objSummaryLesson2;
@@ -238,6 +259,116 @@ print4x() {
               WindowPrt.print();
               // WindowPrt.close();
       });
+}
+
+
+loadTask(objSummaryLesson) {
+
+  this.taskList = [];
+  this.taskList1 = [];
+  this.taskList2 = [];
+  this.taskList3 = [];
+
+  if (objSummaryLesson.EducationalTasks1 && objSummaryLesson.EducationalTasks1.id !== -1) {
+
+    const title = this.listClassEducationalTasksV1.find(value =>
+                                      value.id === objSummaryLesson.EducationalTasks1.id).title;
+    this.taskList.push({title,
+                        text: objSummaryLesson.EducationalTasks1.text,
+                        type: 1,
+                        sortindex: 1
+                      });
+}
+
+if (objSummaryLesson.EducationalTasks2 && objSummaryLesson.EducationalTasks2.id !== -1) {
+const title = this.listClassEducationalTasksV1.find(value => value.id === objSummaryLesson.EducationalTasks2.id).title;
+this.taskList.push({title,
+                text: objSummaryLesson.EducationalTasks2.text,
+                type: 2,
+                sortindex: 4
+              });
+}
+
+if (objSummaryLesson.EducationalTasks3 && objSummaryLesson.EducationalTasks3.id !== -1) {
+const title = this.listClassEducationalTasksV1.find(value => value.id === objSummaryLesson.EducationalTasks3.id).title;
+this.taskList.push({title,
+                text: objSummaryLesson.EducationalTasks3.text,
+                type: 3,
+                sortindex: 7
+              });
+}
+
+
+if (objSummaryLesson.CorrectionalTasks1 && objSummaryLesson.CorrectionalTasks1.id !== -1) {
+const title = this.listClassCorrectionalTasksV1.find(value => value.id === objSummaryLesson.CorrectionalTasks1.id).title;
+this.taskList.push({title,
+                text: objSummaryLesson.CorrectionalTasks1.text,
+                type: 1,
+                sortindex: 2
+              });
+}
+
+if (objSummaryLesson.CorrectionalTasks2 && objSummaryLesson.CorrectionalTasks2.id !== -1) {
+const title = this.listClassCorrectionalTasksV1.find(value => value.id === objSummaryLesson.CorrectionalTasks2.id).title;
+this.taskList.push({title,
+                text: objSummaryLesson.CorrectionalTasks2.text,
+                type: 2,
+                sortindex: 5
+              });
+}
+
+if (objSummaryLesson.CorrectionalTasks3 && objSummaryLesson.CorrectionalTasks3.id !== -1) {
+const title = this.listClassCorrectionalTasksV1.find(value => value.id === objSummaryLesson.CorrectionalTasks3.id).title;
+this.taskList.push({title,
+                text: objSummaryLesson.CorrectionalTasks3.text,
+                type: 3,
+                sortindex: 8
+              });
+}
+
+
+if (objSummaryLesson.RaisetionalTasks1 && objSummaryLesson.RaisetionalTasks1.id !== -1) {
+const title = this.listClassRaisetionalTasksV1.find(value => value.id === objSummaryLesson.RaisetionalTasks1.id).title;
+this.taskList.push({title,
+                text: objSummaryLesson.RaisetionalTasks1.text,
+                type: 1,
+                sortindex: 3
+              });
+}
+
+if (objSummaryLesson.RaisetionalTasks2 && objSummaryLesson.RaisetionalTasks2.id !== -1) {
+const title = this.listClassRaisetionalTasksV1.find(value => value.id === objSummaryLesson.RaisetionalTasks2.id).title;
+this.taskList.push({title,
+                text: objSummaryLesson.RaisetionalTasks2.text,
+                type: 2,
+                sortindex: 6
+              });
+}
+
+if (objSummaryLesson.RaisetionalTasks3 && objSummaryLesson.RaisetionalTasks3.id !== -1) {
+const title = this.listClassRaisetionalTasksV1.find(value => value.id === objSummaryLesson.RaisetionalTasks3.id).title;
+this.taskList.push({title,
+                text: objSummaryLesson.RaisetionalTasks3.text,
+                type: 3,
+                sortindex: 9
+              });
+}
+
+this.taskList = this.taskList.sort(this.compare);
+this.taskList1 = this.taskList.filter(x => x.type === 1);
+this.taskList2 = this.taskList.filter(x => x.type === 2);
+this.taskList3 = this.taskList.filter(x => x.type === 3);
+
+}
+
+compare(a, b) {
+  if ( a.sortindex < b.sortindex ){
+    return -1;
+  }
+  if ( a.sortindex > b.sortindex ){
+    return 1;
+  }
+  return 0;
 }
 
 }
