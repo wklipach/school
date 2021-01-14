@@ -68,51 +68,32 @@
         <h4 class="text-center mb-3">Задачи урока</h4>
 
           <!-- первые три строки если есть -->
-          <ng-container *ngIf="taskList1.length > 0 || taskList2.length > 0 || taskList3.length > 0">
+          <ng-container *ngIf="taskList1.length > 0">
             <div class="d-flex">
 
               <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Образовательные</div>
               <div class="d-flex flex-column p-0 m-0">
 
-                <ng-container *ngIf="taskList1.length > 0; else else1">
+                <ng-container *ngIf="taskList1.length > 0">
                     <div class="d-flex justify-content-start">
                       <div class="tasks1">{{taskList1[0].title}}</div>
                       <div class="tasks2">{{taskList1[0].text}}</div>
                     </div>
                 </ng-container>
-                <ng-template #else1>
-                  <div class="d-flex justify-content-start">
-                    <div class="tasks1"> </div>
-                    <div class="tasks2"> </div>
-                  </div>
-                </ng-template>
 
-                <ng-container *ngIf="taskList2.length > 0; else else2">
+                <ng-container *ngIf="taskList1.length > 1">
                     <div class="d-flex justify-content-start">
-                      <div class="tasks1">{{taskList2[0].title}}</div>
-                      <div class="tasks2">{{taskList2[0].text}}</div>
+                      <div class="tasks1">{{taskList1[1].title}}</div>
+                      <div class="tasks2">{{taskList1[1].text}}</div>
                     </div>
                 </ng-container>
-                <ng-template #else2>
-                  <div class="d-flex justify-content-start">
-                    <div class="tasks1"> </div>
-                    <div class="tasks2"> </div>
-                  </div>
-                </ng-template>
 
-                <ng-container *ngIf="taskList3.length > 0; else else3">
+                <ng-container *ngIf="taskList1.length > 2">
                     <div class="d-flex justify-content-start">
-                      <div class="tasks1">{{taskList3[0].title}}</div>
-                      <div class="tasks2">{{taskList3[0].text}}</div>
+                      <div class="tasks1">{{taskList1[2].title}}</div>
+                      <div class="tasks2">{{taskList1[2].text}}</div>
                     </div>
                 </ng-container>
-                <ng-template #else3>
-                  <div class="d-flex justify-content-start">
-                    <div class="tasks1"> </div>
-                    <div class="tasks2"> </div>
-                  </div>
-                </ng-template>
-
 
               </div>
             </div>
@@ -120,51 +101,32 @@
 
 
           <!-- вторые три строки если есть -->
-          <ng-container *ngIf="taskList1.length > 1 || taskList2.length > 1 || taskList3.length > 1">
+          <ng-container *ngIf="taskList2.length > 0">
             <div class="d-flex">
 
               <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Коррекционно-развивающие</div>
               <div class="d-flex flex-column p-0 m-0">
 
-                <ng-container *ngIf="taskList1.length > 1; else else4">
+                <ng-container *ngIf="taskList2.length > 0">
                     <div class="d-flex justify-content-start">
-                      <div class="tasks1">{{taskList1[1].title}}</div>
-                      <div class="tasks2">{{taskList1[1].text}}</div>
+                      <div class="tasks1">{{taskList2[0].title}}</div>
+                      <div class="tasks2">{{taskList2[0].text}}</div>
                     </div>
                 </ng-container>
-                <ng-template #else4>
-                  <div class="d-flex justify-content-start">
-                    <div class="tasks1">--</div>
-                    <div class="tasks2">--</div>
-                  </div>
-                </ng-template>
 
-                <ng-container *ngIf="taskList2.length > 1; else else5">
+                <ng-container *ngIf="taskList2.length > 1">
                     <div class="d-flex justify-content-start">
                       <div class="tasks1">{{taskList2[1].title}}</div>
                       <div class="tasks2">{{taskList2[1].text}}</div>
                     </div>
                 </ng-container>
-                <ng-template #else5>
-                  <div class="d-flex justify-content-start">
-                    <div class="tasks1">--</div>
-                    <div class="tasks2">--</div>
-                  </div>
-                </ng-template>
 
-
-                <ng-container *ngIf="taskList3.length > 1; else else6">
+                <ng-container *ngIf="taskList2.length > 2">
                     <div class="d-flex justify-content-start">
-                      <div class="tasks1">{{taskList3[1].title}}</div>
-                      <div class="tasks2">{{taskList3[1].text}}</div>
+                      <div class="tasks1">{{taskList2[2].title}}</div>
+                      <div class="tasks2">{{taskList2[2].text}}</div>
                     </div>
                 </ng-container>
-                <ng-template #else6>
-                  <div class="d-flex justify-content-start">
-                    <div class="tasks1">--</div>
-                    <div class="tasks2">--</div>
-                  </div>
-                </ng-template>
 
               </div>
             </div>
@@ -172,50 +134,31 @@
 
 
           <!-- третьи три строки если есть -->
-          <ng-container *ngIf="taskList1.length > 2 || taskList2.length > 2 || taskList3.length > 2">
+          <ng-container *ngIf="taskList3.length > 0">
             <div class="d-flex">
               <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Воспитательные</div>
               <div class="d-flex flex-column p-0 m-0">
 
-                <ng-container *ngIf="taskList1.length > 2; else else7">
+                <ng-container *ngIf="taskList3.length > 0">
                     <div class="d-flex justify-content-start">
-                      <div class="tasks1">{{taskList1[2].title}}</div>
-                      <div class="tasks2">{{taskList1[2].text}}</div>
+                      <div class="tasks1">{{taskList3[0].title}}</div>
+                      <div class="tasks2">{{taskList3[0].text}}</div>
                     </div>
                 </ng-container>
-                <ng-template #else7>
-                  <div class="d-flex justify-content-start">
-                    <div class="tasks1">--</div>
-                    <div class="tasks2">--</div>
-                  </div>
-                </ng-template>
 
-                <ng-container *ngIf="taskList2.length > 2; else else8">
+                <ng-container *ngIf="taskList3.length > 1">
                     <div class="d-flex justify-content-start">
-                      <div class="tasks1">{{taskList2[2].title}}</div>
-                      <div class="tasks2">{{taskList2[2].text}}</div>
+                      <div class="tasks1">{{taskList3[1].title}}</div>
+                      <div class="tasks2">{{taskList3[1].text}}</div>
                     </div>
                 </ng-container>
-                <ng-template #else8>
-                  <div class="d-flex justify-content-start">
-                    <div class="tasks1">--</div>
-                    <div class="tasks2">--</div>
-                  </div>
-                </ng-template>
 
-                <ng-container *ngIf="taskList3.length > 2; else else9">
+                <ng-container *ngIf="taskList3.length > 2">
                     <div class="d-flex justify-content-start">
                       <div class="tasks1">{{taskList3[2].title}}</div>
                       <div class="tasks2">{{taskList3[2].text}}</div>
                     </div>
                 </ng-container>
-
-                <ng-template #else9>
-                  <div class="d-flex justify-content-start">
-                    <div class="tasks1">--</div>
-                    <div class="tasks2">--</div>
-                  </div>
-                </ng-template>
 
               </div>
             </div>

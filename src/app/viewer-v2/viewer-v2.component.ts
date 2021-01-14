@@ -294,8 +294,8 @@ documentGuide10AggregateList: any[] = [];
       const title = this.listClassEducationalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.EducationalTasks2.id).title;
       this.taskList.push({title,
                           text: this.lesson.objSummaryLesson.EducationalTasks2.text,
-                          type: 2,
-                          sortindex: 4
+                          type: 1,
+                          sortindex: 2
                         });
     }
 
@@ -303,8 +303,8 @@ documentGuide10AggregateList: any[] = [];
       const title = this.listClassEducationalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.EducationalTasks3.id).title;
       this.taskList.push({title,
                           text: this.lesson.objSummaryLesson.EducationalTasks3.text,
-                          type: 3,
-                          sortindex: 7
+                          type: 1,
+                          sortindex: 3
                         });
     }
 
@@ -313,8 +313,8 @@ documentGuide10AggregateList: any[] = [];
       const title = this.listClassCorrectionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.CorrectionalTasks1.id).title;
       this.taskList.push({title,
                           text: this.lesson.objSummaryLesson.CorrectionalTasks1.text,
-                          type: 1,
-                          sortindex: 2
+                          type: 2,
+                          sortindex: 4
                         });
     }
 
@@ -331,8 +331,8 @@ documentGuide10AggregateList: any[] = [];
       const title = this.listClassCorrectionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.CorrectionalTasks3.id).title;
       this.taskList.push({title,
                           text: this.lesson.objSummaryLesson.CorrectionalTasks3.text,
-                          type: 3,
-                          sortindex: 8
+                          type: 2,
+                          sortindex: 6
                         });
     }
 
@@ -341,8 +341,8 @@ documentGuide10AggregateList: any[] = [];
       const title = this.listClassRaisetionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.RaisetionalTasks1.id).title;
       this.taskList.push({title,
                           text: this.lesson.objSummaryLesson.RaisetionalTasks1.text,
-                          type: 1,
-                          sortindex: 3
+                          type: 3,
+                          sortindex: 7
                         });
     }
 
@@ -350,8 +350,8 @@ documentGuide10AggregateList: any[] = [];
       const title = this.listClassRaisetionalTasksV2.find(value => value.id === this.lesson.objSummaryLesson.RaisetionalTasks2.id).title;
       this.taskList.push({title,
                           text: this.lesson.objSummaryLesson.RaisetionalTasks2.text,
-                          type: 2,
-                          sortindex: 6
+                          type: 3,
+                          sortindex: 8
                         });
     }
 
