@@ -1,5 +1,6 @@
 .container-fluid {
   /* min-height: calc(100vh - 160px); */
+  min-width: 1903px;
   text-align: center;
   padding: 0 4%;
 }
@@ -173,4 +174,32 @@ span {
 .d-7 {
   hyphens: auto;
   font-size: 15px;
+}
+
+.tasks-block {
+
+  width:100%;
+}
+.cell-line {
+
+  width:100%;
+}
+.tasks-head {
+  width: 15%;
+
+  border: solid 1px #cdcdcd;
+}
+.half-line {
+  width: 100%;
+}
+.tasks1 {
+  border: solid 1px #cdcdcd;
+  width: 25%;
+
+}
+.tasks2 {
+  border: solid 1px #cdcdcd;
+  width: 75%;
+  text-align: left;
+  padding: 0 10px;
 }

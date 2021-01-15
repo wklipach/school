@@ -68,11 +68,12 @@
         <h4 class="text-center mb-3">Задачи урока</h4>
 
           <!-- первые три строки если есть -->
-          <ng-container *ngIf="taskList1.length > 0">
-            <div class="d-flex">
 
-              <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Образовательные</div>
-              <div class="d-flex flex-column p-0 m-0">
+          <ng-container *ngIf="taskList1.length > 0">
+            <div class="d-flex cell-line">
+
+              <div class="tasks-head">Образовательные</div>
+              <div class="d-flex flex-column half-line">
 
                 <ng-container *ngIf="taskList1.length > 0">
                     <div class="d-flex justify-content-start">
@@ -102,10 +103,10 @@
 
           <!-- вторые три строки если есть -->
           <ng-container *ngIf="taskList2.length > 0">
-            <div class="d-flex">
+            <div class="d-flex cell-line">
 
-              <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Коррекционно-развивающие</div>
-              <div class="d-flex flex-column p-0 m-0">
+              <div class="tasks-head">Коррекционно-развивающие</div>
+              <div class="d-flex flex-column half-line">
 
                 <ng-container *ngIf="taskList2.length > 0">
                     <div class="d-flex justify-content-start">
@@ -135,9 +136,9 @@
 
           <!-- третьи три строки если есть -->
           <ng-container *ngIf="taskList3.length > 0">
-            <div class="d-flex">
-              <div class="p-0 m-0"  style="width:200px;border: solid 1px #cdcdcd;">Воспитательные</div>
-              <div class="d-flex flex-column p-0 m-0">
+            <div class="d-flex cell-line">
+              <div class="tasks-head">Воспитательные</div>
+              <div class="d-flex flex-column half-line">
 
                 <ng-container *ngIf="taskList3.length > 0">
                     <div class="d-flex justify-content-start">

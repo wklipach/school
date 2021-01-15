@@ -196,13 +196,30 @@ width: 23%;
 .table td {
   padding: .2rem;
 }
-.tasks1 {
-  width: 400px;
+.tasks-block {
+
+  width:100%;
+}
+.cell-line {
+
+  width:100%;
+}
+.tasks-head {
+  width: 15%;
+
   border: solid 1px #cdcdcd;
 }
-.tasks2 {
-  width: 1200px;
+.half-line {
+  width: 100%;
+}
+.tasks1 {
   border: solid 1px #cdcdcd;
+  width: 25%;
+
+}
+.tasks2 {
+  border: solid 1px #cdcdcd;
+  width: 75%;
   text-align: left;
   padding: 0 10px;
 }
