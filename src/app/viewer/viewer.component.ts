@@ -1,10 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 import {GuideService} from '../services/guide.service';
 import {forkJoin} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
+import { jsPDF } from 'jspdf';
+import domtoimage from 'dom-to-image';
+import { saveAs } from 'file-saver';
+
+// import * as jsPDF from 'jspdf';
 
 
 @Component({
@@ -249,7 +254,7 @@ print4x() {
               const WindowPrt = window.open('', '', 'left=0,top=0,width=900,height=900,toolbar=0,scrollbars=0,status=0');
               WindowPrt.document.write('<html><head>' +
               '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" ' +
-                'integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">'+
+                'integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">' +
               '<style>' +
               data +
               '</style></head>');
@@ -257,7 +262,7 @@ print4x() {
               WindowPrt.document.close();
               WindowPrt.focus();
               WindowPrt.print();
-              // WindowPrt.close();
+              WindowPrt.close();
       });
 }
 
@@ -362,13 +367,56 @@ this.taskList3 = this.taskList.filter(x => x.type === 3);
 }
 
 compare(a, b) {
-  if ( a.sortindex < b.sortindex ){
+  if (a.sortindex < b.sortindex) {
     return -1;
   }
-  if ( a.sortindex > b.sortindex ){
+  if ( a.sortindex > b.sortindex ) {
     return 1;
   }
   return 0;
 }
+
+
+printJsPdf() {
+
+  const elem = document.getElementById('saveAsPdf');
+
+
+  domtoimage.toBlob(elem)
+    .then(function (blob) {
+      console.log('blob=', blob);
+        saveAs(blob, 'my-node.png');
+    });
+
+    /*
+
+  domtoimage.toPng(elem)
+    .then(function (dataUrl) {
+        const img = new Image();
+        img.src = dataUrl;
+
+        window.open().document.write('<img src="' + dataUrl + '" />');
+
+        img.onload = () => {
+
+
+           const  imgWidth = 210,
+                  pageHeight = 295,
+                  imgHeight = img.height * imgWidth / img.width,
+                  heightLeft = imgHeight,
+                  doc = new jsPDF('p', 'mm'),
+                  position = 0;
+              doc.addImage(dataUrl, 'PNG', 0, position, imgWidth, imgHeight);
+              doc.save( 'lesson.pdf');
+        }
+    })
+    .catch(function (error) {
+        console.error('oops, something went wrong!', error);
+    });
+*/
+
+
+}
+
 
 }
