@@ -203,3 +203,60 @@ span {
   text-align: left;
   padding: 0 10px;
 }
+.hod-text-topic {
+  width: calc(100vw/3);
+  border: solid 1px #cdcdcd;
+  padding: 10px;
+  margin: 0;
+}
+.hod-text {
+  width: calc(100vw/3);
+  text-align: left;
+  border: solid 1px #cdcdcd;
+  padding: 2px 6px;
+  margin: 0;
+}
+.bud-topic {
+  width: 200px;
+  padding-top: 10px;
+  border: solid 1px #cdcdcd;
+  font-weight: 600;
+}
+.bud-text {
+  width: 1600px;
+  border: solid 1px #cdcdcd;
+  text-align: left;
+}
+.table1Col1 {
+  width: 23%;
+}
+.table td {
+  padding: .2rem;
+}
+.tasks-block {
+
+  width:100%;
+}
+.cell-line {
+
+  width:100%;
+}
+.tasks-head {
+  width: 15%;
+
+  border: solid 1px #cdcdcd;
+}
+.half-line {
+  width: 100%;
+}
+.tasks1 {
+  border: solid 1px #cdcdcd;
+  width: 25%;
+
+}
+.tasks2 {
+  border: solid 1px #cdcdcd;
+  width: 75%;
+  text-align: left;
+  padding: 0 10px;
+}

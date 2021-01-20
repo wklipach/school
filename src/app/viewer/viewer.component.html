@@ -197,6 +197,66 @@
       <!-- КОНЕЦ ПОКАЗА РЕЗУЛЬТАТОВ ЗАДАЧ УРОКА. Данные из list4     -->
 
 
+
+        <h3 class="my-4">Новый ход урока</h3>
+
+       <!-- Здесь также как в viwer-v2 со строки 203 по 268 только с добавлением к каждой части Базовых учебных действий
+       с list4  строки 212 по 218
+       -->
+
+
+
+        <h5 class="topic">Вводно-подготовительная часть (Часть урока)</h5>
+
+        <div *ngIf="Guide7Resultat1.length > 0">
+          <h5 class="topic">Этап урока - организационный этап</h5> <!-- app-guide7_2 numberComponent=1-->
+          <div class="d-flex justify-content-around">
+            <h5 class="hod-text-topic">Методы и приемы</h5>
+            <h5 class="hod-text-topic">Деятельность учителя</h5>
+            <h5 class="hod-text-topic">Деятельность ученика</h5>
+          </div>
+          <div class="d-flex" *ngFor="let res of Guide7Resultat1">
+            <div class="hod-text">{{res.text}}</div>
+            <div class="hod-text">{{res.teacheractivity}}</div>
+            <div class="hod-text">{{res.studentactivities}}</div>
+          </div>
+        </div>
+
+
+          <h4 class="my-4">Базовые учебные действия</h4>
+
+          <div class="d-flex justify-content-start">
+            <div class="topic" style="width: 200px">Ученик</div>
+            <div class="topic" style="width:1600px">БУД</div>
+          </div>
+
+          <div class="d-flex" *ngFor="let document10 of documentGuide10AggregateList">
+
+            <div class="bud-topic">{{document10.text}}</div>
+            <div class="bud-text">
+              <ul *ngFor="let element of document10.checkArray">
+                <li>{{Guide10Filter(element)}}</li>
+              </ul>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="p-0">
           <h3 class="my-4">Ход урока</h3>
       <div class="line">
@@ -437,6 +497,7 @@
                 <button type="button" class="btn btn-outline-primary mr-3">Сохранить в файл</button>
                 <button type="button" class="btn btn-outline-primary">Поделиться</button>
          -->
+        <button type="button" class="btn btn-outline-primary mr-3" (click)="printJsPdf()">Сохранить</button>
       </div>
 
 
@@ -445,6 +506,6 @@
 </div>
 
 </div>
-<button type="button" class="btn btn-outline-primary mr-3" (click)="printJsPdf()">Сохранить</button>
+
 
 
