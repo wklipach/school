@@ -90,7 +90,7 @@ export class ViewerV2Component implements OnInit {
   Guide7Resultat11: any[] = [];
   Guide7Resultat12: any[] = [];
 
-/*  
+/*
   Guide10Resultat1: any[] = [];
   Guide10Resultat2: any[] = [];
   Guide10Resultat3: any[] = [];
@@ -216,6 +216,7 @@ documentGuide10AggregateList: any[] = [];
 
 
       this.Guide7Resultat1 = this.lesson.objSummaryLesson2.Guide7Resultat1;
+      console.log('this.Guide7Resultat1=', this.Guide7Resultat1);
       this.Guide7Resultat2 = this.lesson.objSummaryLesson2.Guide7Resultat2;
       this.Guide7Resultat3 = this.lesson.objSummaryLesson2.Guide7Resultat3;
       this.Guide7Resultat4 = this.lesson.objSummaryLesson2.Guide7Resultat4;
