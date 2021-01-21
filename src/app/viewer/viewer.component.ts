@@ -19,6 +19,11 @@ import { saveAs } from 'file-saver';
 })
 export class ViewerComponent implements OnInit {
 
+  partEnd = false;
+  partBase = false;
+  partBegin = false;
+
+
   sNamePrint = 'АООП Вариант 1';
   UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
   lesson: any = {};
@@ -233,6 +238,28 @@ export class ViewerComponent implements OnInit {
       this.Guide8Resultat8 = this.lesson.objSummaryLesson2.Guide8Resultat8;
       this.Guide8Resultat9 = this.lesson.objSummaryLesson2.Guide8Resultat9;
       this.Guide8Resultat10 = this.lesson.objSummaryLesson2.Guide8Resultat10;
+
+
+      if (this.Guide7Resultat1.length > 0 || this.Guide7Resultat2.length > 0 ||
+          this.Guide7Resultat3.length > 0 || this.Guide7Resultat4.length > 0 || this.Guide7Resultat5.length > 0 ||
+          this.Guide8Resultat1.length > 0 || this.Guide8Resultat2.length > 0 ||
+          this.Guide8Resultat3.length > 0 || this.Guide8Resultat4.length > 0 || this.Guide8Resultat5.length > 0) {
+          this.partBegin = true;
+      };
+
+
+      if (this.Guide7Resultat6.length > 0 || this.Guide7Resultat7.length > 0 ||
+          this.Guide8Resultat6.length > 0 || this.Guide8Resultat7.length > 0) {
+
+          this.partBase = true;
+      };
+
+
+      if (this.Guide7Resultat8.length > 0 || this.Guide7Resultat9.length > 0 || this.Guide7Resultat10.length > 0 ||
+          this.Guide8Resultat8.length > 0 || this.Guide8Resultat9.length > 0 || this.Guide8Resultat10.length > 0) {
+          this.partEnd = true;
+      };
+
 
      }
   }
