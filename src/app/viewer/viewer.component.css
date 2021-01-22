@@ -1,11 +1,13 @@
 .container-fluid {
   /* min-height: calc(100vh - 160px); */
-  min-width: 1903px;
   text-align: center;
   padding: 0 4%;
 }
 a {
   cursor: pointer;
+}
+ul, li {
+  margin: 0;
 }
 .line {
   display: flex;
@@ -44,8 +46,8 @@ a {
 }
 span {
   text-align: left;
-  font-size: 18px;
-  padding: 10px 0 15px 10px;
+  font-size: .95em;
+  padding: 5px 0 5px 10px;
 }
 .topic-1 {
   width: 9%;
@@ -175,7 +177,16 @@ span {
   hyphens: auto;
   font-size: 15px;
 }
-
+.topic, .topic2, .table1Col1 {
+  font-weight: 600;
+  background-color: #eeeeee;
+  border: solid 1px #cdcdcd;
+  padding: 6px 0;
+  margin: 0;
+}
+.topic2 {
+  width: 50%;
+}
 .tasks-block {
 
   width:100%;
@@ -223,10 +234,9 @@ span {
   font-weight: 600;
 }
 .bud-text {
-  width: 1600px;
-  border: solid 1px #cdcdcd;
+  width: 100%;
   text-align: left;
-}
+  }
 .table1Col1 {
   width: 23%;
 }
