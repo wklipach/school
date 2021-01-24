@@ -33,7 +33,7 @@ ul, li {
 .view-half, .view-half-right {
   height: auto;
   text-align: left;
-  font-size: 18px;
+  font-size: 1em;
   border-right: solid 1px #cdcdcd;
   padding: 10px 5px;
 }
@@ -52,7 +52,7 @@ span {
 .topic-1 {
   width: 9%;
   height: auto;
-  font-size: 18px;
+  font-size: 1em;
   font-weight: 600;
   background-color: #e5e5e5;
   border-right: solid 1px #cdcdcd;
@@ -61,7 +61,7 @@ span {
 .topic-2 {
   width: 8%;
   height: auto;
-  font-size: 18px;
+  font-size: 1em;
   font-weight: 600;
   background-color: #e5e5e5;
   border-right: solid 1px #cdcdcd;
@@ -69,7 +69,7 @@ span {
 }
 .topic-3 {
   height: auto;
-  font-size: 18px;
+  font-size: 1em;
   font-weight: 600;
   background-color: #e5e5e5;
   border-right: solid 1px #cdcdcd;
@@ -79,7 +79,7 @@ span {
 .topic-4 {
   width: 12%;
   height: auto;
-  font-size: 18px;
+  font-size: 1em;
   font-weight: 600;
   background-color: #e5e5e5;
   border-right: solid 1px #cdcdcd;
@@ -88,7 +88,7 @@ span {
 .topic-5 {
   width: 12%;
   height: auto;
-  font-size: 18px;
+  font-size: 1em;
   font-weight: 600;
   background-color: #e5e5e5;
   border-right: solid 1px #cdcdcd;
@@ -97,7 +97,7 @@ span {
 .topic-6 {
   width: 100%;
   height: auto;
-  font-size: 18px;
+  font-size: 1em;
   font-weight: 600;
   background-color: #e5e5e5;
   border-right: solid 1px #cdcdcd;
@@ -106,7 +106,7 @@ span {
 .topic-7 {
   width: 9%;
   height: auto;
-  font-size: 18px;
+  font-size: 1em;
   font-weight: 600;
   background-color: #e5e5e5;
   border-right: solid 1px #cdcdcd;

@@ -64,23 +64,25 @@
             <td><span class="w-75">{{documentType2Lesson.title}}</span></td>
           </tr>
 
-          <tr>
-            <td colspan="2" class="view-left text-center" style="border-bottom: solid 1px #000000">Предполагаемые результаты</td>
-          </tr>
-
-          <tr class="view-left text-center">
-            <td class="w-50">Предметные</td>
-            <td class="w-50">Личностные</td>
-          </tr>
-
         </table>
+
+
+            <div class="view-left text-center" style="border-bottom: solid 1px #000000">Предполагаемые результаты</div>
+
+
+          <div class="d-flex view-left text-center">
+            <div class="w-50">Предметные</div>
+            <div class="w-50">Личностные</div>
+          </div>
+
+
 
       <div class="d-flex justify-content-between line">
         <div class="w-50 view-half">
           <div class="view-half-span">
 
             <div *ngFor="let DOL of documentObjectiveLessonList">
-              <span>{{DOL.title}} : {{DOL.AdditionalMessage}}</span>
+              <span>{{DOL.title}} : {{DOL.AdditionalMessage}}</span><p></p>
             </div>
           </div>
         </div>
@@ -88,7 +90,7 @@
           <div class="view-half-span">
 
             <div *ngFor="let DOL of documentPersonalLessonList">
-            <span>{{DOL.title}} : {{DOL.AdditionalMessage}}</span>
+            <span>{{DOL.title}} : {{DOL.AdditionalMessage}}</span><p></p>
             </div>
           </div>
         </div>
@@ -100,8 +102,8 @@
 
       <div *ngFor="let DOL of documentEquipmentList">
         <div class="d-flex justify-content-between line">
-          <div class="view-half w-50">{{DOL.title}}</div>
-          <div class="view-half-right w-50">{{DOL.AdditionalMessage}}</div>
+          <div class="view-half w-25">{{DOL.title}}</div>
+          <div class="view-half-right w-75">{{DOL.AdditionalMessage}}</div>
         </div>
       </div>
 
@@ -484,7 +486,7 @@
 
 
           <div *ngIf="Guide7Resultat1.length > 0 || Guide8Resultat1.length > 0">
-            <h5 class="topic mb-2">Этап урока - организационный этап</h5>
+            <h5 class="topic">Этап урока - организационный этап</h5>
           </div>
 
           <div *ngIf="Guide7Resultat1.length > 0">
@@ -514,7 +516,7 @@
 
 
           <div *ngIf="Guide7Resultat2.length > 0 || Guide8Resultat2.length > 0">
-            <h5 class="topic mb-2">Этап урока - проверка домашнего задания</h5>
+            <h5 class="topic">Этап урока - проверка домашнего задания</h5>
           </div>
 
           <div *ngIf="Guide7Resultat2.length > 0">
