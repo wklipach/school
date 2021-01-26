@@ -1,7 +1,8 @@
 .container-fluid {
   /* min-height: calc(100vh - 160px); */
   text-align: center;
-  padding: 0 4%;
+  padding: 0 1%;
+  transform: rotate(-90deg);
 }
 a {
   cursor: pointer;
@@ -44,14 +45,6 @@ span {
   text-align: left;
   font-size: .95em;
   padding: 5px 0 5px 10px;
-}
-.span-but {
-  writing-mode: tb-rl;
-  font-size: 20px;
-  font-weight: 700;
-  margin: 20px auto;
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
 }
 .column1 {
   vertical-align: middle;
