@@ -4,6 +4,7 @@ import {AuthService} from '../services/auth.service';
 import {GuideService} from '../services/guide.service';
 import {forkJoin} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import printJS from 'print-js'
 
 @Component({
   selector: 'app-viewer-v2',
@@ -393,27 +394,85 @@ documentGuide10AggregateList: any[] = [];
 
   print() {
     this.print4x();
+    // this.print4x_2();
   }
 
 
   print4x() {
+
+
+
     this.http.get('assets/viewer.txt', { responseType: 'text' }).subscribe( data =>  {
       const printContent = document.getElementById('contentToConvert');
-      const WindowPrt = window.open('', '', 'left=0,top=0,width=900,height=900,toolbar=0,scrollbars=0,status=0');
+      const WindowPrt = window.open('', '', 'left=0,top=0,width=100,height=100,toolbar=0,scrollbars=0,status=0');
+
+      // screen.orientation.lock('landscape');
+
+/*
       WindowPrt.document.write('<html><head>' +
         '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" ' +
         'integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">'+
         '<style>' +
         data +
         '</style></head>');
+*/
+
+
+    const strBegin = '<html><head>' +
+      '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"' +
+      'integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">'+
+      '<style type = "text/css">  @page { size: landscape; }' +
+      data +
+      '</style></head>';
+
+      WindowPrt.document.write(strBegin);
       WindowPrt.document.write(printContent.innerHTML + '</html>');
+
+      console.log(strBegin+ printContent.innerHTML + '</html>');
+
       WindowPrt.document.close();
       WindowPrt.focus();
+      // WindowPrt.screen.orientation.lock('landscape');
       WindowPrt.print();
       // WindowPrt.close();
     });
   }
 
+  orrr() {
+   // screen.orientation.lock('landscape');
+    screen.orientation.lock('landscape-primary');
+ }
 
+  start() {
+
+    if ("orientation" in screen) {
+    alert('111111');
+    }
+
+   // await document.body.requestFullscreen();
+    screen.orientation.lock('landscape');
+    // await screen.orientation.lock("landscape");
+  }
+
+  ready() {
+    const { type } = screen.orientation;
+    console.log(`Fullscreen and locked to ${type}. Ready!`);
+  }
+
+  print4x_2() {
+    printJS({
+      printable: 'contentToConvert',
+      type: 'html',
+      style: '@page { size: A4 landscape; }'
+    })
+  }
+/*
+<style type="text/css" media="print">
+    @page { size: landscape;} body {  writing-mode: tb-rl; }
+
+
+
+</style>
+*/
 
 }
