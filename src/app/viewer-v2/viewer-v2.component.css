@@ -1,8 +1,9 @@
 .container-fluid {
-  /* min-height: calc(100vh - 160px); */
+  /* min-height: calc(100vh - 160px);
+    transform: rotate(-90deg); */
   text-align: center;
   padding: 0 1%;
-  transform: rotate(-90deg);
+
 }
 a {
   cursor: pointer;
@@ -124,7 +125,6 @@ width: 23%;
 .tasks1 {
   border: solid 1px #cdcdcd;
   width: 25%;
-
 }
 .tasks2 {
   border: solid 1px #cdcdcd;
@@ -132,3 +132,35 @@ width: 23%;
   text-align: left;
   padding: 0 10px;
 }
+@media print{
+ * {
+  color:  #000000;
+ }
+  .buttons-right, button{
+    display: none;
+  }
+  table td{
+    border: solid 0.5px #000000;
+  }
+body {
+  margin: 0;
+  background: #CCCCCC;
+}
+
+
+}
+/*
+    -webkit-transform: rotate(-90deg);
+    -moz-transform:rotate(-90deg);
+    filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+    height: 210mm;
+    width: 297mm;
+    margin: 10mm 10mm 10mm 20mm;
+  @page {size: landscape;}
+*/
+
+
+
+
+
