@@ -12,7 +12,9 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": [
-              "ng2-flatpickr"
+              "ng2-flatpickr",
+              "canvg/lib/index.es.js",
+              "@babel/runtime-corejs3"
             ],
             "outputPath": "dist/school",
             "index": "src/index.html",

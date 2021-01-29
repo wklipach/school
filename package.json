@@ -42,6 +42,7 @@
     "@angular/cli": "^10.2.0",
     "@angular/compiler-cli": "^10.2.1",
     "@angular/language-service": "^10.2.1",
+    "@babel/runtime-corejs3": "^7.12.5",
     "@types/file-saver": "^2.0.1",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",

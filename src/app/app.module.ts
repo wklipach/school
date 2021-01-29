@@ -32,6 +32,7 @@ import { Elem2linesComponent } from './components/elem2lines/elem2lines.componen
 import { Guide10Component } from './components/guide10/guide10.component';
 import { RightpanelComponent } from './components/rightpanel/rightpanel.component';
 import {Guide7_2Service} from "./components/guide7_2/guide7_2.service";
+import {DatePipe} from "@angular/common";
 
 
 // определение маршрутов
@@ -86,7 +87,7 @@ const appRoutes: Routes = [
     Ng2FlatpickrModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [GlobalRef, GuideService, Guide7Service, Guide7_2Service],
+  providers: [GlobalRef, GuideService, Guide7Service, Guide7_2Service, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

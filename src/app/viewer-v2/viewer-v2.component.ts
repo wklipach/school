@@ -5,6 +5,8 @@ import {GuideService} from '../services/guide.service';
 import {forkJoin} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import printJS from 'print-js'
+import { jsPDF } from "jspdf";
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-viewer-v2',
@@ -12,6 +14,10 @@ import printJS from 'print-js'
   styleUrls: ['./viewer-v2.component.css']
 })
 export class ViewerV2Component implements OnInit {
+
+  MARGIN_LEFT = 5;
+  textHeight = 5;
+  positionY = 5;
 
   partEnd = false;
   partBase = false;
@@ -116,7 +122,11 @@ documentGuide10AggregateList: any[] = [];
 
   UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
 
-  constructor(private router: Router, private gs: GuideService, private auth: AuthService, private http: HttpClient) {
+  constructor(private router: Router,
+              private gs: GuideService,
+              private auth: AuthService,
+              private http: HttpClient,
+              private datePipe: DatePipe) {
 
     if (!this.auth.getViewPrintId()) {
       this.router.navigate(['/']);
@@ -443,17 +453,6 @@ documentGuide10AggregateList: any[] = [];
     screen.orientation.lock('landscape-primary');
  }
 
-  start() {
-
-    if ("orientation" in screen) {
-    alert('111111');
-    }
-
-   // await document.body.requestFullscreen();
-    screen.orientation.lock('landscape');
-    // await screen.orientation.lock("landscape");
-  }
-
   ready() {
     const { type } = screen.orientation;
     console.log(`Fullscreen and locked to ${type}. Ready!`);
@@ -466,13 +465,45 @@ documentGuide10AggregateList: any[] = [];
       style: '@page { size: A4 landscape; }'
     })
   }
-/*
-<style type="text/css" media="print">
-    @page { size: landscape;} body {  writing-mode: tb-rl; }
 
 
 
-</style>
-*/
+  private addText(pdf: jsPDF, text) {
+    //if (this.positionY + textHeight > (this.pdf.internal.pages.height - MARGIN_BOTTOM)) {
+    //  this.addPage();
+    //}
+    pdf.text(text, this.MARGIN_LEFT, this.positionY + this.textHeight);
+    this.positionY += this.textHeight;
+  }
+
+
+  start() {
+    const doc = new jsPDF();
+
+    doc.addFont("assets/a_AntiqueTrady.ttf", "AntiqueTrady", "normal");
+    doc.setFont("AntiqueTrady"); // set font
+    doc.setFontSize(10);
+
+    // обнуляем пеерменные
+    this.MARGIN_LEFT = 5;
+    this.textHeight = 5;
+    this.positionY = 5;
+
+
+    this.addText(doc, 'Дата: ' + this.datePipe.transform(this.curFormDate, 'dd.MM.yyyy'));
+    this.addText(doc, 'Учитель: '+ this.fio);
+    this.addText(doc, 'Класс: '+ this.documentClassNameLetter.title);
+    this.addText(doc, 'ФИО обучающего (индивидуальное обучение): '+ this.fioTeacherhome);
+    this.addText(doc, 'Учебный предмет: '+ this.documentLessons2.title);
+
+    this.addText(doc, 'Тема урока: '+ this.lessonTopic);
+    this.addText(doc, 'Цель урока: '+ this.lessonObjectives);
+    this.addText(doc, 'Тип урока: '+ this.documentTypeLesson.title);
+    this.addText(doc, 'Форма проведения урока(вид урока): '+ this.documentType2Lesson.title);
+
+    doc.save("viewer-v2.pdf");
+  }
+
+
 
 }
