@@ -459,11 +459,15 @@ documentGuide10AggregateList: any[] = [];
   }
 
   print4x_2() {
+
     printJS({
       printable: 'contentToConvert',
       type: 'html',
+      css: '/assets/viewer-v2.component.css',
       style: '@page { size: A4 landscape; }'
     })
+
+
   }
 
 

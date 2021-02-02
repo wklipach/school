@@ -13,6 +13,7 @@ import printJS from "print-js";
 // import * as jsPDF from 'jspdf';
 
 
+
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
@@ -276,12 +277,17 @@ export class ViewerComponent implements OnInit {
   }
 
   print4x_2() {
+   
     printJS({
       printable: 'contentToConvert',
       type: 'html',
+      css: '/assets/viewer.component.css',
       style: '@page { size: A4 landscape; }'
     })
   }
+
+
+
 
 print4x() {
         this.http.get('assets/viewer.txt', { responseType: 'text' }).subscribe( data =>  {

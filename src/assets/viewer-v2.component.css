@@ -1,0 +1,164 @@
+.container-fluid {
+  /* min-height: calc(100vh - 160px); */
+  text-align: center;
+  padding: 0 2.5%;
+}
+a {
+  cursor: pointer;
+}
+ul, li {
+  margin: 0;
+}
+.line {
+  height: auto;
+  margin: 0;
+  border: solid 1px #cdcdcd;
+}
+.view-left {
+  height: auto;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #eeeeee;
+  border-right: solid 1px #cdcdcd;
+  padding: 10px 0;
+}
+.view-half, .view-half-right {
+  height: auto;
+  text-align: left;
+  font-size: 18px;
+  border-right: solid 1px #cdcdcd;
+  padding: 10px 5px;
+}
+.view-half-data {
+  display: flex;
+  flex-direction: column;
+}
+.view-half-right {
+  border: none;
+}
+.view-half-span {
+  display: flex;
+  flex-direction: column;
+}
+span {
+  text-align: left;
+  font-size: .95em;
+  padding: 5px 1px 5px 10px;
+  hyphens: auto;
+}
+.column1 {
+  vertical-align: middle;
+  font-weight: 600;
+  width: 300px;
+}
+.column2 {
+  color: #6f6a6a;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: left;
+  width: 500px;
+}
+.column3 {
+  width: auto;
+  font-size: 1em;
+  text-align: left;
+}
+.noMargin {
+  width: 100%;
+  border: none;
+}
+
+.topic, .topic2, .table1Col1 {
+  font-weight: 600;
+  background-color: #eeeeee;
+  border: solid 1px #cdcdcd;
+  padding: 6px 0;
+  margin: 0;
+}
+.topic2 {
+  width: 50%;
+}
+.hod-text-topic {
+  width: calc(100vw/3);
+  border: solid 1px #cdcdcd;
+  padding: 10px;
+  margin: 0;
+}
+.hod-text {
+  width: calc(100vw/3);
+  text-align: left;
+  border: solid 1px #cdcdcd;
+  padding: 5px 1px 10px 3px;
+  margin: 0;
+}
+.bud-topic {
+  width: 200px;
+  padding-top: 10px;
+  border: solid 1px #cdcdcd;
+  font-weight: 600;
+}
+.bud-text {
+  width: 1600px;
+  border: solid 1px #cdcdcd;
+  text-align: left;
+}
+.table1Col1 {
+width: 23%;
+}
+.table td {
+  padding: .2rem;
+}
+.tasks-block {
+
+  width:100%;
+}
+
+.tasks-head {
+  width: 15%;
+
+  border: solid 1px #cdcdcd;
+}
+.half-line {
+  width: 100%;
+}
+.tasks1 {
+  border: solid 1px #cdcdcd;
+  width: 25%;
+}
+.tasks2 {
+  border: solid 1px #cdcdcd;
+  width: 75%;
+  text-align: left;
+  padding: 6px 10px;
+}
+@media print{
+ * {
+  color:  #000000;
+ }
+  .buttons-right, button{
+    display: none;
+  }
+  table td{
+    border: solid 0.5px #000000;
+  }
+body {
+  margin: 0;
+}
+
+
+}
+/*
+    -webkit-transform: rotate(-90deg);
+    -moz-transform:rotate(-90deg);
+    filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+    height: 210mm;
+    width: 297mm;
+    margin: 10mm 10mm 10mm 20mm;
+  @page {size: landscape;}
+*/
+
+
+
+
+
