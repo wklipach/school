@@ -47,7 +47,8 @@ ul, li {
 span {
   text-align: left;
   font-size: .95em;
-  padding: 5px 0 5px 10px;
+  padding: 5px 1px 5px 10px;
+  hyphens: auto;
 }
 .topic-1 {
   width: 9%;
@@ -224,7 +225,7 @@ span {
   width: calc(100vw/3);
   text-align: left;
   border: solid 1px #cdcdcd;
-  padding: 2px 6px;
+  padding: 5px 1px 10px 3px;
   margin: 0;
 }
 .bud-topic {
@@ -269,4 +270,24 @@ span {
   width: 75%;
   text-align: left;
   padding: 0 10px;
+}
+@page {
+  size: landscape;
+}
+@media print{
+  * {
+    color:  #000000;
+  }
+  .buttons-right, button{
+    display: none;
+  }
+  table td{
+    border: solid 0.5px #000000;
+  }
+  .not-break, table {
+    page-break-inside: auto;
+  }
+  body {
+    margin: 0;
+  }
 }
