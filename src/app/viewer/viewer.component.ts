@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { jsPDF } from 'jspdf';
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
+import printJS from "print-js";
 
 // import * as jsPDF from 'jspdf';
 
@@ -274,6 +275,13 @@ export class ViewerComponent implements OnInit {
     this.print4x();
   }
 
+  print4x_2() {
+    printJS({
+      printable: 'contentToConvert',
+      type: 'html',
+      style: '@page { size: A4 landscape; }'
+    })
+  }
 
 print4x() {
         this.http.get('assets/viewer.txt', { responseType: 'text' }).subscribe( data =>  {
