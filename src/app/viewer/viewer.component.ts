@@ -298,10 +298,10 @@ print4x() {
               '<html><head>' +
               '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" ' +
                 'integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">' +
-              '<link rel="stylesheet" href="http://127.0.0.1:4201/assets/viewer.component.css">' +
               '<style>' +
-              data +
-              '</style></head>';
+               data +
+              '</style>' +
+              '</head>';
 
               sText = sText  + printContent.innerHTML + '</html>';
 
