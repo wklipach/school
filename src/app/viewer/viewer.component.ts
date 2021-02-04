@@ -288,7 +288,34 @@ export class ViewerComponent implements OnInit {
 
 
 
+  print4x() {
+  forkJoin([
+    this.http.get('https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css', { responseType: 'text' }),
+    this.http.get('assets/viewer.component.css', { responseType: 'text' })
+  ]).subscribe(results => {
 
+    const printContent = document.getElementById('contentToConvert');
+    const WindowPrt = window.open('100', '100', 'width=900,height=500,toolbar=0,scrollbars=0,status=0,location=no');
+
+    let sText = '<html><head><style>' + results[0] + results[1] + '</style>' + '</head>';
+    sText = sText  + printContent.innerHTML + '</html>';
+
+    console.log('ЭТО СТРАНИЦА');
+    console.log(sText);
+    console.log('СТРАНИЦА ЗАКОНЧЕНА');
+
+    WindowPrt.document.write(sText);
+
+    WindowPrt.document.close();
+    WindowPrt.focus();
+    WindowPrt.print();
+    WindowPrt.close();
+
+  });
+
+  }
+
+/*
 print4x() {
         this.http.get('assets/viewer.txt', { responseType: 'text' }).subscribe( data =>  {
               const printContent = document.getElementById('contentToConvert');
@@ -296,8 +323,7 @@ print4x() {
 
               let sText =
               '<html><head>' +
-              '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" ' +
-                'integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">' +
+              '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">' +
               '<style>' +
                data +
               '</style>' +
@@ -318,7 +344,7 @@ print4x() {
               WindowPrt.close();
       });
 }
-
+*/
 
 loadTask(objSummaryLesson) {
 
