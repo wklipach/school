@@ -277,7 +277,7 @@ export class ViewerComponent implements OnInit {
   }
 
   print4x_2() {
-   
+
     printJS({
       printable: 'contentToConvert',
       type: 'html',
@@ -292,14 +292,26 @@ export class ViewerComponent implements OnInit {
 print4x() {
         this.http.get('assets/viewer.txt', { responseType: 'text' }).subscribe( data =>  {
               const printContent = document.getElementById('contentToConvert');
-              const WindowPrt = window.open('', '', 'left=0,top=0,width=900,height=900,toolbar=0,scrollbars=0,status=0');
-              WindowPrt.document.write('<html><head>' +
+              const WindowPrt = window.open('100', '100', 'width=900,height=500,toolbar=0,scrollbars=0,status=0,location=no');
+
+              let sText =
+              '<html><head>' +
               '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" ' +
                 'integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">' +
+              '<link rel="stylesheet" href="http://127.0.0.1:4201/assets/viewer.component.css">' +
               '<style>' +
               data +
-              '</style></head>');
-              WindowPrt.document.write(printContent.innerHTML + '</html>');
+              '</style></head>';
+
+              sText = sText  + printContent.innerHTML + '</html>';
+
+
+              console.log('ЭТО СТРАНИЦА');
+              console.log(sText);
+              console.log('СТРАНИЦА ЗАКОНЧЕНА');
+
+              WindowPrt.document.write(sText);
+
               WindowPrt.document.close();
               WindowPrt.focus();
               WindowPrt.print();

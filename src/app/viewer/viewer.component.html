@@ -1,5 +1,7 @@
 <app-rightpanel class="buttons-right"></app-rightpanel>
 
+<div id="contentToConvert">  <!-- это див для секции печати-->
+
 <div class="container-fluid">
 
 
@@ -8,8 +10,6 @@
 
   <div class="row">
     <div class="col-12">
-
-       <div id="contentToConvert">  <!-- это закрывающий див для секции печати-->
 
       <h3 class="lesson my-2">{{sNamePrint}}</h3>
 
@@ -892,4 +892,4 @@
 </div>
 
 
-<button type="button" class="btn btn-outline-primary mr-3" (click)="print4x_2()">Распечатать</button>
+<button type="button" class="btn btn-outline-primary mr-3" (click)="print4x()">Распечатать</button>
