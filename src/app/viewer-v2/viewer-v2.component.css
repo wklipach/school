@@ -2,6 +2,7 @@
   /* min-height: calc(100vh - 160px); */
   text-align: center;
   padding: 0 2.5%;
+  padding-bottom: 2%;
 }
 a {
   cursor: pointer;
@@ -131,34 +132,29 @@ width: 23%;
   text-align: left;
   padding: 6px 10px;
 }
+
+.buttons-line {
+  text-align: center;
+}
+@page {
+  size: landscape;
+}
 @media print{
- * {
-  color:  #000000;
- }
-  .buttons-right, button{
+  * {
+    color:  #000000;
+  }
+  .buttons-right, button buttons-line{
     display: none;
   }
   table td{
     border: solid 0.5px #000000;
   }
-body {
-  margin: 0;
+  .not-break, table {
+    page-break-inside: auto;
+  }
+  body {
+    margin: 0;
+  }
 }
-
-
-}
-/*
-    -webkit-transform: rotate(-90deg);
-    -moz-transform:rotate(-90deg);
-    filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-
-    height: 210mm;
-    width: 297mm;
-    margin: 10mm 10mm 10mm 20mm;
-  @page {size: landscape;}
-*/
-
-
-
 
 

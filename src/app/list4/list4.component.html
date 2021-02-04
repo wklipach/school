@@ -8,7 +8,6 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <div class="lesson">ЛИСТ 4</div>
 
       <app-caption></app-caption>
 
@@ -65,7 +64,7 @@
 
        <div class="card pl-3 pr-2 py-4 mb-5">
 
-         <h5 class="mb-3">Учебный предмет (СПИСОК № 1)</h5>
+         <h5 class="mb-3">Учебный предмет</h5>
 
          <div class="dropdown">
            <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -261,7 +260,7 @@
 
       <div class="card pl-3 pr-2 py-4 mb-5">
 
-        <h5 class="mb-3">Тип урока СПИСОК № 2</h5>
+        <h5 class="mb-3">Тип урока</h5>
 
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -278,7 +277,7 @@
 
       <div class="card pl-3 pr-2 py-4 mb-5">
 
-        <h5 class="mb-3">Форма проведения урока (вид урока) СПИСОК № 3</h5>
+        <h5 class="mb-3">Форма проведения урока (вид урока)</h5>
 
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -298,8 +297,7 @@
 
 
 
-        <h5 class="mb-3">Предполагаемые результаты СПИСОК № 4
-        </h5>
+        <h5 class="mb-3">Предполагаемые результаты</h5>
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Предметные
@@ -308,7 +306,7 @@
             <button class="dropdown-item" type="button" *ngFor="let curValue of listObjectiveLesson" (click)="onObjectiveLesson(curValue)">{{curValue.title}}</button>
           </div>
         </div>
-        <!-- начало цикла Предполагаемые результаты СПИСОК № 4 -->
+        <!-- начало цикла Предполагаемые результаты -->
         <div *ngFor="let DOL of documentObjectiveLessonList; let i = index">
           <div *ngIf="DOL.delete === 0">
                 <div class="line-result mb-3">
@@ -330,8 +328,7 @@
 
       <div class="card pl-3 pr-2 py-4 mb-5">
 
-        <h5 class="mb-3">Предполагаемые результаты СПИСОК № 5
-        </h5>
+        <h5 class="mb-3">Предполагаемые результаты</h5>
 
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -365,7 +362,7 @@
 
       <div class="card pl-3 pr-2 py-4 mb-5">
 
-        <h5 class="mb-3">СПИСОК № 6 ОБОРУДОВАНИЕ И МАТЕРИАЛЫ</h5>
+        <h5 class="mb-3">ОБОРУДОВАНИЕ И МАТЕРИАЛЫ</h5>
 
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
