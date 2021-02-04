@@ -300,10 +300,6 @@ export class ViewerComponent implements OnInit {
     let sText = '<html><head><style>' + results[0] + results[1] + '</style>' + '</head>';
     sText = sText  + printContent.innerHTML + '</html>';
 
-    console.log('ЭТО СТРАНИЦА');
-    console.log(sText);
-    console.log('СТРАНИЦА ЗАКОНЧЕНА');
-
     WindowPrt.document.write(sText);
 
     WindowPrt.document.close();

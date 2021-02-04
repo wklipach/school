@@ -408,25 +408,11 @@ documentGuide10AggregateList: any[] = [];
   }
 
 
+/*
   print4x() {
-
-
-
     this.http.get('assets/viewer.txt', { responseType: 'text' }).subscribe( data =>  {
       const printContent = document.getElementById('contentToConvert');
       const WindowPrt = window.open('', '', 'left=0,top=0,width=100,height=100,toolbar=0,scrollbars=0,status=0');
-
-      // screen.orientation.lock('landscape');
-
-/*
-      WindowPrt.document.write('<html><head>' +
-        '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" ' +
-        'integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">'+
-        '<style>' +
-        data +
-        '</style></head>');
-*/
-
 
     const strBegin = '<html><head>' +
       '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"' +
@@ -447,6 +433,8 @@ documentGuide10AggregateList: any[] = [];
       // WindowPrt.close();
     });
   }
+*/
+
 
   orrr() {
    // screen.orientation.lock('landscape');
@@ -466,7 +454,29 @@ documentGuide10AggregateList: any[] = [];
       css: '/assets/viewer-v2.component.css',
       style: '@page { size: A4 landscape; }'
     })
+  }
 
+
+  print4x() {
+    forkJoin([
+      this.http.get('https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css', { responseType: 'text' }),
+      this.http.get('assets/viewer-v2.component.css', { responseType: 'text' })
+    ]).subscribe(results => {
+
+      const printContent = document.getElementById('contentToConvert');
+      const WindowPrt = window.open('100', '100', 'width=900,height=500,toolbar=0,scrollbars=0,status=0,location=no');
+
+      let sText = '<html><head><style>' + results[0] + results[1] + '</style>' + '</head>';
+      sText = sText  + printContent.innerHTML + '</html>';
+
+      WindowPrt.document.write(sText);
+
+      WindowPrt.document.close();
+      WindowPrt.focus();
+      WindowPrt.print();
+      WindowPrt.close();
+
+    });
 
   }
 
