@@ -2,6 +2,7 @@
   /* min-height: calc(100vh - 160px); */
   text-align: center;
   padding: 0 4%;
+  padding-bottom: 2%;
 }
 a {
   cursor: pointer;
@@ -271,6 +272,9 @@ span {
   text-align: left;
   padding: 6px 10px;
 }
+.buttons-line {
+  text-align: center;
+}
 @page {
   size: landscape;
 }
@@ -278,7 +282,7 @@ span {
   * {
     color:  #000000;
   }
-  .buttons-right, button{
+  .buttons-right, button buttons-line{
     display: none;
   }
   table td{
