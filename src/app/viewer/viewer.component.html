@@ -393,6 +393,20 @@
             </div>
           </div>
 
+          <div *ngIf="Guide7Resultat6.length === 0 && (teacheractivity6.length > 0 || studentactivities6.length > 0)">
+            <div class="d-flex justify-content-around">
+              <h5 class="hod-text-topic">Методы и приемы</h5>
+              <h5 class="hod-text-topic">Деятельность учителя</h5>
+              <h5 class="hod-text-topic">Деятельность ученика</h5>
+            </div>
+            <div class="d-flex">
+              <div class="hod-text"></div>
+              <div class="hod-text" [innerHTML]="teacheractivity6.toCurHTML()"></div>
+              <div class="hod-text" [innerHTML]="studentactivities6.toCurHTML()"></div>
+            </div>
+          </div>
+
+
           <div *ngFor="let g8res of this.Guide8Resultat6">
             <div class="bud-text">
               <ul>
@@ -420,6 +434,21 @@
               <div *ngIf="i > 0" class="hod-text"></div>
             </div>
           </div>
+
+
+          <div *ngIf="Guide7Resultat7.length === 0 && (teacheractivity7.length > 0 || studentactivities7.length > 0)">
+            <div class="d-flex justify-content-around">
+              <h5 class="hod-text-topic">Методы и приемы</h5>
+              <h5 class="hod-text-topic">Деятельность учителя</h5>
+              <h5 class="hod-text-topic">Деятельность ученика</h5>
+            </div>
+            <div class="d-flex">
+              <div class="hod-text"></div>
+              <div class="hod-text" [innerHTML]="teacheractivity7.toCurHTML()"></div>
+              <div class="hod-text" [innerHTML]="studentactivities7.toCurHTML()"></div>
+            </div>
+          </div>
+
 
           <div *ngFor="let g8res of this.Guide8Resultat7">
             <div class="bud-text">
