@@ -20,7 +20,7 @@ declare global {
 }
 
 String.prototype.toCurHTML = function () {
-  const str =  this.replace(/(?:\r\n|\r|\n)/g, "<br>").replaceAll(" ", String.fromCharCode(160));
+  const str =  this.replace(/(?:\r\n|\r|\n)/g, "<br>");
   return str;
 };
 
