@@ -1,24 +1,36 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {Router} from '@angular/router';
-import {AuthService} from '../services/auth.service';
-import {GuideService} from '../services/guide.service';
-import {forkJoin} from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import {Component, OnInit, SecurityContext} from "@angular/core";
+import { DomSanitizer } from '@angular/platform-browser';
+import {Router} from "@angular/router";
+import {AuthService} from "../services/auth.service";
+import {GuideService} from "../services/guide.service";
+import {forkJoin} from "rxjs";
+import { HttpClient } from "@angular/common/http";
 
-import { jsPDF } from 'jspdf';
-import domtoimage from 'dom-to-image';
-import { saveAs } from 'file-saver';
+import { jsPDF } from "jspdf";
+import domtoimage from "dom-to-image";
+import { saveAs } from "file-saver";
 import printJS from "print-js";
 
 // import * as jsPDF from 'jspdf';
 
+declare global {
+  interface String {
+    toCurHTML(): number;
+  }
+}
+
+String.prototype.toCurHTML = function () {
+  const str =  this.replace(/(?:\r\n|\r|\n)/g, "<br>").replaceAll(" ", String.fromCharCode(160));
+  return str;
+};
 
 
 @Component({
-  selector: 'app-viewer',
-  templateUrl: './viewer.component.html',
-  styleUrls: ['./viewer.component.css']
+  selector: "app-viewer",
+  templateUrl: "./viewer.component.html",
+  styleUrls: ["./viewer.component.css"]
 })
+
 export class ViewerComponent implements OnInit {
 
   partEnd = false;
@@ -26,15 +38,15 @@ export class ViewerComponent implements OnInit {
   partBegin = false;
 
 
-  sNamePrint = 'АООП Вариант 1';
-  UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
+  sNamePrint = "АООП Вариант 1";
+  UserInfo = {schoolLogin: "", bSchoolConnected: false, id_user_school: "", editor: 0};
   lesson: any = {};
-  fio = '';
-  documentClassNameNumber = {id: -1, title: '--'};
-  documentClassNameLetter = {id: -1, title: '--'};
-  documentLessons = {id: -1, title: ''};
-  documentTypeLesson = {id: -1, title: ''};
-  documentType2Lesson = {id: -1, title: ''};
+  fio = "";
+  documentClassNameNumber = {id: -1, title: "--"};
+  documentClassNameLetter = {id: -1, title: "--"};
+  documentLessons = {id: -1, title: ""};
+  documentTypeLesson = {id: -1, title: ""};
+  documentType2Lesson = {id: -1, title: ""};
 
   documentObjectiveLessonList: any[] = [];
   documentPersonalLessonList: any[] = [];
@@ -52,45 +64,45 @@ export class ViewerComponent implements OnInit {
 //  documentEquipment = {id: -1, title: ''};
 //  documentGroupMethod = {id: -1, id_group: -1, title: ''};
 //  documentMethod = {id: -1, id_group: -1, title: ''};
-  fioTeacherhome = '';
-  lessonTopic = '';
-  lessonObjectives = '';
-  lessonTasks = '';
+  fioTeacherhome = "";
+  lessonTopic = "";
+  lessonObjectives = "";
+  lessonTasks = "";
   curFormDate: Date;
 
 
-  reviewerrecommendations = '';
-  reviewerrecommendations2 = '';
-  reviewerrecommendations3 = '';
-  reviewerrecommendations4 = '';
-  reviewerrecommendations5 = '';
-  reviewerrecommendations6 = '';
-  reviewerrecommendations7 = '';
-  reviewerrecommendations8 = '';
-  reviewerrecommendations9 = '';
-  reviewerrecommendations10 = '';
+  reviewerrecommendations = "";
+  reviewerrecommendations2 = "";
+  reviewerrecommendations3 = "";
+  reviewerrecommendations4 = "";
+  reviewerrecommendations5 = "";
+  reviewerrecommendations6 = "";
+  reviewerrecommendations7 = "";
+  reviewerrecommendations8 = "";
+  reviewerrecommendations9 = "";
+  reviewerrecommendations10 = "";
 
-  teacheractivity = '';
-  teacheractivity2 = '';
-  teacheractivity3 = '';
-  teacheractivity4 = '';
-  teacheractivity5 = '';
-  teacheractivity6 = '';
-  teacheractivity7 = '';
-  teacheractivity8 = '';
-  teacheractivity9 = '';
-  teacheractivity10 = '';
+  teacheractivity = "";
+  teacheractivity2 = "";
+  teacheractivity3 = "";
+  teacheractivity4 = "";
+  teacheractivity5 = "";
+  teacheractivity6 = "";
+  teacheractivity7 = "";
+  teacheractivity8 = "";
+  teacheractivity9 = "";
+  teacheractivity10 = "";
 
-  studentactivities = '';
-  studentactivities2 = '';
-  studentactivities3 = '';
-  studentactivities4 = '';
-  studentactivities5 = '';
-  studentactivities6 = '';
-  studentactivities7 = '';
-  studentactivities8 = '';
-  studentactivities9 = '';
-  studentactivities10 = '';
+  studentactivities = "";
+  studentactivities2 = "";
+  studentactivities3 = "";
+  studentactivities4 = "";
+  studentactivities5 = "";
+  studentactivities6 = "";
+  studentactivities7 = "";
+  studentactivities8 = "";
+  studentactivities9 = "";
+  studentactivities10 = "";
 
   Guide7Resultat1: any[] = [];
   Guide7Resultat2: any[] = [];
@@ -117,17 +129,22 @@ export class ViewerComponent implements OnInit {
   // listBasicLearningActivities: any;
   guide8list: any[]  = [];
 
-  constructor(private router: Router, private gs: GuideService, private auth: AuthService, private http: HttpClient) {
+  constructor(private router: Router, private gs: GuideService,
+              private auth: AuthService, private http: HttpClient,
+              private _sanitizer: DomSanitizer) {
+
     if (!this.auth.getViewPrintId()) {
-      this.router.navigate(['/']);
+      this.router.navigate(["/"]);
     }
 
     this.UserInfo = this.auth.getStorage();
     if (!this.UserInfo.bSchoolConnected) {
-      this.router.navigate(['/login']);
+      this.router.navigate(["/login"]);
     }
 
    }
+
+
 
   ngOnInit(): void {
 
@@ -135,11 +152,11 @@ export class ViewerComponent implements OnInit {
 
     const lesson_id = this.auth.getViewPrintId();
     forkJoin([
-      this.gs.selectCollection('classBasicLearningActivities'),
+      this.gs.selectCollection("classBasicLearningActivities"),
       this.gs.getLesson(lesson_id),
-      this.gs.selectCollection('classEducationalTasksV1'),
-      this.gs.selectCollection('classCorrectionalTasksV1'),
-      this.gs.selectCollection('classRaisetionalTasksV1')
+      this.gs.selectCollection("classEducationalTasksV1"),
+      this.gs.selectCollection("classCorrectionalTasksV1"),
+      this.gs.selectCollection("classRaisetionalTasksV1")
 
     ]).subscribe(results => {
       this.guide8list = <any[]>results[0];
@@ -153,10 +170,12 @@ export class ViewerComponent implements OnInit {
 
   }
 
+
+
   loadData() {
 
     this.auth.getUserFromID(this.lesson.id_user).subscribe( user => {
-      this.fio = user[0].fio;
+      this.fio = user[0].fio.toString();
     });
 
     this.documentClassNameNumber = this.lesson.objSummaryLesson.documentClassNameNumber;
@@ -164,10 +183,17 @@ export class ViewerComponent implements OnInit {
 
 
     this.curFormDate = new Date(this.lesson.objSummaryLesson.formControlDate[0]);
-    this.fioTeacherhome = this.lesson.objSummaryLesson.fioteacherhome;
+
+    this.fioTeacherhome = this.lesson.objSummaryLesson.fioteacherhome.toCurHTML();
     this.documentLessons = this.lesson.objSummaryLesson.documentLessons;
-    this.lessonTopic = this.lesson.objSummaryLesson.lessonTopic;
-    this.lessonObjectives = this.lesson.objSummaryLesson.lessonObjectives;
+
+
+    //this._sanitizer.sanitize(SecurityContext.HTML, title); this.lesson.objSummaryLesson.lessonTopic.toCurHTML()
+    this.lessonTopic = this.lesson.objSummaryLesson.lessonTopic.toCurHTML();
+
+    // console.log("toCurHTML=", this.lessonTopic.toCurHTML());
+
+    this.lessonObjectives = this.lesson.objSummaryLesson.lessonObjectives.toCurHTML();
 
     if (this.lesson.objSummaryLesson.lessonTasks) {
       this.lessonTasks = this.lesson.objSummaryLesson.lessonTasks;
@@ -279,26 +305,26 @@ export class ViewerComponent implements OnInit {
   print4x_2() {
 
     printJS({
-      printable: 'contentToConvert',
-      type: 'html',
-      css: '/assets/viewer.component.css',
-      style: '@page { size: A4 landscape; }'
-    })
+      printable: "contentToConvert",
+      type: "html",
+      css: "/assets/viewer.component.css",
+      style: "@page { size: A4 landscape; }"
+    });
   }
 
 
 
   print4x() {
   forkJoin([
-    this.http.get('https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css', { responseType: 'text' }),
-    this.http.get('assets/viewer.component.css', { responseType: 'text' })
+    this.http.get("https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css", { responseType: "text" }),
+    this.http.get("assets/viewer.component.css", { responseType: "text" })
   ]).subscribe(results => {
 
-    const printContent = document.getElementById('contentToConvert');
-    const WindowPrt = window.open('100', '100', 'width=900,height=500,toolbar=0,scrollbars=0,status=0,location=no');
+    const printContent = document.getElementById("contentToConvert");
+    const WindowPrt = window.open("100", "100", "width=900,height=500,toolbar=0,scrollbars=0,status=0,location=no");
 
-    let sText = '<html><head><style>' + results[0] + results[1] + '</style>' + '</head>';
-    sText = sText  + printContent.innerHTML + '</html>';
+    let sText = "<html><head><style>" + results[0] + results[1] + "</style>" + "</head>";
+    sText = sText  + printContent.innerHTML + "</html>";
 
     WindowPrt.document.write(sText);
 
@@ -454,13 +480,13 @@ compare(a, b) {
 
 printJsPdf() {
 
-  const elem = document.getElementById('saveAsPdf');
+  const elem = document.getElementById("saveAsPdf");
 
 
   domtoimage.toBlob(elem)
     .then(function (blob) {
-      console.log('blob=', blob);
-        saveAs(blob, 'my-node.png');
+      console.log("blob=", blob);
+        saveAs(blob, "my-node.png");
     });
 
     /*

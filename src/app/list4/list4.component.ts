@@ -227,7 +227,7 @@ loadLesson() {
     if (lesson4.CorrectionalTasks1) {
       this.documentClassCorrectionalTasks1.id = lesson4.CorrectionalTasks1.id;
       if (lesson4.CorrectionalTasks1.id > 0) {
-        this.documentClassCorrectionalTasks1.title = 
+        this.documentClassCorrectionalTasks1.title =
            this.listClassCorrectionalTasksV1.find( value => value.id === lesson4.CorrectionalTasks1.id).title;
       }
       this.list4Form.controls.textCorrectionalTasks1.setValue(lesson4.CorrectionalTasks1.text);
@@ -393,7 +393,7 @@ loadLesson() {
     /* 1 */
     let fioteacherhome = '';
     if (this.list4Form.controls.fioteacherhome.value) {
-      fioteacherhome = this.list4Form.controls.fioteacherhome.value.toString().trim();
+      fioteacherhome = this.list4Form.controls.fioteacherhome.value.toString(); //.trim();
     }
     /* end 1 */
 
@@ -402,26 +402,26 @@ loadLesson() {
       this.list4Form.controls.lessonTopic.setValue('');
 
     }
-    const lessonTopic = this.list4Form.controls.lessonTopic.value.toString().trim();
+    const lessonTopic = this.list4Form.controls.lessonTopic.value.toString(); //.trim();
     /* end 2 */
 
     /* 3 */
     if (!this.list4Form.controls.lessonObjectives.value) {
       this.list4Form.controls.lessonObjectives.setValue('');
     }
-    const lessonObjectives = this.list4Form.controls.lessonObjectives.value.toString().trim();
+    const lessonObjectives = this.list4Form.controls.lessonObjectives.value.toString(); //.trim();
     /* end 3 */
 
 
-    const textEducationalTasks1 = this.list4Form.controls.textEducationalTasks1.value.toString().trim();
-    const textEducationalTasks2 = this.list4Form.controls.textEducationalTasks2.value.toString().trim();
-    const textEducationalTasks3 = this.list4Form.controls.textEducationalTasks3.value.toString().trim();
-    const textCorrectionalTasks1 = this.list4Form.controls.textCorrectionalTasks1.value.toString().trim();
-    const textCorrectionalTasks2 = this.list4Form.controls.textCorrectionalTasks2.value.toString().trim();
-    const textCorrectionalTasks3 = this.list4Form.controls.textCorrectionalTasks3.value.toString().trim();
-    const textRaisetionalTasks1 = this.list4Form.controls.textRaisetionalTasks1.value.toString().trim();
-    const textRaisetionalTasks2 = this.list4Form.controls.textRaisetionalTasks2.value.toString().trim();
-    const textRaisetionalTasks3 = this.list4Form.controls.textRaisetionalTasks3.value.toString().trim();
+    const textEducationalTasks1 = this.list4Form.controls.textEducationalTasks1.value.toString(); //.trim();
+    const textEducationalTasks2 = this.list4Form.controls.textEducationalTasks2.value.toString();  //.trim();
+    const textEducationalTasks3 = this.list4Form.controls.textEducationalTasks3.value.toString(); //.trim();
+    const textCorrectionalTasks1 = this.list4Form.controls.textCorrectionalTasks1.value.toString(); //.trim();
+    const textCorrectionalTasks2 = this.list4Form.controls.textCorrectionalTasks2.value.toString(); //.trim();
+    const textCorrectionalTasks3 = this.list4Form.controls.textCorrectionalTasks3.value.toString(); //.trim();
+    const textRaisetionalTasks1 = this.list4Form.controls.textRaisetionalTasks1.value.toString(); //.trim();
+    const textRaisetionalTasks2 = this.list4Form.controls.textRaisetionalTasks2.value.toString(); //.trim();
+    const textRaisetionalTasks3 = this.list4Form.controls.textRaisetionalTasks3.value.toString(); //.trim();
 
 
 

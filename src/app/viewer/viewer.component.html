@@ -31,23 +31,23 @@
 
           <tr>
             <td class="table1Col1">ФИО обучающего (индивидуальное обучение)</td>
-            <td><span>{{fioTeacherhome}}</span></td>
+            <td><span [innerHTML]="fioTeacherhome"></span></td>
           </tr>
 
 
           <tr>
             <td class="table1Col1">Учебный предмет</td>
-            <td><span>{{documentLessons.title}}</span></td>
+            <td><span [innerHTML]="documentLessons.title"></span></td>
           </tr>
 
           <tr>
             <td class="table1Col1">Тема урока</td>
-            <td><span>{{lessonTopic}}</span></td>
+            <td><span [innerHTML]="lessonTopic"></span></td>
           </tr>
 
           <tr>
             <td class="table1Col1">Цель урока</td>
-            <td><span>{{lessonObjectives}}</span></td>
+            <td><span [innerHTML]="lessonObjectives"></span></td>
           </tr>
 
           <!-- Старые задачи урока  <span class="w-75">{{lessonTasks}}</span> -->
@@ -55,13 +55,13 @@
 
           <tr>
             <td class="table1Col1">Тип урока</td>
-            <td><span>{{documentTypeLesson.title}}</span></td>
+            <td><span [innerHTML]="documentTypeLesson.title.toCurHTML()"></span></td>
           </tr>
 
 
           <tr>
             <td class="table1Col1">Форма проведения урока(вид урока)</td>
-            <td><span class="w-75">{{documentType2Lesson.title}}</span></td>
+            <td><span class="w-75" [innerHTML]="documentType2Lesson.title.toCurHTML()"></span></td>
           </tr>
 
         </table>
@@ -82,7 +82,7 @@
           <div class="view-half-span">
 
             <div *ngFor="let DOL of documentObjectiveLessonList">
-              <span>{{DOL.title}} : {{DOL.AdditionalMessage}}</span><p></p>
+              <span [innerHTML]="DOL.title.toCurHTML() + ' : '+  DOL.AdditionalMessage.toCurHTML()"></span><p></p>
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@
           <div class="view-half-span">
 
             <div *ngFor="let DOL of documentPersonalLessonList">
-            <span>{{DOL.title}} : {{DOL.AdditionalMessage}}</span><p></p>
+            <span [innerHTML]="DOL.title.toCurHTML() + ' : '+  DOL.AdditionalMessage.toCurHTML()"></span><p></p>
             </div>
           </div>
         </div>
@@ -102,8 +102,8 @@
 
       <div *ngFor="let DOL of documentEquipmentList">
         <div class="d-flex justify-content-between line">
-          <div class="view-half w-25">{{DOL.title}}</div>
-          <div class="view-half-right w-75">{{DOL.AdditionalMessage}}</div>
+          <div class="view-half w-25" [innerHTML]="DOL.title.toCurHTML()"></div>
+          <div class="view-half-right w-75" [innerHTML]="DOL.AdditionalMessage.toCurHTML()"></div>
         </div>
       </div>
 
@@ -121,22 +121,22 @@
 
               <ng-container *ngIf="taskList1.length > 0">
                 <div class="d-flex justify-content-start">
-                  <div class="tasks1">{{taskList1[0].title}}</div>
-                  <div class="tasks2">{{taskList1[0].text}}</div>
+                  <div class="tasks1" [innerHTML]="taskList1[0].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList1[0].text.toCurHTML()"></div>
                 </div>
               </ng-container>
 
               <ng-container *ngIf="taskList1.length > 1">
                 <div class="d-flex justify-content-start">
-                  <div class="tasks1">{{taskList1[1].title}}</div>
-                  <div class="tasks2">{{taskList1[1].text}}</div>
+                  <div class="tasks1" [innerHTML]="taskList1[1].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList1[1].text.toCurHTML()"></div>
                 </div>
               </ng-container>
 
               <ng-container *ngIf="taskList1.length > 2">
                 <div class="d-flex justify-content-start">
-                  <div class="tasks1">{{taskList1[2].title}}</div>
-                  <div class="tasks2">{{taskList1[2].text}}</div>
+                  <div class="tasks1" [innerHTML]="taskList1[2].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList1[2].text.toCurHTML()"></div>
                 </div>
               </ng-container>
 
@@ -156,22 +156,22 @@
 
               <ng-container *ngIf="taskList2.length > 0">
                 <div class="d-flex justify-content-start">
-                  <div class="tasks1">{{taskList2[0].title}}</div>
-                  <div class="tasks2">{{taskList2[0].text}}</div>
+                  <div class="tasks1" [innerHTML]="taskList2[0].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList2[0].text.toCurHTML()"></div>
                 </div>
               </ng-container>
 
               <ng-container *ngIf="taskList2.length > 1">
                 <div class="d-flex justify-content-start">
-                  <div class="tasks1">{{taskList2[1].title}}</div>
-                  <div class="tasks2">{{taskList2[1].text}}</div>
+                  <div class="tasks1" [innerHTML]="taskList2[1].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList2[1].text.toCurHTML()"></div>
                 </div>
               </ng-container>
 
               <ng-container *ngIf="taskList2.length > 2">
                 <div class="d-flex justify-content-start">
-                  <div class="tasks1">{{taskList2[2].title}}</div>
-                  <div class="tasks2">{{taskList2[2].text}}</div>
+                  <div class="tasks1" [innerHTML]="taskList2[2].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList2[2].text.toCurHTML()"></div>
                 </div>
               </ng-container>
 
@@ -189,22 +189,22 @@
 
               <ng-container *ngIf="taskList3.length > 0">
                 <div class="d-flex justify-content-start">
-                  <div class="tasks1">{{taskList3[0].title}}</div>
-                  <div class="tasks2">{{taskList3[0].text}}</div>
+                  <div class="tasks1" [innerHTML]="taskList3[0].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList3[0].text.toCurHTML()"></div>
                 </div>
               </ng-container>
 
               <ng-container *ngIf="taskList3.length > 1">
                 <div class="d-flex justify-content-start">
-                  <div class="tasks1">{{taskList3[1].title}}</div>
-                  <div class="tasks2">{{taskList3[1].text}}</div>
+                  <div class="tasks1" [innerHTML]="taskList3[1].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList3[1].text.toCurHTML()"></div>
                 </div>
               </ng-container>
 
               <ng-container *ngIf="taskList3.length > 2">
                 <div class="d-flex justify-content-start">
-                  <div class="tasks1">{{taskList3[2].title}}</div>
-                  <div class="tasks2">{{taskList3[2].text}}</div>
+                  <div class="tasks1" [innerHTML]="taskList3[2].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList3[2].text.toCurHTML()"></div>
                 </div>
               </ng-container>
 
@@ -235,9 +235,9 @@
               <h5 class="hod-text-topic">Деятельность ученика</h5>
             </div>
             <div class="d-flex" *ngFor="let res of Guide7Resultat1; let i = index">
-              <div class="hod-text">{{res.title}}: {{res.text}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{teacheractivity}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{studentactivities}}</div>
+              <div class="hod-text" [innerHTML]="res.title.toCurHTML() + ' : ' + res.text.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="teacheractivity.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="studentactivities.toCurHTML()"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
 
@@ -265,9 +265,9 @@
               <h5 class="hod-text-topic">Деятельность ученика</h5>
             </div>
             <div class="d-flex" *ngFor="let res of Guide7Resultat2; let i = index">
-              <div class="hod-text">{{res.title}}: {{res.text}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{teacheractivity2}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{studentactivities2}}</div>
+              <div class="hod-text" [innerHTML]="res.title.toCurHTML() +' : '+ res.text.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="teacheractivity2.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="studentactivities2.toCurHTML()"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
 
@@ -295,9 +295,9 @@
               <h5 class="hod-text-topic">Деятельность ученика</h5>
             </div>
             <div class="d-flex" *ngFor="let res of Guide7Resultat3; let i = index">
-              <div class="hod-text">{{res.title}}: {{res.text}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{teacheractivity3}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{studentactivities3}}</div>
+              <div class="hod-text" [innerHTML]="res.title.toCurHTML() +' : '+ res.text.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="teacheractivity3.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="studentactivities3.toCurHTML()"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
             </div>
@@ -323,9 +323,9 @@
               <h5 class="hod-text-topic">Деятельность ученика</h5>
             </div>
             <div class="d-flex" *ngFor="let res of Guide7Resultat4; let i = index">
-              <div class="hod-text">{{res.title}}: {{res.text}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{teacheractivity4}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{studentactivities4}}</div>
+              <div class="hod-text" [innerHTML]="res.title.toCurHTML() +' : '+ res.text.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="teacheractivity4.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="studentactivities4.toCurHTML()"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
             </div>
@@ -352,9 +352,9 @@
               <h5 class="hod-text-topic">Деятельность ученика</h5>
             </div>
             <div class="d-flex" *ngFor="let res of Guide7Resultat5; let i = index">
-              <div class="hod-text">{{res.title}}: {{res.text}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{teacheractivity5}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{studentactivities5}}</div>
+              <div class="hod-text" [innerHTML]="res.title.toCurHTML() + ' : ' + res.text.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="teacheractivity5.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="studentactivities5.toCurHTML()"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
             </div>
@@ -385,9 +385,9 @@
               <h5 class="hod-text-topic">Деятельность ученика</h5>
             </div>
             <div class="d-flex" *ngFor="let res of Guide7Resultat6; let i = index">
-              <div class="hod-text">{{res.title}}: {{res.text}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{teacheractivity6}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{studentactivities6}}</div>
+              <div class="hod-text" [innerHTML]="res.title.toCurHTML() + ' : ' + res.text.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="teacheractivity6.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="studentactivities6.toCurHTML()"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
             </div>
@@ -413,9 +413,9 @@
               <h5 class="hod-text-topic">Деятельность ученика</h5>
             </div>
             <div class="d-flex" *ngFor="let res of Guide7Resultat7; let i = index">
-              <div class="hod-text">{{res.title}}: {{res.text}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{teacheractivity7}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{studentactivities7}}</div>
+              <div class="hod-text" [innerHTML]="res.title.toCurHTML() + ' : ' + res.text.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="teacheractivity7.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="studentactivities7.toCurHTML()"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
             </div>
@@ -445,9 +445,9 @@
               <h5 class="hod-text-topic">Деятельность ученика</h5>
             </div>
             <div class="d-flex" *ngFor="let res of Guide7Resultat8; let i = index">
-              <div class="hod-text">{{res.title}}: {{res.text}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{teacheractivity8}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{studentactivities8}}</div>
+              <div class="hod-text" [innerHTML]="res.title.toCurHTML() +' : ' + res.text.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="teacheractivity8.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="studentactivities8.toCurHTML()"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
             </div>
@@ -473,9 +473,9 @@
               <h5 class="hod-text-topic">Деятельность ученика</h5>
             </div>
             <div class="d-flex" *ngFor="let res of Guide7Resultat9; let i = index">
-              <div class="hod-text">{{res.title}}: {{res.text}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{teacheractivity9}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{studentactivities9}}</div>
+              <div class="hod-text" [innerHTML]="res.title.toCurHTML() +' : ' + res.text.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="teacheractivity9.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="studentactivities9.toCurHTML()"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
             </div>
@@ -501,9 +501,9 @@
               <h5 class="hod-text-topic">Деятельность ученика</h5>
             </div>
             <div class="d-flex" *ngFor="let res of Guide7Resultat10; let i = index">
-              <div class="hod-text">{{res.title}}: {{res.text}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{teacheractivity10}}</div>
-              <div *ngIf="i === 0" class="hod-text">{{studentactivities10}}</div>
+              <div class="hod-text" [innerHTML]="res.title.toCurHTML() +' : ' + res.text.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="teacheractivity10.toCurHTML()"></div>
+              <div *ngIf="i === 0" class="hod-text" [innerHTML]="studentactivities10.toCurHTML()"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
               <div *ngIf="i > 0" class="hod-text"></div>
             </div>
