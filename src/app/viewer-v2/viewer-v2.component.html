@@ -176,7 +176,7 @@
 
     <div class="d-flex justify-content-start">
       <div class="bud-topic">Ученик</div>
-      <div class="bud-topic">БУД</div>
+      <div class="bud-topic-2">БУД</div>
     </div>
 
     <div class="d-flex" *ngFor="let document10 of documentGuide10AggregateList">
@@ -192,13 +192,7 @@
   </ng-container>
 
 
-
-
-
-
-      <!-- НАЧАЛО ЭТАПЫ МОЕ СДЕЛАНО ТОЛЬКО ЧТО -->
-
-
+      <!-- НАЧАЛО ЭТАПЫ  -->
 
 
       <h4 class="my-1">Ход урока</h4>
@@ -208,15 +202,15 @@
 
          <div *ngIf="Guide7Resultat1.length > 0">
              <h5 class="etap-topic">Этап урока - организационный этап</h5> <!-- app-guide7_2 numberComponent=1-->
-             <div class="d-flex justify-content-around">
-                  <h5 class="hod-text-topic">Методы и приемы</h5>
-                  <h5 class="hod-text-topic">Деятельность учителя</h5>
-                  <h5 class="hod-text-topic">Деятельность ученика</h5>
+             <div class="d-flex">
+                  <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                  <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                  <h5 class="hod-text-topic-50">Деятельность ученика</h5>
              </div>
              <div class="d-flex" *ngFor="let res of Guide7Resultat1">
-                  <div class="hod-text">{{res.title}}: {{res.text}}</div>
-                  <div class="hod-text">{{res.teacheractivity}}</div>
-                  <div class="hod-text">{{res.studentactivities}}</div>
+                  <div class="hod-text-20">{{res.title}}: {{res.text}}</div>
+                  <div class="hod-text-50">{{res.teacheractivity}}</div>
+                  <div class="hod-text-50">{{res.studentactivities}}</div>
              </div>
          </div>
 
@@ -224,15 +218,15 @@
           <div *ngIf = "boolVE1">
                     <div *ngIf="Guide7Resultat3.length > 0">
                       <h5 class="etap-topic">Этап урока - актуализация знаний и умений</h5> <!-- app-guide7_2 numberComponent=3-->
-                      <div class="d-flex justify-content-around">
-                          <h5 class="hod-text-topic">Методы и приемы</h5>
-                          <h5 class="hod-text-topic">Деятельность учителя</h5>
-                          <h5 class="hod-text-topic">Деятельность ученика</h5>
+                      <div class="d-flex">
+                          <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                          <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                          <h5 class="hod-text-topic-50">Деятельность ученика</h5>
                       </div>
                       <div class="d-flex" *ngFor="let res of Guide7Resultat3">
-                          <div class="hod-text">{{res.title}}: {{res.text}}</div>
-                          <div class="hod-text">{{res.teacheractivity}}</div>
-                          <div class="hod-text">{{res.studentactivities}}</div>
+                          <div class="hod-text-20">{{res.title}}: {{res.text}}</div>
+                          <div class="hod-text-50">{{res.teacheractivity}}</div>
+                          <div class="hod-text-50">{{res.studentactivities}}</div>
                       </div>
                   </div>
           </div>
@@ -240,15 +234,15 @@
           <div *ngIf = "boolVE2">
                   <div *ngIf="Guide7Resultat4.length > 0">
                     <h5 class="etap-topic">Этап урока - сообщение темы и цели урока</h5> <!-- app-guide7_2 numberComponent=4-->
-                    <div class="d-flex justify-content-around">
-                        <h5 class="hod-text-topic">Методы и приемы</h5>
-                        <h5 class="hod-text-topic">Деятельность учителя</h5>
-                        <h5 class="hod-text-topic">Деятельность ученика</h5>
+                    <div class="d-flex">
+                        <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                        <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                        <h5 class="hod-text-topic-50">Деятельность ученика</h5>
                     </div>
                     <div class="d-flex" *ngFor="let res of Guide7Resultat4">
-                        <div class="hod-text">{{res.title}}: {{res.text}}</div>
-                        <div class="hod-text">{{res.teacheractivity}}</div>
-                        <div class="hod-text">{{res.studentactivities}}</div>
+                        <div class="hod-text-20">{{res.title}}: {{res.text}}</div>
+                        <div class="hod-text-50">{{res.teacheractivity}}</div>
+                        <div class="hod-text-50">{{res.studentactivities}}</div>
                     </div>
                 </div>
           </div>
@@ -256,15 +250,15 @@
           <div *ngIf = "boolVE3">
                     <div *ngIf="Guide7Resultat5.length > 0">
                       <h5 class="etap-topic">Этап урока -  мотивация и планирование учебной деятельности</h5> <!-- app-guide7_2 numberComponent=5-->
-                      <div class="d-flex justify-content-around">
-                          <h5 class="hod-text-topic">Методы и приемы</h5>
-                          <h5 class="hod-text-topic">Деятельность учителя</h5>
-                          <h5 class="hod-text-topic">Деятельность ученика</h5>
+                      <div class="d-flex">
+                          <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                          <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                          <h5 class="hod-text-topic-50">Деятельность ученика</h5>
                       </div>
                       <div class="d-flex" *ngFor="let res of Guide7Resultat5">
-                          <div class="hod-text">{{res.title}}: {{res.text}}</div>
-                          <div class="hod-text">{{res.teacheractivity}}</div>
-                          <div class="hod-text">{{res.studentactivities}}</div>
+                          <div class="hod-text-20">{{res.title}}: {{res.text}}</div>
+                          <div class="hod-text-50">{{res.teacheractivity}}</div>
+                          <div class="hod-text-50">{{res.studentactivities}}</div>
                       </div>
                   </div>
           </div>
@@ -276,15 +270,15 @@
       <div *ngIf="this.thisThemeId === 1">
                     <div *ngIf="Guide7Resultat6.length > 0">
                       <h5 class="etap-topic">Этап урока -  изучение нового материала</h5> <!-- app-guide7_2 numberComponent=6-->
-                      <div class="d-flex justify-content-around">
-                          <h5 class="hod-text-topic">Методы и приемы</h5>
-                          <h5 class="hod-text-topic">Деятельность учителя</h5>
-                          <h5 class="hod-text-topic">Деятельность ученика</h5>
+                      <div class="d-flex">
+                          <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                          <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                          <h5 class="hod-text-topic-50">Деятельность ученика</h5>
                       </div>
                       <div class="d-flex" *ngFor="let res of Guide7Resultat6">
-                          <div class="hod-text">{{res.title}}: {{res.text}}</div>
-                          <div class="hod-text">{{res.teacheractivity}}</div>
-                          <div class="hod-text">{{res.studentactivities}}</div>
+                          <div class="hod-text-20">{{res.title}}: {{res.text}}</div>
+                          <div class="hod-text-50">{{res.teacheractivity}}</div>
+                          <div class="hod-text-50">{{res.studentactivities}}</div>
                       </div>
                   </div>
       </div>
@@ -292,15 +286,15 @@
       <div *ngIf="this.thisThemeId === 1 || this.thisThemeId === 2 || this.thisThemeId === 3">
                 <div *ngIf="Guide7Resultat7.length > 0">
                   <h5 class="topic">Этап урока -  изучение нового материала</h5> <!-- app-guide7_2 numberComponent=7-->
-                  <div class="d-flex justify-content-around">
-                      <h5 class="hod-text-topic">Методы и приемы</h5>
-                      <h5 class="hod-text-topic">Деятельность учителя</h5>
-                      <h5 class="hod-text-topic">Деятельность ученика</h5>
+                  <div class="d-flex">
+                      <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                      <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                      <h5 class="hod-text-topic-50">Деятельность ученика</h5>
                   </div>
                   <div class="d-flex" *ngFor="let res of Guide7Resultat7">
-                      <div class="hod-text">{{res.title}}: {{res.text}}</div>
-                      <div class="hod-text">{{res.teacheractivity}}</div>
-                      <div class="hod-text">{{res.studentactivities}}</div>
+                      <div class="hod-text-20">{{res.title}}: {{res.text}}</div>
+                      <div class="hod-text-50">{{res.teacheractivity}}</div>
+                      <div class="hod-text-50">{{res.studentactivities}}</div>
                   </div>
               </div>
       </div>
@@ -308,15 +302,15 @@
       <div *ngIf="this.thisThemeId === 2 || this.thisThemeId === 3">
                 <div *ngIf="Guide7Resultat11.length > 0">
                       <h5 class="etap-topic">Этап урока -  систематизация и обобщение</h5> <!-- app-guide7_2 numberComponent=11-->
-                      <div class="d-flex justify-content-around">
-                          <h5 class="hod-text-topic">Методы и приемы</h5>
-                          <h5 class="hod-text-topic">Деятельность учителя</h5>
-                          <h5 class="hod-text-topic">Деятельность ученика</h5>
+                      <div class="d-flex">
+                          <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                          <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                          <h5 class="hod-text-topic-50">Деятельность ученика</h5>
                       </div>
                       <div class="d-flex" *ngFor="let res of Guide7Resultat11">
-                          <div class="hod-text">{{res.title}}: {{res.text}}</div>
-                          <div class="hod-text">{{res.teacheractivity}}</div>
-                          <div class="hod-text">{{res.studentactivities}}</div>
+                          <div class="hod-text-20">{{res.title}}: {{res.text}}</div>
+                          <div class="hod-text-50">{{res.teacheractivity}}</div>
+                          <div class="hod-text-50">{{res.studentactivities}}</div>
                       </div>
                 </div>
       </div>
@@ -324,15 +318,15 @@
       <div *ngIf="this.thisThemeId === 4">
               <div *ngIf="Guide7Resultat12.length > 0">
                     <h5 class="etap-topic">Этап урока -  контроль</h5> <!-- app-guide7_2 numberComponent=12-->
-                    <div class="d-flex justify-content-around">
-                        <h5 class="hod-text-topic">Методы и приемы</h5>
-                        <h5 class="hod-text-topic">Деятельность учителя</h5>
-                        <h5 class="hod-text-topic">Деятельность ученика</h5>
+                    <div class="d-flex">
+                        <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                        <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                        <h5 class="hod-text-topic-50">Деятельность ученика</h5>
                     </div>
                     <div class="d-flex" *ngFor="let res of Guide7Resultat12">
-                        <div class="hod-text">{{res.title}}: {{res.text}}</div>
-                        <div class="hod-text">{{res.teacheractivity}}</div>
-                        <div class="hod-text">{{res.studentactivities}}</div>
+                        <div class="hod-text-20">{{res.title}}: {{res.text}}</div>
+                        <div class="hod-text-50">{{res.teacheractivity}}</div>
+                        <div class="hod-text-50">{{res.studentactivities}}</div>
                     </div>
               </div>
       </div>
@@ -344,29 +338,29 @@
 
       <div *ngIf="Guide7Resultat8.length > 0">
               <h5 class="etap-topic">Этап урока - подведение итогов (выводы, оценивание, рефлексия)</h5> <!-- app-guide7_2 numberComponent=8-->
-              <div class="d-flex justify-content-around">
-                  <h5 class="hod-text-topic">Методы и приемы</h5>
-                  <h5 class="hod-text-topic">Деятельность учителя</h5>
-                  <h5 class="hod-text-topic">Деятельность ученика</h5>
+              <div class="d-flex">
+                  <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                  <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                  <h5 class="hod-text-topic-50">Деятельность ученика</h5>
               </div>
               <div class="d-flex" *ngFor="let res of Guide7Resultat8">
-                  <div class="hod-text">{{res.title}}: {{res.text}}</div>
-                  <div class="hod-text">{{res.teacheractivity}}</div>
-                  <div class="hod-text">{{res.studentactivities}}</div>
+                  <div class="hod-text-20">{{res.title}}: {{res.text}}</div>
+                  <div class="hod-text-50">{{res.teacheractivity}}</div>
+                  <div class="hod-text-50">{{res.studentactivities}}</div>
               </div>
        </div>
 
           <div *ngIf="Guide7Resultat10.length > 0">
                 <h5 class="etap-topic">Этап урока -  организованное окончание урока</h5> <!-- app-guide7_2 numberComponent=10-->
-                <div class="d-flex justify-content-around">
-                    <h5 class="hod-text-topic">Методы и приемы</h5>
-                    <h5 class="hod-text-topic">Деятельность учителя</h5>
-                    <h5 class="hod-text-topic">Деятельность ученика</h5>
+                <div class="d-flex">
+                    <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                    <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                    <h5 class="hod-text-topic-50">Деятельность ученика</h5>
                 </div>
                 <div class="d-flex" *ngFor="let res of Guide7Resultat10">
-                    <div class="hod-text">{{res.title}}: {{res.text}}</div>
-                    <div class="hod-text">{{res.teacheractivity}}</div>
-                    <div class="hod-text">{{res.studentactivities}}</div>
+                    <div class="hod-text-20">{{res.title}}: {{res.text}}</div>
+                    <div class="hod-text-50">{{res.teacheractivity}}</div>
+                    <div class="hod-text-50">{{res.studentactivities}}</div>
                 </div>
           </div>
 </div>
