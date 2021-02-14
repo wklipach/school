@@ -2,12 +2,12 @@
 
 
 <div id="contentToConvert">  <!-- это див для секции печати-->
-<div class="container-fluid">
 
+  <div class="container-fluid">
   <div class="row">
     <div class="col-12">
 
-      <h3 class="lesson my-2">{{sNamePrint}}</h3>
+      <div class="lesson">{{sNamePrint}}</div>
 
         <table class="table table-bordered text-left" style="margin-bottom: 0;">
 
@@ -218,7 +218,7 @@
 
 
 
-        <h4 class="my-4">Ход урока</h4>
+        <h4 class="my-1">Ход урока</h4>
 
         <div *ngIf="partBegin">
           <h5 class="topic">Вводно-подготовительная часть (Часть урока)</h5>
@@ -573,8 +573,9 @@
             <button type="button" class="btn btn-outline-primary mr-3">Назад</button>
             <button type="button" class="btn btn-outline-primary mr-3">Редактировать</button>
              <button type="button" class="btn btn-outline-primary mr-3" (click)="KeySend()">Распечатать1</button>
+            <button type="button" class="btn btn-outline-primary mr-3 buttons-right" (click)="print4x()">Распечатать</button>
     -->
-    <button type="button" class="btn btn-outline-primary mr-3 buttons-right" (click)="print4x()">Распечатать</button>
+
     <!--
             <button type="button" class="btn btn-outline-primary mr-3">Сохранить в файл</button>
             <button type="button" class="btn btn-outline-primary">Поделиться</button>
