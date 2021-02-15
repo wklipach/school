@@ -1,16 +1,28 @@
 import { Component } from '@angular/core';
 import {
   classBasicLearningActions,
-  classBasicLearningActivities, classCorrectionalTasksV1, classCorrectionalTasksV2, 
+  classBasicLearningActivities, classCorrectionalTasksV1, classCorrectionalTasksV2,
   classEducationalTasksV1, classEducationalTasksV2, classEquipment, classGroupLearningActions,
   classGroupLearningActivities,
   classGroupMethod, classMethod,
   classNameLetter,
-  classNameNumber, classObjectiveLesson, classPersonalLesson, 
+  classNameNumber, classObjectiveLesson, classPersonalLesson,
   classRaisetionalTasksV1, classRaisetionalTasksV2, classType2Lesson, classTypeLesson, lessonsName,
   lessonsName2
 } from './class/academicSubject';
 import { GuideService } from './services/guide.service';
+
+
+declare global {
+  interface String {
+    toCurHTML(): number;
+  }
+}
+
+String.prototype.toCurHTML = function () {
+  const str =  this.replace(/(?:\r\n|\r|\n)/g, "<br>");
+  return str;
+};
 
 @Component({
   selector: 'app-root',

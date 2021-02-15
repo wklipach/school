@@ -13,16 +13,6 @@ import printJS from "print-js";
 
 // import * as jsPDF from 'jspdf';
 
-declare global {
-  interface String {
-    toCurHTML(): number;
-  }
-}
-
-String.prototype.toCurHTML = function () {
-  const str =  this.replace(/(?:\r\n|\r|\n)/g, "<br>");
-  return str;
-};
 
 
 @Component({

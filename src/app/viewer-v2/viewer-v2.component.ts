@@ -140,6 +140,7 @@ documentGuide10AggregateList: any[] = [];
   }
 
   ngOnInit(): void {
+
     const lesson_id = this.auth.getViewPrintId();
     forkJoin([
       this.gs.selectCollection('classBasicLearningActions'),
@@ -468,6 +469,7 @@ documentGuide10AggregateList: any[] = [];
 
       let sText = '<html><head><style>' + results[0] + results[1] + '</style>' + '</head>';
       sText = sText  + printContent.innerHTML + '</html>';
+
 
       WindowPrt.document.write(sText);
 
