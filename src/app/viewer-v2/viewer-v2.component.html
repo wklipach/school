@@ -23,7 +23,7 @@
             <td class="table1Col1">Класс</td>
             <td><span>{{documentClassNameNumber.title}}	{{documentClassNameLetter.title}}</span></td>
           </tr>
-          <tr>
+          <tr *ngIf="fioTeacherhome.length > 0">
             <td class="table1Col1">ФИО обучающегося (индивидуальное обучение)</td>
             <td><span [innerHTML]="fioTeacherhome.toCurHTML()"></span></td>
           </tr>
