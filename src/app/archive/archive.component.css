@@ -43,3 +43,6 @@ a {
 .badge {
   width: 20px;
 }
+.time {
+  font-size: 0.8rem;
+}
