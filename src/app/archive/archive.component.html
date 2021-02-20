@@ -13,6 +13,7 @@
 
         <div class="d-flex headline">
           <div class="date">Дата</div>
+          <div class="lessons">Время</div>
 
           <div class="lessons">Цель урока</div>
           <div class="lesson-topic">Тема урока</div>
@@ -24,6 +25,8 @@
           <div class="date">{{lesson.objSummaryLesson.formControlDate | date:'dd.MM.yyyy'}}
                <span *ngIf="!lesson.objSummaryLesson2" class="badge badge-pill badge-primary ml-2">Ч</span>
           </div>
+
+          <div class="lessons">{{lesson.objSummaryLesson.formControlDate | date:'HH:mm:ss'}}</div>
 
           <div class="lessons">{{lesson.objSummaryLesson.lessonObjectives}}</div>
           <div class="lesson-topic">{{lesson.objSummaryLesson.lessonTopic}}</div>
