@@ -88,6 +88,7 @@ export class LessonTransferComponent implements OnInit {
     arrUser.forEach( (user, i) => {
       const objCopy = Object.assign({}, newLesson);
       objCopy.id_user = user;
+      objCopy.objSummaryLesson.formControlDate[0] = new Date();
       arrResult.push(objCopy);
     });
 
