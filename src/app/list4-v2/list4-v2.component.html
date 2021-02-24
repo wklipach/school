@@ -80,14 +80,49 @@
           <div class="line">
             <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Тема урока</span>
             <textarea formControlName="lessonTopic" class = "form-control" rows = "3" placeholder="Тема урока"></textarea>
-
           </div>
+
           <div class="line">
             <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Цель урока</span>
             <textarea formControlName="lessonObjectives" class = "form-control" rows = "3" placeholder="Цель урока"></textarea>
           </div>
 
         </div>
+
+        <div class="card pl-3 pr-2 py-4 mb-5">
+
+          <h5 class="mb-3">Тип урока</h5>
+
+          <div class="dropdown">
+            <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Тип урока
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item" type="button" *ngFor="let curValue of listTypeLesson" (click)="onTypeLesson(curValue)">{{curValue.title}}</button>
+            </div>
+          </div>
+
+          <div class="text-muted font-weight-bold result mx-auto">{{documentTypeLesson.title}}</div>    <!-- Результат выбора из справочника  -->
+
+        </div>
+
+        <div class="card pl-3 pr-2 py-4 mb-5">
+
+          <h5 class="mb-3">Форма проведения урока (вид урока)</h5>
+
+          <div class="dropdown">
+            <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Вид урока
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+              <button class="dropdown-item" type="button" *ngFor="let curValue of listType2Lesson" (click)="onType2Lesson(curValue)">{{curValue.title}}</button>
+            </div>
+          </div>
+
+          <div class="text-muted font-weight-bold result mx-auto">{{documentType2Lesson.title}}</div>    <!-- Результат выбора из справочника  -->
+
+        </div>
+
 
 
         <!-- Начало ЗАДАЧИ УРОКА -->
@@ -258,39 +293,7 @@
 
 
 
-        <div class="card pl-3 pr-2 py-4 mb-5">
 
-          <h5 class="mb-3">Тип урока</h5>
-
-          <div class="dropdown">
-            <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Тип урока
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <button class="dropdown-item" type="button" *ngFor="let curValue of listTypeLesson" (click)="onTypeLesson(curValue)">{{curValue.title}}</button>
-            </div>
-          </div>
-
-          <div class="text-muted font-weight-bold result mx-auto">{{documentTypeLesson.title}}</div>    <!-- Результат выбора из справочника  -->
-
-        </div>
-
-        <div class="card pl-3 pr-2 py-4 mb-5">
-
-          <h5 class="mb-3">Форма проведения урока (вид урока)</h5>
-
-          <div class="dropdown">
-            <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Вид урока
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
-              <button class="dropdown-item" type="button" *ngFor="let curValue of listType2Lesson" (click)="onType2Lesson(curValue)">{{curValue.title}}</button>
-            </div>
-          </div>
-
-          <div class="text-muted font-weight-bold result mx-auto">{{documentType2Lesson.title}}</div>    <!-- Результат выбора из справочника  -->
-
-        </div>
 
         <div class="card pl-3 pr-2 py-4 mb-5">
 
