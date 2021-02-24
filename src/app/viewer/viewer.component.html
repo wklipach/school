@@ -4,10 +4,10 @@
 <div id="contentToConvert">  <!-- это див для секции печати-->
 
   <div class="container-fluid">
-  <div class="row">
-    <div class="col-12">
+    <div class="row">
+      <div class="col-12">
 
-      <div class="lesson">{{sNamePrint}}</div>
+        <div class="lesson">{{sNamePrint}}</div>
 
         <table class="table table-bordered text-left" style="margin-bottom: 0;">
 
@@ -23,7 +23,7 @@
 
           <tr>
             <td class="table1Col1">Класс</td>
-        <td><span>{{documentClassNameNumber.title}}	{{documentClassNameLetter.title}}</span></td>
+            <td><span>{{documentClassNameNumber.title}}  {{documentClassNameLetter.title}}</span></td>
           </tr>
 
 
@@ -65,49 +65,49 @@
         </table>
 
 
-            <div class="view-left text-center" style="border-bottom: solid 1px #000000">Предполагаемые результаты</div>
+        <div class="view-left text-center" style="border-bottom: solid 1px #000000">Предполагаемые результаты</div>
 
 
-          <div class="d-flex view-left text-center">
-            <div class="w-50">Предметные</div>
-            <div class="w-50">Личностные</div>
-          </div>
-
-
-
-      <div class="d-flex justify-content-between line">
-        <div class="w-50 view-half">
-          <div class="view-half-span">
-
-            <div *ngFor="let DOL of documentObjectiveLessonList">
-              <span [innerHTML]="DOL.title.toCurHTML() + ' : '+  DOL.AdditionalMessage.toCurHTML()"></span><br>
-            </div>
-          </div>
+        <div class="d-flex view-left text-center">
+          <div class="w-50">Предметные</div>
+          <div class="w-50">Личностные</div>
         </div>
-        <div class="w-50 view-half">
-          <div class="view-half-span">
-
-            <div *ngFor="let DOL of documentPersonalLessonList">
-            <span [innerHTML]="DOL.title.toCurHTML() + ' : '+  DOL.AdditionalMessage.toCurHTML()"></span><br>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="d-flex justify-content-between line">
-        <div class="view-left w-100">Оборудование и материалы</div>
-      </div>
 
 
-      <div *ngFor="let DOL of documentEquipmentList">
+
         <div class="d-flex justify-content-between line">
-          <div class="view-half w-25" [innerHTML]="DOL.title.toCurHTML()"></div>
-          <div class="view-half-right w-75" [innerHTML]="DOL.AdditionalMessage.toCurHTML()"></div>
+          <div class="w-50 view-half">
+            <div class="view-half-span">
+
+              <div *ngFor="let DOL of documentObjectiveLessonList">
+                <span [innerHTML]="DOL.title.toCurHTML() + ' : '+  DOL.AdditionalMessage.toCurHTML()"></span><br>
+              </div>
+            </div>
+          </div>
+          <div class="w-50 view-half">
+            <div class="view-half-span">
+
+              <div *ngFor="let DOL of documentPersonalLessonList">
+                <span [innerHTML]="DOL.title.toCurHTML() + ' : '+  DOL.AdditionalMessage.toCurHTML()"></span><br>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+        <div class="d-flex justify-content-between line">
+          <div class="view-left w-100">Оборудование и материалы</div>
+        </div>
 
-<!--  НАЧАЛО ПОКАЗА РЕЗУЛЬТАТОВ ЗАДАЧ УРОКА. -->
 
-    <h4 class="text-center my-1">Задачи урока</h4>
+        <div *ngFor="let DOL of documentEquipmentList">
+          <div class="d-flex justify-content-between line">
+            <div class="view-half w-25" [innerHTML]="DOL.title.toCurHTML()"></div>
+            <div class="view-half-right w-75" [innerHTML]="DOL.AdditionalMessage.toCurHTML()"></div>
+          </div>
+        </div>
+
+        <!--  НАЧАЛО ПОКАЗА РЕЗУЛЬТАТОВ ЗАДАЧ УРОКА. -->
+
+        <h4 class="text-center my-1">Задачи урока</h4>
 
         <!-- первые три строки если есть  -->
 
@@ -211,7 +211,7 @@
           </div>
         </ng-container>
 
-      <!-- КОНЕЦ ПОКАЗА РЕЗУЛЬТАТОВ ЗАДАЧ УРОКА. Данные из list4     -->
+        <!-- КОНЕЦ ПОКАЗА РЕЗУЛЬТАТОВ ЗАДАЧ УРОКА. Данные из list4     -->
 
         <h4 class="my-1">Ход урока</h4>
 
@@ -239,16 +239,14 @@
             </div>
           </div>
 
-
-
-        <div *ngFor="let g8res of this.Guide8Resultat1">
           <div class="bud-text">
-            <ul>
-            <li>{{Guide8Filter(g8res)}}</li>
-            </ul>
+            <div class="bud-title">Базовые учебные действия</div>
+            <div *ngFor="let g8res of this.Guide8Resultat1">
+              <ul>
+                <li>{{Guide8Filter(g8res)}}</li>
+              </ul>
+            </div>
           </div>
-        </div>
-
 
           <div *ngIf="Guide7Resultat2.length > 0 || Guide8Resultat2.length > 0">
             <h5 class="etap-topic">Этап урока - проверка домашнего задания</h5>
@@ -270,12 +268,12 @@
             </div>
           </div>
 
-
-          <div *ngFor="let g8res of this.Guide8Resultat2">
-            <div class="bud-text">
-             <ul>
-               <li>{{Guide8Filter(g8res)}}</li>
-             </ul>
+          <div class="bud-text">
+            <div class="bud-title">Базовые учебные действия</div>
+            <div *ngFor="let g8res of this.Guide8Resultat2">
+              <ul>
+                <li>{{Guide8Filter(g8res)}}</li>
+              </ul>
             </div>
           </div>
 
@@ -304,272 +302,273 @@
               <ul>
                 <li>{{Guide8Filter(g8res)}}</li>
               </ul>
-          </div>
-
-
-          <div *ngIf="Guide7Resultat4.length > 0 || Guide8Resultat4.length > 0">
-            <h5 class="etap-topic">Этап урока - сообщение темы и цели урока</h5>
-          </div>
-
-          <div *ngIf="Guide7Resultat4.length > 0">
-
-            <div class="d-flex">
-              <h5 class="hod-text-topic-20">Методы и приемы</h5>
-              <h5 class="hod-text-topic-50">Деятельность учителя</h5>
-              <h5 class="hod-text-topic-50">Деятельность ученика</h5>
             </div>
-            <div class="d-flex" *ngFor="let res of Guide7Resultat4; let i = index">
-              <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : '+ res.text.toCurHTML()"></div>
-              <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="teacheractivity4.toCurHTML()"></div>
-              <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="studentactivities4.toCurHTML()"></div>
-              <div *ngIf="i > 0" class="hod-text-50"></div>
-              <div *ngIf="i > 0" class="hod-text-50"></div>
+
+
+            <div *ngIf="Guide7Resultat4.length > 0 || Guide8Resultat4.length > 0">
+              <h5 class="etap-topic">Этап урока - сообщение темы и цели урока</h5>
             </div>
+
+            <div *ngIf="Guide7Resultat4.length > 0">
+
+              <div class="d-flex">
+                <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                <h5 class="hod-text-topic-50">Деятельность ученика</h5>
+              </div>
+              <div class="d-flex" *ngFor="let res of Guide7Resultat4; let i = index">
+                <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : '+ res.text.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="teacheractivity4.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="studentactivities4.toCurHTML()"></div>
+                <div *ngIf="i > 0" class="hod-text-50"></div>
+                <div *ngIf="i > 0" class="hod-text-50"></div>
+              </div>
+            </div>
+
+            <div *ngFor="let g8res of this.Guide8Resultat4">
+              <div class="bud-text">
+                <ul>
+                  <li>{{Guide8Filter(g8res)}}</li>
+                </ul>
+              </div>
+            </div>
+
+
+            <div *ngIf="Guide7Resultat5.length > 0 || Guide8Resultat5.length > 0">
+              <h5 class="etap-topic">Этап урока -  мотивация и планирование учебной деятельности</h5>
+            </div>
+
+            <div *ngIf="Guide7Resultat5.length > 0">
+
+              <div class="d-flex">
+                <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                <h5 class="hod-text-topic-50">Деятельность ученика</h5>
+              </div>
+              <div class="d-flex" *ngFor="let res of Guide7Resultat5; let i = index">
+                <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() + ' : ' + res.text.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="teacheractivity5.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="studentactivities5.toCurHTML()"></div>
+                <div *ngIf="i > 0" class="hod-text-50"></div>
+                <div *ngIf="i > 0" class="hod-text-50"></div>
+              </div>
+            </div>
+
+            <div *ngFor="let g8res of this.Guide8Resultat5">
+              <div class="bud-text">
+                <ul>
+                  <li>{{Guide8Filter(g8res)}}</li>
+                </ul>
+              </div>
+            </div>
+
           </div>
 
-          <div *ngFor="let g8res of this.Guide8Resultat4">
-            <div class="bud-text">
-              <ul>
-                <li>{{Guide8Filter(g8res)}}</li>
-              </ul>
+
+          <div *ngIf="partBase">
+            <h5 class="etap-topic">Часть урока: ОСНОВНАЯ ЧАСТЬ</h5>
+
+            <div *ngIf="Guide7Resultat6.length > 0 || Guide8Resultat6.length > 0">
+              <h5 class="etap-">Этап урока -  изучение нового материала</h5>
             </div>
+
+            <div *ngIf="Guide7Resultat6.length > 0">
+              <div class="d-flex">
+                <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                <h5 class="hod-text-topic-50">Деятельность ученика</h5>
+              </div>
+              <div class="d-flex" *ngFor="let res of Guide7Resultat6; let i = index">
+                <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() + ' : ' + res.text.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="teacheractivity6.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="studentactivities6.toCurHTML()"></div>
+                <div *ngIf="i > 0" class="hod-text-50"></div>
+                <div *ngIf="i > 0" class="hod-text-50"></div>
+              </div>
+            </div>
+
+            <div *ngIf="Guide7Resultat6.length === 0 && (teacheractivity6.length > 0 || studentactivities6.length > 0)">
+              <div class="d-flex">
+                <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                <h5 class="hod-text-topic-50">Деятельность ученика</h5>
+              </div>
+              <div class="d-flex">
+                <div class="hod-text-20"></div>
+                <div class="hod-text-50" [innerHTML]="teacheractivity6.toCurHTML()"></div>
+                <div class="hod-text-50" [innerHTML]="studentactivities6.toCurHTML()"></div>
+              </div>
+            </div>
+
+
+            <div *ngFor="let g8res of this.Guide8Resultat6">
+              <div class="bud-text">
+                <ul>
+                  <li>{{Guide8Filter(g8res)}}</li>
+                </ul>
+              </div>
+            </div>
+
+
+            <div *ngIf="Guide7Resultat7.length > 0 || Guide8Resultat7.length > 0">
+              <h5 class="etap-topic">Этап урока -  закрепление изученного материала</h5>
+            </div>
+
+            <div *ngIf="Guide7Resultat7.length > 0">
+              <div class="d-flex">
+                <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                <h5 class="hod-text-topic-50">Деятельность ученика</h5>
+              </div>
+              <div class="d-flex" *ngFor="let res of Guide7Resultat7; let i = index">
+                <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() + ' : ' + res.text.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="teacheractivity7.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="studentactivities7.toCurHTML()"></div>
+                <div *ngIf="i > 0" class="hod-text-50"></div>
+                <div *ngIf="i > 0" class="hod-text-50"></div>
+              </div>
+            </div>
+
+
+            <div *ngIf="Guide7Resultat7.length === 0 && (teacheractivity7.length > 0 || studentactivities7.length > 0)">
+              <div class="d-flex">
+                <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                <h5 class="hod-text-topic-50">Деятельность ученика</h5>
+              </div>
+              <div class="d-flex">
+                <div class="hod-text-20"></div>
+                <div class="hod-text-50" [innerHTML]="teacheractivity7.toCurHTML()"></div>
+                <div class="hod-text-50" [innerHTML]="studentactivities7.toCurHTML()"></div>
+              </div>
+            </div>
+
+
+            <div *ngFor="let g8res of this.Guide8Resultat7">
+              <div class="bud-text">
+                <ul>
+                  <li>{{Guide8Filter(g8res)}}</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <div *ngIf="partEnd">
+            <h5 class="etap-topic">Часть урока: ЗАКЛЮЧИТЕЛЬНАЯ ЧАСТЬ</h5>
+
+            <div *ngIf="Guide7Resultat8.length > 0 || Guide8Resultat8.length > 0">
+              <h5 class="etap-topic">Этап урока - подведение итогов (выводы, оценивание, рефлексия)</h5>
+            </div>
+
+            <div *ngIf="Guide7Resultat8.length > 0">
+              <div class="d-flex">
+                <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                <h5 class="hod-text-topic-50">Деятельность ученика</h5>
+              </div>
+              <div class="d-flex" *ngFor="let res of Guide7Resultat8; let i = index">
+                <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : ' + res.text.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="teacheractivity8.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="studentactivities8.toCurHTML()"></div>
+                <div *ngIf="i > 0" class="hod-text-50"></div>
+                <div *ngIf="i > 0" class="hod-text-50"></div>
+              </div>
+            </div>
+
+            <div *ngFor="let g8res of this.Guide8Resultat8">
+              <div class="bud-text">
+                <ul>
+                  <li>{{Guide8Filter(g8res)}}</li>
+                </ul>
+              </div>
+            </div>
+
+
+            <div *ngIf="Guide7Resultat9.length > 0 || Guide8Resultat9.length > 0">
+              <h5 class="etap-topic">Этап урока -  сообщение домашнего задания (инструктаж)</h5>
+            </div>
+
+            <div *ngIf="Guide7Resultat9.length > 0">
+              <div class="d-flex">
+                <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                <h5 class="hod-text-topic-50">Деятельность ученика</h5>
+              </div>
+              <div class="d-flex" *ngFor="let res of Guide7Resultat9; let i = index">
+                <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : ' + res.text.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="teacheractivity9.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="studentactivities9.toCurHTML()"></div>
+                <div *ngIf="i > 0" class="hod-text-50"></div>
+                <div *ngIf="i > 0" class="hod-text-50"></div>
+              </div>
+            </div>
+
+            <div *ngFor="let g8res of this.Guide8Resultat9">
+              <div class="bud-text">
+                <ul>
+                  <li>{{Guide8Filter(g8res)}}</li>
+                </ul>
+              </div>
+            </div>
+
+
+            <div *ngIf="Guide7Resultat10.length > 0 || Guide8Resultat10.length > 0">
+              <h5 class="etap-topic">Этап урока -  организованное окончание урока</h5>
+            </div>
+
+            <div *ngIf="Guide7Resultat10.length > 0">
+              <div class="d-flex">
+                <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                <h5 class="hod-text-topic-50">Деятельность учителя</h5>
+                <h5 class="hod-text-topic-50">Деятельность ученика</h5>
+              </div>
+              <div class="d-flex" *ngFor="let res of Guide7Resultat10; let i = index">
+                <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : ' + res.text.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="teacheractivity10.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="studentactivities10.toCurHTML()"></div>
+                <div *ngIf="i > 0" class="hod-text-50"></div>
+                <div *ngIf="i > 0" class="hod-text-50"></div>
+              </div>
+            </div>
+
+            <div *ngFor="let g8res of this.Guide8Resultat10">
+              <div class="bud-text">
+                <ul>
+                  <li>{{Guide8Filter(g8res)}}</li>
+                </ul>
+              </div>
+            </div>
+
           </div>
 
 
-          <div *ngIf="Guide7Resultat5.length > 0 || Guide8Resultat5.length > 0">
-            <h5 class="etap-topic">Этап урока -  мотивация и планирование учебной деятельности</h5>
-          </div>
-
-          <div *ngIf="Guide7Resultat5.length > 0">
-
-            <div class="d-flex">
-              <h5 class="hod-text-topic-20">Методы и приемы</h5>
-              <h5 class="hod-text-topic-50">Деятельность учителя</h5>
-              <h5 class="hod-text-topic-50">Деятельность ученика</h5>
-            </div>
-            <div class="d-flex" *ngFor="let res of Guide7Resultat5; let i = index">
-              <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() + ' : ' + res.text.toCurHTML()"></div>
-              <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="teacheractivity5.toCurHTML()"></div>
-              <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="studentactivities5.toCurHTML()"></div>
-              <div *ngIf="i > 0" class="hod-text-50"></div>
-              <div *ngIf="i > 0" class="hod-text-50"></div>
-            </div>
-          </div>
-
-          <div *ngFor="let g8res of this.Guide8Resultat5">
-            <div class="bud-text">
-              <ul>
-                <li>{{Guide8Filter(g8res)}}</li>
-              </ul>
-            </div>
-          </div>
+          <!-- КОНЕЦ МОЕГО ТВОРЧЕСТВА - ХОД УРОКА -->
 
         </div>
 
 
-        <div *ngIf="partBase">
-          <h5 class="etap-topic">Часть урока: ОСНОВНАЯ ЧАСТЬ</h5>
+      </div>
 
-          <div *ngIf="Guide7Resultat6.length > 0 || Guide8Resultat6.length > 0">
-            <h5 class="etap-">Этап урока -  изучение нового материала</h5>
-          </div>
-
-          <div *ngIf="Guide7Resultat6.length > 0">
-            <div class="d-flex">
-              <h5 class="hod-text-topic-20">Методы и приемы</h5>
-              <h5 class="hod-text-topic-50">Деятельность учителя</h5>
-              <h5 class="hod-text-topic-50">Деятельность ученика</h5>
-            </div>
-            <div class="d-flex" *ngFor="let res of Guide7Resultat6; let i = index">
-              <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() + ' : ' + res.text.toCurHTML()"></div>
-              <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="teacheractivity6.toCurHTML()"></div>
-              <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="studentactivities6.toCurHTML()"></div>
-              <div *ngIf="i > 0" class="hod-text-50"></div>
-              <div *ngIf="i > 0" class="hod-text-50"></div>
-            </div>
-          </div>
-
-          <div *ngIf="Guide7Resultat6.length === 0 && (teacheractivity6.length > 0 || studentactivities6.length > 0)">
-            <div class="d-flex">
-              <h5 class="hod-text-topic-20">Методы и приемы</h5>
-              <h5 class="hod-text-topic-50">Деятельность учителя</h5>
-              <h5 class="hod-text-topic-50">Деятельность ученика</h5>
-            </div>
-            <div class="d-flex">
-              <div class="hod-text-20"></div>
-              <div class="hod-text-50" [innerHTML]="teacheractivity6.toCurHTML()"></div>
-              <div class="hod-text-50" [innerHTML]="studentactivities6.toCurHTML()"></div>
-            </div>
-          </div>
-
-
-          <div *ngFor="let g8res of this.Guide8Resultat6">
-            <div class="bud-text">
-              <ul>
-                <li>{{Guide8Filter(g8res)}}</li>
-              </ul>
-            </div>
-          </div>
-
-
-          <div *ngIf="Guide7Resultat7.length > 0 || Guide8Resultat7.length > 0">
-            <h5 class="etap-topic">Этап урока -  закрепление изученного материала</h5>
-          </div>
-
-          <div *ngIf="Guide7Resultat7.length > 0">
-            <div class="d-flex">
-              <h5 class="hod-text-topic-20">Методы и приемы</h5>
-              <h5 class="hod-text-topic-50">Деятельность учителя</h5>
-              <h5 class="hod-text-topic-50">Деятельность ученика</h5>
-            </div>
-            <div class="d-flex" *ngFor="let res of Guide7Resultat7; let i = index">
-              <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() + ' : ' + res.text.toCurHTML()"></div>
-              <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="teacheractivity7.toCurHTML()"></div>
-              <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="studentactivities7.toCurHTML()"></div>
-              <div *ngIf="i > 0" class="hod-text-50"></div>
-              <div *ngIf="i > 0" class="hod-text-50"></div>
-            </div>
-          </div>
-
-
-          <div *ngIf="Guide7Resultat7.length === 0 && (teacheractivity7.length > 0 || studentactivities7.length > 0)">
-            <div class="d-flex">
-              <h5 class="hod-text-topic-20">Методы и приемы</h5>
-              <h5 class="hod-text-topic-50">Деятельность учителя</h5>
-              <h5 class="hod-text-topic-50">Деятельность ученика</h5>
-            </div>
-            <div class="d-flex">
-              <div class="hod-text-20"></div>
-              <div class="hod-text-50" [innerHTML]="teacheractivity7.toCurHTML()"></div>
-              <div class="hod-text-50" [innerHTML]="studentactivities7.toCurHTML()"></div>
-            </div>
-          </div>
-
-
-          <div *ngFor="let g8res of this.Guide8Resultat7">
-            <div class="bud-text">
-              <ul>
-                <li>{{Guide8Filter(g8res)}}</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-        <div *ngIf="partEnd">
-          <h5 class="etap-topic">Часть урока: ЗАКЛЮЧИТЕЛЬНАЯ ЧАСТЬ</h5>
-
-          <div *ngIf="Guide7Resultat8.length > 0 || Guide8Resultat8.length > 0">
-            <h5 class="etap-topic">Этап урока - подведение итогов (выводы, оценивание, рефлексия)</h5>
-          </div>
-
-          <div *ngIf="Guide7Resultat8.length > 0">
-            <div class="d-flex">
-              <h5 class="hod-text-topic-20">Методы и приемы</h5>
-              <h5 class="hod-text-topic-50">Деятельность учителя</h5>
-              <h5 class="hod-text-topic-50">Деятельность ученика</h5>
-            </div>
-            <div class="d-flex" *ngFor="let res of Guide7Resultat8; let i = index">
-              <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : ' + res.text.toCurHTML()"></div>
-              <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="teacheractivity8.toCurHTML()"></div>
-              <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="studentactivities8.toCurHTML()"></div>
-              <div *ngIf="i > 0" class="hod-text-50"></div>
-              <div *ngIf="i > 0" class="hod-text-50"></div>
-            </div>
-          </div>
-
-          <div *ngFor="let g8res of this.Guide8Resultat8">
-            <div class="bud-text">
-              <ul>
-                <li>{{Guide8Filter(g8res)}}</li>
-              </ul>
-            </div>
-          </div>
-
-
-          <div *ngIf="Guide7Resultat9.length > 0 || Guide8Resultat9.length > 0">
-            <h5 class="etap-topic">Этап урока -  сообщение домашнего задания (инструктаж)</h5>
-          </div>
-
-          <div *ngIf="Guide7Resultat9.length > 0">
-            <div class="d-flex">
-              <h5 class="hod-text-topic-20">Методы и приемы</h5>
-              <h5 class="hod-text-topic-50">Деятельность учителя</h5>
-              <h5 class="hod-text-topic-50">Деятельность ученика</h5>
-            </div>
-            <div class="d-flex" *ngFor="let res of Guide7Resultat9; let i = index">
-              <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : ' + res.text.toCurHTML()"></div>
-              <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="teacheractivity9.toCurHTML()"></div>
-              <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="studentactivities9.toCurHTML()"></div>
-              <div *ngIf="i > 0" class="hod-text-50"></div>
-              <div *ngIf="i > 0" class="hod-text-50"></div>
-            </div>
-          </div>
-
-          <div *ngFor="let g8res of this.Guide8Resultat9">
-            <div class="bud-text">
-              <ul>
-                <li>{{Guide8Filter(g8res)}}</li>
-              </ul>
-            </div>
-          </div>
-
-
-          <div *ngIf="Guide7Resultat10.length > 0 || Guide8Resultat10.length > 0">
-            <h5 class="etap-topic">Этап урока -  организованное окончание урока</h5>
-          </div>
-
-          <div *ngIf="Guide7Resultat10.length > 0">
-            <div class="d-flex">
-              <h5 class="hod-text-topic-20">Методы и приемы</h5>
-              <h5 class="hod-text-topic-50">Деятельность учителя</h5>
-              <h5 class="hod-text-topic-50">Деятельность ученика</h5>
-            </div>
-            <div class="d-flex" *ngFor="let res of Guide7Resultat10; let i = index">
-              <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : ' + res.text.toCurHTML()"></div>
-              <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="teacheractivity10.toCurHTML()"></div>
-              <div *ngIf="i === 0" class="hod-text-50" [innerHTML]="studentactivities10.toCurHTML()"></div>
-              <div *ngIf="i > 0" class="hod-text-50"></div>
-              <div *ngIf="i > 0" class="hod-text-50"></div>
-            </div>
-          </div>
-
-          <div *ngFor="let g8res of this.Guide8Resultat10">
-            <div class="bud-text">
-              <ul>
-                <li>{{Guide8Filter(g8res)}}</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-
-        <!-- КОНЕЦ МОЕГО ТВОРЧЕСТВА - ХОД УРОКА -->
-
-        </div>
-
-
-</div>
-
+    </div>
   </div>
 </div>
+
+
+
+<div class="container=fluid mb-4 buttons-line">
+  <!--
+          <button type="button" class="btn btn-outline-primary mr-3">Назад</button>
+          <button type="button" class="btn btn-outline-primary mr-3">Редактировать</button>
+           <button type="button" class="btn btn-outline-primary mr-3" (click)="KeySend()">Распечатать1</button>
+          <button type="button" class="btn btn-outline-primary mr-3 buttons-right" (click)="print4x()">Распечатать</button>
+  -->
+
+  <!--
+          <button type="button" class="btn btn-outline-primary mr-3">Сохранить в файл</button>
+          <button type="button" class="btn btn-outline-primary">Поделиться</button>
+          <button type="button" class="btn btn-outline-primary mr-3" (click)="printJsPdf()">Сохранить</button>
+   -->
 </div>
 
-
-
-  <div class="container=fluid mb-4 buttons-line">
-    <!--
-            <button type="button" class="btn btn-outline-primary mr-3">Назад</button>
-            <button type="button" class="btn btn-outline-primary mr-3">Редактировать</button>
-             <button type="button" class="btn btn-outline-primary mr-3" (click)="KeySend()">Распечатать1</button>
-            <button type="button" class="btn btn-outline-primary mr-3 buttons-right" (click)="print4x()">Распечатать</button>
-    -->
-
-    <!--
-            <button type="button" class="btn btn-outline-primary mr-3">Сохранить в файл</button>
-            <button type="button" class="btn btn-outline-primary">Поделиться</button>
-            <button type="button" class="btn btn-outline-primary mr-3" (click)="printJsPdf()">Сохранить</button>
-     -->
-  </div>
 

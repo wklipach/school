@@ -130,7 +130,12 @@ span {
 }
 .bud-text {
   text-align: left;
-
+  margin-bottom: 10px;
+}
+.bud-title {
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
 }
 .bud-topic-2 {
   width: 77%;
@@ -312,7 +317,7 @@ table {
   .hod-text-50 {
     width: 50%;
   }
-    .table1Col1 {
+  .table1Col1 {
     width: 23%;
   }
   .bud-text {
@@ -377,3 +382,4 @@ table {
     margin: 0;
   }
 }
+
