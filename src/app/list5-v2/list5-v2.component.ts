@@ -12,8 +12,10 @@ import {Guide7_2Service} from "../components/guide7_2/guide7_2.service";
 })
 export class List5V2Component implements OnInit {
 
-  documentGuide10List = [];
-  documentGuide10AggregateList = [];
+   documentGuide10List = [];
+   documentGuide10AggregateList = [];
+   checkArray: any = [];
+
   boolVE1  = false;
   boolVE2  = false;
   boolVE3  = false;
@@ -37,8 +39,6 @@ export class List5V2Component implements OnInit {
   Guide7Resultat10 = [];
   Guide7Resultat11 = [];
   Guide7Resultat12 = [];
-  checkArray: any = [];
-
   inputDocumentComponentMethodList1: any[] = [];
   // inputDocumentComponentMethodList2: any[] = [];
   inputDocumentComponentMethodList3: any[] = [];
@@ -78,7 +78,7 @@ export class List5V2Component implements OnInit {
         const document = value[0];
         if (document.objSummaryLesson.documentTypeLesson) {
           this.thisThemeId = document.objSummaryLesson.documentTypeLesson.id;
-          console.log('this.thisThemeId ===', this.thisThemeId);
+          // console.log('this.thisThemeId ===', this.thisThemeId);
           this.thisTheme = document.objSummaryLesson.documentTypeLesson.title;
         }
       }
@@ -115,7 +115,7 @@ export class List5V2Component implements OnInit {
   loadDataPriorLesson(lesson4v2) {
 
 
-      console.log('lesson4v2.documentTypeLesson=', lesson4v2.documentTypeLesson);
+      // console.log('lesson4v2.documentTypeLesson=', lesson4v2.documentTypeLesson);
   }
 
   loadDataForLesson(lesson5v2, lesson4v2) {
@@ -157,11 +157,12 @@ export class List5V2Component implements OnInit {
       }
     }
 
+/*
     this.checkArray = lesson5v2.documentGuide10AggregateList;
-
     this.checkArray.forEach( (value) => {
       this.documentGuide10List.push({delete: 0});
     });
+*/
 
     this.boolVE1 = lesson5v2.boolVE1;
     this.boolVE2 = lesson5v2.boolVE2;
@@ -170,10 +171,11 @@ export class List5V2Component implements OnInit {
   }
 
 
-
+/*
     onResGuide10(event: [], i: number) {
       this.documentGuide10AggregateList[i-1] =  event;
   }
+*/
 
   onResGuide7(event: [], i: number) {
     if (i === 1) {
@@ -223,7 +225,7 @@ export class List5V2Component implements OnInit {
 
   sentCurrentMessage(guideName: string, iNumber: number) {
     const res = {message: guideName, i: iNumber};
-    console.log('передаем', res );
+    // console.log('передаем', res );
     this.g7_2s.sendMessage(res);
   }
 
@@ -231,9 +233,11 @@ export class List5V2Component implements OnInit {
     // получаем номер id
     const id = this.auth.getSaveDocumentId();
 
+
     // получаем все справочники
     const objResult: {[k: string]: any} = {};
 
+/*
     this.documentGuide10List.forEach( (value, index) => {
       if (value.delete === 0) {
         this.sentCurrentMessage('guide10', index + 1);
@@ -247,8 +251,8 @@ export class List5V2Component implements OnInit {
             curAggregateList.push(value);
           }
     });
-
     objResult.documentGuide10AggregateList = curAggregateList;
+*/
 
     this.sentCurrentMessage('guide7_2', 1);
     this.sentCurrentMessage('guide7_2', 3);
@@ -275,7 +279,7 @@ export class List5V2Component implements OnInit {
     objResult.boolVE2  = this.boolVE2;
     objResult.boolVE3  = this.boolVE3;
 
-    console.log('objResult=', objResult);
+    // console.log('objResult=', objResult);
 
     this.gs.updateSummaryLessonList5(id, objResult).subscribe( resultat => {
             // переход к "моим урокам"
@@ -339,11 +343,14 @@ export class List5V2Component implements OnInit {
     DOL.delete = 1;
   }
 
+
   onAddStudent() {
     const documentObjectiveLesson = {delete: 0};
     const newIndex = this.documentGuide10List.push(documentObjectiveLesson) - 1;
-    console.log('newIndex=', newIndex);
+    // console.log('newIndex=', newIndex);
     // this.list5v2Form.addControl('subjectResults' + newIndex.toString(), new FormControl(''));
 
   }
+
+
 }

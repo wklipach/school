@@ -21,15 +21,11 @@
 
 
       <h5 class="mb-4">«БАЗОВЫЕ УЧЕБНЫЕ ДЕЙСТВИЯ»</h5>
-
-
-
       <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" (click)="onAddStudent()">
         Добавить ученика
       </button>
 
       <div class="line-result mb-3">
-      <!-- начало цикла Предполагаемые результаты СПИСОК № 4 -->
       <div *ngFor="let DOL of documentGuide10List; let i = index">
         <div *ngIf="DOL.delete === 0">
 
@@ -44,7 +40,7 @@
           </div>
         </div>
       </div>
-      <!-- конец цикла -->
+
 
       <!-- Начало ОРГАНИЗАЦИОННОГО этапа -->
 

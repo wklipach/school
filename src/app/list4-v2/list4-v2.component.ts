@@ -7,6 +7,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import { FlatpickrOptions } from 'ng2-flatpickr';
 import Russian from 'flatpickr/dist/l10n/ru.js';
 import { forkJoin } from 'rxjs';
+import {Guide7_2Service} from "../components/guide7_2/guide7_2.service";
 
 @Component({
   selector: 'app-list4-v2',
@@ -14,6 +15,10 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./list4-v2.component.css']
 })
 export class List4V2Component implements OnInit {
+
+  documentGuide10List = [];
+  documentGuide10AggregateList = [];
+  checkArray: any = [];
 
   typeEdit = 'новый документ';
   edititing_id = '-1';
@@ -64,7 +69,7 @@ export class List4V2Component implements OnInit {
 
 
   constructor(private router: Router, private gs: GuideService,
-              private auth: AuthService, private g7s: Guide7Service) {
+              private auth: AuthService, private g7s: Guide7Service, private g7_2s: Guide7_2Service) {
 
     this.UserInfo = this.auth.getStorage();
     if (!this.UserInfo.bSchoolConnected) {
@@ -124,7 +129,7 @@ export class List4V2Component implements OnInit {
               this.list4v2Form.controls.fio.setValue(teacher[0].fio);
               // console.log('teacher', teacher);
 
-              this.listClassNameNumber = Array<any>(results[1])[0].sort( 
+              this.listClassNameNumber = Array<any>(results[1])[0].sort(
                                                  (a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // console.log('listClassNameNumber', this.listClassNameNumber);
 
@@ -140,7 +145,7 @@ export class List4V2Component implements OnInit {
               this.listEquipment = Array<any>(results[5])[0].sort( (a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // console.log('listEquipment', this.listEquipment);
 
-              this.listClassNameLetter = Array<any>(results[6])[0].sort( 
+              this.listClassNameLetter = Array<any>(results[6])[0].sort(
                                          (a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
               // console.log('listClassNameLetter', this.listClassNameLetter);
               this.listClassEducationalTasksV2 = Array<any>(results[7])[0].sort(
@@ -267,6 +272,14 @@ export class List4V2Component implements OnInit {
       this.list4v2Form.controls.textRaisetionalTasks3.setValue(lesson4v2.RaisetionalTasks3.text);
     }
 
+
+    if (lesson4v2.documentGuide10AggregateList) {
+      this.checkArray = lesson4v2.documentGuide10AggregateList;
+      this.checkArray.forEach((value) => {
+        this.documentGuide10List.push({delete: 0});
+      });
+    }
+
   }
 
   loadCurrentTeacher() {
@@ -288,6 +301,12 @@ export class List4V2Component implements OnInit {
   sentCurrentMessage(guideName: string, iNumber: number) {
     const res = {message: guideName, i: iNumber};
     this.g7s.sendMessage(res);
+  }
+
+
+  sentCurrentMessage2(guideName: string, iNumber: number) {
+    const res = {message: guideName, i: iNumber};
+    this.g7_2s.sendMessage(res);
   }
 
   onEquipment(curValue) {
@@ -337,7 +356,7 @@ export class List4V2Component implements OnInit {
   onClassCorrectionalTasks1(curValue) {
     this.documentClassCorrectionalTasks1.id = curValue.id;
     this.documentClassCorrectionalTasks1.title = curValue.title;
-    console.log('this.documentClassCorrectionalTasks1=', curValue, this.documentClassCorrectionalTasks1, this.listClassCorrectionalTasksV2);
+    // console.log('this.documentClassCorrectionalTasks1=', curValue, this.documentClassCorrectionalTasks1, this.listClassCorrectionalTasksV2);
   }
 
   onClassCorrectionalTasks2(curValue) {
@@ -430,9 +449,6 @@ export class List4V2Component implements OnInit {
       const lessonObjectives = this.list4v2Form.controls.lessonObjectives.value.toString().trim();
       /* end 3 */
 
-
-     console.log('this.documentClassCorrectionalTasks1====', this.documentClassCorrectionalTasks1); 
-
     const textEducationalTasks1 = this.list4v2Form.controls.textEducationalTasks1.value.toString().trim();
     const textEducationalTasks2 = this.list4v2Form.controls.textEducationalTasks2.value.toString().trim();
     const textEducationalTasks3 = this.list4v2Form.controls.textEducationalTasks3.value.toString().trim();
@@ -465,6 +481,25 @@ export class List4V2Component implements OnInit {
     // this.documentClassNameLetter);
 
     const objResult: {[k: string]: any} = {};
+
+    this.documentGuide10List.forEach( (value, index) => {
+      if (value.delete === 0) {
+        this.sentCurrentMessage2('guide10', index + 1);
+      }
+    });
+
+    // удаляем из массива null
+    const curAggregateList = [];
+    this.documentGuide10AggregateList.forEach( value =>{
+          if (value) {
+            curAggregateList.push(value);
+          }
+    });
+    objResult.documentGuide10AggregateList = curAggregateList;
+
+    // console.log('objResult.documentGuide10AggregateList', objResult.documentGuide10AggregateList);
+
+
     this.sentCurrentMessage('elem2lines', 1);
     objResult.guide2linesResultat1 = this.guide2linesResultat1;
     this.sentCurrentMessage('guide7', 1);
@@ -484,6 +519,7 @@ export class List4V2Component implements OnInit {
       documentType2Lesson: this.documentType2Lesson,
       documentEquipmentList: moveDocumentEquipmentList,
       guide2linesResultat1: objResult.guide2linesResultat1,
+      documentGuide10AggregateList: objResult.documentGuide10AggregateList,
       Guide7Resultat1: objResult.Guide7Resultat1,
       EducationalTasks1 : {text: textEducationalTasks1, id: this.documentClassEducationalTasks1.id},
       EducationalTasks2 : {text: textEducationalTasks2, id: this.documentClassEducationalTasks2.id},
@@ -510,6 +546,22 @@ export class List4V2Component implements OnInit {
 
   }
 
+
+
+  onClickDeleteGuide10List(DOL: any) {
+    DOL.delete = 1;
+  }
+
+  onAddStudent() {
+    const documentObjectiveLesson = {delete: 0};
+    const newIndex = this.documentGuide10List.push(documentObjectiveLesson) - 1;
+    // console.log('newIndex=', newIndex);
+    // this.list5v2Form.addControl('subjectResults' + newIndex.toString(), new FormControl(''));
+  }
+
+  onResGuide10(event: [], i: number) {
+    this.documentGuide10AggregateList[i-1] =  event;
+  }
 
 
 }

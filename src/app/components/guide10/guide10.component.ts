@@ -45,9 +45,7 @@ export class Guide10Component implements OnInit, OnDestroy {
 
 
   constructor(private gs: GuideService, private g7_2s: Guide7_2Service) {
-
     const a = new FormControl('');
-
     this.component10Form = new FormGroup({ });
   }
 
@@ -125,7 +123,6 @@ loadMethodCollection() {
 loadValue() {
 
   const res: any = [];
-
    this.listBasicLearningActions.forEach( element => {
      if (this.component10Form.controls[this.numberComponent.toString() + 'comp10aggregateCheck' + element.id.toString()].value) {
        res.push(element.id);

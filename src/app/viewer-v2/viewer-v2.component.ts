@@ -187,6 +187,10 @@ documentGuide10AggregateList: any[] = [];
     // this.documentPersonalLessonList = this.lesson.objSummaryLesson.documentPersonalLessonList;
     this.documentEquipmentList = this.lesson.objSummaryLesson.documentEquipmentList;
 
+    if (this.lesson.objSummaryLesson.documentGuide10AggregateList) {
+      this.documentGuide10AggregateList = this.lesson.objSummaryLesson.documentGuide10AggregateList;
+    }
+
     // таблица
     const list5 = this.lesson.objSummaryLesson2;
     if (list5) {
@@ -256,7 +260,9 @@ documentGuide10AggregateList: any[] = [];
       this.Guide10Resultat10 = this.lesson.objSummaryLesson2.Guide10Resultat10;
       */
 
-     this.documentGuide10AggregateList = this.lesson.objSummaryLesson2.documentGuide10AggregateList;
+     // if (this.lesson.objSummaryLesson2.documentGuide10AggregateList) {
+     //   this.documentGuide10AggregateList = this.lesson.objSummaryLesson2.documentGuide10AggregateList;
+     // }
 
      this.boolVE1 = this.lesson.objSummaryLesson2.boolVE1;
      this.boolVE2 = this.lesson.objSummaryLesson2.boolVE2;
