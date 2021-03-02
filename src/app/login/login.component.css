@@ -4,7 +4,7 @@
 }
 .card {
   max-width: 500px;
-  margin: 0 auto 10% auto;
+  margin: 0 auto 0.5% auto;
 }
 a {
   cursor: pointer;

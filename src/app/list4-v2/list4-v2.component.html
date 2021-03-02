@@ -12,26 +12,7 @@
         <app-caption></app-caption>
 
 
-        <h5 class="mb-4">«БАЗОВЫЕ УЧЕБНЫЕ ДЕЙСТВИЯ»</h5>
-        <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" (click)="onAddStudent()">
-          Добавить ученика
-        </button>
 
-        <div class="line-result mb-3">
-          <div *ngFor="let DOL of documentGuide10List; let i = index">
-            <div *ngIf="DOL.delete === 0">
-
-
-              <div class="d-flex">
-                <app-guide10 numberComponent = {{i+1}} titleMethodComponent="чекбокс 1" [checkArray]="checkArray[i]" (methodResultat)="onResGuide10($event, i+1)" class="w-100"></app-guide10>
-                <button class="btn btn-outline-danger ml-auto" (click)="onClickDeleteGuide10List(DOL)" title="Удалить" style="max-height: 50px">
-                  <img src="/assets/img/delete.svg" width="24" height="24">
-                </button>
-              </div>
-
-            </div>
-          </div>
-        </div>
 
 
 
@@ -372,6 +353,28 @@
             </div>
           </div>
 
+        </div>
+
+
+        <h5 class="mb-4">«БАЗОВЫЕ УЧЕБНЫЕ ДЕЙСТВИЯ»</h5>
+        <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" (click)="onAddStudent()">
+          Добавить ученика
+        </button>
+
+        <div class="line-result mb-3">
+          <div *ngFor="let DOL of documentGuide10List; let i = index">
+            <div *ngIf="DOL.delete === 0">
+
+
+              <div class="d-flex">
+                <app-guide10 numberComponent = {{i+1}} titleMethodComponent="чекбокс 1" [checkArray]="checkArray[i]" (methodResultat)="onResGuide10($event, i+1)" class="w-100"></app-guide10>
+                <button class="btn btn-outline-danger ml-auto" (click)="onClickDeleteGuide10List(DOL)" title="Удалить" style="max-height: 50px">
+                  <img src="/assets/img/delete.svg" width="24" height="24">
+                </button>
+              </div>
+
+            </div>
+          </div>
         </div>
 
 
