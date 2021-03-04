@@ -271,6 +271,7 @@
             </div>
           </div>
 
+          <div *ngIf="Guide8Resultat2.length > 0">
           <div class="bud-text">
             <div class="bud-title">Базовые учебные действия</div>
             <div *ngFor="let g8res of this.Guide8Resultat2">
@@ -279,7 +280,7 @@
               </ul>
             </div>
           </div>
-
+          </div>
 
           <div *ngIf="Guide7Resultat3.length > 0 || Guide8Resultat3.length > 0">
             <h5 class="etap-topic">Этап урока - актуализация знаний и умений</h5>
@@ -300,6 +301,7 @@
             </div>
           </div>
 
+          <div *ngIf="Guide8Resultat3.length > 0">
           <div class="bud-text">
             <div class="bud-title">Базовые учебные действия</div>
           <div *ngFor="let g8res of this.Guide8Resultat3">
@@ -307,6 +309,7 @@
                 <li>{{Guide8Filter(g8res)}}</li>
               </ul>
             </div>
+          </div>
           </div>
 
             <div *ngIf="Guide7Resultat4.length > 0 || Guide8Resultat4.length > 0">
@@ -329,6 +332,7 @@
               </div>
             </div>
 
+          <div *ngIf="Guide8Resultat4.length > 0">
           <div class="bud-text">
             <div class="bud-title">Базовые учебные действия</div>
             <div *ngFor="let g8res of this.Guide8Resultat4">
@@ -337,7 +341,7 @@
                 </ul>
               </div>
             </div>
-
+          </div>
 
             <div *ngIf="Guide7Resultat5.length > 0 || Guide8Resultat5.length > 0">
               <h5 class="etap-topic">Этап урока -  мотивация и планирование учебной деятельности</h5>
@@ -359,6 +363,7 @@
               </div>
             </div>
 
+          <div *ngIf="Guide8Resultat10.length > 0">
           <div class="bud-text">
             <div class="bud-title">Базовые учебные действия</div>
             <div *ngFor="let g8res of this.Guide8Resultat5">
@@ -367,7 +372,7 @@
                 </ul>
               </div>
             </div>
-
+          </div>
 
           <div *ngIf="partBase">
             <h5 class="etap-topic">Часть урока: ОСНОВНАЯ ЧАСТЬ</h5>
@@ -404,6 +409,7 @@
               </div>
             </div>
 
+            <div *ngIf="Guide8Resultat6.length > 0">
             <div class="bud-text">
               <div class="bud-title">Базовые учебные действия</div>
             <div *ngFor="let g8res of this.Guide8Resultat6">
@@ -412,7 +418,7 @@
                 </ul>
               </div>
             </div>
-
+            </div>
 
             <div *ngIf="Guide7Resultat7.length > 0 || Guide8Resultat7.length > 0">
               <h5 class="etap-topic">Этап урока -  закрепление изученного материала</h5>
@@ -447,6 +453,7 @@
               </div>
             </div>
 
+            <div *ngIf="Guide8Resultat7.length > 0">
             <div class="bud-text">
               <div class="bud-title">Базовые учебные действия</div>
             <div *ngFor="let g8res of this.Guide8Resultat7">
@@ -454,6 +461,7 @@
                   <li>{{Guide8Filter(g8res)}}</li>
                 </ul>
               </div>
+            </div>
             </div>
 
           </div>
@@ -509,6 +517,7 @@
               </div>
             </div>
 
+            <div *ngIf="Guide8Resultat9.length > 0">
             <div class="bud-text">
               <div class="bud-title">Базовые учебные действия</div>
             <div *ngFor="let g8res of this.Guide8Resultat9">
@@ -517,7 +526,7 @@
                 </ul>
               </div>
             </div>
-
+            </div>
 
             <div *ngIf="Guide7Resultat10.length > 0 || Guide8Resultat10.length > 0">
               <h5 class="etap-topic">Этап урока -  организованное окончание урока</h5>
@@ -538,6 +547,7 @@
               </div>
             </div>
 
+            <div *ngIf="Guide8Resultat10.length > 0">
             <div class="bud-text">
               <div class="bud-title">Базовые учебные действия</div>
             <div *ngFor="let g8res of this.Guide8Resultat10">
@@ -545,6 +555,7 @@
                   <li>{{Guide8Filter(g8res)}}</li>
                 </ul>
               </div>
+            </div>
             </div>
 
           </div>
