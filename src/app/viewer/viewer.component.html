@@ -239,14 +239,17 @@
             </div>
           </div>
 
-          <div class="bud-text">
-            <div class="bud-title">Базовые учебные действия</div>
-            <div *ngFor="let g8res of this.Guide8Resultat1">
-              <ul>
-                <li>{{Guide8Filter(g8res)}}</li>
-              </ul>
+
+          <div *ngIf="Guide8Resultat1.length > 0">
+            <div class="bud-text">
+              <div class="bud-title">Базовые учебные действия</div>
+              <div *ngFor="let g8res of this.Guide8Resultat1">
+                <ul>
+                  <li>{{Guide8Filter(g8res)}}</li>
+                </ul>
+              </div>
             </div>
-          </div>
+        </div>
 
           <div *ngIf="Guide7Resultat2.length > 0 || Guide8Resultat2.length > 0">
             <h5 class="etap-topic">Этап урока - проверка домашнего задания</h5>
