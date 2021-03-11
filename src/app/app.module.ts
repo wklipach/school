@@ -31,8 +31,9 @@ import { Guide8Component } from './components/guide8/guide8.component';
 import { Elem2linesComponent } from './components/elem2lines/elem2lines.component';
 import { Guide10Component } from './components/guide10/guide10.component';
 import { RightpanelComponent } from './components/rightpanel/rightpanel.component';
-import {Guide7_2Service} from "./components/guide7_2/guide7_2.service";
-import {DatePipe} from "@angular/common";
+import {Guide7_2Service} from './components/guide7_2/guide7_2.service';
+import {DatePipe} from '@angular/common';
+import { FindTransferComponent} from './find-transfer/find-transfer.component';
 
 
 // определение маршрутов
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
   {path: 'viewer', component: ViewerComponent},
   {path: 'viewer-v2', component: ViewerV2Component},
   {path: 'lesson-transfer', component: LessonTransferComponent},
-  {path: 'forgot-password', component: ForgotPasswordComponent}
+  {path: 'forgot-password', component: ForgotPasswordComponent},
+  {path: 'find-transfer', component: FindTransferComponent}
 ];
 
 @NgModule({
@@ -77,7 +79,8 @@ const appRoutes: Routes = [
     Guide8Component,
     Elem2linesComponent,
     Guide10Component,
-    RightpanelComponent
+    RightpanelComponent,
+    FindTransferComponent
   ],
   imports: [
     BrowserModule,
