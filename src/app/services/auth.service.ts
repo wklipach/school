@@ -131,5 +131,15 @@ export class AuthService {
     return this.http.post(sUrl, {email, pwd, hash});
   }
 
+  // получаем пользователя, поиск по mongo-ID
+  getUserFromSchool(school: string, fio: string, slogin: string) {
+    const params = new HttpParams()
+      .set('get_user_school', 'get_user_school')
+      .set('school', school)
+      .set('fio', fio)
+      .set('slogin', slogin);
+    return this.http.get(this.gr.sUrlGlobal + 'users', {params: params});
+  }
+
 
 }

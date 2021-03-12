@@ -97,7 +97,9 @@ export class LessonTransferComponent implements OnInit {
       this.location.back();
 
     }) ;
+  }
 
-
+  findTransfer() {
+    this.router.navigate(['/find-transfer']);
   }
 }

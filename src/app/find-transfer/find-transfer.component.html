@@ -7,34 +7,36 @@
 
         <div class="card p-2">
 
-          <div class="line">
-            <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Школа/Организация</span>
-            <input type="text" class="form-control" placeholder="Школа/Организация" formControlName="schoolNumber">
-          </div>
-          <div class="line">
-            <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Логин</span>
-            <input type="text" class="form-control" placeholder="Логин" formControlName="fioteacherhome">
-          </div>
-          <div class="line">
-            <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Фамилия</span>
-            <input type="text" class="form-control" placeholder="Фамилия" formControlName="fioteacherhome">
-          </div>
 
-          <div>
+          <form [formGroup]="FindTransferForm">
+                <div class="line">
+                  <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Школа/Организация</span>
+                  <input type="text" class="form-control" placeholder="Школа/Организация" formControlName="fSchoolNumber">
+                </div>
+                <div class="line">
+                  <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Логин</span>
+                  <input type="text" class="form-control" placeholder="Логин" formControlName="fLogin">
+                </div>
+                <div class="line">
+                  <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Фамилия</span>
+                  <input type="text" class="form-control" placeholder="Фамилия" formControlName="fFio">
+                </div>
+          </form>
+
+
+          <form [formGroup]="FioForm">
+          <div *ngFor="let user of listuser">
 
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="userFind" formControlName="userFind">
-              <label class="custom-control-label" for="userFind">Петров</label>
+              <input type="checkbox" class="custom-control-input" id="userFind{{user._id}}" formControlName="userFind{{user._id}}">
+              <label class="custom-control-label" for="userFind{{user._id}}">{{user.fio}}</label>
             </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="userFind1" formControlName="userFind1">
-              <label class="custom-control-label" for="userFind1">Сидоров</label>
-            </div>
-
 
           </div>
+          </form>
 
           <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-outline-primary mt-5 w-25" (click)="findUsers()">Получить</button>
             <button type="button" class="btn btn-outline-primary mt-5 w-25" (click)="moveLesson()">Передать</button>
           </div>
 

@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm  = new FormGroup({
       userLogin: new FormControl('', [Validators.required, Validators.minLength(1)], [this.userNameAsyncValidator.bind(this)]),
       userFio: new FormControl(''),
+      organization: new FormControl(''),
       userEmail: new FormControl('', [Validators.required, Validators.email], [this.userEmailAsyncValidator.bind(this)]),
       userPassword1: new FormControl('',  [Validators.required]),
       userPassword2: new FormControl('', [Validators.required, Validators.minLength(1)], [this.password2AsyncValidator.bind(this)])
@@ -82,7 +83,7 @@ export class RegisterComponent implements OnInit {
 
 
     console.log('this.registerForm.value=', this.registerForm.value);
-    const {userLogin, userFio, userEmail, userPassword1, userPassword2} = this.registerForm.value;
+    const {userLogin, userFio, organization, userEmail, userPassword1, userPassword2} = this.registerForm.value;
 
     if (userPassword1.trim() !== userPassword2.trim()) {
       this.bPassword = true;
@@ -95,7 +96,8 @@ export class RegisterComponent implements OnInit {
     email: userEmail,
     fio: userFio,
     bitdelete: false,
-    editor: 0
+    editor: 0,
+      organization: organization.toString().trim()
   };
 
     const curSubject = 'Добро пожаловать.';

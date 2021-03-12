@@ -7,12 +7,7 @@
     <div class="col-12">
       <div class="lesson mb-3">Передача урока</div>
 
-
-
       <div class="card">
-
-
-
         <div *ngFor="let user of listuser">
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="userCheck{{user._id}}" formControlName="userCheck{{user._id}}">
@@ -22,13 +17,10 @@
 
         <div class="d-flex justify-content-between">
         <button type="button" class="btn btn-outline-primary mt-5 w-25" (click)="moveLesson()">Передать</button>
-        <button type="button" class="btn btn-outline-primary mt-5 w-25">Найти</button>
+        <button type="button" class="btn btn-outline-primary mt-5 w-25" (click)="findTransfer()">Найти</button>
         </div>
 
       </div>
-
-
-
 
     </div>
   </div>
