@@ -14,6 +14,7 @@ import {Guide7Service} from '../components/guide7/guide7.service';
 })
 export class List5Component implements OnInit {
 
+  thisThemeId = -1;
   thisTheme = '---';
   edititing_id = '-1';
   typeEdit = 'новый документ';
@@ -124,6 +125,7 @@ export class List5Component implements OnInit {
         const document = value[0];
         if (document.objSummaryLesson.documentTypeLesson) {
           this.thisTheme = document.objSummaryLesson.documentTypeLesson.title;
+          this.thisThemeId = document.objSummaryLesson.documentTypeLesson.id;
         }
       }
     });
