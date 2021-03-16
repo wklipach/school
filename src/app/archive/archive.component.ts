@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 import {GuideService} from '../services/guide.service';
@@ -10,11 +11,18 @@ import {GuideService} from '../services/guide.service';
 })
 export class ArchiveComponent implements OnInit {
 
+  formArchive: FormGroup;
   UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
   linsLessons: Array<any> = [];
   sTitle = '';
 
   constructor(private router: Router, private gs: GuideService, private auth: AuthService, actroute: ActivatedRoute) {
+
+    this.formArchive = new FormGroup({
+      uLessonObjectives: new FormControl(''),
+      uLessonTopic: new FormControl()
+      });
+
 
     this.UserInfo = this.auth.getStorage();
     if (!this.UserInfo.bSchoolConnected) {
@@ -40,6 +48,20 @@ export class ArchiveComponent implements OnInit {
 
 
   showLessons() {
+
+    let uLessonObjectives = this.formArchive.controls.uLessonObjectives.value;
+    let uLessonTopic = this.formArchive.controls.uLessonTopic.value;
+
+    if (!uLessonObjectives) {
+      uLessonObjectives = 'nonestring';
+    }
+
+    if (!uLessonTopic) {
+      uLessonTopic = 'nonestring';
+    }
+
+    console.log('uLessonObjectives=', uLessonObjectives, 'uLessonTopic =', uLessonTopic);
+
     let schoolarchive = this.auth.getSchoolArchive();
 
     if (!schoolarchive) {
@@ -53,7 +75,7 @@ export class ArchiveComponent implements OnInit {
     }
 
     // получаем список уроков
-    this.gs.selectListLessons(this.UserInfo.id_user_school, schoolarchive).subscribe( (summaryRes: Array<any>) => {
+    this.gs.selectListLessons(this.UserInfo.id_user_school, schoolarchive, uLessonObjectives, uLessonTopic).subscribe( (summaryRes: Array<any>) => {
       this.linsLessons = summaryRes;
     });
 

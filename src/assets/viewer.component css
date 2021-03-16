@@ -1,0 +1,175 @@
+.container-fluid {
+  /* min-height: calc(100vh - 160px); */
+  text-align: center;
+  padding: 0 4%;
+  padding-bottom: 2%;
+}
+a {
+  cursor: pointer;
+}
+ul, li {
+  margin: 0;
+}
+.line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: auto;
+  margin: 0;
+  border: solid 1px #cdcdcd;
+}
+.view-left {
+  height: auto;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #e5e5e5;
+  border-right: solid 1px #cdcdcd;
+  padding: 10px 0;
+  /* hyphens: auto;
+ -moz-hyphens: auto;
+   -webkit-hyphens: auto;
+   -ms-hyphens: auto;
+   hyphenate-limit-chars: 6 3 2; */
+}
+.view-half, .view-half-right {
+  height: auto;
+  text-align: left;
+  font-size: 1em;
+  border-right: solid 1px #cdcdcd;
+  padding: 10px 5px;
+}
+.view-half-right {
+  border: none;
+}
+.view-half-span {
+  display: flex;
+  flex-direction: column;
+}
+span {
+  text-align: left;
+  font-size: .95em;
+  padding: 5px 1px 5px 10px;
+  hyphens: auto;
+}
+.data-1 {
+  hyphens: auto;
+  font-size: 15px;
+  width: 9%;
+  border-right: solid 1px #cdcdcd;
+}
+.topic, .topic2, .table1Col1 {
+  font-weight: 600;
+  background-color: #eeeeee;
+  border: solid 1px #cdcdcd;
+  padding: 6px 0;
+  margin: 0;
+}
+.topic2 {
+  width: 50%;
+}
+.tasks-block {
+
+  width:100%;
+}
+.cell-line {
+
+  width:100%;
+}
+.tasks-head {
+  width: 15%;
+
+  border: solid 1px #cdcdcd;
+}
+.half-line {
+  width: 100%;
+}
+.tasks1 {
+  border: solid 1px #cdcdcd;
+  width: 25%;
+
+}
+.tasks2 {
+  border: solid 1px #cdcdcd;
+  width: 75%;
+  text-align: left;
+  padding: 0 10px;
+}
+.hod-text-topic {
+  width: calc(100vw/3);
+  border: solid 1px #cdcdcd;
+  padding: 10px;
+  margin: 0;
+}
+.hod-text {
+  width: calc(100vw/3);
+  text-align: left;
+  border: solid 1px #cdcdcd;
+  padding: 5px 1px 10px 3px;
+  margin: 0;
+}
+.bud-topic {
+  width: 200px;
+  padding-top: 10px;
+  border: solid 1px #cdcdcd;
+  font-weight: 600;
+}
+.bud-text {
+  width: 100%;
+  text-align: left;
+  }
+.table1Col1 {
+  width: 23%;
+}
+.table td {
+  padding: .2rem;
+}
+.tasks-block {
+
+  width:100%;
+}
+.cell-line {
+
+  width:100%;
+}
+.tasks-head {
+  width: 15%;
+
+  border: solid 1px #cdcdcd;
+}
+.half-line {
+  width: 100%;
+}
+.tasks1 {
+  border: solid 1px #cdcdcd;
+  width: 25%;
+
+}
+.tasks2 {
+  border: solid 1px #cdcdcd;
+  width: 75%;
+  text-align: left;
+  padding: 6px 10px;
+}
+.buttons-line {
+  text-align: center;
+}
+@page {
+  size: landscape;
+}
+@media print{
+  * {
+    color:  #000000;
+  }
+  .buttons-right, button buttons-line{
+    display: none;
+  }
+  table td{
+    border: solid 0.5px #000000;
+  }
+  .not-break, table {
+    page-break-inside: auto;
+  }
+  body {
+    margin: 0;
+  }
+}

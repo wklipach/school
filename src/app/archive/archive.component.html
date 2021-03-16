@@ -1,5 +1,7 @@
 <app-rightpanel></app-rightpanel>
 
+<form [formGroup]="formArchive">
+
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -20,14 +22,14 @@
             <div class="card card-body">
               <div class="d-flex">
                 <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Цель урока</span>
-                <input type="text" class="form-control" placeholder="Цель урока" formControlName="fSchoolNumber">
+                <input type="text" class="form-control" placeholder="Цель урока" formControlName="uLessonObjectives">
               </div>
               <div class="d-flex">
                 <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Тема урока</span>
-                <input type="text" class="form-control" placeholder="Тема урока" formControlName="fSchoolNumber">
+                <input type="text" class="form-control" placeholder="Тема урока" formControlName="uLessonTopic">
               </div>
 
-              <button type="button" class="btn btn-outline-primary my-3 w-25 ml-auto" (click)="findUsers()">Фильтровать</button>
+              <button type="button" class="btn btn-outline-primary my-3 w-25 ml-auto" (click)="showLessons()">Фильтровать</button>
             </div>
 
 
@@ -87,7 +89,7 @@
   </div>
 </div>
 
-
+</form>
 
 
 
