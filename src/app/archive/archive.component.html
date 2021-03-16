@@ -7,7 +7,31 @@
 
       <app-caption></app-caption>
 
-      <h5>{{sTitle}}</h5>
+
+       <div class="d-flex justify-content-between">
+         <span>{{sTitle}}</span>
+         <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+          Найти урок
+        </button>
+       </div>
+
+          <div class="collapse" id="collapseFilter">
+            <div class="card card-body">
+              <div class="d-flex">
+                <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Цель урока</span>
+                <input type="text" class="form-control" placeholder="Цель урока" formControlName="fSchoolNumber">
+              </div>
+              <div class="d-flex">
+                <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Тема урока</span>
+                <input type="text" class="form-control" placeholder="Тема урока" formControlName="fSchoolNumber">
+              </div>
+
+              <button type="button" class="btn btn-outline-primary my-3 w-25 ml-auto" (click)="findUsers()">Фильтровать</button>
+            </div>
+
+
+          </div>
 
       <div class="archive-list mt-4">
 

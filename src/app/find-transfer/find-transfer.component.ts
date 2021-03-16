@@ -127,7 +127,7 @@ export class FindTransferComponent implements OnInit {
     });
 
     this.gs.setInsertManyLessons(arrResult).subscribe( res => {
-      alert('Уроки переданы');
+      alert('Урок передан');
       this.router.navigate(['/archive']);
     }) ;
   }
