@@ -50,7 +50,46 @@
             <img src="/assets/img/delete.svg" width="24" height="24">
           </button>
         </div>
+        <!-- 7 справочник -->
+        <app-guide7 [numberComponent]="3"  [documentComponentMethodList]="inputDocumentComponentMethodList3" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 3)" ></app-guide7>
+
+        <div class="card pt-2 pb-4 px-4 mb-5">
+          <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
+          <textarea formControlName="teacheractivity3" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+        </div>
+
+        <div class="card pt-2 pb-4 px-4 mb-4">
+          <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
+          <textarea formControlName="studentactivities3" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+        </div>
+
+
+        <h5 class="mb-4">Базовые учебные действия</h5>
+
+        <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid3" aria-expanded="false" aria-controls="collapseGuid3">
+          Базовые учебные действия
+        </button>
+
+        <div class="collapse" id="collapseGuid3">
+          <div class="my-1">
+
+            <app-guide8 numberComponent="3" titleMethodComponent="чекбокс 3" [checkArray]="checkArray3" (methodResultat)="onResGuide8($event, 3)"></app-guide8>
+
+          </div>
+        </div>
+
+
+
+        <div class="card pt-2 pb-4 px-4 mb-4">
+          <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
+          <textarea formControlName="reviewerrecommendations3" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+        </div>
+
+        <!-- Конец - Этап урока - актуализация знаний и умений   -->
+
       </div>
+      <!-- конец *ngIf = "boolVE1" -->
+
 
       <div *ngIf = "boolVE2">
         <div class="d-flex justify-content-between">
@@ -59,7 +98,45 @@
             <img src="/assets/img/delete.svg" width="24" height="24">
           </button>
         </div>
+        <!-- Начало Этап урока - сообщение темы и цели урока  -->
+        <!-- 7 справочник -->
+        <app-guide7 [numberComponent]="4" [documentComponentMethodList]="inputDocumentComponentMethodList4" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 4)" ></app-guide7>
+
+        <div class="card pt-2 pb-4 px-4 mb-5">
+          <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
+          <textarea formControlName="teacheractivity4" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+        </div>
+
+        <div class="card pt-2 pb-4 px-4 mb-4">
+          <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
+          <textarea formControlName="studentactivities4" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+        </div>
+
+
+        <h5 class="mb-4">Базовые учебные действия</h5>
+
+        <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid4" aria-expanded="false" aria-controls="collapseGuid4">
+          Базовые учебные действия
+        </button>
+
+        <div class="collapse" id="collapseGuid4">
+          <div class="my-1">
+
+            <app-guide8 numberComponent="4" titleMethodComponent="чекбокс 4" [checkArray]="checkArray4" (methodResultat)="onResGuide8($event, 4)"></app-guide8>
+
+          </div>
+        </div>
+
+
+
+        <div class="card pt-2 pb-4 px-4 mb-4">
+          <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
+          <textarea formControlName="reviewerrecommendations4" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+        </div>
+        <!-- Конец - Этап урока - сообщение темы и цели урока   -->
       </div>
+      <!-- конец *ngIf = "boolVE2 -->
+
 
       <div *ngIf = "boolVE3">
         <div class="d-flex justify-content-between">
@@ -68,7 +145,41 @@
             <img src="/assets/img/delete.svg" width="24" height="24">
           </button>
         </div>
+        <!-- Начало Этап урока -  мотивация и планирование учебной деятельности  -->
+        <!-- 7 справочник -->
+        <app-guide7 [numberComponent]="5" [documentComponentMethodList]="inputDocumentComponentMethodList5" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 5)" ></app-guide7>
+
+        <div class="card pt-2 pb-4 px-4 mb-5">
+          <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
+          <textarea formControlName="teacheractivity5" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+        </div>
+
+        <div class="card pt-2 pb-4 px-4 mb-4">
+          <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
+          <textarea formControlName="studentactivities5" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+        </div>
+
+        <h5 class="mb-4">Базовые учебные действия</h5>
+
+        <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid5" aria-expanded="false" aria-controls="collapseGuid5">
+          Базовые учебные действия
+        </button>
+
+        <div class="collapse" id="collapseGuid5">
+          <div class="my-1">
+
+            <app-guide8 numberComponent="5" titleMethodComponent="чекбокс 5" [checkArray]="checkArray5" (methodResultat)="onResGuide8($event, 5)"></app-guide8>
+
+          </div>
+        </div>
+
+        <div class="card pt-2 pb-4 px-4 mb-4">
+          <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
+          <textarea formControlName="reviewerrecommendations5" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+        </div>
+        <!-- Конец - Этап урока -  мотивация и планирование учебной деятельности   -->
       </div>
+      <!-- конец  *ngIf = "boolVE3 -->
 
       <div *ngIf = "boolVE4">
         <div class="d-flex justify-content-between">
@@ -77,7 +188,45 @@
             <img src="/assets/img/delete.svg" width="24" height="24">
           </button>
         </div>
+        <!-- Начало Этап урока - проверка домашнего задания -->
+        <!-- 7 справочник -->
+        <app-guide7 [numberComponent]="2" [documentComponentMethodList]="inputDocumentComponentMethodList2" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 2)" ></app-guide7>
+
+
+        <div class="card pt-2 pb-4 px-4 mb-5">
+          <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
+          <textarea formControlName="teacheractivity2" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+        </div>
+
+        <div class="card pt-2 pb-4 px-4 mb-4">
+          <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
+          <textarea formControlName="studentactivities2" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+        </div>
+
+
+        <h5 class="mb-4">Базовые учебные действия</h5>
+
+        <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid2" aria-expanded="false" aria-controls="collapseGuid2">
+          Базовые учебные действия
+        </button>
+
+        <div class="collapse" id="collapseGuid2">
+          <div class="my-1">
+
+            <app-guide8 numberComponent="2" titleMethodComponent="чекбокс 2" [checkArray]="checkArray2" (methodResultat)="onResGuide8($event, 2)"></app-guide8>
+
+          </div>
+        </div>
+
+
+        <div class="card pt-2 pb-4 px-4 mb-4">
+          <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
+          <textarea formControlName="reviewerrecommendations2" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+        </div>
+        <!-- Конец - проверка домашнего задания  -->
       </div>
+
+      <!-- - конец  *ngIf = "boolVE4 -->
 
 
       <!--КОНЕЦ ЭТАПЫ УРОКА У РАБОТА С НИМИ-->
@@ -128,170 +277,11 @@
 
 
 
-      <!-- Начало Этап урока - проверка домашнего задания -->
-
-      <h4 class="stage">Этап урока - проверка домашнего задания</h4>
-      <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="2" [documentComponentMethodList]="inputDocumentComponentMethodList2" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 2)" ></app-guide7>
-
-
-      <div class="card pt-2 pb-4 px-4 mb-5">
-        <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
-        <textarea formControlName="teacheractivity2" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
-      </div>
-
-      <div class="card pt-2 pb-4 px-4 mb-4">
-        <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
-        <textarea formControlName="studentactivities2" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
-      </div>
-
-
-      <h5 class="mb-4">Базовые учебные действия</h5>
-
-      <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid2" aria-expanded="false" aria-controls="collapseGuid2">
-        Базовые учебные действия
-      </button>
-
-      <div class="collapse" id="collapseGuid2">
-        <div class="my-1">
-
-          <app-guide8 numberComponent="2" titleMethodComponent="чекбокс 2" [checkArray]="checkArray2" (methodResultat)="onResGuide8($event, 2)"></app-guide8>
-
-        </div>
-      </div>
-
-
-  <div class="card pt-2 pb-4 px-4 mb-4">
-    <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
-    <textarea formControlName="reviewerrecommendations2" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
-  </div>
-
-  <!-- Конец - проверка домашнего задания  -->
-
-  <!-- Начало Этап урока - актуализация знаний и умений  -->
-
-  <h4 class="stage">Этап урока - актуализация знаний и умений</h4>
-  <!-- 7 справочник -->
-  <app-guide7 [numberComponent]="3"  [documentComponentMethodList]="inputDocumentComponentMethodList3" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 3)" ></app-guide7>
-
-
-  <div class="card pt-2 pb-4 px-4 mb-5">
-    <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
-    <textarea formControlName="teacheractivity3" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
-  </div>
-
-  <div class="card pt-2 pb-4 px-4 mb-4">
-    <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
-    <textarea formControlName="studentactivities3" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
-  </div>
-
-
-  <h5 class="mb-4">Базовые учебные действия</h5>
-
-      <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid3" aria-expanded="false" aria-controls="collapseGuid3">
-        Базовые учебные действия
-      </button>
-
-      <div class="collapse" id="collapseGuid3">
-        <div class="my-1">
-
-          <app-guide8 numberComponent="3" titleMethodComponent="чекбокс 3" [checkArray]="checkArray3" (methodResultat)="onResGuide8($event, 3)"></app-guide8>
-
-        </div>
-      </div>
 
 
 
-    <div class="card pt-2 pb-4 px-4 mb-4">
-      <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
-      <textarea formControlName="reviewerrecommendations3" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
-    </div>
-
-    <!-- Конец - Этап урока - актуализация знаний и умений   -->
 
 
-      <!-- Начало Этап урока - сообщение темы и цели урока  -->
-
-      <h4 class="stage">Этап урока - сообщение темы и цели урока</h4>
-      <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="4" [documentComponentMethodList]="inputDocumentComponentMethodList4" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 4)" ></app-guide7>
-
-
-      <div class="card pt-2 pb-4 px-4 mb-5">
-        <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
-        <textarea formControlName="teacheractivity4" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
-      </div>
-
-      <div class="card pt-2 pb-4 px-4 mb-4">
-        <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
-        <textarea formControlName="studentactivities4" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
-      </div>
-
-
-      <h5 class="mb-4">Базовые учебные действия</h5>
-
-      <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid4" aria-expanded="false" aria-controls="collapseGuid4">
-        Базовые учебные действия
-      </button>
-
-      <div class="collapse" id="collapseGuid4">
-        <div class="my-1">
-
-          <app-guide8 numberComponent="4" titleMethodComponent="чекбокс 4" [checkArray]="checkArray4" (methodResultat)="onResGuide8($event, 4)"></app-guide8>
-
-        </div>
-      </div>
-
-
-
-      <div class="card pt-2 pb-4 px-4 mb-4">
-        <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
-        <textarea formControlName="reviewerrecommendations4" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
-      </div>
-
-      <!-- Конец - Этап урока - сообщение темы и цели урока   -->
-
-
-      <!-- Начало Этап урока -  мотивация и планирование учебной деятельности  -->
-
-      <h4 class="stage">Этап урока -  мотивация и планирование учебной деятельности</h4>
-      <!-- 7 справочник -->
-      <app-guide7 [numberComponent]="5" [documentComponentMethodList]="inputDocumentComponentMethodList5" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 5)" ></app-guide7>
-
-
-      <div class="card pt-2 pb-4 px-4 mb-5">
-        <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
-        <textarea formControlName="teacheractivity5" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
-      </div>
-
-      <div class="card pt-2 pb-4 px-4 mb-4">
-        <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
-        <textarea formControlName="studentactivities5" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
-      </div>
-
-
-      <h5 class="mb-4">Базовые учебные действия</h5>
-
-      <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid5" aria-expanded="false" aria-controls="collapseGuid5">
-        Базовые учебные действия
-      </button>
-
-      <div class="collapse" id="collapseGuid5">
-        <div class="my-1">
-
-          <app-guide8 numberComponent="5" titleMethodComponent="чекбокс 5" [checkArray]="checkArray5" (methodResultat)="onResGuide8($event, 5)"></app-guide8>
-
-        </div>
-      </div>
-
-
-
-      <div class="card pt-2 pb-4 px-4 mb-4">
-        <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
-        <textarea formControlName="reviewerrecommendations5" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
-      </div>
-
-      <!-- Конец - Этап урока -  мотивация и планирование учебной деятельности   -->
 
       <div class="headers"><h4>Часть урока: ОСНОВНАЯ ЧАСТЬ</h4></div>
 

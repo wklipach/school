@@ -142,7 +142,14 @@ export class ArchiveComponent implements OnInit {
         this.showLessons();
       });
     }
+  }
 
+  onClickDelete(lesson){
+    if (confirm("Удалить урок?")) {
+      this.gs.setDeleteLesson(lesson._id).subscribe( value => {
+        this.showLessons();
+      });
+    }
   }
 
 

@@ -27,7 +27,7 @@ export class GuideService {
       .set('date',  schoolarchive.date)
       .set('current_lessons',  schoolarchive.currentLessons)
       .set('id_user', id_user)
-      .set('uLessonObjectives', uLessonObjectives) 
+      .set('uLessonObjectives', uLessonObjectives)
       .set('uLessonTopic', uLessonTopic);
     return this.http.get(this.gr.sUrlGlobal + 'guide', {params: varparams});
   }
@@ -84,6 +84,10 @@ export class GuideService {
     return this.http.post(this.gr.sUrlGlobal + 'guide', datamessage);
   }
 
+  setDeleteLesson(id_lesson: string) {
+    const datamessage = {deletelesson: 'deletelesson', id_lesson};
+    return this.http.post(this.gr.sUrlGlobal + 'guide', datamessage);
+  }
 
   updateSummaryLessonList4(id_key, objSummaryLesson) {
     const datamessage = {update_summarylesson_1: 'update_summarylesson_1', id_key, objSummaryLesson};
