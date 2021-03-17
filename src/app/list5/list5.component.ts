@@ -14,6 +14,11 @@ import {Guide7Service} from '../components/guide7/guide7.service';
 })
 export class List5Component implements OnInit {
 
+  boolVE1  = false;
+  boolVE2  = false;
+  boolVE3  = false;
+  boolVE4  = false;
+
   thisThemeId = -1;
   thisTheme = '---';
   edititing_id = '-1';
@@ -236,6 +241,12 @@ export class List5Component implements OnInit {
     this.list5Form.controls.studentactivities10.setValue(lesson5.studentactivities10);
     this.list5Form.controls.reviewerrecommendations10.setValue(lesson5.reviewerrecommendations10);
 
+
+    this.boolVE1 = lesson5.boolVE1;
+    this.boolVE2 = lesson5.boolVE2;
+    this.boolVE3 = lesson5.boolVE3;
+    this.boolVE4 = lesson5.boolVE4;
+
   }
 
 
@@ -383,6 +394,11 @@ export class List5Component implements OnInit {
     objResult.studentactivities10 = this.list5Form.controls.studentactivities10.value;
     objResult.reviewerrecommendations10 = this.list5Form.controls.reviewerrecommendations10.value;
 
+    objResult.boolVE1  = this.boolVE1;
+    objResult.boolVE2  = this.boolVE2;
+    objResult.boolVE3  = this.boolVE3;
+    objResult.boolVE4  = this.boolVE4;
+
     console.log('id=', id, objResult);
     this.gs.updateSummaryLessonList5(id, objResult).subscribe( resultat => {
 
@@ -476,4 +492,45 @@ export class List5Component implements OnInit {
       this.Guide8Resultat10 = event;
     }
   }
+
+  clickGroupDropVE(i: number) {
+    if (i === 1) {
+      this.boolVE1  = true;
+    }
+
+    if (i === 2) {
+      this.boolVE2  = true;
+    }
+
+    if (i === 3) {
+      this.boolVE3  = true;
+    }
+
+    if (i === 4) {
+      this.boolVE4  = true;
+    }
+
+  }
+
+  onClickDeleteVE(i: number) {
+    if (i === 1) {
+      this.boolVE1  = false;
+    }
+
+    if (i === 2) {
+      this.boolVE2  = false;
+    }
+
+    if (i === 3) {
+      this.boolVE3  = false;
+    }
+
+    if (i === 4) {
+      this.boolVE4  = false;
+    }
+
+
+  }
+
+
 }

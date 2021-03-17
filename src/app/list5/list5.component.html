@@ -17,6 +17,74 @@
        <h4>Часть урока: ВВОДНО-ПОДГОТОВИТЕЛЬНАЯ ЧАСТЬ</h4>
       </div>
 
+
+      <!-- ЭТАПЫ УРОКА У РАБОТА С НИМИ-->
+      <div class="btn-group" role="group">
+        <button id="btnGroupDropVE" type="button" class="btn btn-primary dropdown-toggle mb-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Добавить этап урока
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="btnGroupDropVE">
+          <div *ngIf = "!boolVE1">
+            <li><a class="dropdown-item" (click)="clickGroupDropVE(1)">Актуализация знаний и умений</a></li>
+          </div>
+
+          <div *ngIf = "!boolVE2">
+            <li><a class="dropdown-item" (click)="clickGroupDropVE(2)">Сообщение темы и цели урока</a></li>
+          </div>
+
+          <div *ngIf = "!boolVE3">
+            <li><a class="dropdown-item" (click)="clickGroupDropVE(3)">Мотивация и планирование учебной деятельности.</a></li>
+          </div>
+
+          <div *ngIf = "!boolVE4">
+            <li><a class="dropdown-item" (click)="clickGroupDropVE(4)">Проверка домашнего задания.</a></li>
+          </div>
+
+        </ul>
+      </div>
+
+      <div *ngIf = "boolVE1">
+        <div class="d-flex justify-content-between">
+          <h4 class="stage">Этап урока - актуализация знаний и умений</h4>
+          <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteVE(1)" title="Удалить этап урока" style="max-height: 50px">
+            <img src="/assets/img/delete.svg" width="24" height="24">
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf = "boolVE2">
+        <div class="d-flex justify-content-between">
+          <h4 class="stage">Этап урока - сообщение темы и цели урока</h4>
+          <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteVE(2)" title="Удалить этап урока" style="max-height: 50px">
+            <img src="/assets/img/delete.svg" width="24" height="24">
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf = "boolVE3">
+        <div class="d-flex justify-content-between">
+          <h4 class="stage">Этап урока - мотивация и планирование учебной деятельности</h4>
+          <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteVE(3)" title="Удалить этап урока" style="max-height: 50px">
+            <img src="/assets/img/delete.svg" width="24" height="24">
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf = "boolVE4">
+        <div class="d-flex justify-content-between">
+          <h4 class="stage">Этап урока - проверка домашнего задания</h4>
+          <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteVE(4)" title="Удалить этап урока" style="max-height: 50px">
+            <img src="/assets/img/delete.svg" width="24" height="24">
+          </button>
+        </div>
+      </div>
+
+
+      <!--КОНЕЦ ЭТАПЫ УРОКА У РАБОТА С НИМИ-->
+
+
+
+
       <!-- Начало ОРГАНИЗАЦИОННОГО этапа  -->
 
       <div *ngIf="this.thisThemeId === 1 || this.thisThemeId === 2 || this.thisThemeId === 3 || this.thisThemeId === 4">
