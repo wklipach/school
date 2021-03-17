@@ -11,7 +11,7 @@
 
 
        <div class="d-flex justify-content-between">
-         <span>{{sTitle}}</span>
+         <h4>{{sTitle}}</h4>
          <button class="btn btn-primary" type="button" data-toggle="collapse"
                             data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
           Найти урок
@@ -19,9 +19,9 @@
        </div>
 
           <div class="collapse" id="collapseFilter">
-            <div class="card card-body">
+            <div class="card card-body mt-3">
               <div class="d-flex">
-                <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Цель урока</span>
+                <span class="mt-2 mb-4 w-25 mr-5 text-muted font-weight-bold">Цель урока</span>
                 <input type="text" class="form-control" placeholder="Цель урока" formControlName="uLessonObjectives">
               </div>
               <div class="d-flex">
@@ -29,7 +29,7 @@
                 <input type="text" class="form-control" placeholder="Тема урока" formControlName="uLessonTopic">
               </div>
 
-              <button type="button" class="btn btn-outline-primary my-3 w-25 ml-auto" (click)="showLessons()">Фильтровать</button>
+              <button type="button" class="btn btn-outline-primary mt-3 w-25 ml-auto" (click)="showLessons()">Фильтровать</button>
             </div>
 
 
