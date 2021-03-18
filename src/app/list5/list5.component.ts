@@ -18,6 +18,10 @@ export class List5Component implements OnInit {
   boolVE2  = false;
   boolVE3  = false;
   boolVE4  = false;
+  boolVE5  = false;
+  boolVE6  = false;
+  boolVE7  = false;
+  boolVE8  = false;
 
   thisThemeId = -1;
   thisTheme = '---';
@@ -36,6 +40,10 @@ export class List5Component implements OnInit {
   Guide8Resultat8 = [];
   Guide8Resultat9 = [];
   Guide8Resultat10 = [];
+  Guide8Resultat11 = [];
+  Guide8Resultat12 = [];
+  Guide8Resultat13 = [];
+
   Guide7Resultat1 = [];
   Guide7Resultat2 = [];
   Guide7Resultat3 = [];
@@ -46,6 +54,9 @@ export class List5Component implements OnInit {
   Guide7Resultat8 = [];
   Guide7Resultat9 = [];
   Guide7Resultat10 = [];
+  Guide7Resultat11 = [];
+  Guide7Resultat12 = [];
+  Guide7Resultat13 = [];
 
   checkArray1: any[] = [];
   checkArray2: any[] = [];
@@ -57,6 +68,9 @@ export class List5Component implements OnInit {
   checkArray8: any[] = [];
   checkArray9: any[] = [];
   checkArray10: any[] = [];
+  checkArray11: any[] = [];
+  checkArray12: any[] = [];
+  checkArray13: any[] = [];
 
   listBasicLearningActivities: any;
   listGroupLearningActivities: any;
@@ -72,7 +86,9 @@ export class List5Component implements OnInit {
   inputDocumentComponentMethodList8: any[] = [];
   inputDocumentComponentMethodList9: any[] = [];
   inputDocumentComponentMethodList10: any[] = [];
-
+  inputDocumentComponentMethodList11: any[] = [];
+  inputDocumentComponentMethodList12: any[] = [];
+  inputDocumentComponentMethodList13: any[] = [];
 
   constructor(private router: Router, private gs: GuideService,
               private auth: AuthService, private g7s: Guide7Service) {
@@ -114,8 +130,15 @@ export class List5Component implements OnInit {
       teacheractivity10: new FormControl(''),
       studentactivities10: new FormControl(''),
       reviewerrecommendations10: new FormControl(''),
-
-
+      teacheractivity11: new FormControl(''),
+      studentactivities11: new FormControl(''),
+      reviewerrecommendations11: new FormControl(''),
+      teacheractivity12: new FormControl(''),
+      studentactivities12: new FormControl(''),
+      reviewerrecommendations12: new FormControl(''),
+      teacheractivity13: new FormControl(''),
+      studentactivities13: new FormControl(''),
+      reviewerrecommendations13: new FormControl(''),
     });
   }
 
@@ -131,6 +154,12 @@ export class List5Component implements OnInit {
         if (document.objSummaryLesson.documentTypeLesson) {
           this.thisTheme = document.objSummaryLesson.documentTypeLesson.title;
           this.thisThemeId = document.objSummaryLesson.documentTypeLesson.id;
+          if (this.thisThemeId === 1 || this.thisThemeId === 2) {
+            this.boolVE8 = true;
+          }
+          if (this.thisThemeId === 3) {
+            this.boolVE7 = true;
+          }
         }
       }
     });
@@ -190,6 +219,18 @@ export class List5Component implements OnInit {
     this.inputDocumentComponentMethodList9 = lesson5.Guide7Resultat9;
     this.inputDocumentComponentMethodList10 = lesson5.Guide7Resultat10;
 
+    if (lesson5.Guide7Resultat11) {
+    this.inputDocumentComponentMethodList11 = lesson5.Guide7Resultat11;
+    }
+
+    if (lesson5.Guide7Resultat12) {
+    this.inputDocumentComponentMethodList12 = lesson5.Guide7Resultat12;
+    }
+
+    if (lesson5.Guide7Resultat13) {
+      this.inputDocumentComponentMethodList13 = lesson5.Guide7Resultat13;
+      }
+
     this.checkArray1 = lesson5.Guide8Resultat1;
     this.checkArray2 = lesson5.Guide8Resultat2;
     this.checkArray3 = lesson5.Guide8Resultat3;
@@ -200,6 +241,19 @@ export class List5Component implements OnInit {
     this.checkArray8 = lesson5.Guide8Resultat8;
     this.checkArray9 = lesson5.Guide8Resultat9;
     this.checkArray10 = lesson5.Guide8Resultat10;
+
+    if (lesson5.Guide8Resultat11) {
+    this.checkArray11 = lesson5.Guide8Resultat11;
+    }
+
+    if (lesson5.Guide8Resultat12) {
+    this.checkArray12 = lesson5.Guide8Resultat12;
+    }
+
+    if (lesson5.Guide8Resultat13) {
+      this.checkArray13 = lesson5.Guide8Resultat13;
+      }
+      
 
     this.list5Form.controls.teacheractivity.setValue(lesson5.teacheractivity);
     this.list5Form.controls.studentactivities.setValue(lesson5.studentactivities);
@@ -241,11 +295,28 @@ export class List5Component implements OnInit {
     this.list5Form.controls.studentactivities10.setValue(lesson5.studentactivities10);
     this.list5Form.controls.reviewerrecommendations10.setValue(lesson5.reviewerrecommendations10);
 
+    this.list5Form.controls.teacheractivity11.setValue(lesson5.teacheractivity11);
+    this.list5Form.controls.studentactivities11.setValue(lesson5.studentactivities11);
+    this.list5Form.controls.reviewerrecommendations11.setValue(lesson5.reviewerrecommendations11);
+
+    this.list5Form.controls.teacheractivity12.setValue(lesson5.teacheractivity12);
+    this.list5Form.controls.studentactivities12.setValue(lesson5.studentactivities12);
+    this.list5Form.controls.reviewerrecommendations12.setValue(lesson5.reviewerrecommendations12);
+
+    this.list5Form.controls.teacheractivity13.setValue(lesson5.teacheractivity13);
+    this.list5Form.controls.studentactivities13.setValue(lesson5.studentactivities13);
+    this.list5Form.controls.reviewerrecommendations13.setValue(lesson5.reviewerrecommendations13);
 
     this.boolVE1 = lesson5.boolVE1;
     this.boolVE2 = lesson5.boolVE2;
     this.boolVE3 = lesson5.boolVE3;
     this.boolVE4 = lesson5.boolVE4;
+    this.boolVE5 = lesson5.boolVE5;
+    this.boolVE6 = lesson5.boolVE6;
+    this.boolVE7 = lesson5.boolVE7;
+    this.boolVE8 = lesson5.boolVE8;
+
+    console.log('this.thisTheme=', this.thisTheme, this.thisThemeId); 
 
   }
 
@@ -322,6 +393,10 @@ export class List5Component implements OnInit {
     this.sentCurrentMessage('guide7', 8);
     this.sentCurrentMessage('guide7', 9);
     this.sentCurrentMessage('guide7', 10);
+    this.sentCurrentMessage('guide7', 11);
+    this.sentCurrentMessage('guide7', 12);
+    this.sentCurrentMessage('guide7', 13);
+
     this.sentCurrentMessage('guide8', 1);
     this.sentCurrentMessage('guide8', 2);
     this.sentCurrentMessage('guide8', 3);
@@ -332,6 +407,9 @@ export class List5Component implements OnInit {
     this.sentCurrentMessage('guide8', 8);
     this.sentCurrentMessage('guide8', 9);
     this.sentCurrentMessage('guide8', 10);
+    this.sentCurrentMessage('guide8', 11);
+    this.sentCurrentMessage('guide8', 12);
+    this.sentCurrentMessage('guide8', 13);
 
     objResult.Guide7Resultat1 = this.Guide7Resultat1;
     objResult.Guide7Resultat2 = this.Guide7Resultat2;
@@ -343,6 +421,10 @@ export class List5Component implements OnInit {
     objResult.Guide7Resultat8 = this.Guide7Resultat8;
     objResult.Guide7Resultat9 = this.Guide7Resultat9;
     objResult.Guide7Resultat10 = this.Guide7Resultat10;
+    objResult.Guide7Resultat11 = this.Guide7Resultat11;
+    objResult.Guide7Resultat12 = this.Guide7Resultat12;
+    objResult.Guide7Resultat13 = this.Guide7Resultat13;
+
     objResult.Guide8Resultat1 = this.Guide8Resultat1;
     objResult.Guide8Resultat2 = this.Guide8Resultat2;
     objResult.Guide8Resultat3 = this.Guide8Resultat3;
@@ -353,6 +435,9 @@ export class List5Component implements OnInit {
     objResult.Guide8Resultat8 = this.Guide8Resultat8;
     objResult.Guide8Resultat9 = this.Guide8Resultat9;
     objResult.Guide8Resultat10 = this.Guide8Resultat10;
+    objResult.Guide8Resultat11 = this.Guide8Resultat11;
+    objResult.Guide8Resultat12 = this.Guide8Resultat12;
+    objResult.Guide8Resultat13 = this.Guide8Resultat13;
 
     objResult.teacheractivity = this.list5Form.controls.teacheractivity.value;
     objResult.studentactivities = this.list5Form.controls.studentactivities.value;
@@ -394,10 +479,26 @@ export class List5Component implements OnInit {
     objResult.studentactivities10 = this.list5Form.controls.studentactivities10.value;
     objResult.reviewerrecommendations10 = this.list5Form.controls.reviewerrecommendations10.value;
 
+    objResult.teacheractivity11 = this.list5Form.controls.teacheractivity11.value;
+    objResult.studentactivities11 = this.list5Form.controls.studentactivities11.value;
+    objResult.reviewerrecommendations11 = this.list5Form.controls.reviewerrecommendations11.value;
+
+    objResult.teacheractivity12 = this.list5Form.controls.teacheractivity12.value;
+    objResult.studentactivities12 = this.list5Form.controls.studentactivities12.value;
+    objResult.reviewerrecommendations12 = this.list5Form.controls.reviewerrecommendations12.value;
+
+    objResult.teacheractivity13 = this.list5Form.controls.teacheractivity13.value;
+    objResult.studentactivities13 = this.list5Form.controls.studentactivities13.value;
+    objResult.reviewerrecommendations13 = this.list5Form.controls.reviewerrecommendations13.value;
+
     objResult.boolVE1  = this.boolVE1;
     objResult.boolVE2  = this.boolVE2;
     objResult.boolVE3  = this.boolVE3;
     objResult.boolVE4  = this.boolVE4;
+    objResult.boolVE5  = this.boolVE5;
+    objResult.boolVE6  = this.boolVE6;
+    objResult.boolVE7  = this.boolVE7;
+    objResult.boolVE8  = this.boolVE8;
 
     console.log('id=', id, objResult);
     this.gs.updateSummaryLessonList5(id, objResult).subscribe( resultat => {
@@ -455,6 +556,20 @@ export class List5Component implements OnInit {
     if (i === 10) {
       this.Guide7Resultat10 = event;
     }
+
+    if (i === 11) {
+      this.Guide7Resultat11 = event;
+    }
+
+    if (i === 12) {
+      this.Guide7Resultat12 = event;
+    }
+
+    if (i === 13) {
+      this.Guide7Resultat13 = event;
+    }
+
+
   }
 
   onResGuide8(event: [], i: number) {
@@ -491,6 +606,19 @@ export class List5Component implements OnInit {
     if (i === 10) {
       this.Guide8Resultat10 = event;
     }
+
+    if (i === 11) {
+      this.Guide8Resultat11 = event;
+    }
+
+    if (i === 12) {
+      this.Guide8Resultat12 = event;
+    }
+
+    if (i === 13) {
+      this.Guide8Resultat13 = event;
+    }
+
   }
 
   clickGroupDropVE(i: number) {
@@ -508,6 +636,14 @@ export class List5Component implements OnInit {
 
     if (i === 4) {
       this.boolVE4  = true;
+    }
+
+    if (i === 5) {
+      this.boolVE5  = true;
+    }
+
+    if (i === 6) {
+      this.boolVE6  = true;
     }
 
   }
@@ -529,6 +665,13 @@ export class List5Component implements OnInit {
       this.boolVE4  = false;
     }
 
+    if (i === 5) {
+      this.boolVE5  = false;
+    }
+
+    if (i === 6) {
+      this.boolVE6  = false;
+    }
 
   }
 
