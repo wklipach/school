@@ -286,19 +286,19 @@
 
         <div *ngIf = "this.thisThemeId === 2">
           <div class="btn-group" role="group">
-                <button id="btnGroupDropVE" type="button" class="btn btn-primary dropdown-toggle mb-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button id="btnGroupDropVE3" type="button" class="btn btn-primary dropdown-toggle mb-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Необязательные этапы
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="btnGroupDropVE">
+                <ul class="dropdown-menu" aria-labelledby="btnGroupDropVE3">
                   <div *ngIf="!boolVE7">
                     <li><a class="dropdown-item" (click)="boolVE7 = !boolVE7"> Добавить "Систематизация и обобщение"</a></li>
                   </div>
                   <div *ngIf="boolVE7">
                     <li><a class="dropdown-item" (click)="boolVE7 = !boolVE7"> Удалить "Систематизация и обобщение"</a></li>
-                  </div>  
+                  </div>
                 </ul>
            </div>
-       </div>         
+       </div>
 
 
         <div *ngIf="boolVE7">
@@ -337,16 +337,16 @@
         </div>
 
         </div>
-      
+
       </div>
-      
+
 <!-- контроль и коррекция-->
   <div *ngIf="this.thisThemeId === 4">
       <div class="btn-group" role="group">
-        <button id="btnGroupDropVE" type="button" class="btn btn-primary dropdown-toggle mb-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button id="btnGroupDropVE2" type="button" class="btn btn-primary dropdown-toggle mb-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Добавить этап урока
         </button>
-        <ul class="dropdown-menu" aria-labelledby="btnGroupDropVE">
+        <ul class="dropdown-menu" aria-labelledby="btnGroupDropVE2">
           <div *ngIf = "!boolVE5">
             <li><a class="dropdown-item" (click)="clickGroupDropVE(5)">Контроль</a></li>
           </div>
@@ -496,7 +496,7 @@
       <!-- Начало Этап урока -  закрепление изученного материала  -->
       <div *ngIf="this.thisThemeId === 2 || this.thisThemeId === 1 || this.thisThemeId === 3">
 
-        <div *ngIf="this.thisThemeId === 3">  
+        <div *ngIf="this.thisThemeId === 3">
                       <div class="btn-group" role="group">
                         <button id="btnGroupF1" type="button" class="btn btn-primary dropdown-toggle mb-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Необязательные этапы
@@ -507,45 +507,48 @@
                           </div>
                           <div *ngIf="boolVE8">
                             <li><a class="dropdown-item" (click)="boolVE8 = !boolVE8"> Удалить "закрепление изученного материала"</a></li>
-                          </div>  
+                          </div>
                         </ul>
                       </div>
         </div>
 
-                <h4 class="stage">Этап урока -  закрепление изученного материала</h4>
-                <!-- 7 справочник -->
-                <app-guide7 [numberComponent]="7"  [documentComponentMethodList]="inputDocumentComponentMethodList7" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 7)" ></app-guide7>
+                    <div *ngIf="boolVE8">
+
+                            <h4 class="stage">Этап урока -  закрепление изученного материала</h4>
+                            <!-- 7 справочник -->
+                            <app-guide7 [numberComponent]="7"  [documentComponentMethodList]="inputDocumentComponentMethodList7" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 7)" ></app-guide7>
 
 
-                <div class="card pt-2 pb-4 px-4 mb-5">
-                  <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
-                  <textarea formControlName="teacheractivity7" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
-                </div>
+                            <div class="card pt-2 pb-4 px-4 mb-5">
+                              <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
+                              <textarea formControlName="teacheractivity7" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+                            </div>
 
-                <div class="card pt-2 pb-4 px-4 mb-4">
-                  <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
-                  <textarea formControlName="studentactivities7" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
-                </div>
+                            <div class="card pt-2 pb-4 px-4 mb-4">
+                              <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
+                              <textarea formControlName="studentactivities7" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+                            </div>
 
-                <h5 class="mb-4">Базовые учебные действия</h5>
+                            <h5 class="mb-4">Базовые учебные действия</h5>
 
-                <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid7" aria-expanded="false" aria-controls="collapseGuid7">
-                  Базовые учебные действия
-                </button>
+                            <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid7" aria-expanded="false" aria-controls="collapseGuid7">
+                              Базовые учебные действия
+                            </button>
 
-                <div class="collapse" id="collapseGuid7">
-                  <div class="my-1">
+                            <div class="collapse" id="collapseGuid7">
+                              <div class="my-1">
 
-                    <app-guide8 numberComponent="7" titleMethodComponent="чекбокс 7" [checkArray]="checkArray7" (methodResultat)="onResGuide8($event, 7)"></app-guide8>
+                                <app-guide8 numberComponent="7" titleMethodComponent="чекбокс 7" [checkArray]="checkArray7" (methodResultat)="onResGuide8($event, 7)"></app-guide8>
 
-                  </div>
-                </div>
+                              </div>
+                            </div>
 
-                <div class="card pt-2 pb-4 px-4 mb-4">
-                  <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
-                  <textarea formControlName="reviewerrecommendations7" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
-                </div>
+                            <div class="card pt-2 pb-4 px-4 mb-4">
+                              <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
+                              <textarea formControlName="reviewerrecommendations7" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+                            </div>
 
+                    </div>
       </div>
       <!-- Конец - Этап урока -  закрепление изученного материала   -->
 
@@ -595,7 +598,26 @@
       <!-- Конец - Этап урока - подведение итогов (выводы, оценивание, рефлексия)   -->
 
       <!-- Начало Этап урока -  сообщение домашнего задания (инструктаж)  -->
-      <div *ngIf="this.thisThemeId === 1 || this.thisThemeId === 2 || this.thisThemeId === 3 || this.thisThemeId === 4">
+
+<!-- ===================================================================================================================== -->
+                <div *ngIf="this.thisThemeId === 4">
+                  <div class="btn-group" role="group">
+                    <button id="btnGroupF2" type="button" class="btn btn-primary dropdown-toggle mb-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Необязательные этапы
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="btnGroupF2">
+                      <div *ngIf="!boolVE9">
+                        <li><a class="dropdown-item" (click)="boolVE9 = !boolVE9"> Добавить "сообщение домашнего задания"</a></li>
+                      </div>
+                      <div *ngIf="boolVE9">
+                        <li><a class="dropdown-item" (click)="boolVE9 = !boolVE9"> Удалить "сообщение домашнего задания"</a></li>
+                      </div>
+                    </ul>
+                  </div>
+                </div>
+<!-- ===================================================================================================================== -->
+
+      <div *ngIf="boolVE9">
                   <h4 class="stage">Этап урока -  сообщение домашнего задания (инструктаж)</h4>
                   <!-- 7 справочник -->
                   <app-guide7 [numberComponent]="9" [documentComponentMethodList]="inputDocumentComponentMethodList9" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 9)" ></app-guide7>
@@ -632,7 +654,8 @@
                     <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
                     <textarea formControlName="reviewerrecommendations9" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
                   </div>
-      </div>
+
+        </div>
       <!-- Конец - Этап урока -  сообщение домашнего задания (инструктаж)  -->
 
 

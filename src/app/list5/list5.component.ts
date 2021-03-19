@@ -22,6 +22,7 @@ export class List5Component implements OnInit {
   boolVE6  = false;
   boolVE7  = false;
   boolVE8  = false;
+  boolVE9  = false;
 
   thisThemeId = -1;
   thisTheme = '---';
@@ -160,6 +161,11 @@ export class List5Component implements OnInit {
           if (this.thisThemeId === 3) {
             this.boolVE7 = true;
           }
+
+          if (this.thisThemeId === 1 || this.thisThemeId === 2 || this.thisThemeId === 3) {
+            this.boolVE9 = true;
+          }
+
         }
       }
     });
@@ -253,7 +259,7 @@ export class List5Component implements OnInit {
     if (lesson5.Guide8Resultat13) {
       this.checkArray13 = lesson5.Guide8Resultat13;
       }
-      
+
 
     this.list5Form.controls.teacheractivity.setValue(lesson5.teacheractivity);
     this.list5Form.controls.studentactivities.setValue(lesson5.studentactivities);
@@ -315,8 +321,9 @@ export class List5Component implements OnInit {
     this.boolVE6 = lesson5.boolVE6;
     this.boolVE7 = lesson5.boolVE7;
     this.boolVE8 = lesson5.boolVE8;
+    this.boolVE9 = lesson5.boolVE9;
 
-    console.log('this.thisTheme=', this.thisTheme, this.thisThemeId); 
+    console.log('this.thisTheme=', this.thisTheme, this.thisThemeId);
 
   }
 
@@ -499,6 +506,7 @@ export class List5Component implements OnInit {
     objResult.boolVE6  = this.boolVE6;
     objResult.boolVE7  = this.boolVE7;
     objResult.boolVE8  = this.boolVE8;
+    objResult.boolVE9  = this.boolVE9;
 
     console.log('id=', id, objResult);
     this.gs.updateSummaryLessonList5(id, objResult).subscribe( resultat => {
