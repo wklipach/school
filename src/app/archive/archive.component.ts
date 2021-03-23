@@ -20,7 +20,9 @@ export class ArchiveComponent implements OnInit {
 
     this.formArchive = new FormGroup({
       uLessonObjectives: new FormControl(''),
-      uLessonTopic: new FormControl()
+      uLessonTopic: new FormControl(),
+      uLesson: new FormControl(),
+      uClass: new FormControl()
       });
 
 
@@ -51,6 +53,8 @@ export class ArchiveComponent implements OnInit {
 
     let uLessonObjectives = this.formArchive.controls.uLessonObjectives.value;
     let uLessonTopic = this.formArchive.controls.uLessonTopic.value;
+    let uLesson = this.formArchive.controls.uLesson.value;
+    let uClass = this.formArchive.controls.uClass.value;
 
     if (!uLessonObjectives) {
       uLessonObjectives = 'nonestring';
@@ -58,6 +62,14 @@ export class ArchiveComponent implements OnInit {
 
     if (!uLessonTopic) {
       uLessonTopic = 'nonestring';
+    }
+
+    if (!uLesson) {
+      uLesson = 'nonestring';
+    }
+
+    if (!uClass) {
+      uClass = 'nonestring';
     }
 
     console.log('uLessonObjectives=', uLessonObjectives, 'uLessonTopic =', uLessonTopic);
@@ -75,7 +87,9 @@ export class ArchiveComponent implements OnInit {
     }
 
     // получаем список уроков
-    this.gs.selectListLessons(this.UserInfo.id_user_school, schoolarchive, uLessonObjectives, uLessonTopic).subscribe( (summaryRes: Array<any>) => {
+    this.gs.selectListLessons(this.UserInfo.id_user_school, schoolarchive,
+                               uLessonObjectives, uLessonTopic,
+                               uLesson, uClass).subscribe( (summaryRes: Array<any>) => {
       this.linsLessons = summaryRes;
     });
 

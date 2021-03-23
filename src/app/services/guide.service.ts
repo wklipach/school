@@ -20,7 +20,8 @@ export class GuideService {
     return this.http.get(this.gr.sUrlGlobal + 'guide', {params: varparams});
   }
 
-  selectListLessons(id_user, schoolarchive, uLessonObjectives, uLessonTopic) {
+  selectListLessons(id_user, schoolarchive, uLessonObjectives, uLessonTopic,
+                    uLesson, uClass) {
 
     const varparams = new HttpParams()
       .set('get_lessons_user', 'get_lessons_user')
@@ -28,7 +29,9 @@ export class GuideService {
       .set('current_lessons',  schoolarchive.currentLessons)
       .set('id_user', id_user)
       .set('uLessonObjectives', uLessonObjectives)
-      .set('uLessonTopic', uLessonTopic);
+      .set('uLessonTopic', uLessonTopic)
+      .set('uLesson', uLesson)
+      .set('uClass', uClass);
     return this.http.get(this.gr.sUrlGlobal + 'guide', {params: varparams});
   }
 
