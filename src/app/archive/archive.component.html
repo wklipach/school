@@ -25,10 +25,17 @@
                 <input type="text" class="form-control" placeholder="Цель урока" formControlName="uLessonObjectives">
               </div>
               <div class="d-flex">
-                <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Тема урока</span>
+                <span class="mt-2 mb-4 w-25 mr-5 text-muted font-weight-bold">Тема урока</span>
                 <input type="text" class="form-control" placeholder="Тема урока" formControlName="uLessonTopic">
               </div>
-
+              <div class="d-flex">
+                <span class="mt-2 mb-4 w-25 mr-5 text-muted font-weight-bold">Класс</span>
+                <input type="text" class="form-control" placeholder="Класс" formControlName="uLessonX">
+              </div>
+              <div class="d-flex">
+                <span class="mt-2 mb-4 w-25 mr-5 text-muted font-weight-bold">Учебный предмет</span>
+                <input type="text" class="form-control" placeholder="Учебный предмет" formControlName="uLessonY">
+              </div>
               <button type="button" class="btn btn-outline-primary mt-3 w-25 ml-auto" (click)="showLessons()">Фильтровать</button>
             </div>
 
