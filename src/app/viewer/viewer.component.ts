@@ -283,9 +283,9 @@ export class ViewerComponent implements OnInit {
 
       if (this.Guide7Resultat6.length > 0 || this.Guide7Resultat7.length > 0 ||
           this.Guide8Resultat6.length > 0 || this.Guide8Resultat7.length > 0 ||
-          this.teacheractivity6.length > 0 || this.teacheractivity6.length > 0 ||
-          this.teacheractivity7.length > 0 || this.studentactivities7.length > 0) {
-
+          this.Guide7Resultat11.length > 0 || this.Guide8Resultat11.length > 0 ||
+          this.Guide7Resultat12.length > 0 || this.Guide8Resultat12.length > 0 ||
+          this.Guide7Resultat13.length > 0 || this.Guide8Resultat13.length > 0) {
           this.partBase = true;
       };
 
