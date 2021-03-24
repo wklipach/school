@@ -318,23 +318,49 @@ export class List5V2Component implements OnInit {
   onClickDeleteVE(i: number) {
     if (i === 1) {
       this.boolVE1  = false;
-      this.list5v2Form.controls.teacheractivity3.setValue('');
-      this.list5v2Form.controls.studentactivities3.setValue('');
-      this.list5v2Form.controls.reviewerrecommendations3.setValue('');
+      if (this.list5v2Form.controls.teacheractivity3) {
+        this.list5v2Form.controls.teacheractivity3.setValue('');
+      }
+
+      if (this.list5v2Form.controls.studentactivities3) {
+        this.list5v2Form.controls.studentactivities3.setValue('');
+      }
+
+      if (this.list5v2Form.controls.reviewerrecommendations3) {
+        this.list5v2Form.controls.reviewerrecommendations3.setValue('');
+      }
     }
 
     if (i === 2) {
       this.boolVE2  = false;
-      this.list5v2Form.controls.teacheractivity4.setValue('');
-      this.list5v2Form.controls.studentactivities4.setValue('');
-      this.list5v2Form.controls.reviewerrecommendations4.setValue('');
+
+      if (this.list5v2Form.controls.teacheractivity4) {
+        this.list5v2Form.controls.teacheractivity4.setValue('');
+      }
+
+      if (this.list5v2Form.controls.studentactivities4) {
+        this.list5v2Form.controls.studentactivities4.setValue('');
+      }
+
+      if (this.list5v2Form.controls.reviewerrecommendations4) {
+        this.list5v2Form.controls.reviewerrecommendations4.setValue('');
+      }
     }
 
     if (i === 3) {
       this.boolVE3  = false;
-      this.list5v2Form.controls.teacheractivity5.setValue('');
-      this.list5v2Form.controls.studentactivities5.setValue('');
-      this.list5v2Form.controls.reviewerrecommendations5.setValue('');
+
+      if (this.list5v2Form.controls.teacheractivity5) {
+        this.list5v2Form.controls.teacheractivity5.setValue('');
+      }
+
+      if (this.list5v2Form.controls.studentactivities5) {
+        this.list5v2Form.controls.studentactivities5.setValue('');
+      }
+
+      if (this.list5v2Form.controls.reviewerrecommendations5) {
+        this.list5v2Form.controls.reviewerrecommendations5.setValue('');
+      }
     }
 
   }
