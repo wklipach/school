@@ -93,7 +93,7 @@ export class List5Component implements OnInit {
   inputDocumentComponentMethodList13: any[] = [];
 
   constructor(private router: Router, private gs: GuideService,
-              private auth: AuthService, private g7_2s: Guide7_2Service) {
+              private auth: AuthService, private g7_2s: Guide7_2Service, private g7s: Guide7Service) {
 
     this.UserInfo = this.auth.getStorage();
     if (!this.UserInfo.bSchoolConnected) {
@@ -374,6 +374,10 @@ export class List5Component implements OnInit {
     this.g7_2s.sendMessage(res);
   }
 
+  sentCurrentMessage1(guideName: string, iNumber: number) {
+    const res = {message: guideName, i: iNumber};
+    this.g7s.sendMessage(res);
+  }
 
   saveList5() {
 
@@ -405,19 +409,19 @@ export class List5Component implements OnInit {
     this.sentCurrentMessage('guide7_2', 12);
     this.sentCurrentMessage('guide7_2', 13);
 
-    this.sentCurrentMessage('guide8', 1);
-    this.sentCurrentMessage('guide8', 2);
-    this.sentCurrentMessage('guide8', 3);
-    this.sentCurrentMessage('guide8', 4);
-    this.sentCurrentMessage('guide8', 5);
-    this.sentCurrentMessage('guide8', 6);
-    this.sentCurrentMessage('guide8', 7);
-    this.sentCurrentMessage('guide8', 8);
-    this.sentCurrentMessage('guide8', 9);
-    this.sentCurrentMessage('guide8', 10);
-    this.sentCurrentMessage('guide8', 11);
-    this.sentCurrentMessage('guide8', 12);
-    this.sentCurrentMessage('guide8', 13);
+    this.sentCurrentMessage1('guide8', 1);
+    this.sentCurrentMessage1('guide8', 2);
+    this.sentCurrentMessage1('guide8', 3);
+    this.sentCurrentMessage1('guide8', 4);
+    this.sentCurrentMessage1('guide8', 5);
+    this.sentCurrentMessage1('guide8', 6);
+    this.sentCurrentMessage1('guide8', 7);
+    this.sentCurrentMessage1('guide8', 8);
+    this.sentCurrentMessage1('guide8', 9);
+    this.sentCurrentMessage1('guide8', 10);
+    this.sentCurrentMessage1('guide8', 11);
+    this.sentCurrentMessage1('guide8', 12);
+    this.sentCurrentMessage1('guide8', 13);
 
     objResult.Guide7Resultat1 = this.Guide7Resultat1;
     objResult.Guide7Resultat2 = this.Guide7Resultat2;
@@ -446,6 +450,9 @@ export class List5Component implements OnInit {
     objResult.Guide8Resultat11 = this.Guide8Resultat11;
     objResult.Guide8Resultat12 = this.Guide8Resultat12;
     objResult.Guide8Resultat13 = this.Guide8Resultat13;
+
+
+    console.log('objResult.Guide8Resultat1=', objResult.Guide8Resultat1);
 
     //objResult.teacheractivity = this.list5Form.controls.teacheractivity.value;
     //objResult.studentactivities = this.list5Form.controls.studentactivities.value;

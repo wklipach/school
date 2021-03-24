@@ -104,6 +104,9 @@ export class ViewerComponent implements OnInit {
   Guide7Resultat8: any[] = [];
   Guide7Resultat9: any[] = [];
   Guide7Resultat10: any[] = [];
+  Guide7Resultat11: any[] = [];
+  Guide7Resultat12: any[] = [];
+  Guide7Resultat13: any[] = [];
 
   Guide8Resultat1: any[] = [];
   Guide8Resultat2: any[] = [];
@@ -115,6 +118,9 @@ export class ViewerComponent implements OnInit {
   Guide8Resultat8: any[] = [];
   Guide8Resultat9: any[] = [];
   Guide8Resultat10: any[] = [];
+  Guide8Resultat11: any[] = [];
+  Guide8Resultat12: any[] = [];
+  Guide8Resultat13: any[] = [];
 
   // listBasicLearningActivities: any;
   guide8list: any[]  = [];
@@ -202,6 +208,8 @@ export class ViewerComponent implements OnInit {
     // таблица
     const list5 = this.lesson.objSummaryLesson2;
     if (list5) {
+
+      /*
       this.reviewerrecommendations = this.lesson.objSummaryLesson2.reviewerrecommendations;
       this.reviewerrecommendations2 = this.lesson.objSummaryLesson2.reviewerrecommendations2;
       this.reviewerrecommendations3 = this.lesson.objSummaryLesson2.reviewerrecommendations3;
@@ -234,6 +242,7 @@ export class ViewerComponent implements OnInit {
       this.studentactivities8 = this.lesson.objSummaryLesson2.studentactivities8;
       this.studentactivities9 = this.lesson.objSummaryLesson2.studentactivities9;
       this.studentactivities10 = this.lesson.objSummaryLesson2.studentactivities10;
+    */
 
       this.Guide7Resultat1 = this.lesson.objSummaryLesson2.Guide7Resultat1;
       this.Guide7Resultat2 = this.lesson.objSummaryLesson2.Guide7Resultat2;
@@ -245,6 +254,9 @@ export class ViewerComponent implements OnInit {
       this.Guide7Resultat8 = this.lesson.objSummaryLesson2.Guide7Resultat8;
       this.Guide7Resultat9 = this.lesson.objSummaryLesson2.Guide7Resultat9;
       this.Guide7Resultat10 = this.lesson.objSummaryLesson2.Guide7Resultat10;
+      this.Guide7Resultat11 = this.lesson.objSummaryLesson2.Guide7Resultat11;
+      this.Guide7Resultat12 = this.lesson.objSummaryLesson2.Guide7Resultat12;
+      this.Guide7Resultat13 = this.lesson.objSummaryLesson2.Guide7Resultat13;
 
       this.Guide8Resultat1 = this.lesson.objSummaryLesson2.Guide8Resultat1;
       this.Guide8Resultat2 = this.lesson.objSummaryLesson2.Guide8Resultat2;
@@ -256,6 +268,9 @@ export class ViewerComponent implements OnInit {
       this.Guide8Resultat8 = this.lesson.objSummaryLesson2.Guide8Resultat8;
       this.Guide8Resultat9 = this.lesson.objSummaryLesson2.Guide8Resultat9;
       this.Guide8Resultat10 = this.lesson.objSummaryLesson2.Guide8Resultat10;
+      this.Guide8Resultat11 = this.lesson.objSummaryLesson2.Guide8Resultat11;
+      this.Guide8Resultat12 = this.lesson.objSummaryLesson2.Guide8Resultat12;
+      this.Guide8Resultat13 = this.lesson.objSummaryLesson2.Guide8Resultat13;
 
 
       if (this.Guide7Resultat1.length > 0 || this.Guide7Resultat2.length > 0 ||
