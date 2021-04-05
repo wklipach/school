@@ -33,12 +33,3 @@
 &nbsp;
 */
 
-.btn-menu {
-  min-height: 150px;
-}
-.span-but {
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
-  line-height: 0.9;
-}

@@ -1,3 +1,50 @@
-.buttons-block {
-  z-index: 9999;
-}
+@media screen and (min-width: 1023.98px) and (max-width: 4200px) {
+  .buttons-block {
+    z-index: 9999;
+  }
+  .btn-menu {
+    min-height: 150px;
+
+  }
+  .span-but {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    line-height: 0.9;
+  }
+
+
+}   /* Конец media 992 - 4200 */
+
+
+
+
+@media screen and (min-width: 220px) and (max-width: 1023.98px) {
+ .buttons-block {
+   position: relative;
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   right: auto;
+   flex-wrap: wrap;
+  }
+  .span-but {
+    display: flex;
+
+
+  }
+  .btn-menu {
+    display: flex;
+    flex-direction: row;
+    min-width: 150px;
+    margin-bottom: 1px;
+    margin-right: 0.4em;
+  }
+
+} /* End media 320 - 992 */
+
+
+
+
+
