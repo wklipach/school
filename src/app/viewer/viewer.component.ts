@@ -1,4 +1,4 @@
-import {Component, OnInit, SecurityContext} from "@angular/core";
+import {Component, HostListener, OnInit, SecurityContext} from "@angular/core";
 import { DomSanitizer } from '@angular/platform-browser';
 import {Router} from "@angular/router";
 import {AuthService} from "../services/auth.service";
@@ -124,6 +124,7 @@ export class ViewerComponent implements OnInit {
 
   // listBasicLearningActivities: any;
   guide8list: any[]  = [];
+  public innerWidth: any;
 
   constructor(private router: Router, private gs: GuideService,
               private auth: AuthService, private http: HttpClient,
@@ -140,10 +141,14 @@ export class ViewerComponent implements OnInit {
 
    }
 
-
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+  }
 
   ngOnInit(): void {
 
+    this.innerWidth = window.innerWidth;
     // this.lesson =  this.auth.getSchoolLesson();
 
     const lesson_id = this.auth.getViewPrintId();
