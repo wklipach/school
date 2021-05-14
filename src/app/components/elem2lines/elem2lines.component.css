@@ -1,14 +1,51 @@
-.card {
-  border-radius: 10px;
-}
-.line-result {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.pupil-name {
-  width: 350px;
-}
-.add-btn {
-  width: 250px;
-}
+@media (min-width: 992px) {
+  .card {
+    border-radius: 10px;
+  }
+  .line-result {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .pupil-name {
+    width: 350px;
+  }
+  .add-btn {
+    width: 250px;
+  }
+
+}      /* Конец media min 992 */
+
+
+@media (max-width: 991px) {
+
+  .line-result {
+    display: flex;
+    flex-direction: column;
+  }
+  button {
+    margin: 0 0 4% 0 !important;
+    max-height: 50px;
+    max-width: 50px;
+  }
+  textarea {
+    min-height: 100px;
+    margin: 20px 0;
+  }
+
+}          /* Конец media max 991 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

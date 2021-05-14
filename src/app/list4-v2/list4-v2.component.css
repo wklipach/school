@@ -1,37 +1,385 @@
-.card {
-  border-radius: 10px;
-}
-/**/
-.line-result {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+@media (min-width: 1401px) {
+  h2, h4, h5 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .card {
+    border-radius: 10px;
+  }
+  .line-result {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  h3 {
+    position: fixed;
+    margin: 5px;
+  }
+  .pupil-name {
+    width: 350px;
+  }
+  .add-btn {
+    width: 250px;
+  }
+  .badge-info {
+    font-size: 14px;
+    line-height: 1.1;
+  }
+  .dropdown-toggle {
+    margin-bottom: 20px;
+  }
+  .dropdown-item:hover {
+    cursor: pointer;
+  }
+  .column1 {
+    width: 15%;
+    vertical-align: middle;
+    font-weight: 600;
+  }
+  .column2 {
+    width: 30%;
+    color: #6f6a6a;
+    font-size: 1em;
+    font-weight: 600;
+  }
+  .classNum {
+    display: flex;
+    flex-direction: row;
+  }
 
-.pupil-name {
-  width: 350px;
-}
-.add-btn {
-  width: 250px;
-}
-h3 {
-  position: fixed;
-  margin: 5px;
-}
-.dropdown-toggle {
-  margin-bottom: 20px;
-}
-.dropdown-item:hover {
-  cursor: pointer;
-}
-.column1 {
-  width: 15%;
-  vertical-align: middle;
-  font-weight: 600;
-}
-.column2 {
-  width: 25%;
-  color: #6f6a6a;
-  font-size: 1em;
-  font-weight: 600;
-}
+}      /* Конец media min 1400 */
+@media (min-width: 1201px) and (max-width: 1400px) {
+  h2, h4, h5 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .card {
+    border-radius: 10px;
+  }
+  .line-result {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  h3 {
+    position: fixed;
+    margin: 5px;
+  }
+  .pupil-name {
+    width: 350px;
+  }
+  .badge-info {
+    font-size: 14px;
+    line-height: 1.1;
+  }
+  .add-btn {
+    width: 250px;
+  }
+  .dropdown-toggle {
+    margin-bottom: 20px;
+  }
+  .dropdown-item:hover {
+    cursor: pointer;
+  }
+  .column1 {
+    width: 15%;
+    vertical-align: middle;
+    font-weight: 600;
+  }
+  .column2 {
+    width: 30%;
+    color: #6f6a6a;
+    font-size: 1em;
+    font-weight: 600;
+  }
+  .classNum {
+    display: flex;
+    flex-direction: row;
+  }
+
+}      /* Конец media min 1201 1400 */
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  h2, h4, h5 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .card {
+    border-radius: 10px;
+  }
+  .line-result {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  h3 {
+    position: fixed;
+    margin: 5px;
+  }
+  .pupil-name {
+    width: 350px;
+  }
+  .add-btn {
+    width: 250px;
+  }
+  .badge-info {
+    font-size: 14px;
+    line-height: 1.1;
+  }
+  .dropdown-toggle {
+    margin-bottom: 20px;
+  }
+  .dropdown-item:hover {
+    cursor: pointer;
+  }
+  .column1 {
+    width: 15%;
+    vertical-align: middle;
+    font-weight: 600;
+  }
+  .column2 {
+    width: 30%;
+    color: #6f6a6a;
+    font-size: 1em;
+    font-weight: 600;
+  }
+  .classNum {
+    display: flex;
+    flex-direction: row;
+  }
+}      /* Конец media min 993 and max 1200 */
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .col-12 {
+    padding: 0 10px;
+  }
+  h2, h4, h5 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 2;
+  }
+  .badge-info {
+    font-size: 10px;
+    line-height: 2;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 3% !important;
+    margin-bottom: 2% !important;
+  }
+  .line {
+    display: flex;
+    flex-direction: column;
+  }
+  .classNum {
+    display: flex;
+    flex-direction: row;
+  }
+  span {
+    width: 100% !important;
+    margin-right: 0;
+    font-size: 1.1em;
+  }
+  .add-line {
+    display: flex;
+    flex-direction: column;
+  }
+  .add-btn {
+    width: 250px;
+  }
+  .badge-info {
+    font-size: 14px;
+    line-height: 1.1;
+  }
+  .button-del {
+    margin: 0 0 4% 0 !important;
+    max-height: 50px;
+    max-width: 50px;
+  }
+  textarea {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  table thead {
+    display: none;
+  }
+  table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e8e9eb;
+  }
+  table td {
+    display: block;
+    text-align: right;
+  }
+  table td:before {
+    content: attr(aria-label);
+    float: left;
+    font-weight: bold;
+  }
+  table .column1 {
+    text-align: center;
+    font-weight: 600;
+  }
+  table .column2 {
+    text-align: left;
+  }
+
+}      /* Конец media min 769 and max 992 */
+
+@media (max-width: 768px) {
+  .col-12 {
+    padding: 0 10px;
+  }
+  h2, h4, h5 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 2;
+  }
+  .badge-info {
+    font-size: 14px;
+    line-height: 1.1;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 3% !important;
+    margin-bottom: 2% !important;
+  }
+  .line {
+    display: flex;
+    flex-direction: column;
+  }
+  .classNum {
+    display: flex;
+    flex-direction: row;
+  }
+  span {
+    width: 100% !important;
+    margin-right: 0;
+    font-size: 1.1em;
+  }
+  .add-line {
+    display: flex;
+    flex-direction: column;
+  }
+  .add-btn {
+    width: 250px;
+  }
+  .button-del {
+    margin: 0 0 4% 0 !important;
+    max-height: 50px;
+    max-width: 50px;
+  }
+  textarea {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  table thead {
+    display: none;
+  }
+  table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e8e9eb;
+  }
+  table td {
+    display: block;
+    text-align: right;
+  }
+  table td:before {
+    content: attr(aria-label);
+    float: left;
+    font-weight: bold;
+  }
+  table .column1 {
+    text-align: center;
+    font-weight: 600;
+  }
+  table .column2 {
+    text-align: left;
+  }
+
+}    /* Конец media max 768 */
+
+@media (max-width: 576px) {
+  .col-12 {
+    padding: 0 10px;
+  }
+  h2, h4, h5 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 2;
+  }
+  .badge-info {
+    font-size: 14px;
+    line-height: 1.1;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 3% !important;
+    margin-bottom: 2% !important;
+  }
+  .line {
+    display: flex;
+    flex-direction: column;
+  }
+  .classNum {
+    display: flex;
+    flex-direction: row;
+  }
+  span {
+    width: 100% !important;
+    margin-right: 0;
+    font-size: 1.1em;
+  }
+  .add-line {
+    display: flex;
+    flex-direction: column;
+  }
+  .add-btn {
+    width: 250px;
+  }
+  .button-del {
+    margin: 0 0 4% 0 !important;
+    max-height: 50px;
+    max-width: 50px;
+  }
+  textarea {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  table thead {
+    display: none;
+  }
+  table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e8e9eb;
+  }
+  table td {
+    display: block;
+    text-align: right;
+  }
+  table td:before {
+    content: attr(aria-label);
+    float: left;
+    font-weight: bold;
+  }
+  table .column1 {
+    text-align: center;
+    font-weight: 600;
+  }
+  table .column2 {
+    text-align: left;
+  }
+
+}          /* Конец media max 576 */

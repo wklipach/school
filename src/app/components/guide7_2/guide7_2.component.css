@@ -1,12 +1,49 @@
-.card {
-  border-radius: 10px;
-  border: solid 1px;
-}
-.line-result {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.dropdown-menu {
-  padding-left: 10px;
-}
+@media (min-width: 992px) {
+  .card {
+    border-radius: 10px;
+    border: solid 1px;
+  }
+  .line-result {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .dropdown-menu {
+    padding-left: 10px;
+  }
+
+}      /* Конец media min 992 */
+
+
+@media (max-width: 991px) {
+  .card {
+    padding: 0 10px;
+  }
+  .line-result {
+    display: flex;
+    flex-direction: column;
+  }
+  textarea {
+    margin: 10px 0 !important;
+  }
+  .button-del {
+    margin: auto 0 4% 0 !important;
+    max-height: 50px;
+    max-width: 50px;
+  }
+  .result {
+    width: 100% !important;
+  }
+}          /* Конец media max 991 */
+
+
+
+
+
+
+
+
+
+
+
+

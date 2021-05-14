@@ -1,43 +1,116 @@
-.headers {
-  text-align: center;
-}
-h2, h4, h5 {
-  margin-bottom: 20px;
-}
-.theme {
-  text-align: left;
-  font-weight: 600;
-  color: #3e3ec8;
-}
-.stage {
-  color: red;
-  text-align: left;
-  margin-bottom: 30px;
-}
-.card {
-}
-.line {
-  height: auto;
-  margin: 0;
-  border: solid 1px #cdcdcd;
-  border-bottom: none;
-}
-.vertical-column {
-  text-align: center;
-  width: 100px;
-  margin: auto;
+@media (min-width: 992px) {
+  .headers {
+    text-align: center;
+  }
+  h2, h4, h5 {
+    margin-bottom: 20px;
+  }
+  .theme {
+    text-align: left;
+    font-weight: 600;
+    color: #3e3ec8;
+  }
+  .stage {
+    color: red;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+  .badge-info {
+    font-size: 14px;
+    line-height: 1.1;
+  }
+  .card {
+  }
+  .line {
+    height: auto;
+    margin: 0;
+    border: solid 1px #cdcdcd;
+    border-bottom: none;
+  }
+  .vertical-column {
+    text-align: center;
+    width: 100px;
+    margin: auto;
+  }
+  .horizontal-column {
+    width: 90%;
+    padding: 20px 10px;
+    border-left: solid 1px #cdcdcd;
+  }
+  button {
+    max-width: 242px;
+  }
+  h3 {
+    position: fixed;
+    margin: 5px;
+  }
+}      /* Конец media min 992 */
 
-}
+@media (max-width: 991px) {
+  .col-12 {
+    padding: 0 10px;
+  }
+  h2, h4, h5 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.2;
+  }
+  .badge-info {
+    font-size: 14px;
+    line-height: 1.1;
+  }
+  .lesson {
+    margin: 15px 0!important;
+  }
+  .headers {
+    text-align: center;
+  }
+  .theme {
+    text-align: left;
+    font-weight: 600;
+    color: #3e3ec8;
+  }
+  .stage {
+    color: red;
+    text-align: left;
+    margin-bottom: 15px;;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 3% !important;
+    margin-bottom: 2% !important;
+  }
+  .line {
+    display: flex;
+    flex-direction: column;
+  }
+  .vertical-column {
+    text-align: center;
+    width: 100px;
+    margin: auto;
+  }
+  .horizontal-column {
+    width: 90%;
+    padding: 20px 10px;
+    border-left: solid 1px #cdcdcd;
+  }
+  button {
+    max-width: 242px;
+  }
+  .add-btn {
+    margin-bottom: 15px !important;
+  }
+  h3 {
+    position: fixed;
+    margin: 5px;
+  }
 
-.horizontal-column {
-  width: 90%;
-  padding: 20px 10px;
-  border-left: solid 1px #cdcdcd;
-}
-button {
-  max-width: 242px;
-}
-h3 {
-  position: fixed;
-  margin: 5px;
-}
+}          /* Конец media max 991 */
+
+
+
+
+
+

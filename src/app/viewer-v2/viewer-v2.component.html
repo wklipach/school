@@ -68,6 +68,8 @@
         </table>
 
 
+      <div class="big-block">
+
         <h4 class="text-center mb-1">Задачи урока</h4>
 
           <!-- первые три строки если есть -->
@@ -168,7 +170,7 @@
             </div>
           </ng-container>
 
-
+    </div> <!-- End big-block -->
 
 
 <ng-container *ngIf="documentGuide10AggregateList.length > 0">
@@ -194,6 +196,7 @@
 
       <!-- НАЧАЛО ЭТАПЫ  -->
 
+      <div class="big-block">
 
       <h4 class="my-1">Ход урока</h4>
 
@@ -209,8 +212,8 @@
              </div>
              <div class="d-flex" *ngFor="let res of Guide7Resultat1">
                   <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : '+ res.text.toCurHTML()"></div>
-                  <div class="hod-text-50" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
-                  <div class="hod-text-50" [innerHTML]="res.studentactivities.toCurHTML()"></div>
+                  <div class="hod-text-40" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
+                  <div class="hod-text-40" [innerHTML]="res.studentactivities.toCurHTML()"></div>
              </div>
          </div>
 
@@ -225,8 +228,8 @@
                       </div>
                       <div class="d-flex" *ngFor="let res of Guide7Resultat3">
                           <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : '+ res.text.toCurHTML()"></div>
-                          <div class="hod-text-50" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
-                          <div class="hod-text-50" [innerHTML]="res.studentactivities.toCurHTML()"></div>
+                          <div class="hod-text-40" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
+                          <div class="hod-text-40" [innerHTML]="res.studentactivities.toCurHTML()"></div>
                       </div>
                   </div>
           </div>
@@ -241,8 +244,8 @@
                     </div>
                     <div class="d-flex" *ngFor="let res of Guide7Resultat4">
                         <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : '+ res.text.toCurHTML()"></div>
-                        <div class="hod-text-50" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
-                        <div class="hod-text-50" [innerHTML]="res.studentactivities.toCurHTML()"></div>
+                        <div class="hod-text-40" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
+                        <div class="hod-text-40" [innerHTML]="res.studentactivities.toCurHTML()"></div>
                     </div>
                 </div>
           </div>
@@ -257,8 +260,8 @@
                       </div>
                       <div class="d-flex" *ngFor="let res of Guide7Resultat5">
                           <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : '+ res.text.toCurHTML()"></div>
-                          <div class="hod-text-50" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
-                          <div class="hod-text-50" [innerHTML]="res.studentactivities.toCurHTML()"></div>
+                          <div class="hod-text-40" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
+                          <div class="hod-text-40" [innerHTML]="res.studentactivities.toCurHTML()"></div>
                       </div>
                   </div>
           </div>
@@ -277,8 +280,8 @@
                       </div>
                       <div class="d-flex" *ngFor="let res of Guide7Resultat6">
                           <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : '+ res.text.toCurHTML()"></div>
-                          <div class="hod-text-50" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
-                          <div class="hod-text-50" [innerHTML]="res.studentactivities.toCurHTML()"></div>
+                          <div class="hod-text-40" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
+                          <div class="hod-text-40" [innerHTML]="res.studentactivities.toCurHTML()"></div>
                       </div>
                   </div>
       </div>
@@ -293,8 +296,8 @@
                   </div>
                   <div class="d-flex" *ngFor="let res of Guide7Resultat7">
                       <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : '+ res.text.toCurHTML()"></div>
-                      <div class="hod-text-50" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
-                      <div class="hod-text-50" [innerHTML]="res.studentactivities.toCurHTML()"></div>
+                      <div class="hod-text-40" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
+                      <div class="hod-text-40" [innerHTML]="res.studentactivities.toCurHTML()"></div>
                   </div>
               </div>
       </div>
@@ -309,8 +312,8 @@
                       </div>
                       <div class="d-flex" *ngFor="let res of Guide7Resultat11">
                           <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : '+ res.text.toCurHTML()"></div>
-                          <div class="hod-text-50" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
-                          <div class="hod-text-50" [innerHTML]="res.studentactivities.toCurHTML()"></div>
+                          <div class="hod-text-40" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
+                          <div class="hod-text-40" [innerHTML]="res.studentactivities.toCurHTML()"></div>
                       </div>
                 </div>
       </div>
@@ -325,8 +328,8 @@
                     </div>
                     <div class="d-flex" *ngFor="let res of Guide7Resultat12">
                         <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : '+ res.text.toCurHTML()"></div>
-                        <div class="hod-text-50" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
-                        <div class="hod-text-50" [innerHTML]="res.studentactivities.toCurHTML()"></div>
+                        <div class="hod-text-40" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
+                        <div class="hod-text-40" [innerHTML]="res.studentactivities.toCurHTML()"></div>
                     </div>
               </div>
       </div>
@@ -345,8 +348,8 @@
               </div>
               <div class="d-flex" *ngFor="let res of Guide7Resultat8">
                   <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : '+ res.text.toCurHTML()"></div>
-                  <div class="hod-text-50" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
-                  <div class="hod-text-50" [innerHTML]="res.studentactivities.toCurHTML()"></div>
+                  <div class="hod-text-40" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
+                  <div class="hod-text-40" [innerHTML]="res.studentactivities.toCurHTML()"></div>
               </div>
        </div>
 
@@ -359,13 +362,16 @@
                 </div>
                 <div class="d-flex" *ngFor="let res of Guide7Resultat10">
                     <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() +' : '+ res.text.toCurHTML()"></div>
-                    <div class="hod-text-50" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
-                    <div class="hod-text-50" [innerHTML]="res.studentactivities.toCurHTML()"></div>
+                    <div class="hod-text-40" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
+                    <div class="hod-text-40" [innerHTML]="res.studentactivities.toCurHTML()"></div>
                 </div>
           </div>
 </div>
 
 <!-- КОНЕЦ ЭТАПЫ -->
+
+      </div> <!-- End big-block -->
+
 
     </div>
   </div>

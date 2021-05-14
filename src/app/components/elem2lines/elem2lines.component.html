@@ -2,7 +2,7 @@
     <div *ngFor="let DOL of documentComponentList; let i = index">
       <div *ngIf="DOL.delete === 0">
 
-          <div class="d-flex my-3">
+          <div class="d-flex my-3 line-result">
             <input type="text" class="form-control mr-3 pupil-name" placeholder="ФИ ученика" formControlName="{{numberComponent}}text1lines{{i}}">
             <textarea formControlName="{{numberComponent}}text2lines{{i}}" class = "form-control" rows = "2" placeholder="Предметные / Личностные результаты"></textarea>
             <button class="btn btn-outline-danger ml-2" title="Удалить ученика" style="max-height: 50px" (click)="onClickDeleteMethod(DOL)">

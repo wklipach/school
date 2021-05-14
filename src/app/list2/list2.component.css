@@ -1,0 +1,24 @@
+@media screen and (min-width: 1023.98px) {
+
+  button {
+    width: 20vw;
+  }
+
+}  /* Конец media min 1023.98*/
+
+@media screen and (max-width: 1023.98px) {
+  .plates {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 10px 5vw;
+  }
+
+  button {
+    margin-bottom: 2vh;
+  }
+
+}  /* Конец media min 1023.98*/
+
+
+

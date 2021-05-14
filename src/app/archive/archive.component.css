@@ -1,48 +1,414 @@
-.archive-list {
-  font-size: 18px;
-  display: flex;
-  flex-direction: column;
-}
-.headline, .line {
-  min-height: 35px;
-  height: auto;
-  text-align: center;
-  font-weight: bold;
-  border: solid 1px #cdcdcd;
-  margin: 0;
-}
-.line {
-  text-align: left;
-  font-weight: normal;
-}
+@media (min-width: 1401px) {
+  .archive-list {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  .headline, .line {
+    width: 100%;
+    min-height: 35px;
+    height: auto;
+    text-align: center;
+    font-weight: bold;
+    border: solid 1px #cdcdcd;
+    margin: 0;
+  }
+  .line {
+    text-align: left;
+    font-weight: normal;
+  }
 
-.date{
-  width:  120px;
-  padding-left: 3px;
-  border-right: solid 1px #cdcdcd;
-  font-size: 15px;
+  .date{
+    width: 100px;
+    padding-left: 3px;
+    border-right: solid 1px #cdcdcd;
+    font-size: 15px;
+  }
+  .date-in {
+    font-size: 16px;
+  }
+  .lessons, .lesson-topic {
+    width: calc((100% - 220px) / 2);
+    padding-left: 3px;
+    border-right: solid 1px #cdcdcd;
+    font-size: 15px;
+  }
+
+  .empty {
+    width: 120px;
+    text-align: center;
+    padding-left: 3px;
+    border-right: solid 1px #cdcdcd;
+    font-size: 15px !important;
+  }
+  button {
+    max-height: 36px;
+  }
+  a {
+    cursor: pointer;
+  }
+
+  .time {
+    position: relative;
+    font-size: 0.8rem;
+    padding-right: 15px;
+  }
+  .dropdownMenu1 {
+    left: -52px;
+  }
+
+}      /* Конец media min 1201 1400 */
+
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .archive-list {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  .headline, .line {
+    width: 100%;
+    min-height: 35px;
+    height: auto;
+    text-align: center;
+    font-weight: bold;
+    border: solid 1px #cdcdcd;
+    margin: 0;
+  }
+  .line {
+    text-align: left;
+    font-weight: normal;
+  }
+
+  .date{
+    width: 100px;
+    padding-left: 3px;
+    border-right: solid 1px #cdcdcd;
+    font-size: 15px;
+  }
+  .date-in {
+    font-size: 16px;
+  }
+  .lessons, .lesson-topic {
+    width: calc((100% - 220px) / 2);
+    padding-left: 3px;
+    border-right: solid 1px #cdcdcd;
+    font-size: 15px;
+  }
+
+  .empty {
+    width: 120px;
+    text-align: center;
+  }
+  button {
+    max-height: 36px;
+  }
+  a {
+    cursor: pointer;
+  }
+
+  .time {
+    position: relative;
+    font-size: 0.8rem;
+    padding-right: 15px;
+  }
+  .dropdownMenu1 {
+    left: -52px;
+  }
+
+}      /* Конец media min 1201 1400 */
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  .container {
+    max-width: 95%;
+  }
+  .archive-list {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  .headline, .line {
+    width: 100%;
+    min-height: 35px;
+    height: auto;
+    text-align: center;
+    font-weight: bold;
+    border: solid 1px #cdcdcd;
+    margin: 0;
+  }
+  .line {
+    text-align: left;
+    font-weight: normal;
+  }
+
+  .date{
+    width: 100px;
+    padding-left: 3px;
+    border-right: solid 1px #cdcdcd;
+    font-size: 15px;
+  }
+  .date-in {
+    font-size: 16px;
+  }
+  .lessons, .lesson-topic {
+    width: calc((100% - 220px) / 2);
+    padding-left: 3px;
+    border-right: solid 1px #cdcdcd;
+    font-size: 15px;
+  }
+
+  .empty {
+    width: 120px;
+    text-align: center;
+  }
+  button {
+    max-height: 36px;
+  }
+  a {
+    cursor: pointer;
+  }
+
+  .time {
+    position: relative;
+    font-size: 0.8rem;
+    padding-right: 15px;
+  }
+  .dropdownMenu1 {
+    left: -52px;
+  }
+
+}      /* Конец media min 993 and max 1200 */
+
+@media (min-width: 769px) and (max-width: 992px) {
+
+  .container {
+    max-width: 98%;
+  }
+  .archive-list {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  .headline, .line {
+    width: 100%;
+    min-height: 35px;
+    height: auto;
+    text-align: center;
+    font-weight: bold;
+    border: solid 1px #cdcdcd;
+    margin: 0;
+  }
+  .line {
+    text-align: left;
+    font-weight: normal;
+  }
+
+  .date{
+    width: 100px;
+    padding-left: 3px;
+    border-right: solid 1px #cdcdcd;
+    font-size: 15px;
+  }
+  .date-in {
+    font-size: 16px;
+  }
+  .lessons, .lesson-topic {
+    width: calc((100% - 220px) / 2);
+    padding-left: 3px;
+    border-right: solid 1px #cdcdcd;
+    font-size: 15px;
+  }
+
+  .empty {
+    width: 120px;
+    text-align: center;
+  }
+  button {
+    max-height: 36px;
+  }
+  a {
+    cursor: pointer;
+  }
+
+  .time {
+    position: relative;
+    font-size: 0.8rem;
+    padding-right: 15px;
+  }
+  .dropdownMenu1 {
+    left: -52px;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    transform: translate3d(0px, 36px, 0px);
+    top: 0px;
+    left: -50px;
+  }
+  .filter-elements {
+    display: flex;
+    flex-direction: column !important;
+  }
+  .filter-elements span {
+    width: 100% !important;
+    margin: 10px 0 !important;
+  }
+  .filter-elements button {
+    min-width: 160px !important;
+  }
+}      /* Конец media min 769 and max 992 */
+
+@media (max-width: 768px) {
+
+  .container {
+    max-width: 95%;
+  }
+
+  .archive-list {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  .headline, .line {
+    width: 100%;
+    min-height: 35px;
+    height: auto;
+    text-align: center;
+    font-weight: bold;
+    border: solid 1px #cdcdcd;
+    margin: 0;
+  }
+  .line {
+    text-align: left;
+    font-weight: normal;
+  }
+
+  .date{
+    width: 100px;
+    padding-left: 3px;
+    border-right: solid 1px #cdcdcd;
+    font-size: 15px;
+  }
+  .date-in {
+    font-size: 16px;
+  }
+  .lessons {
+    display: none;
+  }
+
+  .lesson-topic {
+    width: calc(100% - 210px);
+    padding-left: 3px;
+    border-right: solid 1px #cdcdcd;
+    font-size: 15px;
+  }
+  .empty {
+    width: 120px;
+    text-align: center;
+  }
+  button {
+    max-height: 36px;
+  }
+  a {
+    cursor: pointer;
+  }
+
+  .time {
+    position: relative;
+    font-size: 0.8rem;
+    padding-right: 15px;
+  }
+  .dropdownMenu1 {
+    left: -52px;
+  }
+
+  .filter-elements {
+    display: flex;
+    flex-direction: column !important;
+  }
+  .filter-elements span {
+    width: 100% !important;
+    margin: 10px 0 !important;
+  }
+  .filter-elements button {
+    min-width: 160px !important;
+  }
+
+}    /* Конец media max 768 */
+
+@media (max-width: 576px) {
+.col-12 {
+  padding: 2px;
 }
-.lessons  {
-  width: 360px;
-  padding-left: 3px;
-  border-right: solid 1px #cdcdcd;
-  font-size: 15px;
-}
-.lesson-topic {
-  width: 500px;
-  padding-left: 3px;
-  font-size: 15px;
-  border-right: solid 1px #cdcdcd;
-}
-button {
-  max-height: 36px;
-}
-a {
-  cursor: pointer;
-}
-.badge {
-  width: 20px;
-}
-.time {
-  font-size: 0.8rem;
-}
+  .archive-list {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  .headline, .line {
+    width: 100%;
+    min-height: 35px;
+    height: auto;
+    text-align: center;
+    font-weight: bold;
+    border: solid 1px #cdcdcd;
+    margin: 0;
+  }
+  .line {
+    text-align: left;
+    font-weight: normal;
+  }
+
+  .date{
+    width: 90px;
+    padding-left: 3px;
+    border-right: solid 1px #cdcdcd;
+    font-size: 15px;
+  }
+  .date-in {
+    font-size: 16px;
+  }
+  .lessons {
+    display: none;
+  }
+
+  .lesson-topic {
+    width: calc(100% - 210px);
+    padding-left: 3px;
+    border-right: solid 1px #cdcdcd;
+    font-size: 15px;
+  }
+
+  .empty {
+    width: 120px;
+    text-align: center;
+  }
+  button {
+    max-height: 36px;
+  }
+  a {
+    cursor: pointer;
+  }
+
+  .time {
+    position: relative;
+    font-size: 0.8rem;
+    padding-right: 15px;
+  }
+  .dropdownMenu1 {
+    left: -52px;
+  }
+
+  .filter-elements {
+    display: flex;
+    flex-direction: column !important;
+  }
+  .filter-elements span {
+    width: 100% !important;
+    margin: 10px 0 !important;
+  }
+  .filter-elements button {
+    min-width: 160px !important;
+  }
+}          /* Конец media max 576 */
+

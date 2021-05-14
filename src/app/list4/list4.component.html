@@ -1,4 +1,4 @@
-<h3><span class="badge badge-info">{{typeEdit}}</span></h3>
+<div class="badge badge-info">{{typeEdit}}</div>
 
 <app-rightpanel></app-rightpanel>
 
@@ -31,6 +31,8 @@
       <div class="line">
         <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Класс</span>
 
+    <div class="classNum">
+
         <div class="dropdown mr-1">
           <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenuNumeral" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{documentClassNameNumber.title}}
@@ -39,7 +41,6 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuNumeral">
               <button class="dropdown-item" type="button" *ngFor="let curValue of listClassNameNumber" (click)="onClassNameNumber(curValue)">{{curValue.title}}</button>
             </div>
-
         </div>
 
 
@@ -51,9 +52,8 @@
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLetter">
             <button class="dropdown-item" type="button" *ngFor="let curValue of listClassNameLetter" (click)="onClassNameLetter(curValue)">{{curValue.title}}</button>
           </div>
-
         </div>
-
+    </div>  <!-- classNum  end  -->
 
       </div>
 
@@ -75,10 +75,9 @@
              <button class="dropdown-item" type="button" *ngFor="let curValue of listLessonsname" (click)="onLessons(curValue)">{{curValue.title}}</button>
            </div>
          </div>
-         <div class="text-muted font-weight-bold result mx-auto">{{documentLessons.title}}</div>    <!-- Результат выбора из справочника  -->
+         <span class="text-muted font-weight-bold result mx-auto">{{documentLessons.title}}</span>    <!-- Результат выбора из справочника  -->
 
        </div>
-
 
        <div class="line">
         <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Тема урока</span>
@@ -103,7 +102,7 @@
            </div>
          </div>
 
-         <div class="text-muted font-weight-bold result mx-auto">{{documentTypeLesson.title}}</div>    <!-- Результат выбора из справочника  -->
+         <span class="text-muted font-weight-bold result mx-auto">{{documentTypeLesson.title}}</span>    <!-- Результат выбора из справочника  -->
 
        </div>
 
@@ -120,14 +119,13 @@
            </div>
          </div>
 
-         <div class="text-muted font-weight-bold result mx-auto">{{documentType2Lesson.title}}</div>    <!-- Результат выбора из справочника  -->
+         <span class="text-muted font-weight-bold result mx-auto">{{documentType2Lesson.title}}</span>    <!-- Результат выбора из справочника  -->
 
        </div>
 
-
        <h4 class="text-center mb-3">Задачи урока</h4>
 
-       <table class="table table-bordered">
+       <table class="table table-bordered tasks-table">
          <tr>
            <td class="column1" rowspan="3">Образовательные</td>
 
@@ -292,13 +290,7 @@
 
      </div>
 
-
-
-
       <div class="card pl-3 pr-2 py-4 mb-5">
-
-
-
 
         <h5 class="mb-3">Предполагаемые результаты</h5>
         <div class="dropdown">
@@ -313,9 +305,9 @@
         <div *ngFor="let DOL of documentObjectiveLessonList; let i = index">
           <div *ngIf="DOL.delete === 0">
                 <div class="line-result mb-3">
-                    <div class="text-muted font-weight-bold result pr-3 w-50">{{DOL.title}}</div>    <!-- Результат выбора из справочника  -->
+                    <span class="text-muted font-weight-bold result pr-3 w-50">{{DOL.title}}</span>    <!-- Результат выбора из справочника  -->
                     <textarea formControlName="subjectResults{{i}}" class = "form-control" rows = "1" placeholder="Предметные результаты"></textarea>
-                  <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteSubjectResults(DOL)" title="Удалить" style="max-height: 50px">
+                  <button class="btn btn-outline-danger ml-2 button-del" (click)="onClickDeleteSubjectResults(DOL)" title="Удалить" style="max-height: 50px">
                       <img src="/assets/img/delete.svg" width="24" height="24">
                   </button>
               <!--    <img src="/assets/img/delete.svg" (click)="onClickDeleteSubjectResults(DOL)"> -->
@@ -347,10 +339,10 @@
         <div *ngFor="let DOL of documentPersonalLessonList; let i = index">
           <div *ngIf="DOL.delete === 0">
            <div class="line-result mb-3">
-                <div class="text-muted font-weight-bold result pr-3 w-50">{{DOL.title}}</div>    <!-- Результат выбора из справочника  -->
+                <span class="text-muted font-weight-bold result pr-3 w-50">{{DOL.title}}</span>    <!-- Результат выбора из справочника  -->
                 <textarea formControlName="personalResults{{i}}" class = "form-control" rows = "1" placeholder="Личностные результаты"></textarea>
 
-             <button class="btn btn-outline-danger ml-2" (click)="onClickDeletePersonalResults(DOL)" title="Удалить" style="max-height: 50px">
+             <button class="btn btn-outline-danger ml-2 button-del" (click)="onClickDeletePersonalResults(DOL)" title="Удалить" style="max-height: 50px">
                <img src="/assets/img/delete.svg" width="24" height="24">
              </button>
 
@@ -380,10 +372,10 @@
         <div *ngFor="let DOL of documentEquipmentList; let i = index">
           <div *ngIf="DOL.delete === 0">
             <div class="line-result mb-3">
-              <div class="text-muted font-weight-bold result pr-3 w-50">{{DOL.title}}</div>    <!-- Результат выбора из справочника  -->
+              <span class="text-muted font-weight-bold result pr-3 w-50">{{DOL.title}}</span>    <!-- Результат выбора из справочника  -->
               <textarea formControlName="equipment{{i}}" class = "form-control" rows = "1" placeholder="Оборудование и материалы"></textarea>
 
-              <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteEquipment(DOL)" title="Удалить" style="max-height: 50px">
+              <button class="btn btn-outline-danger ml-2 button-del" (click)="onClickDeleteEquipment(DOL)" title="Удалить" style="max-height: 50px">
                 <img src="/assets/img/delete.svg" width="24" height="24">
               </button>
 

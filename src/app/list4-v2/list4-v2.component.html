@@ -1,4 +1,4 @@
-<h3><span class="badge badge-info">{{typeEdit}}</span></h3>
+<div class="badge badge-info">{{typeEdit}}</div>
 
 <app-rightpanel></app-rightpanel>
 
@@ -11,10 +11,7 @@
 
         <app-caption></app-caption>
 
-
-
-
-
+        <h2 class="mt-n4">ВАРИАНТ 2</h2>
 
         <div class="card px-5 py-4 mb-5">
 
@@ -33,6 +30,8 @@
 
           <div class="line">
             <span class="my-2 w-25 mr-5 text-muted font-weight-bold">Класс</span>
+
+            <div class="classNum">
 
             <div class="dropdown mr-1">
               <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenuNumeral" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -56,6 +55,7 @@
               </div>
 
             </div>
+            </div>  <!-- classNum  end  -->
 
           </div>
 
@@ -77,7 +77,7 @@
                 <button class="dropdown-item" type="button" *ngFor="let curValue of listLessons2" (click)="onLessons(curValue)">{{curValue.title}}</button>
               </div>
             </div>
-            <div class="text-muted font-weight-bold result mx-auto">{{documentLessons2.title}}</div>    <!-- Результат выбора из справочника  -->
+            <span class="text-muted font-weight-bold result mx-auto">{{documentLessons2.title}}</span>    <!-- Результат выбора из справочника  -->
 
           </div>
 
@@ -106,7 +106,7 @@
             </div>
           </div>
 
-          <div class="text-muted font-weight-bold result mx-auto">{{documentTypeLesson.title}}</div>    <!-- Результат выбора из справочника  -->
+          <span class="text-muted font-weight-bold result mx-auto">{{documentTypeLesson.title}}</span>    <!-- Результат выбора из справочника  -->
 
         </div>
 
@@ -123,7 +123,7 @@
             </div>
           </div>
 
-          <div class="text-muted font-weight-bold result mx-auto">{{documentType2Lesson.title}}</div>    <!-- Результат выбора из справочника  -->
+          <span class="text-muted font-weight-bold result mx-auto">{{documentType2Lesson.title}}</span>    <!-- Результат выбора из справочника  -->
 
         </div>
 
@@ -151,7 +151,7 @@
                 {{documentClassEducationalTasks1.title}}
               </td>
 
-              <td class="column3"><textarea formControlName="textEducationalTasks1" class = "form-control" rows = "3" placeholder="Задачи урока"></textarea></td>
+              <td class="column3"><textarea formControlName="textEducationalTasks1" class = "form-control" rows = "3"  onkeyup="textarea_resize(event, 15, 2);"placeholder="Задачи урока"></textarea></td>
 
             </tr>
 
@@ -296,9 +296,6 @@
 
 
 
-
-
-
         <div class="card pl-3 pr-2 py-4 mb-5">
 
           <h5 class="mb-3">Предполагаемые результаты</h5>
@@ -309,25 +306,12 @@
                             [documentComponentList]="inputDocumentComponentList"
                             (methodResultat)="onResElem2lines($event, 1)" ></app-elem2lines>
           </div>
-<!--
-            <div class="d-flex flex-column">
-              <button type="button" class="btn btn-outline-primary mr-3 add-btn">Добавить ученика</button>
-              <div class="d-flex my-3">
-                <input type="text" class="form-control mr-3 pupil-name" placeholder="ФИ ученика" formControlName="pupilName">
-                <textarea formControlName="results" class = "form-control" rows = "2" placeholder="Предметные / Личностные результаты"></textarea>
-                <button class="btn btn-outline-danger ml-2" title="Удалить ученика" style="max-height: 50px">
-                  <img src="/assets/img/delete.svg" width="24" height="24">
-                </button>
-              </div>
-            </div>
--->
-
 
         </div>
 
         <div class="card pl-3 pr-2 py-4 mb-5">
 
-          <h5 class="mb-3">ОБОРУДОВАНИЕ И МАТЕРИАЛЫ</h5>
+          <h5 class="mb-3">Оборудование и материалы</h5>
 
           <div class="dropdown">
             <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" id="dropdownMenu6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -342,10 +326,10 @@
           <div *ngFor="let DOL of documentEquipmentList; let i = index">
             <div *ngIf="DOL.delete === 0">
               <div class="line-result mb-3">
-                <div class="text-muted font-weight-bold result pr-3 w-50">{{DOL.title}}</div>    <!-- Результат выбора из справочника  -->
+                <span class="text-muted font-weight-bold result pr-3 w-50">{{DOL.title}}</span>    <!-- Результат выбора из справочника  -->
                 <textarea formControlName="equipment{{i}}" class = "form-control" rows = "1" placeholder="Оборудование и материалы"></textarea>
 
-                <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteEquipment(DOL)" title="Удалить" style="max-height: 50px">
+                <button class="btn btn-outline-danger ml-2 button-del" (click)="onClickDeleteEquipment(DOL)" title="Удалить" style="max-height: 50px">
                   <img src="/assets/img/delete.svg" width="24" height="24">
                 </button>
 
@@ -355,9 +339,9 @@
 
         </div>
 
-
-        <h5 class="mb-4">«БАЗОВЫЕ УЧЕБНЫЕ ДЕЙСТВИЯ»</h5>
-        <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" (click)="onAddStudent()">
+    <div class="card pl-3 pr-2 py-4 mb-5">
+        <h5 class="mb-4">Базовые учебные действия»</h5>
+        <button class="btn btn-outline-primary dropdown-toggle mb-4 add-btn" type="button" (click)="onAddStudent()">
           Добавить ученика
         </button>
 
@@ -366,9 +350,9 @@
             <div *ngIf="DOL.delete === 0">
 
 
-              <div class="d-flex">
+              <div class="d-flex add-line">
                 <app-guide10 numberComponent = {{i+1}} titleMethodComponent="чекбокс 1" [checkArray]="checkArray[i]" (methodResultat)="onResGuide10($event, i+1)" class="w-100"></app-guide10>
-                <button class="btn btn-outline-danger ml-auto" (click)="onClickDeleteGuide10List(DOL)" title="Удалить" style="max-height: 50px">
+                <button class="btn btn-outline-danger ml-auto button-del" (click)="onClickDeleteGuide10List(DOL)" title="Удалить" style="max-height: 50px">
                   <img src="/assets/img/delete.svg" width="24" height="24">
                 </button>
               </div>
@@ -377,7 +361,7 @@
           </div>
         </div>
 
-
+    </div>
        <!-- начат блок 7 -->
 <!--
         <div class="card pl-3 pr-2 py-4 mb-4">

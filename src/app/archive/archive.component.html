@@ -19,20 +19,20 @@
        </div>
 
           <div class="collapse" id="collapseFilter">
-            <div class="card card-body mt-3">
-              <div class="d-flex">
+            <div class="card card-body mt-3 filter-elements">
+              <div class="d-flex filter-elements">
                 <span class="mt-2 mb-4 w-25 mr-5 text-muted font-weight-bold">Цель урока</span>
                 <input type="text" class="form-control" placeholder="Цель урока" formControlName="uLessonObjectives">
               </div>
-              <div class="d-flex">
+              <div class="d-flex filter-elements">
                 <span class="mt-2 mb-4 w-25 mr-5 text-muted font-weight-bold">Тема урока</span>
                 <input type="text" class="form-control" placeholder="Тема урока" formControlName="uLessonTopic">
               </div>
-              <div class="d-flex">
+              <div class="d-flex filter-elements">
                 <span class="mt-2 mb-4 w-25 mr-5 text-muted font-weight-bold">Класс</span>
                 <input type="text" class="form-control" placeholder="Класс" formControlName="uClass">
               </div>
-              <div class="d-flex">
+              <div class="d-flex filter-elements">
                 <span class="mt-2 mb-4 w-25 mr-5 text-muted font-weight-bold">Учебный предмет</span>
                 <input type="text" class="form-control" placeholder="Учебный предмет" formControlName="uLesson">
               </div>
@@ -44,35 +44,37 @@
 
       <div class="archive-list mt-4">
 
-        <div class="d-flex headline">
-          <div class="date">Дата</div>
+         <div class="d-flex headline">
+            <div class="date">Дата</div>
+            <div class="lessons">Цель урока</div>
+            <div class="lesson-topic">Тема урока</div>
+            <div class="empty"></div>
+         </div>
 
-
-          <div class="lessons">Цель урока</div>
-          <div class="lesson-topic">Тема урока</div>
-
-        </div>
 
         <div class="line" *ngFor="let lesson of linsLessons">
 
-          <div class="date">{{lesson.objSummaryLesson.formControlDate | date:'dd.MM.yyyy'}}
+          <div class="d-flex flex-column date">
+
+            <span class="date-in">{{lesson.objSummaryLesson.formControlDate | date:'dd.MM.yyyy'}}</span>
+           <div class="flex flex-column">
             <span class="time">{{lesson.objSummaryLesson.formControlDate | date:'HH:mm:ss'}}</span>
-               <span *ngIf="!lesson.objSummaryLesson2" class="badge badge-pill badge-primary ml-4">Ч</span>
+            <span *ngIf="!lesson.objSummaryLesson2" class="badge badge-pill badge-primary mb-1">Ч</span>
           </div>
-
-
+          </div>
 
           <div class="lessons">{{lesson.objSummaryLesson.lessonObjectives}}</div>
           <div class="lesson-topic">{{lesson.objSummaryLesson.lessonTopic}}</div>
 
 
-          <div class="dropdown m-1">
+        <div class="empty">
+          <div class="dropdown my-1">
             <button class="btn btn-outline-primary dropdown-toggle"
                     type="button" id="dropdownMenu1" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
               Действия
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
               <a class="dropdown-item"   (click)="onClickViewing(lesson)">Просмотр</a>
               <a class="dropdown-item" (click)="onClickEdit(lesson)">Редактирование</a>
               <a class="dropdown-item" (click)="onClickMove(lesson)">Поделиться</a>
@@ -80,14 +82,14 @@
               <a class="dropdown-item" (click)="onClickDelete(lesson)">Удалить</a>
             </div>
           </div>
+        </div>
 
-
-          <!--
-             <button  (click)="onClickViewing(lesson)" type="button" class="btn btn-outline-primary m-2">Просмотр</button>
-             <button  (click)="onClickEdit(lesson)" type="button" class="btn btn-outline-primary m-2">...</button>
-              <a class="dropdown-item">Сохранить как файл</a>
-             <a class="dropdown-item">Печать</a>
-          -->
+        <!--
+           <button  (click)="onClickViewing(lesson)" type="button" class="btn btn-outline-primary m-2">Просмотр</button>
+           <button  (click)="onClickEdit(lesson)" type="button" class="btn btn-outline-primary m-2">...</button>
+            <a class="dropdown-item">Сохранить как файл</a>
+           <a class="dropdown-item">Печать</a>
+        -->
 
         </div>
       </div>

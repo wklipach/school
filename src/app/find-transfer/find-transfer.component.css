@@ -1,0 +1,46 @@
+@media (min-width: 992px) {
+  .card {
+    border-radius: 10px;
+    border: solid 1px;
+  }
+
+}      /* Конец media min 992 */
+
+
+@media (max-width: 991px) {
+  .card {
+    padding: 0 10px;
+  }
+  .line {
+    display: flex;
+    flex-direction: column;
+  }
+  span {
+    width: 100% !important;
+  }
+  .btn-block {
+    display: flex;
+    flex-direction: column;
+  }
+  button {
+    min-width: 180px;
+    width: calc(100vw/2.5) !important;
+    margin: 0 auto;
+  }
+
+}          /* Конец media max 991 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
