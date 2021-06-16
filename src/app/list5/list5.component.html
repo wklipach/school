@@ -655,6 +655,52 @@
                 </div>
 <!-- ===================================================================================================================== -->
 
+
+      <!-- Начало Этап урока -  организованное окончание урока  -->
+      <div *ngIf="this.thisThemeId === 1 || this.thisThemeId === 2 || this.thisThemeId === 3 || this.thisThemeId === 4">
+        <h4 class="stage">Этап урока -  организованное окончание урока</h4>
+        <!-- 7 справочник -->
+        <app-guide7_2 [numberComponent]="10" [documentComponentMethodList]="inputDocumentComponentMethodList10" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 10)" ></app-guide7_2>
+
+        <!--
+                          <div class="card pt-2 pb-4 px-4 mb-5">
+                            <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
+                            <textarea formControlName="teacheractivity10" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
+                          </div>
+
+                          <div class="card pt-2 pb-4 px-4 mb-4">
+                            <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
+                            <textarea formControlName="studentactivities10" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
+                          </div>
+        -->
+
+        <h5 class="mb-4">Базовые учебные действия</h5>
+
+
+        <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid10" aria-expanded="false" aria-controls="collapseGuid10">
+          Базовые учебные действия
+        </button>
+
+        <div class="collapse" id="collapseGuid10">
+          <div class="my-1">
+
+            <app-guide8 numberComponent="10" titleMethodComponent="чекбокс 10" [checkArray]="checkArray10" (methodResultat)="onResGuide8($event, 10)"></app-guide8>
+
+          </div>
+        </div>
+
+
+        <!--
+                          <div class="card pt-2 pb-4 px-4 mb-4">
+                            <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
+                            <textarea formControlName="reviewerrecommendations10" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
+                          </div>
+        -->
+      </div>
+      <!-- Конец - Этап урока -  организованное окончание урока  -->
+
+
+
       <div *ngIf="boolVE9">
                   <h4 class="stage">Этап урока -  сообщение домашнего задания (инструктаж)</h4>
                   <!-- 7 справочник -->
@@ -698,48 +744,7 @@
       <!-- Конец - Этап урока -  сообщение домашнего задания (инструктаж)  -->
 
 
-      <!-- Начало Этап урока -  организованное окончание урока  -->
-      <div *ngIf="this.thisThemeId === 1 || this.thisThemeId === 2 || this.thisThemeId === 3 || this.thisThemeId === 4">
-                  <h4 class="stage">Этап урока -  организованное окончание урока</h4>
-                  <!-- 7 справочник -->
-                  <app-guide7_2 [numberComponent]="10" [documentComponentMethodList]="inputDocumentComponentMethodList10" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 10)" ></app-guide7_2>
 
-<!--
-                  <div class="card pt-2 pb-4 px-4 mb-5">
-                    <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность учителя</div>
-                    <textarea formControlName="teacheractivity10" class = "form-control" rows = "2" placeholder="Деятельность учителя"></textarea>
-                  </div>
-
-                  <div class="card pt-2 pb-4 px-4 mb-4">
-                    <div class="my-2 mr-5 text-muted font-weight-bold">Деятельность обучающихся</div>
-                    <textarea formControlName="studentactivities10" class = "form-control" rows = "2" placeholder="Деятельность обучающихся"></textarea>
-                  </div>
--->
-
-                  <h5 class="mb-4">Базовые учебные действия</h5>
-
-
-                  <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid10" aria-expanded="false" aria-controls="collapseGuid10">
-                    Базовые учебные действия
-                  </button>
-
-                  <div class="collapse" id="collapseGuid10">
-                    <div class="my-1">
-
-                      <app-guide8 numberComponent="10" titleMethodComponent="чекбокс 10" [checkArray]="checkArray10" (methodResultat)="onResGuide8($event, 10)"></app-guide8>
-
-                    </div>
-                  </div>
-
-
-<!--
-                  <div class="card pt-2 pb-4 px-4 mb-4">
-                    <div class="my-2 mr-5 text-muted font-weight-bold">Рекомендации, комментарии проверяющего </div>
-                    <textarea formControlName="reviewerrecommendations10" class = "form-control" rows = "2" placeholder="Рекомендации, комментарии проверяющего "></textarea>
-                  </div>
--->
-      </div>
-      <!-- Конец - Этап урока -  организованное окончание урока  -->
 
 
       <button  (click)="saveList5()" class="btn btn-outline-primary my-3" title="Сохранить урок">Сохранить урок</button>
