@@ -19,6 +19,8 @@ export class List5Component implements OnInit {
   boolVE2  = false;
   boolVE3  = false;
   boolVE4  = false;
+
+
   boolVE5  = false;
   boolVE6  = false;
   boolVE7  = false;
@@ -91,6 +93,20 @@ export class List5Component implements OnInit {
   inputDocumentComponentMethodList11: any[] = [];
   inputDocumentComponentMethodList12: any[] = [];
   inputDocumentComponentMethodList13: any[] = [];
+
+
+
+
+  orderArray: string[] = [];
+  public setOrder(stype: string) {
+    this.orderArray.push(stype);
+    console.log('orderArray', this.orderArray);
+  }
+
+  public deleteOrder(stype: string) {
+    this.orderArray.splice(this.orderArray.indexOf(stype), 1);
+    console.log('orderArray', this.orderArray);
+  };
 
   constructor(private router: Router, private gs: GuideService,
               private auth: AuthService, private g7_2s: Guide7_2Service, private g7s: Guide7Service) {
@@ -324,6 +340,11 @@ export class List5Component implements OnInit {
     this.boolVE8 = lesson5.boolVE8;
     this.boolVE9 = lesson5.boolVE9;
 
+
+    if (lesson5.orderArray) {
+      this.orderArray = lesson5.orderArray;
+    }
+
     console.log('this.thisTheme=', this.thisTheme, this.thisThemeId);
 
   }
@@ -515,6 +536,7 @@ export class List5Component implements OnInit {
     objResult.boolVE7  = this.boolVE7;
     objResult.boolVE8  = this.boolVE8;
     objResult.boolVE9  = this.boolVE9;
+    objResult.orderArray = this.orderArray;
 
     console.log('id=', id, objResult);
     this.gs.updateSummaryLessonList5(id, objResult).subscribe( resultat => {
@@ -640,18 +662,22 @@ export class List5Component implements OnInit {
   clickGroupDropVE(i: number) {
     if (i === 1) {
       this.boolVE1  = true;
+      this.setOrder('boolVE1');
     }
 
     if (i === 2) {
       this.boolVE2  = true;
+      this.setOrder('boolVE2');
     }
 
     if (i === 3) {
       this.boolVE3  = true;
+      this.setOrder('boolVE3');
     }
 
     if (i === 4) {
       this.boolVE4  = true;
+      this.setOrder('boolVE4');
     }
 
     if (i === 5) {
@@ -667,18 +693,22 @@ export class List5Component implements OnInit {
   onClickDeleteVE(i: number) {
     if (i === 1) {
       this.boolVE1  = false;
+      this.deleteOrder('boolVE1');
     }
 
     if (i === 2) {
       this.boolVE2  = false;
+      this.deleteOrder('boolVE2');
     }
 
     if (i === 3) {
       this.boolVE3  = false;
+      this.deleteOrder('boolVE3');
     }
 
     if (i === 4) {
       this.boolVE4  = false;
+      this.deleteOrder('boolVE4');
     }
 
     if (i === 5) {
@@ -691,5 +721,14 @@ export class List5Component implements OnInit {
 
   }
 
+  getOrderClass(stype: string) {
+    //"block3 d-flex order-2";
+    let res = "";
+    if (this.orderArray.indexOf(stype) > -1) {
+      const ind = this.orderArray.indexOf(stype) + 1;
+      res = "block" + ind.toString() +" "+"d-flex order-" + ind.toString();
+    }
+    return res;
+  }
 
 }
