@@ -51,6 +51,7 @@ export class ViewerComponent implements OnInit {
   listClassCorrectionalTasksV1: any;
   listClassRaisetionalTasksV1: any;
 
+  orderArray: string[] = [];
 //  documentEquipment = {id: -1, title: ''};
 //  documentGroupMethod = {id: -1, id_group: -1, title: ''};
 //  documentMethod = {id: -1, id_group: -1, title: ''};
@@ -248,6 +249,11 @@ export class ViewerComponent implements OnInit {
       this.studentactivities9 = this.lesson.objSummaryLesson2.studentactivities9;
       this.studentactivities10 = this.lesson.objSummaryLesson2.studentactivities10;
     */
+
+
+      if (list5.orderArray) {
+        this.orderArray = list5.orderArray;
+      }
 
       this.Guide7Resultat1 = this.lesson.objSummaryLesson2.Guide7Resultat1;
       this.Guide7Resultat2 = this.lesson.objSummaryLesson2.Guide7Resultat2;
@@ -489,6 +495,15 @@ compare(a, b) {
   return 0;
 }
 
+  getOrderClass(stype: string) {
+    //"block3 d-flex order-2";
+    let res = "";
+    if (this.orderArray.indexOf(stype) > -1) {
+      const ind = this.orderArray.indexOf(stype) + 1;
+      res = "block" + ind.toString() +" "+"d-flex order-" + ind.toString();
+    }
+    return res;
+  }
 
 printJsPdf() {
 

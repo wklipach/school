@@ -1,4 +1,12 @@
 @media (min-width: 992px) {
+
+  .orderbox {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+  }
+
+
   .container-fluid {
     /* min-height: calc(100vh - 160px); */
     text-align: center;
