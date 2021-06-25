@@ -71,47 +71,59 @@
       </div>
 
 
-<div *ngIf = "boolVE1">
+      <div class="orderbox">
 
-  <div class="d-flex justify-content-between">
-      <h4 class="stage">Этап урока - актуализация знаний и умений</h4>
-      <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteVE(1)" title="Удалить этап урока" style="max-height: 50px">
-        <img src="/assets/img/delete.svg" width="24" height="24">
-      </button>
-  </div>
-  <!-- 7 справочник -->
-      <app-guide7_2 [numberComponent]="3" [documentComponentMethodList]="inputDocumentComponentMethodList3" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 3)" ></app-guide7_2>
+        <div class="{{getOrderClass('boolVE1')}}">
+              <div *ngIf = "boolVE1">
 
-      <!-- Конец - Этап урока - актуализация знаний и умений   -->
-</div>
+                <div class="d-flex justify-content-between">
+                    <h4 class="stage">Этап урока - актуализация знаний и умений</h4>
+                    <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteVE(1)" title="Удалить этап урока" style="max-height: 50px">
+                      <img src="/assets/img/delete.svg" width="24" height="24">
+                    </button>
+                </div>
+                <!-- 7 справочник -->
+                    <app-guide7_2 [numberComponent]="3" [documentComponentMethodList]="inputDocumentComponentMethodList3" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 3)" ></app-guide7_2>
 
-      <!-- Начало Этап урока - сообщение темы и цели урока  -->
-<div *ngIf = "boolVE2">
-  <div class="d-flex justify-content-between">
-      <h4 class="stage">Этап урока - сообщение темы и цели урока</h4>
-      <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteVE(2)" title="Удалить этап урока" style="max-height: 50px">
-        <img src="/assets/img/delete.svg" width="24" height="24">
-      </button>
-  </div>
-      <!-- 7 справочник -->
-      <app-guide7_2 [numberComponent]="4" [documentComponentMethodList]="inputDocumentComponentMethodList4" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 4)" ></app-guide7_2>
-
-</div>
-      <!-- Конец - Этап урока - сообщение темы и цели урока   -->
+                    <!-- Конец - Этап урока - актуализация знаний и умений   -->
+              </div>
+        </div>
 
 
-      <!-- Начало Этап урока -  мотивация и планирование учебной деятельности  -->
-<div *ngIf = "boolVE3">
-  <div class="d-flex justify-content-between">
-      <h4 class="stage">Этап урока -  мотивация и планирование учебной деятельности</h4>
-      <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteVE(3)" title="Удалить этап урока" style="max-height: 50px">
-        <img src="/assets/img/delete.svg" width="24" height="24">
-      </button>
-  </div>
-      <!-- 7 справочник -->
-      <app-guide7_2 [numberComponent]="5"  [documentComponentMethodList]="inputDocumentComponentMethodList5" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 5)" ></app-guide7_2>
+        <div class="{{getOrderClass('boolVE2')}}">
+                    <!-- Начало Этап урока - сообщение темы и цели урока  -->
+              <div *ngIf = "boolVE2">
+                <div class="d-flex justify-content-between">
+                    <h4 class="stage">Этап урока - сообщение темы и цели урока</h4>
+                    <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteVE(2)" title="Удалить этап урока" style="max-height: 50px">
+                      <img src="/assets/img/delete.svg" width="24" height="24">
+                    </button>
+                </div>
+                    <!-- 7 справочник -->
+                    <app-guide7_2 [numberComponent]="4" [documentComponentMethodList]="inputDocumentComponentMethodList4" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 4)" ></app-guide7_2>
 
-</div>
+              </div>
+        </div>
+                    <!-- Конец - Этап урока - сообщение темы и цели урока   -->
+
+
+                    <!-- Начало Этап урока -  мотивация и планирование учебной деятельности  -->
+        <div class="{{getOrderClass('boolVE3')}}">
+              <div *ngIf = "boolVE3">
+                <div class="d-flex justify-content-between">
+                    <h4 class="stage">Этап урока -  мотивация и планирование учебной деятельности</h4>
+                    <button class="btn btn-outline-danger ml-2" (click)="onClickDeleteVE(3)" title="Удалить этап урока" style="max-height: 50px">
+                      <img src="/assets/img/delete.svg" width="24" height="24">
+                    </button>
+                </div>
+                    <!-- 7 справочник -->
+                    <app-guide7_2 [numberComponent]="5"  [documentComponentMethodList]="inputDocumentComponentMethodList5" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 5)" ></app-guide7_2>
+
+              </div>
+        </div>
+
+      </div>
+
       <!-- Конец - Этап урока -  мотивация и планирование учебной деятельности   -->
 
       <div class="headers"><h4>Часть урока: ОСНОВНАЯ ЧАСТЬ</h4></div>

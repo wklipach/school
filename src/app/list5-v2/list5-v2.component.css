@@ -1,4 +1,11 @@
 @media (min-width: 992px) {
+
+  .orderbox {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+  }
+
   .headers {
     text-align: center;
   }

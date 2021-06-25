@@ -54,6 +54,19 @@ export class List5V2Component implements OnInit {
   inputDocumentComponentMethodList11: any[] = [];
   inputDocumentComponentMethodList12: any[] = [];
 
+
+  orderArray: string[] = [];
+  public setOrder(stype: string) {
+    this.orderArray.push(stype);
+    console.log('orderArray', this.orderArray);
+  }
+
+  public deleteOrder(stype: string) {
+    this.orderArray.splice(this.orderArray.indexOf(stype), 1);
+    console.log('orderArray', this.orderArray);
+  };
+
+
   constructor(private router: Router, private gs: GuideService,
     private auth: AuthService, private g7_2s: Guide7_2Service) {
 
@@ -168,6 +181,10 @@ export class List5V2Component implements OnInit {
     this.boolVE2 = lesson5v2.boolVE2;
     this.boolVE3 = lesson5v2.boolVE3;
 
+    if (lesson5v2.orderArray) {
+      this.orderArray = lesson5v2.orderArray;
+    }
+
   }
 
 
@@ -278,6 +295,7 @@ export class List5V2Component implements OnInit {
     objResult.boolVE1  = this.boolVE1;
     objResult.boolVE2  = this.boolVE2;
     objResult.boolVE3  = this.boolVE3;
+    objResult.orderArray = this.orderArray;
 
     // console.log('objResult=', objResult);
 
@@ -303,14 +321,17 @@ export class List5V2Component implements OnInit {
 
   clickGroupDropVE(i: number) {
     if (i === 1) {
+      this.setOrder('boolVE1');
       this.boolVE1  = true;
     }
 
     if (i === 2) {
+      this.setOrder('boolVE2');
       this.boolVE2  = true;
     }
 
     if (i === 3) {
+      this.setOrder('boolVE3');
       this.boolVE3  = true;
     }
   }
@@ -318,6 +339,7 @@ export class List5V2Component implements OnInit {
   onClickDeleteVE(i: number) {
     if (i === 1) {
       this.boolVE1  = false;
+      this.deleteOrder('boolVE1');
       if (this.list5v2Form.controls.teacheractivity3) {
         this.list5v2Form.controls.teacheractivity3.setValue('');
       }
@@ -332,6 +354,7 @@ export class List5V2Component implements OnInit {
     }
 
     if (i === 2) {
+      this.deleteOrder('boolVE2');
       this.boolVE2  = false;
 
       if (this.list5v2Form.controls.teacheractivity4) {
@@ -348,6 +371,7 @@ export class List5V2Component implements OnInit {
     }
 
     if (i === 3) {
+      this.deleteOrder('boolVE3');
       this.boolVE3  = false;
 
       if (this.list5v2Form.controls.teacheractivity5) {
@@ -377,6 +401,18 @@ export class List5V2Component implements OnInit {
     // this.list5v2Form.addControl('subjectResults' + newIndex.toString(), new FormControl(''));
 
   }
+
+
+  getOrderClass(stype: string) {
+    //"block3 d-flex order-2";
+    let res = "";
+    if (this.orderArray.indexOf(stype) > -1) {
+      const ind = this.orderArray.indexOf(stype) + 1;
+      res = "block" + ind.toString() +" "+"d-flex order-" + ind.toString();
+    }
+    return res;
+  }
+
 
 
 }

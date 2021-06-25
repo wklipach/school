@@ -119,6 +119,7 @@ documentGuide10AggregateList: any[] = [];
   taskList1: any[] = [];
   taskList2: any[] = [];
   taskList3: any[] = [];
+  orderArray: string[] = [];
 
   UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
 
@@ -230,6 +231,10 @@ documentGuide10AggregateList: any[] = [];
       this.studentactivities10 = this.lesson.objSummaryLesson2.studentactivities10;
 */
 
+
+      if (list5.orderArray) {
+        this.orderArray = list5.orderArray;
+      }
 
       this.Guide7Resultat1 = this.lesson.objSummaryLesson2.Guide7Resultat1;
       console.log('this.Guide7Resultat1=', this.Guide7Resultat1);
@@ -524,6 +529,16 @@ documentGuide10AggregateList: any[] = [];
     this.addText(doc, 'Форма проведения урока(вид урока): '+ this.documentType2Lesson.title);
 
     doc.save("viewer-v2.pdf");
+  }
+
+  getOrderClass(stype: string) {
+    //"block3 d-flex order-2";
+    let res = "";
+    if (this.orderArray.indexOf(stype) > -1) {
+      const ind = this.orderArray.indexOf(stype) + 1;
+      res = "block" + ind.toString() +" "+"d-flex order-" + ind.toString();
+    }
+    return res;
   }
 
 

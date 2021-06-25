@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {classBasicLearningActivities, classGroupLearningActivities} from '../class/academicSubject';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
 import {GuideService} from '../services/guide.service';
@@ -537,6 +536,7 @@ export class List5Component implements OnInit {
     objResult.boolVE8  = this.boolVE8;
     objResult.boolVE9  = this.boolVE9;
     objResult.orderArray = this.orderArray;
+
 
     console.log('id=', id, objResult);
     this.gs.updateSummaryLessonList5(id, objResult).subscribe( resultat => {
