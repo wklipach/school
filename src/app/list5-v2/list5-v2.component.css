@@ -5,6 +5,10 @@
     height: auto;
     flex-direction: column;
   }
+  .block1,.block2,.block3,.block4 {
+    display: flex;
+    flex-direction: column;
+  }
 
   .headers {
     text-align: center;

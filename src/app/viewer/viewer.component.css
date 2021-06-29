@@ -3,9 +3,13 @@
   .orderbox {
     display: flex;
     height: auto;
+    width: 100%;
     flex-direction: column;
   }
-
+  .block1,.block2,.block3,.block4 {
+    display: flex;
+    flex-direction: column;
+  }
 
   .container-fluid {
     /* min-height: calc(100vh - 160px); */
