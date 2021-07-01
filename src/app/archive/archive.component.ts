@@ -161,6 +161,7 @@ export class ArchiveComponent implements OnInit {
   onClickDelete(lesson){
     if (confirm("Удалить урок?")) {
       this.gs.setDeleteLesson(lesson._id).subscribe( value => {
+        console.log('результат удаления=', value);
         this.showLessons();
       });
     }

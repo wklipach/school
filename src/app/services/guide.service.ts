@@ -89,6 +89,7 @@ export class GuideService {
 
   setDeleteLesson(id_lesson: string) {
     const datamessage = {deletelesson: 'deletelesson', id_lesson};
+    console.log('попытка удаления=', datamessage);
     return this.http.post(this.gr.sUrlGlobal + 'guide', datamessage);
   }
 
