@@ -133,7 +133,7 @@ export class List4Component implements OnInit {
 
       console.log(results[0]);
       this.listLessonsname = Array<any>(results[0])[0].sort( (a,b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
-      this.listClassNameNumber = Array<any>(results[1])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
+      this.listClassNameNumber = Array<any>(results[1])[0].sort( (a,b) => (a.id < b.id ? -1 : 1) );
       this.listClassNameLetter = Array<any>(results[2])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
       this.listTypeLesson = Array<any>(results[3])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );
       this.listType2Lesson = Array<any>(results[4])[0].sort( (a,b) => (a.title < b.title ? -1 : 1) );

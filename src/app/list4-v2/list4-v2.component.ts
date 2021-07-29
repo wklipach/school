@@ -130,7 +130,7 @@ export class List4V2Component implements OnInit {
               // console.log('teacher', teacher);
 
               this.listClassNameNumber = Array<any>(results[1])[0].sort(
-                                                 (a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
+                                                 (a, b) => (a.id < b.id ? -1 : 1) );
               // console.log('listClassNameNumber', this.listClassNameNumber);
 
               this.listLessons2 = Array<any>(results[2])[0].sort( (a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1) );
