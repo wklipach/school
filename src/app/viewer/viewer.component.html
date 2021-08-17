@@ -412,6 +412,26 @@
           <div *ngIf="partBase">
             <h5 class="etap-topic">Часть урока: ОСНОВНАЯ ЧАСТЬ</h5>
 
+            <div *ngIf="Guide7Resultat7.length > 0 || Guide8Resultat7.length > 0">
+              <h5 class="etap-topic">Этап урока -  закрепление изученного материала</h5>
+            </div>
+
+            <div *ngIf="Guide7Resultat7.length > 0">
+              <div class="d-flex">
+                <h5 class="hod-text-topic-20">Методы и приемы</h5>
+                <h5 class="hod-text-topic-40">Деятельность учителя</h5>
+                <h5 class="hod-text-topic-40">Деятельность ученика</h5>
+              </div>
+              <div class="d-flex" *ngFor="let res of Guide7Resultat7; let i = index">
+                <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() + ' : ' + res.text.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-40" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
+                <div *ngIf="i === 0" class="hod-text-40" [innerHTML]="res.studentactivities.toCurHTML()"></div>
+                <div *ngIf="i > 0" class="hod-text-40"></div>
+                <div *ngIf="i > 0" class="hod-text-40"></div>
+              </div>
+            </div>
+
+
             <div *ngIf="Guide7Resultat6.length > 0 || Guide8Resultat6.length > 0">
               <h5 class="etap-topic">Этап урока -  изучение нового материала</h5>
             </div>
@@ -516,25 +536,6 @@
                 </ul>
               </div>
             </div>
-            </div>
-
-            <div *ngIf="Guide7Resultat7.length > 0 || Guide8Resultat7.length > 0">
-              <h5 class="etap-topic">Этап урока -  закрепление изученного материала</h5>
-            </div>
-
-            <div *ngIf="Guide7Resultat7.length > 0">
-              <div class="d-flex">
-                <h5 class="hod-text-topic-20">Методы и приемы</h5>
-                <h5 class="hod-text-topic-40">Деятельность учителя</h5>
-                <h5 class="hod-text-topic-40">Деятельность ученика</h5>
-              </div>
-              <div class="d-flex" *ngFor="let res of Guide7Resultat7; let i = index">
-                <div class="hod-text-20" [innerHTML]="res.title.toCurHTML() + ' : ' + res.text.toCurHTML()"></div>
-                <div *ngIf="i === 0" class="hod-text-40" [innerHTML]="res.teacheractivity.toCurHTML()"></div>
-                <div *ngIf="i === 0" class="hod-text-40" [innerHTML]="res.studentactivities.toCurHTML()"></div>
-                <div *ngIf="i > 0" class="hod-text-40"></div>
-                <div *ngIf="i > 0" class="hod-text-40"></div>
-              </div>
             </div>
 
 <!--
