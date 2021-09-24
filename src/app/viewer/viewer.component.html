@@ -503,7 +503,17 @@
               </div>
             </div>
 
-
+            <div *ngIf="Guide8Resultat11.length > 0">
+              <div class="bud-text">
+                <div class="bud-title">Базовые учебные действия</div>
+                <div *ngFor="let g8res of this.Guide8Resultat11">
+                  <ul>
+                    <li>{{Guide8Filter(g8res)}}</li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+  
             <div *ngIf="Guide7Resultat12.length > 0 || Guide8Resultat12.length > 0">
               <h5 class="etap-topic">Этап урока - коррекция</h5>
             </div>
@@ -522,6 +532,17 @@
                 <div *ngIf="i > 0" class="hod-text-40"></div>
               </div>
             </div>
+
+            <div *ngIf="Guide8Resultat12.length > 0">
+              <div class="bud-text">
+                <div class="bud-title">Базовые учебные действия</div>
+                <div *ngFor="let g8res of this.Guide8Resultat12">
+                  <ul>
+                    <li>{{Guide8Filter(g8res)}}</li>
+                  </ul>
+                </div>
+              </div>
+          </div>
 
             <!--
             <div *ngIf="Guide7Resultat6.length === 0 && (teacheractivity6.length > 0 || studentactivities6.length > 0)">
