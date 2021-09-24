@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.auth.getUserFromBase(sUserOrEmail).subscribe(
       (value: Array<any>) => {
 
-        console.log(value);
+        console.log('res=',value);
 
         if (value.length > 1) {
           this.showErr = true;
@@ -87,6 +87,9 @@ export class LoginComponent implements OnInit, OnDestroy {
           const dbPassword = value[0].password;
           const sFormPassword = CryptoJS.SHA256(this.loginForm.controls['password'].value.trim().toLowerCase()).toString().toLowerCase();
 
+
+          console.log('sFormPassword=', sFormPassword);
+
           if (dbPassword !== sFormPassword) {
             this.showErr = true;
             this.showSucc = false;
@@ -101,7 +104,6 @@ export class LoginComponent implements OnInit, OnDestroy {
             bEditor = value[0].editor;
           }
 
-          console.log('111111111111111111');
           this.auth.setStorage(value[0].login, true, value[0]._id, bEditor);
           this.router.navigate(['/list3']);
         } // value[0].length === 1
