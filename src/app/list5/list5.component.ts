@@ -94,7 +94,8 @@ export class List5Component implements OnInit {
   inputDocumentComponentMethodList13: any[] = [];
 
 
-
+//-reverse
+  reverseLesson = "d-flex flex-column-reverse order-additional-class";
 
   orderArray: string[] = [];
   public setOrder(stype: string) {
@@ -176,12 +177,20 @@ export class List5Component implements OnInit {
           }
           if (this.thisThemeId === 3) {
             this.boolVE7 = true;
+            this.reverseLesson = "d-flex flex-column-reverse order-additional-class";
           }
+
+          if (this.thisThemeId !== 3) {
+            this.boolVE7 = true;
+            this.reverseLesson = "d-flex flex-column order-additional-class";
+          }
+
 
           if (this.thisThemeId === 1 || this.thisThemeId === 2 || this.thisThemeId === 3) {
             this.boolVE9 = true;
           }
 
+          console.log(this.thisThemeId, this.thisTheme);
         }
       }
     });

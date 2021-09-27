@@ -345,9 +345,9 @@
 
       <!-- Начало Этап урока -  закрепление изученного материала  -->
 
-      <div class="d-flex flex-column-reverse order-additional-class">  <!-- Меняем меставми Закрепление и изучение материала в уроке истематизации и интеграции   -->
+      <div class={{reverseLesson}}>  <!-- Меняем меставми Закрепление и изучение материала в уроке истематизации и интеграции   -->
 
-      <div *ngIf="this.thisThemeId === 2 || this.thisThemeId === 1 || this.thisThemeId === 3" class="additionalclass2">
+      <div *ngIf="this.thisThemeId === 2 || this.thisThemeId === 1 || this.thisThemeId === 3" class="additionalclass1">
 
         <div *ngIf="this.thisThemeId === 3">
                       <div class="btn-group" role="group">
@@ -393,7 +393,7 @@
 
 
 
-      <div *ngIf = "this.thisThemeId === 2 || this.thisThemeId === 3" class="additionalclass1">
+      <div *ngIf = "this.thisThemeId === 2 || this.thisThemeId === 3" class="additionalclass2">
 
         <div *ngIf = "this.thisThemeId === 2">
           <div class="btn-group" role="group">

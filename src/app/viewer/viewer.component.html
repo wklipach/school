@@ -431,10 +431,10 @@
               </div>
             </div>
 
-            <div *ngIf="Guide8Resultat6.length > 0">
+            <div *ngIf="Guide8Resultat7.length > 0">
               <div class="bud-text">
                 <div class="bud-title">Базовые учебные действия</div>
-                <div *ngFor="let g8res of this.Guide8Resultat6">
+                <div *ngFor="let g8res of this.Guide8Resultat7">
                   <ul>
                     <li>{{Guide8Filter(g8res)}}</li>
                   </ul>
@@ -462,6 +462,17 @@
               </div>
             </div>
 
+            <div *ngIf="Guide8Resultat6.length > 0">
+              <div class="bud-text">
+                <div class="bud-title">Базовые учебные действия</div>
+              <div *ngFor="let g8res of this.Guide8Resultat6">
+                  <ul>
+                    <li>{{Guide8Filter(g8res)}}</li>
+                  </ul>
+                </div>
+              </div>
+              </div>
+
 
 
             <div *ngIf="Guide7Resultat13.length > 0 || Guide8Resultat13.length > 0">
@@ -482,6 +493,19 @@
                 <div *ngIf="i > 0" class="hod-text-40"></div>
               </div>
             </div>
+
+            <div *ngIf="Guide8Resultat13.length > 0">
+              <div class="bud-text">
+                <div class="bud-title">Базовые учебные действия</div>
+                <div *ngFor="let g8res of this.Guide8Resultat13">
+                  <ul>
+                    <li>{{Guide8Filter(g8res)}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
 
 
             <div *ngIf="Guide7Resultat11.length > 0 || Guide8Resultat11.length > 0">
@@ -576,6 +600,7 @@
             </div>
 -->
 
+<!--
             <div *ngIf="Guide8Resultat7.length > 0">
             <div class="bud-text">
               <div class="bud-title">Базовые учебные действия</div>
@@ -586,6 +611,7 @@
               </div>
             </div>
             </div>
+-->
 
           </div>
 

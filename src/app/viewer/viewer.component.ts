@@ -52,6 +52,8 @@ export class ViewerComponent implements OnInit {
   listClassRaisetionalTasksV1: any;
 
   orderArray: string[] = [];
+
+  reverseLesson = "d-flex flex-column-reverse order-additional-class";
 //  documentEquipment = {id: -1, title: ''};
 //  documentGroupMethod = {id: -1, id_group: -1, title: ''};
 //  documentMethod = {id: -1, id_group: -1, title: ''};
@@ -167,6 +169,7 @@ export class ViewerComponent implements OnInit {
       this.listClassCorrectionalTasksV1 = <any[]>results[3];
       this.listClassRaisetionalTasksV1 = <any[]>results[4];
 
+      console.log('this.lesson', this.lesson);
       this.loadData();
     });
 
@@ -206,6 +209,13 @@ export class ViewerComponent implements OnInit {
     this.documentObjectiveLessonList = this.lesson.objSummaryLesson.documentObjectiveLessonList;
     this.documentPersonalLessonList = this.lesson.objSummaryLesson.documentPersonalLessonList;
     this.documentEquipmentList = this.lesson.objSummaryLesson.documentEquipmentList;
+
+
+    if (this.documentTypeLesson.id === 3 ) {
+        this.reverseLesson = "d-flex flex-column-reverse order-additional-class";
+    } else {
+        this.reverseLesson = "d-flex flex-column order-additional-class";
+    };
 
 
     // задачи из листа 4
