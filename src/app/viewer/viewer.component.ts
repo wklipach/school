@@ -6,7 +6,7 @@ import {GuideService} from '../services/guide.service';
 import {forkJoin} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-import { jsPDF } from 'jspdf';
+// import { jsPDF } from 'jspdf';
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 import printJS from 'print-js';

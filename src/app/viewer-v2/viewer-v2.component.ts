@@ -5,7 +5,6 @@ import {GuideService} from '../services/guide.service';
 import {forkJoin} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import printJS from 'print-js'
-import { jsPDF } from "jspdf";
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -494,7 +493,7 @@ documentGuide10AggregateList: any[] = [];
   }
 
 
-
+/*
   private addText(pdf: jsPDF, text) {
     //if (this.positionY + textHeight > (this.pdf.internal.pages.height - MARGIN_BOTTOM)) {
     //  this.addPage();
@@ -502,8 +501,9 @@ documentGuide10AggregateList: any[] = [];
     pdf.text(text, this.MARGIN_LEFT, this.positionY + this.textHeight);
     this.positionY += this.textHeight;
   }
+*/
 
-
+/*
   start() {
     const doc = new jsPDF();
 
@@ -530,6 +530,9 @@ documentGuide10AggregateList: any[] = [];
 
     doc.save("viewer-v2.pdf");
   }
+
+*/
+
 
   getOrderClass(stype: string) {
     //"block3 d-flex order-2";
