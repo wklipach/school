@@ -1,24 +1,24 @@
-import {Component, HostListener, OnInit, SecurityContext} from "@angular/core";
+import {Component, HostListener, OnInit, SecurityContext} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import {Router} from "@angular/router";
-import {AuthService} from "../services/auth.service";
-import {GuideService} from "../services/guide.service";
-import {forkJoin} from "rxjs";
-import { HttpClient } from "@angular/common/http";
+import {Router} from '@angular/router';
+import {AuthService} from '../services/auth.service';
+import {GuideService} from '../services/guide.service';
+import {forkJoin} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
-import { jsPDF } from "jspdf";
-import domtoimage from "dom-to-image";
-import { saveAs } from "file-saver";
-import printJS from "print-js";
+import { jsPDF } from 'jspdf';
+import domtoimage from 'dom-to-image';
+import { saveAs } from 'file-saver';
+import printJS from 'print-js';
 
 // import * as jsPDF from 'jspdf';
 
 
 
 @Component({
-  selector: "app-viewer",
-  templateUrl: "./viewer.component.html",
-  styleUrls: ["./viewer.component.css"]
+  selector: 'app-viewer',
+  templateUrl: './viewer.component.html',
+  styleUrls: ['./viewer.component.css']
 })
 
 export class ViewerComponent implements OnInit {
@@ -28,15 +28,15 @@ export class ViewerComponent implements OnInit {
   partBegin = false;
 
 
-  sNamePrint = "АООП Вариант 1";
-  UserInfo = {schoolLogin: "", bSchoolConnected: false, id_user_school: "", editor: 0};
+  sNamePrint = 'АООП Вариант 1';
+  UserInfo = {schoolLogin: '', bSchoolConnected: false, id_user_school: '', editor: 0};
   lesson: any = {};
-  fio = "";
-  documentClassNameNumber = {id: -1, title: "--"};
-  documentClassNameLetter = {id: -1, title: "--"};
-  documentLessons = {id: -1, title: ""};
-  documentTypeLesson = {id: -1, title: ""};
-  documentType2Lesson = {id: -1, title: ""};
+  fio = '';
+  documentClassNameNumber = {id: -1, title: '--'};
+  documentClassNameLetter = {id: -1, title: '--'};
+  documentLessons = {id: -1, title: ''};
+  documentTypeLesson = {id: -1, title: ''};
+  documentType2Lesson = {id: -1, title: ''};
 
   documentObjectiveLessonList: any[] = [];
   documentPersonalLessonList: any[] = [];
@@ -53,49 +53,49 @@ export class ViewerComponent implements OnInit {
 
   orderArray: string[] = [];
 
-  reverseLesson = "d-flex flex-column-reverse order-additional-class";
+  reverseLesson = 'd-flex flex-column-reverse order-additional-class';
 //  documentEquipment = {id: -1, title: ''};
 //  documentGroupMethod = {id: -1, id_group: -1, title: ''};
 //  documentMethod = {id: -1, id_group: -1, title: ''};
-  fioTeacherhome = "";
-  lessonTopic = "";
-  lessonObjectives = "";
-  lessonTasks = "";
+  fioTeacherhome = '';
+  lessonTopic = '';
+  lessonObjectives = '';
+  lessonTasks = '';
   curFormDate: Date;
 
 
-  reviewerrecommendations = "";
-  reviewerrecommendations2 = "";
-  reviewerrecommendations3 = "";
-  reviewerrecommendations4 = "";
-  reviewerrecommendations5 = "";
-  reviewerrecommendations6 = "";
-  reviewerrecommendations7 = "";
-  reviewerrecommendations8 = "";
-  reviewerrecommendations9 = "";
-  reviewerrecommendations10 = "";
+  reviewerrecommendations = '';
+  reviewerrecommendations2 = '';
+  reviewerrecommendations3 = '';
+  reviewerrecommendations4 = '';
+  reviewerrecommendations5 = '';
+  reviewerrecommendations6 = '';
+  reviewerrecommendations7 = '';
+  reviewerrecommendations8 = '';
+  reviewerrecommendations9 = '';
+  reviewerrecommendations10 = '';
 
-  teacheractivity = "";
-  teacheractivity2 = "";
-  teacheractivity3 = "";
-  teacheractivity4 = "";
-  teacheractivity5 = "";
-  teacheractivity6 = "";
-  teacheractivity7 = "";
-  teacheractivity8 = "";
-  teacheractivity9 = "";
-  teacheractivity10 = "";
+  teacheractivity = '';
+  teacheractivity2 = '';
+  teacheractivity3 = '';
+  teacheractivity4 = '';
+  teacheractivity5 = '';
+  teacheractivity6 = '';
+  teacheractivity7 = '';
+  teacheractivity8 = '';
+  teacheractivity9 = '';
+  teacheractivity10 = '';
 
-  studentactivities = "";
-  studentactivities2 = "";
-  studentactivities3 = "";
-  studentactivities4 = "";
-  studentactivities5 = "";
-  studentactivities6 = "";
-  studentactivities7 = "";
-  studentactivities8 = "";
-  studentactivities9 = "";
-  studentactivities10 = "";
+  studentactivities = '';
+  studentactivities2 = '';
+  studentactivities3 = '';
+  studentactivities4 = '';
+  studentactivities5 = '';
+  studentactivities6 = '';
+  studentactivities7 = '';
+  studentactivities8 = '';
+  studentactivities9 = '';
+  studentactivities10 = '';
 
   Guide7Resultat1: any[] = [];
   Guide7Resultat2: any[] = [];
@@ -134,12 +134,12 @@ export class ViewerComponent implements OnInit {
               private _sanitizer: DomSanitizer) {
 
     if (!this.auth.getViewPrintId()) {
-      this.router.navigate(["/"]);
+      this.router.navigate(['/']);
     }
 
     this.UserInfo = this.auth.getStorage();
     if (!this.UserInfo.bSchoolConnected) {
-      this.router.navigate(["/login"]);
+      this.router.navigate(['/login']);
     }
 
    }
@@ -156,11 +156,11 @@ export class ViewerComponent implements OnInit {
 
     const lesson_id = this.auth.getViewPrintId();
     forkJoin([
-      this.gs.selectCollection("classBasicLearningActivities"),
+      this.gs.selectCollection('classBasicLearningActivities'),
       this.gs.getLesson(lesson_id),
-      this.gs.selectCollection("classEducationalTasksV1"),
-      this.gs.selectCollection("classCorrectionalTasksV1"),
-      this.gs.selectCollection("classRaisetionalTasksV1")
+      this.gs.selectCollection('classEducationalTasksV1'),
+      this.gs.selectCollection('classCorrectionalTasksV1'),
+      this.gs.selectCollection('classRaisetionalTasksV1')
 
     ]).subscribe(results => {
       this.guide8list = <any[]>results[0];
@@ -193,10 +193,10 @@ export class ViewerComponent implements OnInit {
     this.documentLessons = this.lesson.objSummaryLesson.documentLessons;
 
 
-    //this._sanitizer.sanitize(SecurityContext.HTML, title); this.lesson.objSummaryLesson.lessonTopic.toCurHTML()
+    // this._sanitizer.sanitize(SecurityContext.HTML, title); this.lesson.objSummaryLesson.lessonTopic.toCurHTML()
     this.lessonTopic = this.lesson.objSummaryLesson.lessonTopic.toCurHTML();
 
-    // console.log("toCurHTML=", this.lessonTopic.toCurHTML());
+    // console.log('toCurHTML=', this.lessonTopic.toCurHTML());
 
     this.lessonObjectives = this.lesson.objSummaryLesson.lessonObjectives.toCurHTML();
 
@@ -211,12 +211,11 @@ export class ViewerComponent implements OnInit {
     this.documentEquipmentList = this.lesson.objSummaryLesson.documentEquipmentList;
 
 
-    if (this.documentTypeLesson.id === 3 ) {
-        this.reverseLesson = "d-flex flex-column-reverse order-additional-class";
+    if (this.documentTypeLesson.id === 2) {
+        this.reverseLesson = 'd-flex flex-column order-additional-class';
     } else {
-        this.reverseLesson = "d-flex flex-column order-additional-class";
-    };
-
+        this.reverseLesson = 'd-flex flex-column-reverse order-additional-class';
+    }
 
     // задачи из листа 4
     this.loadTask(this.lesson.objSummaryLesson);
@@ -299,7 +298,7 @@ export class ViewerComponent implements OnInit {
           this.Guide8Resultat1.length > 0 || this.Guide8Resultat2.length > 0 ||
           this.Guide8Resultat3.length > 0 || this.Guide8Resultat4.length > 0 || this.Guide8Resultat5.length > 0) {
           this.partBegin = true;
-      };
+      }
 
 
       if (this.Guide7Resultat6.length > 0 || this.Guide7Resultat7.length > 0 ||
@@ -308,13 +307,13 @@ export class ViewerComponent implements OnInit {
           this.Guide7Resultat12.length > 0 || this.Guide8Resultat12.length > 0 ||
           this.Guide7Resultat13.length > 0 || this.Guide8Resultat13.length > 0) {
           this.partBase = true;
-      };
+      }
 
 
       if (this.Guide7Resultat8.length > 0 || this.Guide7Resultat9.length > 0 || this.Guide7Resultat10.length > 0 ||
           this.Guide8Resultat8.length > 0 || this.Guide8Resultat9.length > 0 || this.Guide8Resultat10.length > 0) {
           this.partEnd = true;
-      };
+      }
 
 
      }
@@ -333,10 +332,10 @@ export class ViewerComponent implements OnInit {
   print4x_2() {
 
     printJS({
-      printable: "contentToConvert",
-      type: "html",
-      css: "/assets/viewer.component.css",
-      style: "@page { size: A4 landscape; }"
+      printable: 'contentToConvert',
+      type: 'html',
+      css: '/assets/viewer.component.css',
+      style: '@page { size: A4 landscape; }'
     });
   }
 
@@ -344,15 +343,15 @@ export class ViewerComponent implements OnInit {
 
   print4x() {
   forkJoin([
-    this.http.get("https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css", { responseType: "text" }),
-    this.http.get("assets/viewer.component.css", { responseType: "text" })
+    this.http.get('https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css', { responseType: 'text' }),
+    this.http.get('assets/viewer.component.css', { responseType: 'text' })
   ]).subscribe(results => {
 
-    const printContent = document.getElementById("contentToConvert");
-    const WindowPrt = window.open("100", "100", "width=900,height=500,toolbar=0,scrollbars=0,status=0,location=no");
+    const printContent = document.getElementById('contentToConvert');
+    const WindowPrt = window.open('100', '100', 'width=900,height=500,toolbar=0,scrollbars=0,status=0,location=no');
 
-    let sText = "<html><head><style>" + results[0] + results[1] + "</style>" + "</head>";
-    sText = sText  + printContent.innerHTML + "</html>";
+    let sText = '<html><head><style>' + results[0] + results[1] + '</style>' + '</head>';
+    sText = sText  + printContent.innerHTML + '</html>';
 
     WindowPrt.document.write(sText);
 
@@ -373,7 +372,7 @@ print4x() {
 
               let sText =
               '<html><head>' +
-              '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">' +
+              '<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css'>' +
               '<style>' +
                data +
               '</style>' +
@@ -506,24 +505,24 @@ compare(a, b) {
 }
 
   getOrderClass(stype: string) {
-    //"block3 d-flex order-2";
-    let res = "";
+    // 'block3 d-flex order-2';
+    let res = '';
     if (this.orderArray.indexOf(stype) > -1) {
       const ind = this.orderArray.indexOf(stype) + 1;
-      res = "block" + ind.toString() +" "+"d-flex order-" + ind.toString();
+      res = 'block' + ind.toString() + ' ' + 'd-flex order-' + ind.toString();
     }
     return res;
   }
 
 printJsPdf() {
 
-  const elem = document.getElementById("saveAsPdf");
+  const elem = document.getElementById('saveAsPdf');
 
 
   domtoimage.toBlob(elem)
     .then(function (blob) {
-      console.log("blob=", blob);
-        saveAs(blob, "my-node.png");
+      console.log('blob=', blob);
+        saveAs(blob, 'my-node.png');
     });
 
     /*
@@ -533,7 +532,7 @@ printJsPdf() {
         const img = new Image();
         img.src = dataUrl;
 
-        window.open().document.write('<img src="' + dataUrl + '" />');
+        window.open().document.write('<img src='' + dataUrl + '' />');
 
         img.onload = () => {
 
