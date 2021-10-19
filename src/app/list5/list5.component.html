@@ -466,53 +466,8 @@
                       </div>
                     </div>
 
-
-
       </div>
 
-
-
-
-      <!-- Начало Этап урока -  организованное окончание урока  -->
-      <div *ngIf="this.thisThemeId === 1 || this.thisThemeId === 2 || this.thisThemeId === 3 || this.thisThemeId === 4">
-        <h4 class="stage">Этап урока -  организованное окончание урока</h4>
-        <!-- 7 справочник -->
-        <app-guide7_2 [numberComponent]="10" [documentComponentMethodList]="inputDocumentComponentMethodList10" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 10)" ></app-guide7_2>
-
-
-        <h5 class="mb-4">Базовые учебные действия</h5>
-
-
-        <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid10" aria-expanded="false" aria-controls="collapseGuid10">
-          Базовые учебные действия
-        </button>
-
-        <div class="collapse" id="collapseGuid10">
-          <div class="my-1">
-
-            <app-guide8 numberComponent="10" titleMethodComponent="чекбокс 10" [checkArray]="checkArray10" (methodResultat)="onResGuide8($event, 10)"></app-guide8>
-
-          </div>
-        </div>
-
-      </div>
-      <!-- Конец - Этап урока -  организованное окончание урока  -->
-
-      <div *ngIf="this.thisThemeId === 4">
-        <div class="btn-group" role="group">
-          <button id="btnGroupF2" type="button" class="btn btn-primary dropdown-toggle mb-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Добавить этап урока
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="btnGroupF2">
-            <div *ngIf="!boolVE9">
-              <li><a class="dropdown-item" (click)="boolVE9 = !boolVE9"> Добавить "сообщение домашнего задания"</a></li>
-            </div>
-            <div *ngIf="boolVE9">
-              <li><a class="dropdown-item" (click)="boolVE9 = !boolVE9"> Удалить "сообщение домашнего задания"</a></li>
-            </div>
-          </ul>
-        </div>
-      </div>
 
 
       <div *ngIf="boolVE9">
@@ -538,6 +493,48 @@
       </div>
       <!-- Конец - Этап урока -  сообщение домашнего задания (инструктаж)  -->
 
+      <!-- Начало Этап урока -  организованное окончание урока  -->
+      <div *ngIf="this.thisThemeId === 1 || this.thisThemeId === 2 || this.thisThemeId === 3 || this.thisThemeId === 4">
+        <h4 class="stage">Этап урока -  организованное окончание урока</h4>
+        <!-- 7 справочник -->
+        <app-guide7_2 [numberComponent]="10" [documentComponentMethodList]="inputDocumentComponentMethodList10" titleMethodComponent = "Описание" (methodResultat)="onResGuide7($event, 10)" ></app-guide7_2>
+
+
+        <h5 class="mb-4">Базовые учебные действия</h5>
+
+
+        <button class="btn btn-outline-primary dropdown-toggle mb-4" type="button" data-toggle="collapse" data-target="#collapseGuid10" aria-expanded="false" aria-controls="collapseGuid10">
+          Базовые учебные действия
+        </button>
+
+        <div class="collapse" id="collapseGuid10">
+          <div class="my-1">
+
+            <app-guide8 numberComponent="10" titleMethodComponent="чекбокс 10" [checkArray]="checkArray10" (methodResultat)="onResGuide8($event, 10)"></app-guide8>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <div *ngIf="this.thisThemeId === 4">
+        <div class="btn-group" role="group">
+          <button id="btnGroupF2" type="button" class="btn btn-primary dropdown-toggle mb-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Добавить этап урока
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="btnGroupF2">
+            <div *ngIf="!boolVE9">
+              <li><a class="dropdown-item" (click)="boolVE9 = !boolVE9"> Добавить "сообщение домашнего задания"</a></li>
+            </div>
+            <div *ngIf="boolVE9">
+              <li><a class="dropdown-item" (click)="boolVE9 = !boolVE9"> Удалить "сообщение домашнего задания"</a></li>
+            </div>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Конец - Этап урока -  организованное окончание урока  -->
 
 
       <button  (click)="saveList5()" class="btn btn-outline-primary my-3" title="Сохранить урок">Сохранить урок</button>

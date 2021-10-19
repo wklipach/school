@@ -294,7 +294,29 @@
 
         </div> <!-- Конец ЗАДАЧИ УРОКА -->
 
+        <div class="card pl-3 pr-2 py-4 mb-5">
+          <h5 class="mb-4">Базовые учебные действия»</h5>
+          <button class="btn btn-outline-primary dropdown-toggle mb-4 add-btn" type="button" (click)="onAddStudent()">
+            Добавить ученика
+          </button>
 
+          <div class="mb-3">
+            <div *ngFor="let DOL of documentGuide10List; let i = index">
+              <div *ngIf="DOL.delete === 0">
+
+
+                <div class="d-flex add-line">
+                  <app-guide10 numberComponent = {{i+1}} titleMethodComponent="чекбокс 1" [checkArray]="checkArray[i]" (methodResultat)="onResGuide10($event, i+1)" class="w-100"></app-guide10>
+                  <button class="btn btn-outline-danger ml-auto button-del" (click)="onClickDeleteGuide10List(DOL)" title="Удалить" style="max-height: 50px">
+                    <img src="/assets/img/delete.svg" width="24" height="24">
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
 
         <div class="card pl-3 pr-2 py-4 mb-5">
 
@@ -339,29 +361,7 @@
 
         </div>
 
-    <div class="card pl-3 pr-2 py-4 mb-5">
-        <h5 class="mb-4">Базовые учебные действия»</h5>
-        <button class="btn btn-outline-primary dropdown-toggle mb-4 add-btn" type="button" (click)="onAddStudent()">
-          Добавить ученика
-        </button>
 
-        <div class="mb-3">
-          <div *ngFor="let DOL of documentGuide10List; let i = index">
-            <div *ngIf="DOL.delete === 0">
-
-
-              <div class="d-flex add-line">
-                <app-guide10 numberComponent = {{i+1}} titleMethodComponent="чекбокс 1" [checkArray]="checkArray[i]" (methodResultat)="onResGuide10($event, i+1)" class="w-100"></app-guide10>
-                <button class="btn btn-outline-danger ml-auto button-del" (click)="onClickDeleteGuide10List(DOL)" title="Удалить" style="max-height: 50px">
-                  <img src="/assets/img/delete.svg" width="24" height="24">
-                </button>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-    </div>
        <!-- начат блок 7 -->
 <!--
         <div class="card pl-3 pr-2 py-4 mb-4">

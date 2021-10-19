@@ -47,6 +47,133 @@
             <td class="table1Col1">Форма проведения урока(вид урока)</td>
             <td><span [innerHTML]="documentType2Lesson.title.toCurHTML()"></span></td>
           </tr>
+        </table>
+
+      <div class="big-block">
+
+        <h4 class="text-center mb-1">Задачи урока</h4>
+
+        <!-- первые три строки если есть -->
+
+        <ng-container *ngIf="taskList1.length > 0">
+          <div class="d-flex cell-line">
+
+            <div class="tasks-head">Образовательные</div>
+            <div class="d-flex flex-column half-line">
+
+              <ng-container *ngIf="taskList1.length > 0">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1" [innerHTML]="taskList1[0].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList1[0].text.toCurHTML()"></div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="taskList1.length > 1">
+                <div class="d-flex justify-content-start align-content-center">
+                  <div class="tasks1" [innerHTML]="taskList1[1].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList1[1].text.toCurHTML()"></div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="taskList1.length > 2">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1" [innerHTML]="taskList1[2].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList1[2].text.toCurHTML()"></div>
+                </div>
+              </ng-container>
+
+            </div>
+          </div>
+        </ng-container>
+
+
+        <!-- вторые три строки если есть -->
+        <ng-container *ngIf="taskList2.length > 0">
+          <div class="d-flex cell-line">
+
+            <div class="tasks-head">Коррекционно-развивающие</div>
+            <div class="d-flex flex-column half-line">
+
+              <ng-container *ngIf="taskList2.length > 0">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1" [innerHTML]="taskList2[0].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList2[0].text.toCurHTML()"></div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="taskList2.length > 1">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1" [innerHTML]="taskList2[1].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList2[1].text.toCurHTML()"></div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="taskList2.length > 2">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1" [innerHTML]="taskList2[2].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList2[2].text.toCurHTML()"></div>
+                </div>
+              </ng-container>
+
+            </div>
+          </div>
+        </ng-container>
+
+
+        <!-- третьи три строки если есть -->
+        <ng-container *ngIf="taskList3.length > 0">
+          <div class="d-flex cell-line">
+            <div class="tasks-head">Воспитательные</div>
+            <div class="d-flex flex-column half-line">
+
+              <ng-container *ngIf="taskList3.length > 0">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1" [innerHTML]="taskList3[0].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList3[0].text.toCurHTML()"></div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="taskList3.length > 1">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1" [innerHTML]="taskList3[1].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList3[1].text.toCurHTML()"></div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="taskList3.length > 2">
+                <div class="d-flex justify-content-start">
+                  <div class="tasks1" [innerHTML]="taskList3[2].title.toCurHTML()"></div>
+                  <div class="tasks2" [innerHTML]="taskList3[2].text.toCurHTML()"></div>
+                </div>
+              </ng-container>
+
+            </div>
+          </div>
+        </ng-container>
+
+      </div> <!-- End big-block -->
+
+      <ng-container *ngIf="documentGuide10AggregateList.length > 0">
+        <h4 class="my-1">Базовые учебные действия</h4>
+
+        <div class="d-flex justify-content-start">
+          <div class="bud-topic">Ученик</div>
+          <div class="bud-topic-2">БУД</div>
+        </div>
+
+        <div class="d-flex" *ngFor="let document10 of documentGuide10AggregateList">
+
+          <div class="bud-topic" [innerHTML]="document10.text.toCurHTML()"></div>
+          <div class="bud-text">
+            <ul *ngFor="let element of document10.checkArray">
+              <li>{{Guide10Filter(element)}}</li>
+            </ul>
+          </div>
+        </div>
+
+      </ng-container>
+
+          <table class="table table-bordered text-left">
           <tr>
             <td colspan="2" class="view-left text-center" style="border-bottom: solid 1px #000000">Предполагаемые результаты</td>
           </tr>
@@ -68,130 +195,7 @@
         </table>
 
 
-      <div class="big-block">
 
-        <h4 class="text-center mb-1">Задачи урока</h4>
-
-          <!-- первые три строки если есть -->
-
-          <ng-container *ngIf="taskList1.length > 0">
-            <div class="d-flex cell-line">
-
-              <div class="tasks-head">Образовательные</div>
-              <div class="d-flex flex-column half-line">
-
-                <ng-container *ngIf="taskList1.length > 0">
-                    <div class="d-flex justify-content-start">
-                      <div class="tasks1" [innerHTML]="taskList1[0].title.toCurHTML()"></div>
-                      <div class="tasks2" [innerHTML]="taskList1[0].text.toCurHTML()"></div>
-                    </div>
-                </ng-container>
-
-                <ng-container *ngIf="taskList1.length > 1">
-                    <div class="d-flex justify-content-start align-content-center">
-                      <div class="tasks1" [innerHTML]="taskList1[1].title.toCurHTML()"></div>
-                      <div class="tasks2" [innerHTML]="taskList1[1].text.toCurHTML()"></div>
-                    </div>
-                </ng-container>
-
-                <ng-container *ngIf="taskList1.length > 2">
-                    <div class="d-flex justify-content-start">
-                      <div class="tasks1" [innerHTML]="taskList1[2].title.toCurHTML()"></div>
-                      <div class="tasks2" [innerHTML]="taskList1[2].text.toCurHTML()"></div>
-                    </div>
-                </ng-container>
-
-              </div>
-            </div>
-          </ng-container>
-
-
-          <!-- вторые три строки если есть -->
-          <ng-container *ngIf="taskList2.length > 0">
-            <div class="d-flex cell-line">
-
-              <div class="tasks-head">Коррекционно-развивающие</div>
-              <div class="d-flex flex-column half-line">
-
-                <ng-container *ngIf="taskList2.length > 0">
-                    <div class="d-flex justify-content-start">
-                      <div class="tasks1" [innerHTML]="taskList2[0].title.toCurHTML()"></div>
-                      <div class="tasks2" [innerHTML]="taskList2[0].text.toCurHTML()"></div>
-                    </div>
-                </ng-container>
-
-                <ng-container *ngIf="taskList2.length > 1">
-                    <div class="d-flex justify-content-start">
-                      <div class="tasks1" [innerHTML]="taskList2[1].title.toCurHTML()"></div>
-                      <div class="tasks2" [innerHTML]="taskList2[1].text.toCurHTML()"></div>
-                    </div>
-                </ng-container>
-
-                <ng-container *ngIf="taskList2.length > 2">
-                    <div class="d-flex justify-content-start">
-                      <div class="tasks1" [innerHTML]="taskList2[2].title.toCurHTML()"></div>
-                      <div class="tasks2" [innerHTML]="taskList2[2].text.toCurHTML()"></div>
-                    </div>
-                </ng-container>
-
-              </div>
-            </div>
-          </ng-container>
-
-
-          <!-- третьи три строки если есть -->
-          <ng-container *ngIf="taskList3.length > 0">
-            <div class="d-flex cell-line">
-              <div class="tasks-head">Воспитательные</div>
-              <div class="d-flex flex-column half-line">
-
-                <ng-container *ngIf="taskList3.length > 0">
-                    <div class="d-flex justify-content-start">
-                      <div class="tasks1" [innerHTML]="taskList3[0].title.toCurHTML()"></div>
-                      <div class="tasks2" [innerHTML]="taskList3[0].text.toCurHTML()"></div>
-                    </div>
-                </ng-container>
-
-                <ng-container *ngIf="taskList3.length > 1">
-                    <div class="d-flex justify-content-start">
-                      <div class="tasks1" [innerHTML]="taskList3[1].title.toCurHTML()"></div>
-                      <div class="tasks2" [innerHTML]="taskList3[1].text.toCurHTML()"></div>
-                    </div>
-                </ng-container>
-
-                <ng-container *ngIf="taskList3.length > 2">
-                    <div class="d-flex justify-content-start">
-                      <div class="tasks1" [innerHTML]="taskList3[2].title.toCurHTML()"></div>
-                      <div class="tasks2" [innerHTML]="taskList3[2].text.toCurHTML()"></div>
-                    </div>
-                </ng-container>
-
-              </div>
-            </div>
-          </ng-container>
-
-    </div> <!-- End big-block -->
-
-
-<ng-container *ngIf="documentGuide10AggregateList.length > 0">
-    <h4 class="my-1">Базовые учебные действия</h4>
-
-    <div class="d-flex justify-content-start">
-      <div class="bud-topic">Ученик</div>
-      <div class="bud-topic-2">БУД</div>
-    </div>
-
-    <div class="d-flex" *ngFor="let document10 of documentGuide10AggregateList">
-
-      <div class="bud-topic" [innerHTML]="document10.text.toCurHTML()"></div>
-      <div class="bud-text">
-        <ul *ngFor="let element of document10.checkArray">
-                       <li>{{Guide10Filter(element)}}</li>
-        </ul>
-      </div>
-    </div>
-
-  </ng-container>
 
 
       <!-- НАЧАЛО ЭТАПЫ  -->
