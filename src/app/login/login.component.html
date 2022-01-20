@@ -15,7 +15,7 @@
 
 
       <div class="card">
-        <div class="card-body py-2">
+        <div class="card-body pt-2 pb-1">
           <h3 class="text-muted font-weight-bold">Вход</h3>
 
 
@@ -34,7 +34,7 @@
               <input type="password" class="form-control w-75" id="inputPassword" formControlName="password"  placeholder="Пароль">
             </div>
 
-            <p><button type="submit" class="btn btn-outline-primary my-3" role="button" id="btnpwd" [disabled]="loginForm.invalid || stopCondition" style="width: 100px;">Войти</button></p>
+            <p><button type="submit" class="btn btn-outline-primary my-2" role="button" id="btnpwd" [disabled]="loginForm.invalid || stopCondition" style="width: 100px;">Войти</button></p>
 
             <p><a class="forgot-password" routerLink="/forgot-password" routerLinkActive="active">Забыли пароль или логин?</a></p>
 
